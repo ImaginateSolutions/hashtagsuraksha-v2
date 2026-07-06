@@ -1,0 +1,3790 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phish &amp; Chip Show | #Suraksha</title>
+  <meta name="description" content="One Scam. One Detective. One Decision. The interactive cybersecurity show for students — spot scams, earn badges, outsmart Phish." />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Bangers&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── NAV ALWAYS WHITE ─────────────────── */
+    .nav,
+    [data-theme="dark"] .nav {
+      background: rgba(255,255,255,0.96) !important;
+      border-bottom: 1px solid #E2E8F0 !important;
+      backdrop-filter: blur(20px) !important;
+    }
+    [data-theme="dark"] .nav .nav-links li a { color: #1A1A2E !important; }
+    [data-theme="dark"] .nav .nav-links li a.active,
+    [data-theme="dark"] .nav .nav-links li a:hover { color: #0891B2 !important; }
+    [data-theme="dark"] .nav-logo-img { filter: none !important; }
+    [data-theme="dark"] .theme-toggle-btn { color: #1A1A2E !important; }
+    [data-theme="dark"] .nav-cta {
+      background: #1E1B4B !important; color: #fff !important;
+    }
+
+    /* ── PAGE BASE ── */
+    body { background: #080010; color: #fff; overflow-x: hidden; }
+
+    /* ── COMIC FONT ── */
+    .comic-font { font-family: 'Bangers', cursive; letter-spacing: 0.04em; }
+
+    /* ── HALFTONE DOT OVERLAY ── */
+    .halftone {
+      background-image: radial-gradient(circle, rgba(255,255,255,0.045) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 1 — HERO
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .pnc-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 100px 24px 60px;
+      background: #080010;
+    }
+
+    /* Background gradient blobs */
+    .pnc-hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+    }
+    .pnc-blob-phish {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(204,0,51,0.35), transparent 70%);
+      top: -60px; left: -100px;
+      animation: blobFloat1 10s ease-in-out infinite;
+    }
+    .pnc-blob-chip {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(0,122,255,0.35), transparent 70%);
+      top: -60px; right: -100px;
+      animation: blobFloat2 12s ease-in-out infinite;
+    }
+    .pnc-blob-center {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(88,0,180,0.2), transparent 70%);
+      bottom: 80px; left: 50%; transform: translateX(-50%);
+      animation: blobFloat3 15s ease-in-out infinite;
+    }
+    @keyframes blobFloat1 {
+      0%,100% { transform: translate(0,0); }
+      50% { transform: translate(40px,50px); }
+    }
+    @keyframes blobFloat2 {
+      0%,100% { transform: translate(0,0); }
+      50% { transform: translate(-50px,40px); }
+    }
+    @keyframes blobFloat3 {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-30px); }
+    }
+
+    /* Show label */
+    .pnc-show-label {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 14px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .pnc-show-label::before,
+    .pnc-show-label::after {
+      content: '';
+      display: block;
+      flex: 0 0 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.35);
+    }
+
+    /* Big title */
+    .pnc-hero-title {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(60px, 8.5vw, 104px);
+      line-height: 1;
+      letter-spacing: 0.04em;
+      text-align: center;
+      z-index: 2;
+      margin-bottom: 10px;
+      position: relative;
+    }
+    .pnc-title-the, .pnc-title-show {
+      font-size: 0.34em;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.45em;
+      display: block;
+      line-height: 1.9;
+      text-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+    /* PHISH and CHIP must be exact same size */
+    .pnc-title-phish {
+      font-size: 1em;
+      color: #ff2248;
+      text-shadow: 4px 4px 0 #8b0000, 0 0 40px rgba(255,34,72,0.6);
+    }
+    /* & as a visible separator with flanking lines */
+    .pnc-title-amp {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.3em;
+      letter-spacing: 0.05em;
+      vertical-align: middle;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 900;
+    }
+    .pnc-title-amp::before,
+    .pnc-title-amp::after {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1.5px;
+      background: rgba(255,255,255,0.4);
+      vertical-align: middle;
+    }
+    .pnc-title-chip {
+      font-size: 1em;
+      color: #0af;
+      text-shadow: 4px 4px 0 #003d7a, 0 0 40px rgba(0,170,255,0.6);
+    }
+
+    /* Tagline */
+    .pnc-tagline {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(14px, 2.5vw, 20px);
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      text-align: center;
+      margin: 10px 0 28px;
+      z-index: 2;
+    }
+
+    /* Hero stage — 3-column: char | center | char */
+    .pnc-hero-stage {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      width: 100%;
+      max-width: 1300px;
+      z-index: 2;
+      position: relative;
+      min-height: min(72vh, 640px);
+    }
+
+    /* Side character columns */
+    .pnc-hero-char {
+      flex: 0 0 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      position: relative;
+      padding-bottom: 20px;
+    }
+
+    /* Spotlight cone behind each character */
+    .pnc-hero-char::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 260px;
+      height: 90%;
+      pointer-events: none;
+      z-index: 0;
+      border-radius: 0 0 50% 50%;
+    }
+    .pnc-hero-char--phish::before {
+      background: radial-gradient(ellipse 55% 70% at 50% 100%, rgba(255,30,60,0.18) 0%, transparent 75%);
+    }
+    .pnc-hero-char--chip::before {
+      background: radial-gradient(ellipse 55% 70% at 50% 100%, rgba(0,160,255,0.18) 0%, transparent 75%);
+    }
+    /* Floor spotlight ring */
+    .pnc-hero-char::after {
+      content: '';
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 180px;
+      height: 22px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .pnc-hero-char--phish::after {
+      background: radial-gradient(ellipse 100% 100% at 50% 50%, rgba(255,30,60,0.25) 0%, transparent 70%);
+      box-shadow: 0 0 30px 8px rgba(255,30,60,0.12);
+    }
+    .pnc-hero-char--chip::after {
+      background: radial-gradient(ellipse 100% 100% at 50% 50%, rgba(0,160,255,0.25) 0%, transparent 70%);
+      box-shadow: 0 0 30px 8px rgba(0,160,255,0.12);
+    }
+
+    /* Center column — title, tagline, CTAs */
+    .pnc-hero-center {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 2;
+      padding: 0 16px;
+      padding-bottom: 32px;
+    }
+
+    /* PNG character images — NO box, no border, transparent bg */
+    /* Characters should be tall — starting from "The" level */
+    .pnc-hero-img {
+      height: 460px;
+      width: auto;
+      max-width: 340px;
+      display: block;
+      user-select: none;
+      pointer-events: none;
+      background: transparent;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Bouncy float animation */
+    @keyframes charBounce {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      30%  { transform: translateY(-18px) rotate(-1.5deg); }
+      60%  { transform: translateY(-8px) rotate(0.8deg); }
+    }
+    .pnc-hero-char--phish .pnc-hero-img {
+      animation: charBounce 3.6s ease-in-out infinite;
+    }
+    .pnc-hero-char--chip .pnc-hero-img {
+      animation: charBounce 3.2s ease-in-out infinite;
+      animation-delay: 0.45s;
+    }
+
+    /* Character name badge */
+    .pnc-char-name {
+      font-family: 'Bangers', cursive;
+      font-size: 22px;
+      letter-spacing: 0.1em;
+      margin-top: 10px;
+      padding: 4px 20px;
+      border-radius: 999px;
+    }
+    .pnc-hero-char--phish .pnc-char-name {
+      background: rgba(204,0,51,0.2);
+      border: 1.5px solid rgba(255,34,72,0.5);
+      color: #ff4466;
+    }
+    .pnc-hero-char--chip .pnc-char-name {
+      background: rgba(0,122,255,0.2);
+      border: 1.5px solid rgba(0,170,255,0.5);
+      color: #38bdf8;
+    }
+
+    /* Speech bubbles — visible below char, welcoming */
+    .pnc-bubble {
+      border-radius: 14px;
+      padding: 10px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.5;
+      max-width: 200px;
+      text-align: center;
+      position: relative;
+      margin-top: 10px;
+      border: 2px solid transparent;
+      animation: bubblePop 0.5s 1.1s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+    /* Tail points upward (bubble is below char) */
+    .pnc-bubble::before {
+      content: '';
+      position: absolute;
+      top: -11px;
+      width: 0; height: 0;
+      border-left: 9px solid transparent;
+      border-right: 9px solid transparent;
+    }
+    .pnc-bubble-phish {
+      background: rgba(30,0,15,0.92);
+      border-color: rgba(255,34,72,0.45);
+      color: #ff8099;
+      box-shadow: 0 4px 20px rgba(200,0,40,0.2);
+    }
+    .pnc-bubble-phish::before {
+      right: 36px;
+      border-bottom: 11px solid rgba(255,34,72,0.45);
+    }
+    .pnc-bubble-chip {
+      background: rgba(0,15,35,0.92);
+      border-color: rgba(0,170,255,0.45);
+      color: #7dd3fc;
+      box-shadow: 0 4px 20px rgba(0,120,220,0.2);
+    }
+    .pnc-bubble-chip::before {
+      left: 36px;
+      border-bottom: 11px solid rgba(0,170,255,0.45);
+    }
+    @keyframes bubblePop {
+      from { transform: scale(0.4) translateY(10px); opacity: 0; }
+      to   { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    /* CTA buttons */
+    .pnc-cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      z-index: 2;
+    }
+    .pnc-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.18s, box-shadow 0.18s;
+      letter-spacing: 0.02em;
+    }
+    .pnc-btn:hover { transform: translateY(-3px); }
+    .pnc-btn-primary {
+      background: linear-gradient(135deg, #cc0033, #ff2248);
+      color: #fff;
+      box-shadow: 0 8px 28px rgba(204,0,51,0.45);
+    }
+    .pnc-btn-primary:hover { box-shadow: 0 12px 36px rgba(204,0,51,0.6); }
+    .pnc-btn-secondary {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.15);
+    }
+    .pnc-btn-secondary:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.25); }
+    .pnc-btn-badge {
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      color: #fff;
+      box-shadow: 0 8px 28px rgba(124,58,237,0.4);
+    }
+    .pnc-btn-badge:hover { box-shadow: 0 12px 36px rgba(124,58,237,0.55); }
+
+    /* Scroll hint */
+    .pnc-scroll-hint {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.25);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      z-index: 2;
+      animation: fadeInUp 1s 1.2s both;
+    }
+    .pnc-scroll-arrow {
+      width: 20px;
+      height: 20px;
+      border-right: 2px solid rgba(255,255,255,0.2);
+      border-bottom: 2px solid rgba(255,255,255,0.2);
+      transform: rotate(45deg);
+      animation: scrollBounce 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollBounce {
+      0%,100% { transform: rotate(45deg) translateY(0); opacity: 0.3; }
+      50% { transform: rotate(45deg) translateY(6px); opacity: 0.7; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateX(-50%) translateY(12px); }
+      to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+
+    /* Entry animations for characters */
+    .pnc-hero-char--phish { animation: slideInLeft 0.7s 0.2s cubic-bezier(0.34,1.3,0.64,1) both; }
+    .pnc-hero-char--chip  { animation: slideInRight 0.7s 0.4s cubic-bezier(0.34,1.3,0.64,1) both; }
+    .pnc-hero-title  { animation: fadeInDown 0.6s 0s ease both; }
+    .pnc-tagline     { animation: fadeInDown 0.6s 0.15s ease both; }
+    .pnc-cta-row     { animation: fadeInUp2 0.6s 0.6s ease both; }
+    @keyframes slideInLeft {
+      from { transform: translateX(-80px); opacity: 0; }
+      to   { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideInRight {
+      from { transform: translateX(80px); opacity: 0; }
+      to   { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp2 {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 2 — MEET THE CHARACTERS
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .pnc-chars {
+      background: #0c0018;
+      padding: 64px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .pnc-section-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .pnc-section-label span {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+    .pnc-section-label::before,
+    .pnc-section-label::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.12);
+    }
+    .pnc-section-title {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(32px, 5.5vw, 52px);
+      letter-spacing: 0.05em;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #fff;
+    }
+
+    /* ── Character tab switcher ── */
+    .pnc-char-tabs {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin: 0 auto 40px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1.5px solid rgba(255,255,255,0.1);
+      max-width: 560px;
+    }
+    .pnc-tabs-vs {
+      font-family: 'Bangers', cursive;
+      font-size: 20px;
+      color: rgba(255,255,255,0.2);
+      padding: 0 14px;
+      flex-shrink: 0;
+      letter-spacing: 0.05em;
+      background: rgba(255,255,255,0.03);
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+    }
+    .pnc-char-tab {
+      flex: 1;
+      padding: 15px 20px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.35);
+      transition: background 0.3s, color 0.3s;
+    }
+    .pnc-char-tab:hover { color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.07); }
+    .pnc-char-tab--phish.active {
+      background: linear-gradient(135deg, rgba(204,0,51,0.28), rgba(120,0,20,0.32));
+      color: #ff4466;
+    }
+    .pnc-char-tab--chip.active {
+      background: linear-gradient(135deg, rgba(0,80,200,0.28), rgba(0,40,120,0.32));
+      color: #38bdf8;
+    }
+
+    /* ── Profile showcase ── */
+    .pnc-char-showcase {
+      max-width: 880px;
+      margin: 0 auto;
+      min-height: 400px;
+    }
+    .pnc-char-profile {
+      display: none;
+      gap: 44px;
+      align-items: center;
+      animation: profileFadeIn 0.35s ease both;
+    }
+    .pnc-char-profile.active { display: flex; }
+    @keyframes profileFadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Profile: image column */
+    .pnc-profile-img-col {
+      flex: 0 0 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+    /* PNG — NO box, no border, transparent bg preserved */
+    .pnc-profile-img {
+      width: 200px;
+      height: auto;
+      display: block;
+      user-select: none;
+    }
+    #profile-phish .pnc-profile-img {
+      filter: drop-shadow(0 12px 32px rgba(200,0,40,0.4));
+    }
+    #profile-chip .pnc-profile-img {
+      filter: drop-shadow(0 12px 32px rgba(0,100,230,0.4));
+    }
+    .pnc-profile-quote {
+      font-size: 12px;
+      font-style: italic;
+      line-height: 1.6;
+      text-align: center;
+      padding: 12px 16px;
+      border-radius: 12px;
+      width: 100%;
+    }
+    #profile-phish .pnc-profile-quote {
+      background: rgba(204,0,51,0.1);
+      border: 1px solid rgba(255,34,72,0.2);
+      color: #ff8099;
+    }
+    #profile-chip .pnc-profile-quote {
+      background: rgba(0,122,255,0.1);
+      border: 1px solid rgba(0,170,255,0.2);
+      color: #7dd3fc;
+    }
+
+    /* Profile: info column */
+    .pnc-profile-info-col { flex: 1; }
+    .pnc-profile-role {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    #profile-phish .pnc-profile-role { color: rgba(255,80,100,0.7); }
+    #profile-chip  .pnc-profile-role { color: rgba(56,189,248,0.7); }
+    .pnc-profile-name {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(48px, 7vw, 76px);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pnc-profile-name--phish { color: #ff2248; text-shadow: 3px 3px 0 #8b0000; }
+    .pnc-profile-name--chip  { color: #0af;    text-shadow: 3px 3px 0 #003d7a; }
+    .pnc-profile-subtitle {
+      font-size: 14px;
+      color: rgba(255,255,255,0.38);
+      margin-bottom: 20px;
+    }
+    #profile-phish .pnc-stat-fill { background: linear-gradient(90deg, #cc0033, #ff4466); }
+    #profile-chip  .pnc-stat-fill { background: linear-gradient(90deg, #0060cc, #0af); }
+    #profile-phish .pnc-trait-icon { background: rgba(204,0,51,0.2); }
+    #profile-chip  .pnc-trait-icon { background: rgba(0,122,255,0.2); }
+    @media (max-width: 700px) {
+      .pnc-char-profile.active { flex-direction: column; }
+      .pnc-profile-img-col { flex: none; }
+    }
+
+    /* legacy — kept for fallback */
+    .pnc-char-card {
+      border-radius: 20px;
+      padding: 24px 22px;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid transparent;
+    }
+    .pnc-char-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 80px; height: 80px;
+      background-image: repeating-linear-gradient(
+        -45deg,
+        rgba(255,255,255,0.025) 0px,
+        rgba(255,255,255,0.025) 2px,
+        transparent 2px,
+        transparent 10px
+      );
+      border-radius: 0 24px 0 0;
+    }
+
+    .pnc-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .pnc-card-char-mini {
+      width: 70px;
+      height: 84px;
+      flex-shrink: 0;
+    }
+    .pnc-card-identity {}
+    .pnc-card-role {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .pnc-char-card--phish .pnc-card-role { color: rgba(255,100,120,0.7); }
+    .pnc-char-card--chip .pnc-card-role  { color: rgba(56,189,248,0.7); }
+    .pnc-card-name {
+      font-family: 'Bangers', cursive;
+      font-size: 36px;
+      letter-spacing: 0.06em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pnc-char-card--phish .pnc-card-name { color: #ff2248; text-shadow: 2px 2px 0 #8b0000; }
+    .pnc-char-card--chip  .pnc-card-name { color: #0af;    text-shadow: 2px 2px 0 #003d7a; }
+    .pnc-card-subtitle {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* Traits */
+    .pnc-card-traits {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .pnc-trait {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+    }
+    .pnc-trait-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+    .pnc-char-card--phish .pnc-trait-icon { background: rgba(204,0,51,0.2); }
+    .pnc-char-card--chip  .pnc-trait-icon { background: rgba(0,122,255,0.2); }
+
+    /* Stat bar */
+    .pnc-stat {
+      margin-bottom: 12px;
+    }
+    .pnc-stat-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      color: rgba(255,255,255,0.4);
+    }
+    .pnc-stat-bar {
+      height: 6px;
+      border-radius: 99px;
+      background: rgba(255,255,255,0.06);
+      overflow: hidden;
+    }
+    .pnc-stat-fill {
+      height: 100%;
+      border-radius: 99px;
+      transition: width 1.2s 0.5s cubic-bezier(0.23,1,0.32,1);
+    }
+    .pnc-char-card--phish .pnc-stat-fill { background: linear-gradient(90deg, #cc0033, #ff4466); }
+    .pnc-char-card--chip  .pnc-stat-fill { background: linear-gradient(90deg, #0060cc, #0af); }
+
+    /* Favourite phrase */
+    .pnc-phrase {
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-size: 14px;
+      font-style: italic;
+      font-weight: 600;
+      line-height: 1.5;
+      position: relative;
+      margin-top: 8px;
+    }
+    .pnc-phrase::before {
+      content: '"';
+      font-family: Georgia, serif;
+      font-size: 48px;
+      line-height: 1;
+      position: absolute;
+      top: 2px; left: 10px;
+      opacity: 0.18;
+    }
+    .pnc-char-card--phish .pnc-phrase {
+      background: rgba(204,0,51,0.1);
+      border: 1px solid rgba(255,34,72,0.2);
+      color: #ff8099;
+    }
+    .pnc-char-card--chip .pnc-phrase {
+      background: rgba(0,122,255,0.1);
+      border: 1px solid rgba(0,170,255,0.2);
+      color: #7dd3fc;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 3 — FEATURED EPISODES
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .pnc-episodes {
+      background: #080010;
+      padding: 64px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .pnc-episodes-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Infinite auto-scroll carousel */
+    .pnc-carousel-wrapper {
+      overflow: hidden;
+      width: 100%;
+      padding: 16px 0 24px;
+      cursor: pointer;
+      position: relative;
+    }
+    .pnc-carousel-wrapper::before,
+    .pnc-carousel-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 80px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .pnc-carousel-wrapper::before {
+      left: 0;
+      background: linear-gradient(to right, #080010, transparent);
+    }
+    .pnc-carousel-wrapper::after {
+      right: 0;
+      background: linear-gradient(to left, #080010, transparent);
+    }
+    .pnc-carousel-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+      animation: carouselScroll 28s linear infinite;
+    }
+    .pnc-carousel-wrapper:hover .pnc-carousel-track {
+      animation-play-state: paused;
+    }
+    @keyframes carouselScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* Episode grid (legacy, kept for fallback) */
+    .pnc-ep-grid {
+      display: none;
+    }
+
+    .pnc-ep-card {
+      flex: 0 0 260px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #0e001c;
+      border: 1.5px solid rgba(255,255,255,0.07);
+      cursor: pointer;
+      transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s;
+      position: relative;
+    }
+    .pnc-ep-card:hover {
+      transform: scale(1.04) translateY(-4px);
+      border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    /* Thumbnail */
+    .pnc-ep-thumb {
+      height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .pnc-ep-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .pnc-ep-card:hover .pnc-ep-thumb::after { opacity: 1; }
+
+    /* Play button overlay */
+    .pnc-ep-play {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%) scale(0.7);
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .pnc-ep-play svg { width: 18px; height: 18px; fill: #080010; margin-left: 3px; }
+    .pnc-ep-card:hover .pnc-ep-play {
+      opacity: 1;
+      transform: translate(-50%,-50%) scale(1);
+    }
+
+    /* Episode number badge */
+    .pnc-ep-num {
+      position: absolute;
+      top: 10px; left: 10px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      color: rgba(255,255,255,0.6);
+      padding: 3px 9px;
+      border-radius: 999px;
+      z-index: 3;
+    }
+
+    /* "New" badge */
+    .pnc-ep-new {
+      position: absolute;
+      top: 10px; right: 10px;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: #cc0033;
+      color: #fff;
+      padding: 3px 9px;
+      border-radius: 999px;
+      z-index: 3;
+    }
+
+    .pnc-ep-info {
+      padding: 16px 16px 18px;
+    }
+    .pnc-ep-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .pnc-ep-desc {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .pnc-ep-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .pnc-ep-tag-phish {
+      background: rgba(204,0,51,0.15);
+      color: #ff4466;
+      border: 1px solid rgba(255,34,72,0.25);
+    }
+    .pnc-ep-tag-chip {
+      background: rgba(0,122,255,0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(0,170,255,0.25);
+    }
+    .pnc-ep-tag-both {
+      background: rgba(124,58,237,0.15);
+      color: #c084fc;
+      border: 1px solid rgba(192,132,252,0.25);
+    }
+
+    /* Episode card gradient themes */
+    .pnc-ep-thumb-1 { background: linear-gradient(135deg, #1a0028, #3d0066); }
+    .pnc-ep-thumb-2 { background: linear-gradient(135deg, #001228, #003366); }
+    .pnc-ep-thumb-3 { background: linear-gradient(135deg, #1a0010, #4d0020); }
+    .pnc-ep-thumb-4 { background: linear-gradient(135deg, #0a1a00, #1a4000); }
+    .pnc-ep-thumb-5 { background: linear-gradient(135deg, #1a1200, #4d3800); }
+
+    /* Carousel thumb default gradient (when no numbered class) */
+    .pnc-ep-thumb { background: linear-gradient(135deg, #14002a, #001840); }
+    .pnc-ep-emoji {
+      font-size: 46px;
+      display: block;
+      line-height: 1;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+    }
+
+    /* Episodes subtitle + CTA hint */
+    .pnc-ep-subtitle {
+      text-align: center;
+      color: rgba(255,255,255,0.45);
+      font-size: 15px;
+      margin-bottom: 44px;
+      letter-spacing: 0.01em;
+    }
+    .pnc-ep-cta-hint {
+      text-align: center;
+      margin-top: 20px;
+      color: rgba(255,255,255,0.25);
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 4 — WATCH THE SHOW
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .pnc-watch {
+      background: #0a0015;
+      padding: 72px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .pnc-watch::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 25% 50%, rgba(255,80,0,0.07) 0%, transparent 55%),
+                  radial-gradient(ellipse at 75% 30%, rgba(120,0,255,0.09) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .pnc-watch-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .watch-hdr { text-align: center; margin-bottom: 44px; }
+    .watch-overline { font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.35); display: block; margin-bottom: 12px; }
+    .watch-title { font-family: 'Bangers', cursive; font-size: clamp(40px,6vw,72px); letter-spacing: 0.04em; color: #fff; margin: 0 0 12px; }
+    .watch-sub { font-size: 15px; color: rgba(255,255,255,0.5); margin: 0; }
+    /* Layout */
+    .watch-layout { display: grid; grid-template-columns: 1fr 320px; gap: 24px; align-items: start; }
+    /* Player */
+    .watch-player-wrap { position: relative; width: 100%; padding-bottom: 56.25%; border-radius: 14px; overflow: hidden; background: #000; box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 20px 60px rgba(0,0,0,0.7); }
+    .watch-player-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+    .now-bar { display: flex; align-items: center; gap: 10px; margin-top: 12px; padding: 11px 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; }
+    .now-dot { width: 8px; height: 8px; border-radius: 50%; background: #ff4040; flex-shrink: 0; animation: nbpulse 1.5s ease-in-out infinite; }
+    @keyframes nbpulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.3;transform:scale(0.75)} }
+    .now-label { font-size: 13px; color: rgba(255,255,255,0.72); flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .now-tag { font-size: 10px; font-weight: 800; color: rgba(255,255,255,0.28); text-transform: uppercase; letter-spacing: 0.1em; flex-shrink: 0; }
+    /* Playlist */
+    .watch-playlist { display: flex; flex-direction: column; background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; overflow: hidden; height: 480px; }
+    .plist-hd { display: flex; justify-content: space-between; align-items: center; padding: 13px 15px; border-bottom: 1px solid rgba(255,255,255,0.07); flex-shrink: 0; }
+    .plist-hd-t { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.45); }
+    .plist-hd-b { font-size: 10px; color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.05); padding: 3px 9px; border-radius: 999px; }
+    .plist-scroll-wrap { flex: 1; overflow: hidden; position: relative; }
+    .plist-scroll-wrap::after { content:''; position:absolute; bottom:0; left:0; right:0; height:44px; background: linear-gradient(transparent,#0a0015); pointer-events:none; z-index:2; }
+    .plist-track { display: flex; flex-direction: column; animation: scrollUp 24s linear infinite; }
+    .plist-track:hover { animation-play-state: paused; }
+    @keyframes scrollUp { 0%{transform:translateY(0)} 100%{transform:translateY(-50%)} }
+    .plist-card { display: flex; align-items: center; gap: 11px; padding: 10px 13px; cursor: pointer; border-bottom: 1px solid rgba(255,255,255,0.04); transition: background .18s; flex-shrink: 0; }
+    .plist-card:hover,.plist-card.active { background: rgba(255,100,0,0.1); }
+    .plist-card.active { border-left: 3px solid #ff6400; padding-left: 10px; }
+    .plist-thumb { width: 68px; height: 42px; border-radius: 6px; background: linear-gradient(135deg,#1e0040,#0a0020); flex-shrink: 0; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .plist-thumb-ep { font-size: 9px; font-weight: 900; color: rgba(255,255,255,0.4); letter-spacing: 0.05em; }
+    .plist-thumb::after { content:'▶'; position:absolute; font-size:14px; color:rgba(255,255,255,0.5); }
+    .plist-info { flex:1; min-width:0; }
+    .plist-ep-num { font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: #ff6400; margin-bottom: 2px; }
+    .plist-ep-title { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.82); line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .plist-ep-dur { font-size: 10px; color: rgba(255,255,255,0.28); margin-top: 3px; }
+    @media(max-width:800px){ .watch-layout{grid-template-columns:1fr;} .watch-playlist{height:320px;} }
+    /* legacy (unused but kept so JS refs don't error) */
+    .pnc-comic,.pnc-comic-inner,.comic-header,.comic-overline,.comic-title,.comic-desc{}
+    .comic-progress { display: flex; justify-content: center; gap: 10px; margin-bottom: 36px; }
+    .comic-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.15); transition: all 0.3s; }
+    .comic-dot.active { background: #fff; transform: scale(1.3); }
+    .comic-dot.done, .comic-dot.done-good { background: #22c55e; transform: scale(1.1); }
+    .comic-dot.done-bad { background: #ff4466; transform: scale(1.1); }
+    .comic-scene { animation: comicSlideIn 0.5s cubic-bezier(0.34,1.3,0.64,1) both; }
+    @keyframes comicSlideIn { from { opacity:0; transform:translateX(40px); } to { opacity:1; transform:translateX(0); } }
+    .comic-chapter { font-family: 'Bangers', cursive; font-size: 20px; letter-spacing: 0.08em; color: rgba(255,255,255,0.45); text-align: center; margin-bottom: 20px; text-transform: uppercase; }
+
+    /* Horizontal panels */
+    .comic-strip-row { display: flex; gap: 0; margin-bottom: 24px; border-radius: 16px; overflow: hidden; border: 1.5px solid rgba(255,255,255,0.08); }
+    .comic-panel-h { flex: 1; padding: 20px 16px; display: flex; flex-direction: column; align-items: center; position: relative; min-height: 280px; }
+    .comic-panel-h + .comic-panel-h { border-left: 1.5px solid rgba(255,255,255,0.07); }
+    .comic-panel-h--villain { background: linear-gradient(160deg,#1a0010,#0d0008); }
+    .comic-panel-h--message { background: linear-gradient(160deg,#0e0020,#06000e); }
+    .comic-panel-h--hero { background: linear-gradient(160deg,#001428,#000a18); }
+    .comic-panel-label { font-size: 10px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; width: 100%; text-align: center; }
+    .comic-char { height: 100px; width: auto; object-fit: contain; background: transparent; margin-bottom: 14px; filter: drop-shadow(0 4px 16px rgba(0,0,0,0.6)); }
+    .comic-speech { background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.75); border-radius: 10px; padding: 10px 12px; font-size: 12px; font-weight: 600; line-height: 1.5; text-align: center; max-width: 200px; position: relative; margin-top: auto; }
+    .comic-speech::before { content: ''; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); border-left: 9px solid transparent; border-right: 9px solid transparent; }
+    .comic-speech--villain { background: rgba(255,34,72,0.12); color: #ffb3c1; border-color: rgba(255,34,72,0.35); }
+    .comic-speech--villain::before { border-bottom: 10px solid rgba(255,34,72,0.35); }
+    .comic-speech--hero { background: rgba(0,150,255,0.12); color: #93c5fd; border-color: rgba(0,170,255,0.35); }
+    .comic-speech--hero::before { border-bottom: 10px solid rgba(0,170,255,0.35); }
+
+    /* Phone mockup */
+    .comic-phone-mock { background: #0f0f1a; border: 1.5px solid rgba(255,255,255,0.12); border-radius: 10px; overflow: hidden; width: 100%; max-width: 220px; font-size: 11px; margin-top: auto; }
+    .phone-header { background: rgba(255,255,255,0.06); padding: 6px 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .phone-body { padding: 10px; }
+    .phone-from { font-size: 10px; color: rgba(255,255,255,0.4); margin-bottom: 4px; }
+    .phone-subject { font-weight: 800; color: #fff; font-size: 11px; margin-bottom: 6px; }
+    .phone-body-text { color: rgba(255,255,255,0.55); line-height: 1.55; font-size: 10.5px; }
+    .phish-red { color: #ff5577; font-weight: 700; }
+    .phish-link { color: #60a5fa; text-decoration: underline; cursor: default; }
+
+    /* Choice row */
+    .comic-choice-row { background: rgba(255,255,255,0.03); border: 1.5px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; }
+    .comic-choice-label { font-family: 'Bangers', cursive; font-size: 18px; letter-spacing: 0.1em; color: #f6d860; margin-bottom: 14px; text-align: center; }
+    .comic-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .comic-btn { padding: 14px 16px; border-radius: 10px; border: 2px solid transparent; font-size: 14px; font-weight: 800; cursor: pointer; text-align: left; transition: all 0.18s; background: rgba(255,255,255,0.04); color: #fff; }
+    .comic-btn:hover { transform: translateY(-2px); }
+    .comic-btn:disabled { opacity: 0.4; cursor: default; transform: none; }
+    .comic-btn--bad { border-color: rgba(255,60,80,0.3); color: #ff7090; }
+    .comic-btn--bad:hover { background: rgba(255,50,70,0.12); border-color: rgba(255,50,70,0.6); }
+    .comic-btn--good { border-color: rgba(0,200,100,0.3); color: #6ee7b7; }
+    .comic-btn--good:hover { background: rgba(0,200,100,0.1); border-color: rgba(0,200,100,0.6); }
+
+    /* Outcome panels */
+    .comic-outcome { animation: comicSlideIn 0.4s ease both; margin-bottom: 24px; }
+    .outcome-panel { display: flex; align-items: center; gap: 20px; border-radius: 14px; padding: 20px 24px; margin-bottom: 16px; }
+    .outcome-panel--bad { background: rgba(200,0,40,0.08); border: 1.5px solid rgba(255,34,72,0.3); }
+    .outcome-panel--good { background: rgba(34,197,94,0.07); border: 1.5px solid rgba(34,197,94,0.3); }
+    .outcome-char { height: 80px; width: auto; flex-shrink: 0; background: transparent; }
+    .outcome-result { font-family: 'Bangers', cursive; font-size: 26px; letter-spacing: 0.05em; margin-bottom: 6px; }
+    .outcome-panel--bad .outcome-result { color: #ff4466; }
+    .outcome-panel--good .outcome-result { color: #4ade80; }
+    .outcome-text p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 6px; }
+    .outcome-tip { font-size: 12px !important; color: rgba(255,255,255,0.4) !important; background: rgba(255,255,255,0.04); border-radius: 6px; padding: 6px 10px; }
+    .comic-next-btn { display: block; margin: 0 auto; padding: 12px 28px; background: linear-gradient(135deg,#cc0033,#ff2248); color: #fff; border: none; border-radius: 10px; font-size: 14px; font-weight: 800; cursor: pointer; letter-spacing: 0.04em; transition: transform 0.18s,box-shadow 0.18s; box-shadow: 0 6px 22px rgba(200,0,40,0.35); }
+    .comic-next-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(200,0,40,0.5); }
+
+    /* Final 4-panel strip */
+    .comic-final-strip { display: grid; grid-template-columns: repeat(4,1fr); gap: 6px; background: #fff; border-radius: 12px; padding: 14px; margin-bottom: 24px; }
+    .comic-final-panel { display: flex; flex-direction: column; border: 2px solid #222; border-radius: 6px; overflow: hidden; background: #fff; }
+    .cfp-label { background: #111; color: #fff; font-size: 9px; font-weight: 800; letter-spacing: 0.1em; text-align: center; padding: 4px; text-transform: uppercase; }
+    .cfp-content { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 8px; gap: 8px; min-height: 130px; background: #f8f8f8; }
+    .cfp-char { height: 65px; width: auto; background: transparent; }
+    .cfp-bubble { background: #fff; border: 1.5px solid #222; border-radius: 6px; padding: 5px 8px; font-size: 9px; font-weight: 700; color: #111; text-align: center; max-width: 95px; }
+    .cfp-bubble--villain { border-color: #cc0033; color: #cc0033; }
+    .cfp-bubble--hero { border-color: #0066cc; color: #0066cc; }
+    .cfp-bubble--win { border-color: #006600; color: #006600; }
+    .cfp-caption { background: #222; color: #fff; font-size: 8px; font-weight: 700; text-align: center; padding: 5px 4px; }
+
+    /* Detective badge */
+    .comic-badge-section { text-align: center; margin-bottom: 28px; }
+    .badge-container { display: inline-flex; flex-direction: column; align-items: center; gap: 6px; background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 24px 40px; animation: badgePop 0.6s 0.3s cubic-bezier(0.34,1.56,0.64,1) both; }
+    @keyframes badgePop { from { transform:scale(0.5) rotate(-6deg); opacity:0; } to { transform:scale(1) rotate(0deg); opacity:1; } }
+    .badge-icon { font-size: 48px; }
+    .badge-title { font-family: 'Bangers', cursive; font-size: 28px; letter-spacing: 0.1em; color: #fff; }
+    .badge-score { font-size: 13px; color: rgba(255,255,255,0.4); font-weight: 700; }
+    .badge-message { font-size: 13px; color: rgba(255,255,255,0.5); max-width: 280px; text-align: center; line-height: 1.5; }
+    .comic-final-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .comic-save-btn { padding: 12px 24px; background: linear-gradient(135deg,#0066cc,#0af); color: #fff; border: none; border-radius: 10px; font-size: 14px; font-weight: 800; cursor: pointer; transition: transform 0.18s; }
+    .comic-save-btn:hover { transform: translateY(-2px); }
+    .comic-restart-btn { padding: 12px 24px; background: rgba(255,255,255,0.07); color: #fff; border: 1.5px solid rgba(255,255,255,0.15); border-radius: 10px; font-size: 14px; font-weight: 800; cursor: pointer; transition: all 0.18s; }
+    .comic-restart-btn:hover { background: rgba(255,255,255,0.12); }
+
+    @media (max-width:768px) {
+      .comic-strip-row { flex-direction: column; }
+      .comic-choices { grid-template-columns: 1fr; }
+      .comic-final-strip { grid-template-columns: repeat(2,1fr); }
+      .outcome-panel { flex-direction: column; text-align: center; }
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 5 — SPOT THE PHISH CHALLENGE
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .pnc-spot {
+      background: #060010;
+      min-height: 100vh;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .spot-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+    .spot-header { text-align: center; margin-bottom: 36px; }
+    .spot-overline { font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.35); display: block; margin-bottom: 10px; }
+    .spot-title { font-family: 'Bangers', cursive; font-size: clamp(40px,6vw,68px); letter-spacing: 0.04em; color: #fff; margin: 0 0 10px; }
+    .spot-subtitle { font-size: 14px; color: rgba(255,255,255,0.45); margin: 0; }
+
+    /* Round progress */
+    .spot-rounds-bar { display: flex; justify-content: center; gap: 8px; margin-bottom: 32px; }
+    .spot-rpip { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: rgba(255,255,255,0.3); transition: all 0.3s; }
+    .spot-rpip.current { background: rgba(255,200,0,0.15); border-color: #f6d860; color: #f6d860; transform: scale(1.15); }
+    .spot-rpip.passed, .spot-rpip.done { background: rgba(34,197,94,0.15); border-color: #22c55e; color: #22c55e; }
+    .spot-rpip.failed { background: rgba(255,34,72,0.12); border-color: #ff2248; color: #ff4466; }
+
+    /* CHIP welcome area */
+    .spot-chip-welcome {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: rgba(0,100,200,0.07);
+      border: 1.5px solid rgba(0,150,255,0.2);
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 28px;
+    }
+    .spot-chip-img { height: 80px; width: auto; background: transparent; flex-shrink: 0; }
+    .spot-chip-dialogue {
+      font-size: 14px;
+      color: #93c5fd;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+    .spot-chip-dialogue strong { color: #fff; }
+    .spot-chip-name { font-size: 10px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(0,170,255,0.5); margin-bottom: 6px; }
+
+    /* Game arena */
+    .spot-arena {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 20px;
+      position: relative;
+    }
+    /* PHISH character column */
+    .spot-phish-col {
+      width: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .spot-phish-char {
+      height: 120px;
+      width: auto;
+      background: transparent;
+      transform: translateX(200px);
+      opacity: 0;
+      transition: transform 0.6s cubic-bezier(0.34,1.3,0.64,1), opacity 0.4s;
+    }
+    .spot-phish-char.active { transform: translateX(0); opacity: 1; }
+    .spot-phish-char.caught {
+      animation: phishCaught 0.6s ease forwards;
+    }
+    @keyframes phishCaught {
+      0% { transform: translateX(0) rotate(0deg); }
+      20% { transform: translateX(-10px) rotate(-8deg); }
+      40% { transform: translateX(10px) rotate(8deg); }
+      60% { transform: translateX(-6px) rotate(-4deg); }
+      80% { transform: translateX(6px) rotate(4deg) scale(0.8); }
+      100% { transform: translateX(200px) rotate(20deg) scale(0); opacity: 0; }
+    }
+    .spot-phish-label {
+      margin-top: 8px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,34,72,0.6);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .spot-phish-char.active ~ .spot-phish-label { opacity: 1; }
+
+    /* Email column */
+    .spot-email-col { position: relative; }
+    .spot-found-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 700;
+    }
+    .spot-found-count { color: #f6d860; font-family: 'Bangers', cursive; font-size: 22px; }
+    .spot-round-tag { font-size: 10px; font-weight: 800; letter-spacing: 0.15em; background: rgba(255,200,0,0.12); border: 1px solid rgba(246,216,96,0.3); color: #f6d860; padding: 3px 10px; border-radius: 999px; }
+
+    /* Email mock */
+    .spot-email-mock {
+      background: #0f1118;
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.4s;
+    }
+    .spot-email-mock.phished { border-color: rgba(255,34,72,0.35); }
+    .spot-email-titlebar {
+      background: rgba(255,255,255,0.05);
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .spot-email-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .spot-email-dot:nth-child(1) { background: #ff5f57; }
+    .spot-email-dot:nth-child(2) { background: #febc2e; }
+    .spot-email-dot:nth-child(3) { background: #28c840; }
+    .spot-email-tabname { font-size: 11px; color: rgba(255,255,255,0.3); margin-left: 8px; font-weight: 700; }
+    .spot-email-body { padding: 20px 24px; }
+    .spot-email-field { display: flex; gap: 12px; margin-bottom: 6px; font-size: 12px; }
+    .spot-email-field-label { color: rgba(255,255,255,0.3); font-weight: 700; width: 36px; flex-shrink: 0; }
+    .spot-email-field-val { color: rgba(255,255,255,0.75); }
+    .spot-email-divider { height: 1px; background: rgba(255,255,255,0.07); margin: 12px 0; }
+    .spot-email-subject-line { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 12px; line-height: 1.3; }
+    .spot-email-content { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+    .spot-email-cta-btn {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: default;
+    }
+
+    /* Phishing targets — clickable during game, no pre-hints */
+    .phish-target {
+      cursor: pointer;
+      position: relative;
+      transition: background 0.2s, color 0.2s;
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+    .phish-target:hover { opacity: 0.85; }
+    .phish-target.found {
+      background: rgba(255,34,72,0.25);
+      color: #ff7090 !important;
+      text-decoration: line-through;
+      cursor: default;
+    }
+    .phish-target.found::after {
+      content: ' ✓';
+      font-size: 11px;
+      color: #ff7090;
+    }
+
+    /* Normal state email element styling */
+    .spot-sender-clean { color: rgba(255,255,255,0.75); }
+    .spot-sender-phish { color: #ff5577; display: none; }
+    .spot-link-clean { color: #60a5fa; }
+    .spot-link-phish { color: #ff7755; display: none; }
+    .spot-subject-clean { color: #fff; }
+    .spot-urgent-clean { display: none; }
+    .spot-urgent-phish { color: #ff5577; display: none; }
+    .spot-cta-clean { background: #1a4a8a; color: #93c5fd; }
+    .spot-cta-phish { background: #8a1a1a; color: #ff9999; display: none; }
+
+    /* When email is in phished state */
+    .spot-email-mock.phished .spot-sender-clean { display: none; }
+    .spot-email-mock.phished .spot-sender-phish { display: inline; }
+    .spot-email-mock.phished .spot-link-clean { display: none; }
+    .spot-email-mock.phished .spot-link-phish { display: inline; }
+    .spot-email-mock.phished .spot-urgent-clean { display: none; }
+    .spot-email-mock.phished .spot-urgent-phish { display: block; }
+    .spot-email-mock.phished .spot-cta-clean { display: none; }
+    .spot-email-mock.phished .spot-cta-phish { display: inline-block; }
+
+    /* Next round + complete */
+    .spot-next-btn {
+      display: none;
+      margin: 20px auto 0;
+      padding: 12px 28px;
+      background: linear-gradient(135deg,#0055cc,#0af);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.18s;
+    }
+    .spot-next-btn.show { display: block; animation: comicSlideIn 0.4s ease both; }
+    .spot-next-btn:hover { transform: translateY(-2px); }
+    .spot-round-result {
+      display: none;
+      text-align: center;
+      padding: 12px;
+      border-radius: 10px;
+      margin-top: 14px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .spot-round-result.show { display: block; animation: comicSlideIn 0.3s ease both; }
+    .spot-round-result--good { background: rgba(34,197,94,0.1); color: #4ade80; border: 1px solid rgba(34,197,94,0.25); }
+
+    /* Complete screen */
+    .spot-complete {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+    }
+    .spot-complete.show { display: block; animation: comicSlideIn 0.5s ease both; }
+    .spot-complete-emoji { font-size: 64px; margin-bottom: 16px; }
+    .spot-complete-title { font-family: 'Bangers', cursive; font-size: 42px; letter-spacing: 0.06em; color: #fff; margin-bottom: 10px; }
+    .spot-complete-score { font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 24px; }
+    .spot-complete-score strong { color: #f6d860; font-size: 24px; }
+
+    @media (max-width: 768px) {
+      .spot-arena { grid-template-columns: 1fr; }
+      .spot-phish-col { width: 100%; flex-direction: row; justify-content: center; gap: 16px; padding: 12px 0; }
+      .spot-phish-char { height: 70px; }
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 6 — CHIP'S DETECTIVE LAB
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .pnc-lab {
+      background: #04000e;
+      padding: 72px 24px 80px;
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+    .pnc-lab::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,100,200,0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .lab-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+
+    /* Lab header */
+    .lab-header { text-align: center; margin-bottom: 48px; }
+    .lab-overline { font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(0,170,255,0.45); display: block; margin-bottom: 10px; }
+    .lab-title { font-family: 'Bangers', cursive; font-size: clamp(40px,6vw,72px); letter-spacing: 0.04em; color: #fff; margin: 0 0 12px; }
+    .lab-subtitle { font-size: 15px; color: rgba(255,255,255,0.4); }
+
+    /* Case selector tabs */
+    .lab-case-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 36px; flex-wrap: wrap; }
+    .lab-case-tab { padding: 8px 20px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.1); background: transparent; color: rgba(255,255,255,0.4); font-size: 12px; font-weight: 800; letter-spacing: 0.06em; cursor: pointer; transition: all 0.2s; }
+    .lab-case-tab.active { background: rgba(0,130,255,0.15); border-color: rgba(0,170,255,0.5); color: #60a5fa; }
+    .lab-case-tab:hover:not(.active) { border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); }
+
+    /* Main layout: CHIP col + Case col */
+    .lab-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    /* CHIP col */
+    .lab-chip-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      position: sticky;
+      top: 90px;
+    }
+    .lab-chip-img { height: 130px; width: auto; background: transparent; filter: drop-shadow(0 8px 24px rgba(0,100,255,0.3)); }
+    .lab-chip-speech {
+      background: rgba(0,80,200,0.1);
+      border: 1.5px solid rgba(0,150,255,0.25);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 12px;
+      color: #93c5fd;
+      font-weight: 600;
+      line-height: 1.6;
+      text-align: center;
+      position: relative;
+    }
+    .lab-chip-speech::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 10px solid rgba(0,150,255,0.25);
+    }
+    .lab-chip-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(0,170,255,0.6);
+      background: rgba(0,100,200,0.1);
+      border: 1px solid rgba(0,170,255,0.2);
+      border-radius: 999px;
+      padding: 4px 12px;
+    }
+
+    /* Case panel */
+    .lab-case-panel { background: rgba(255,255,255,0.02); border: 1.5px solid rgba(255,255,255,0.07); border-radius: 20px; overflow: hidden; }
+    .lab-case-header {
+      background: rgba(0,100,200,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .lab-case-tag { font-size: 10px; font-weight: 800; letter-spacing: 0.15em; color: #f6d860; background: rgba(246,216,96,0.1); border: 1px solid rgba(246,216,96,0.25); border-radius: 999px; padding: 3px 12px; }
+    .lab-case-num { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.25); letter-spacing: 0.1em; }
+    .lab-case-body { padding: 24px; }
+
+    /* Exhibit box (email/message) */
+    .lab-exhibit {
+      background: #080c18;
+      border: 1.5px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .lab-exhibit-header {
+      background: rgba(255,255,255,0.04);
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.1em;
+    }
+    .lab-exhibit-body { padding: 18px 20px; font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.75; }
+    .lab-exhibit-from { font-size: 11px; color: rgba(255,255,255,0.35); margin-bottom: 4px; }
+    .lab-exhibit-from span { font-weight: 700; }
+    .lab-exhibit-subject { font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+    .lab-exhibit-highlight { color: #60a5fa; font-weight: 700; }
+
+    /* Evidence cards */
+    .lab-evidence-label { font-size: 11px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 14px; }
+    .lab-evidence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+    .lab-ev-card {
+      background: rgba(0,30,70,0.5);
+      border: 1.5px solid rgba(0,100,200,0.2);
+      border-radius: 12px;
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .lab-ev-card:hover:not(.analyzed) { border-color: rgba(0,170,255,0.4); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,80,200,0.15); }
+    .lab-ev-card.analyzed { border-color: rgba(0,200,100,0.35); background: rgba(0,60,40,0.2); cursor: default; }
+    .lab-ev-icon { font-size: 24px; margin-bottom: 8px; }
+    .lab-ev-title { font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(0,170,255,0.6); margin-bottom: 8px; }
+    .lab-ev-preview { font-size: 12px; color: rgba(255,255,255,0.35); font-family: 'Space Grotesk', monospace; line-height: 1.5; }
+    .lab-ev-finding { display: none; font-size: 12px; color: #7dd3fc; line-height: 1.6; background: rgba(0,100,200,0.08); border-radius: 8px; padding: 10px 12px; border-left: 3px solid #0af; margin-top: 8px; }
+    .lab-ev-card.analyzed .lab-ev-finding { display: block; }
+    .lab-ev-card.analyzed .lab-ev-preview { display: none; }
+    .lab-ev-flag { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; padding: 3px 10px; border-radius: 999px; margin-top: 6px; }
+    .lab-ev-flag-red { background: rgba(204,0,51,0.15); color: #ff4466; border: 1px solid rgba(255,34,72,0.25); }
+    .lab-ev-flag-green { background: rgba(34,197,94,0.1); color: #4ade80; border: 1px solid rgba(34,197,94,0.25); }
+    .lab-ev-analyzed-check { position: absolute; top: 10px; right: 10px; width: 22px; height: 22px; background: rgba(34,197,94,0.2); border: 1.5px solid #22c55e; border-radius: 50%; display: none; align-items: center; justify-content: center; font-size: 12px; }
+    .lab-ev-card.analyzed .lab-ev-analyzed-check { display: flex; }
+
+    /* Evidence progress */
+    .lab-progress-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+    .lab-progress-text { font-size: 12px; color: rgba(255,255,255,0.3); font-weight: 700; }
+    .lab-progress-text span { color: #38bdf8; font-family: 'Bangers', cursive; font-size: 22px; letter-spacing: 0.05em; }
+    .lab-progress-hint { font-size: 11px; color: rgba(255,255,255,0.2); font-style: italic; }
+
+    /* Verdict */
+    .lab-verdict-section { opacity: 0.2; pointer-events: none; transition: opacity 0.5s; }
+    .lab-verdict-section.unlocked { opacity: 1; pointer-events: all; }
+    .lab-verdict-label { text-align: center; font-size: 11px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(0,170,255,0.45); margin-bottom: 14px; }
+    .lab-verdict-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+    .lab-verdict-btn { padding: 18px 16px; border-radius: 14px; border: 2px solid transparent; font-family: 'Bangers', cursive; font-size: 22px; letter-spacing: 0.06em; cursor: pointer; transition: all 0.2s; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .lab-verdict-btn small { font-family: 'Plus Jakarta Sans',sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.55; }
+    .lab-verdict-scam { background: rgba(204,0,51,0.07); border-color: rgba(255,34,72,0.3); color: #ff4466; }
+    .lab-verdict-scam:hover { background: rgba(204,0,51,0.15); border-color: #ff2248; transform: translateY(-2px); }
+    .lab-verdict-legit { background: rgba(34,197,94,0.07); border-color: rgba(34,197,94,0.3); color: #4ade80; }
+    .lab-verdict-legit:hover { background: rgba(34,197,94,0.15); border-color: #4ade80; transform: translateY(-2px); }
+
+    /* Lab result */
+    .lab-result { display: none; border-radius: 14px; padding: 20px 24px; animation: badgePop 0.4s cubic-bezier(0.34,1.56,0.64,1) both; }
+    .lab-result.show { display: block; }
+    .lab-result-correct { background: rgba(34,197,94,0.07); border: 1.5px solid rgba(34,197,94,0.25); }
+    .lab-result-wrong { background: rgba(204,0,51,0.07); border: 1.5px solid rgba(255,34,72,0.25); }
+    .lab-result h4 { font-family: 'Bangers', cursive; font-size: 28px; letter-spacing: 0.06em; margin-bottom: 8px; }
+    .lab-result-correct h4 { color: #4ade80; }
+    .lab-result-wrong h4 { color: #ff4466; }
+    .lab-result p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.65; }
+    .lab-chip-analysis { margin-top: 12px; background: rgba(0,60,140,0.15); border: 1px solid rgba(0,170,255,0.15); border-radius: 8px; padding: 12px 14px; font-size: 12px; color: #7dd3fc; line-height: 1.6; display: flex; gap: 10px; align-items: flex-start; }
+    .lab-chip-analysis img { height: 36px; width: auto; background: transparent; flex-shrink: 0; }
+
+    /* Next case / restart */
+    .lab-next-row { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+    .lab-next-btn { padding: 10px 22px; background: linear-gradient(135deg,#0055cc,#0af); color: #fff; border: none; border-radius: 8px; font-size: 13px; font-weight: 800; cursor: pointer; transition: transform 0.18s; }
+    .lab-next-btn:hover { transform: translateY(-2px); }
+    .lab-reset-btn { padding: 10px 22px; background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.6); border: 1.5px solid rgba(255,255,255,0.12); border-radius: 8px; font-size: 13px; font-weight: 800; cursor: pointer; transition: all 0.18s; }
+    .lab-reset-btn:hover { background: rgba(255,255,255,0.1); }
+
+    @media (max-width: 900px) {
+      .lab-layout { grid-template-columns: 1fr; }
+      .lab-chip-col { flex-direction: row; position: static; }
+      .lab-chip-img { height: 80px; }
+      .lab-evidence-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── FOOTER (inline, matches home) ── */
+
+    .footer { background: #080010; border-top: 1px solid rgba(255,255,255,0.07); padding: 64px 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; padding-bottom: 48px; }
+    .footer-logo-circle-link { display: inline-block; margin-bottom: 16px; }
+    .footer-logo-circle { width: 72px; height: 72px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.18); }
+    .footer-logo-img { width: 100% !important; height: 100% !important; object-fit: contain !important; display: block !important; filter: none !important; }
+    .footer-brand > p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; }
+    .footer-partner-logos { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+    .footer-certin-logo { height: 36px; width: auto; max-width: 200px; object-fit: contain; background: #fff; border-radius: 6px; padding: 4px 8px; }
+    .footer-socials { display: flex; gap: 12px; flex-wrap: wrap; }
+    .footer-socials a { font-size: 13px; color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+    .footer-socials a:hover { color: var(--primary); }
+    .footer-links-group { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .footer-col h5 { font-family: var(--font-ui); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 13px; font-weight: 400; color: var(--text-secondary); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--primary); }
+    .footer-cta-link { color: var(--primary) !important; font-weight: 500 !important; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 24px 0; text-align: center; }
+    .footer-bottom p { font-size: 12px; color: var(--text-secondary); }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       NCO — NATIONAL CYBER OLYMPIAD
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .pnc-nco {
+      background: #010006;
+      position: relative;
+      overflow: hidden;
+      padding: 0 0 80px;
+    }
+    .pnc-nco::before {
+      content: '';
+      position: absolute;
+      top: -120px; left: 50%;
+      transform: translateX(-50%);
+      width: 900px; height: 500px;
+      background: radial-gradient(ellipse at 50% 0%, rgba(255,153,51,0.12) 0%, rgba(255,103,0,0.05) 40%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ── Announcement banner ── */
+    .nco-banner {
+      background: linear-gradient(90deg, rgba(255,153,51,0.08), rgba(255,103,0,0.12), rgba(255,153,51,0.08));
+      border-bottom: 1px solid rgba(255,153,51,0.2);
+      padding: 10px 24px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ff9933;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+    .nco-banner-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #ff9933;
+      animation: ncoGlow 1.4s ease-in-out infinite;
+    }
+    @keyframes ncoGlow {
+      0%,100% { opacity: 1; transform: scale(1); box-shadow: 0 0 6px rgba(255,153,51,0.8); }
+      50% { opacity: 0.5; transform: scale(0.7); box-shadow: none; }
+    }
+
+    /* ── Stage header ── */
+    .nco-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .nco-stage {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      padding-top: 60px;
+    }
+    @media (max-width: 900px) {
+      .nco-stage { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    /* ── Left panel ── */
+    .nco-left {}
+    .nco-overline {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.28em;
+      text-transform: uppercase; color: #ff9933;
+      display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+    }
+    .nco-overline::before { content: ''; flex: 0 0 30px; height: 1.5px; background: #ff9933; }
+    .nco-title {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(38px, 5vw, 58px);
+      letter-spacing: 0.04em;
+      line-height: 1.05;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .nco-title span { color: #ff9933; }
+    .nco-tagline {
+      font-size: 14px; color: rgba(255,255,255,0.5);
+      line-height: 1.7; margin-bottom: 28px; max-width: 420px;
+    }
+
+    /* CHIP invite block */
+    .nco-chip-invite {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: rgba(0,80,200,0.08);
+      border: 1.5px solid rgba(0,160,255,0.18);
+      border-radius: 14px; padding: 18px 20px;
+      margin-bottom: 28px;
+    }
+    .nco-chip-invite img { height: 80px; width: auto; background: transparent; flex-shrink: 0; }
+    .nco-chip-words { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.65; }
+    .nco-chip-words strong { color: #60c8ff; }
+
+    /* Countdown */
+    .nco-countdown {
+      background: rgba(255,153,51,0.06);
+      border: 1.5px solid rgba(255,153,51,0.2);
+      border-radius: 14px; padding: 18px 20px;
+      margin-bottom: 28px;
+    }
+    .nco-countdown-label {
+      font-size: 10px; font-weight: 800; letter-spacing: 0.2em;
+      text-transform: uppercase; color: rgba(255,153,51,0.6);
+      margin-bottom: 12px;
+    }
+    .nco-clock {
+      display: flex; gap: 8px; align-items: center;
+    }
+    .nco-clock-unit {
+      text-align: center; flex: 1;
+    }
+    .nco-clock-num {
+      font-family: 'Bangers', cursive;
+      font-size: 36px; letter-spacing: 0.04em; color: #ff9933;
+      line-height: 1;
+    }
+    .nco-clock-lbl {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: rgba(255,153,51,0.5);
+      margin-top: 2px;
+    }
+    .nco-clock-sep {
+      font-family: 'Bangers', cursive;
+      font-size: 28px; color: rgba(255,153,51,0.35);
+      padding-bottom: 10px;
+    }
+    .nco-deadline { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 8px; }
+
+    /* Tracks */
+    .nco-tracks { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+    .nco-track {
+      border-radius: 12px; padding: 18px 16px;
+      border: 1.5px solid transparent;
+      transition: border-color 0.2s, background 0.2s;
+      cursor: pointer;
+    }
+    .nco-track--quiz {
+      background: rgba(0,120,255,0.07);
+      border-color: rgba(0,150,255,0.2);
+    }
+    .nco-track--reel {
+      background: rgba(160,40,220,0.07);
+      border-color: rgba(180,60,240,0.2);
+    }
+    .nco-track:hover.nco-track--quiz { border-color: rgba(0,150,255,0.5); background: rgba(0,120,255,0.12); }
+    .nco-track:hover.nco-track--reel { border-color: rgba(180,60,240,0.5); background: rgba(160,40,220,0.12); }
+    .nco-track-icon { font-size: 28px; margin-bottom: 8px; }
+    .nco-track-name { font-family: 'Bangers', cursive; font-size: 18px; letter-spacing: 0.06em; color: #fff; margin-bottom: 4px; }
+    .nco-track-desc { font-size: 11px; color: rgba(255,255,255,0.4); line-height: 1.5; }
+    .nco-track-pill { display: inline-block; margin-top: 8px; font-size: 9px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; }
+    .nco-track--quiz .nco-track-pill { background: rgba(0,150,255,0.15); color: #60a5fa; border: 1px solid rgba(0,150,255,0.25); }
+    .nco-track--reel .nco-track-pill { background: rgba(180,60,240,0.15); color: #c084fc; border: 1px solid rgba(180,60,240,0.25); }
+
+    /* Prize mini-podium */
+    .nco-prizes { display: flex; gap: 8px; align-items: flex-end; }
+    .nco-prize {
+      flex: 1; border-radius: 10px; padding: 14px 10px;
+      text-align: center; border: 1.5px solid transparent;
+    }
+    .nco-prize--gold { background: rgba(255,215,0,0.07); border-color: rgba(255,215,0,0.3); }
+    .nco-prize--silver { background: rgba(192,192,192,0.06); border-color: rgba(192,192,192,0.2); }
+    .nco-prize--bronze { background: rgba(205,127,50,0.06); border-color: rgba(205,127,50,0.2); }
+    .nco-prize-medal { font-size: 22px; margin-bottom: 6px; }
+    .nco-prize-rank { font-family: 'Bangers', cursive; font-size: 14px; letter-spacing: 0.08em; }
+    .nco-prize--gold .nco-prize-rank { color: gold; }
+    .nco-prize--silver .nco-prize-rank { color: #C0C0C0; }
+    .nco-prize--bronze .nco-prize-rank { color: #cd7f32; }
+    .nco-prize-item { font-size: 9px; color: rgba(255,255,255,0.35); margin-top: 2px; line-height: 1.5; }
+
+    /* ── Right panel — Registration form ── */
+    .nco-right { position: sticky; top: 90px; }
+    .nco-form-card {
+      background: rgba(255,255,255,0.03);
+      border: 1.5px solid rgba(255,153,51,0.18);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .nco-form-header {
+      background: linear-gradient(135deg, rgba(255,153,51,0.15), rgba(255,80,0,0.1));
+      border-bottom: 1px solid rgba(255,153,51,0.15);
+      padding: 20px 24px 18px;
+    }
+    .nco-form-header-title {
+      font-family: 'Bangers', cursive;
+      font-size: 22px; letter-spacing: 0.06em; color: #fff;
+      margin-bottom: 4px;
+    }
+    .nco-form-header-sub { font-size: 11px; color: rgba(255,255,255,0.4); }
+
+    /* Step indicator */
+    .nco-steps {
+      display: flex; gap: 0; padding: 0 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.2);
+    }
+    .nco-step {
+      flex: 1; padding: 12px 8px; text-align: center;
+      font-size: 10px; font-weight: 800; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.2);
+      border-bottom: 2px solid transparent;
+      transition: all 0.25s;
+    }
+    .nco-step.active { color: #ff9933; border-bottom-color: #ff9933; }
+    .nco-step.done { color: #22c55e; border-bottom-color: #22c55e; }
+
+    /* Form body */
+    .nco-form-body { padding: 24px; }
+    .nco-form-step { display: none; }
+    .nco-form-step.active { display: block; animation: comicSlideIn 0.35s ease both; }
+    .nco-field { margin-bottom: 16px; }
+    .nco-field label {
+      display: block; font-size: 10px; font-weight: 800;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); margin-bottom: 6px;
+    }
+    .nco-input {
+      width: 100%; padding: 11px 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: 8px; color: #fff; font-size: 13px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      outline: none; transition: border-color 0.2s, background 0.2s;
+      box-sizing: border-box;
+    }
+    .nco-input:focus { border-color: rgba(255,153,51,0.5); background: rgba(255,153,51,0.05); }
+    .nco-input.error { border-color: rgba(255,60,80,0.5); }
+    select.nco-input { appearance: none; cursor: pointer; }
+    select.nco-input option { background: #111; color: #fff; }
+    .nco-input::placeholder { color: rgba(255,255,255,0.2); }
+
+    /* Track choice buttons */
+    .nco-track-choices { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+    .nco-track-choice {
+      padding: 12px 8px; border-radius: 10px; text-align: center;
+      border: 1.5px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.03);
+      cursor: pointer; transition: all 0.18s;
+      color: rgba(255,255,255,0.4); font-size: 11px; font-weight: 700;
+    }
+    .nco-track-choice:hover { border-color: rgba(255,153,51,0.35); color: rgba(255,255,255,0.7); }
+    .nco-track-choice.selected { border-color: #ff9933; background: rgba(255,153,51,0.1); color: #ff9933; }
+    .nco-track-choice .ntc-icon { font-size: 20px; display: block; margin-bottom: 4px; }
+
+    /* Navigation buttons */
+    .nco-btn-row { display: flex; gap: 10px; margin-top: 20px; }
+    .nco-btn-next {
+      flex: 1; padding: 13px; border: none; border-radius: 10px;
+      background: linear-gradient(135deg, #ff9933, #ff6600);
+      color: #fff; font-size: 14px; font-weight: 800;
+      cursor: pointer; letter-spacing: 0.04em;
+      transition: transform 0.18s, box-shadow 0.18s;
+      box-shadow: 0 6px 20px rgba(255,120,0,0.35);
+    }
+    .nco-btn-next:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(255,120,0,0.5); }
+    .nco-btn-back {
+      padding: 13px 18px; border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: 10px; background: transparent;
+      color: rgba(255,255,255,0.4); font-size: 13px; font-weight: 700;
+      cursor: pointer; transition: all 0.18s;
+    }
+    .nco-btn-back:hover { border-color: rgba(255,255,255,0.25); color: rgba(255,255,255,0.7); }
+
+    /* Error message */
+    .nco-field-error { font-size: 10px; color: #ff4466; margin-top: 4px; display: none; }
+    .nco-field-error.show { display: block; }
+
+    /* ── Success screen ── */
+    .nco-success { display: none; text-align: center; padding: 28px 20px; }
+    .nco-success.show { display: block; animation: badgePop 0.6s cubic-bezier(0.34,1.56,0.64,1) both; }
+    .nco-success-trophy { font-size: 56px; margin-bottom: 12px; }
+    .nco-success-title {
+      font-family: 'Bangers', cursive; font-size: 26px;
+      letter-spacing: 0.06em; color: #ff9933; margin-bottom: 8px;
+    }
+    .nco-success-name { font-size: 18px; color: #fff; font-weight: 800; margin-bottom: 6px; }
+    .nco-success-code {
+      display: inline-block; font-size: 11px; font-weight: 800;
+      letter-spacing: 0.15em; color: #22c55e;
+      background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25);
+      border-radius: 6px; padding: 4px 14px; margin-bottom: 16px;
+    }
+    .nco-success-detail { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.7; margin-bottom: 20px; }
+    .nco-success-next {
+      font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.25); margin-bottom: 10px;
+    }
+    .nco-next-steps { text-align: left; }
+    .nco-next-step {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 12px; border-radius: 8px;
+      background: rgba(255,255,255,0.03);
+      margin-bottom: 6px; font-size: 11px; color: rgba(255,255,255,0.5);
+    }
+    .nco-next-step-num {
+      flex-shrink: 0; width: 18px; height: 18px; border-radius: 50%;
+      background: rgba(255,153,51,0.15); border: 1px solid rgba(255,153,51,0.3);
+      color: #ff9933; font-size: 9px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nco-mygov-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 16px; padding: 12px 24px;
+      background: linear-gradient(135deg, #ff9933, #ff6600);
+      color: #fff; border-radius: 10px; font-size: 13px; font-weight: 800;
+      text-decoration: none; transition: transform 0.18s;
+    }
+    .nco-mygov-btn:hover { transform: translateY(-2px); }
+
+    /* Stats strip */
+    .nco-stats {
+      display: flex; gap: 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin-top: 48px;
+    }
+    .nco-stat {
+      flex: 1; padding: 20px 16px; text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+    .nco-stat:last-child { border-right: none; }
+    .nco-stat-num {
+      font-family: 'Bangers', cursive; font-size: 30px;
+      letter-spacing: 0.04em; color: #ff9933;
+    }
+    .nco-stat-lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-top: 2px; }
+
+    @media (max-width: 640px) {
+      .nco-track-choices { grid-template-columns: 1fr 1fr; }
+      .nco-tracks { grid-template-columns: 1fr; }
+      .nco-prizes { flex-direction: row; }
+      .nco-stats { flex-wrap: wrap; }
+      .nco-stat { flex: 0 0 50%; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    }
+
+    @media (max-width: 640px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-links-group { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="cursorGlow" class="cursor-glow"></div>
+
+  <!-- ── NAV ── -->
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo-suraksha.svg" alt="#Suraksha" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="platform.html">CASK</a></li>
+        <li><a href="surakshak.html">Surakshak</a></li>
+        <li><a href="olympiad.html">Olympiad</a></li>
+        <li><a href="phishnchip.html" class="active">Phish &amp; Chip</a></li>
+        <li><a href="slanglish.html">Slanglish</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="partner.html">Partner With Us</a></li>
+      </ul>
+      <div class="nav-right">
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="surakshak.html" class="nav-cta">Join the Movement</a>
+      </div>
+      <button class="hamburger" id="hamburger">&#9776;</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="platform.html">CASK</a>
+      <a href="surakshak.html">Surakshak</a>
+      <a href="olympiad.html">Olympiad</a>
+      <a href="phishnchip.html">Phish &amp; Chip</a>
+      <a href="slanglish.html">Slanglish</a>
+      <a href="resources.html">Resources</a>
+      <a href="partner.html">Partner With Us</a>
+      <a href="surakshak.html" class="mobile-cta">Join the Movement</a>
+    </div>
+  </nav>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 1 — HERO
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="pnc-hero halftone">
+    <div class="pnc-hero-blob pnc-blob-phish"></div>
+    <div class="pnc-hero-blob pnc-blob-chip"></div>
+    <div class="pnc-hero-blob pnc-blob-center"></div>
+
+    <p class="pnc-show-label">A Gen Z Cybersecurity Podcast</p>
+
+    <!-- 3-column stage: char | title + CTAs | char -->
+    <div class="pnc-hero-stage">
+
+      <!-- PHISH LEFT COLUMN -->
+      <div class="pnc-hero-char pnc-hero-char--phish">
+        <img src="assets/phish.png" class="pnc-hero-img" alt="PHISH the villain" />
+        <span class="pnc-char-name">🎭 PHISH</span>
+        <div class="pnc-bubble pnc-bubble-phish">
+          🎭 Welcome, dear victim...<br/>I mean, visitor! 😈
+        </div>
+      </div>
+
+      <!-- CENTER COLUMN: title + tagline + CTAs -->
+      <div class="pnc-hero-center">
+        <h1 class="pnc-hero-title">
+          <span class="pnc-title-the">The</span>
+          <span class="pnc-title-phish">PHISH</span><span class="pnc-title-amp"> &amp; </span><span class="pnc-title-chip">CHIP</span>
+          <span class="pnc-title-show">Show</span>
+        </h1>
+        <p class="pnc-tagline">One Scammer &nbsp;·&nbsp; One Detective &nbsp;·&nbsp; One Decision</p>
+        <div class="pnc-cta-row">
+          <a href="#interactive-comic" class="pnc-btn pnc-btn-primary">🎮 Play the Comic</a>
+          <a href="#episodes" class="pnc-btn pnc-btn-secondary">📺 Watch Episodes</a>
+        </div>
+      </div>
+
+      <!-- CHIP RIGHT COLUMN -->
+      <div class="pnc-hero-char pnc-hero-char--chip">
+        <img src="assets/chip.png" class="pnc-hero-img" alt="CHIP the detective" />
+        <span class="pnc-char-name">🤖 CHIP</span>
+        <div class="pnc-bubble pnc-bubble-chip">
+          🤖 I've got your back.<br/>Let's bust some scams! 🔍
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="pnc-scroll-hint">
+      <div class="pnc-scroll-arrow"></div>
+      Scroll to explore
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 3 — FEATURED EPISODES
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="pnc-episodes" id="episodes">
+    <div class="pnc-episodes-inner">
+      <h2 class="pnc-section-title" style="margin-bottom:8px;">Featured Episodes</h2>
+      <p class="pnc-ep-subtitle">🍿 Every episode is a real cyber trap. Watch — then ask yourself: would YOU have fallen for it?</p>
+
+      <!-- Carousel wrapper — hover to pause -->
+      <div class="pnc-carousel-wrapper">
+        <div class="pnc-carousel-track" id="episodeTrack">
+
+          <!-- ── SET 1 (originals) ── -->
+
+          <!-- EP 1 -->
+          <div class="pnc-ep-card" onclick="document.getElementById('interactive-comic').scrollIntoView({behavior:'smooth'})">
+            <div class="pnc-ep-thumb">
+              <span class="pnc-ep-num">EP 01</span>
+              <span class="pnc-ep-emoji">📧</span>
+            </div>
+            <div class="pnc-ep-body">
+              <span class="pnc-ep-tag pnc-ep-tag-phish">🎭 PHISH Win</span>
+              <h3 class="pnc-ep-title">The ₹50 Lakh Email</h3>
+              <p class="pnc-ep-desc">A single email. A "government scholarship." 400 students fell for it in one week.</p>
+              <span class="pnc-ep-tag pnc-ep-tag-both">📧 Phishing Email</span>
+            </div>
+          </div>
+
+          <!-- EP 2 -->
+          <div class="pnc-ep-card" onclick="document.getElementById('interactive-comic').scrollIntoView({behavior:'smooth'})">
+            <div class="pnc-ep-thumb">
+              <span class="pnc-ep-num">EP 02</span>
+              <span class="pnc-ep-emoji">💬</span>
+            </div>
+            <div class="pnc-ep-body">
+              <span class="pnc-ep-tag pnc-ep-tag-chip">🤖 CHIP Wins</span>
+              <h3 class="pnc-ep-title">Your OTP Is Not a Secret?</h3>
+              <p class="pnc-ep-desc">You'd never share your OTP. Or would you? Phish has 12 ways to make you hand it over.</p>
+              <span class="pnc-ep-tag pnc-ep-tag-both">🔐 OTP Scam</span>
+            </div>
+          </div>
+
+          <!-- EP 3 -->
+          <div class="pnc-ep-card" onclick="document.getElementById('interactive-comic').scrollIntoView({behavior:'smooth'})">
+            <div class="pnc-ep-thumb">
+              <span class="pnc-ep-num">EP 03</span>
+              <span class="pnc-ep-emoji">🎮</span>
+            </div>
+            <div class="pnc-ep-body">
+              <span class="pnc-ep-tag pnc-ep-tag-phish">🎭 PHISH Win</span>
+              <h3 class="pnc-ep-title">Free Skins, Stolen Account</h3>
+              <p class="pnc-ep-desc">Gaming scams prey on FOMO. Free V-bucks. Free skins. All fake. All dangerous.</p>
+              <span class="pnc-ep-tag pnc-ep-tag-both">🎮 Gaming Scam</span>
+            </div>
+          </div>
+
+          <!-- EP 4 -->
+          <div class="pnc-ep-card" onclick="document.getElementById('interactive-comic').scrollIntoView({behavior:'smooth'})">
+            <div class="pnc-ep-thumb">
+              <span class="pnc-ep-num">EP 04</span>
+              <span class="pnc-ep-emoji">❤️</span>
+            </div>
+            <div class="pnc-ep-body">
+              <span class="pnc-ep-tag pnc-ep-tag-chip">🤖 CHIP Wins</span>
+              <h3 class="pnc-ep-title">The 3AM DM Romance</h3>
+              <p class="pnc-ep-desc">They knew your name. Your college. Your schedule. It wasn't love — it was recon.</p>
+              <span class="pnc-ep-tag pnc-ep-tag-both">💔 Romance Fraud</span>
+            </div>
+          </div>
+
+          <!-- EP 5 -->
+          <div class="pnc-ep-card" onclick="document.getElementById('interactive-comic').scrollIntoView({behavior:'smooth'})">
+            <div class="pnc-ep-thumb">
+              <span class="pnc-ep-num">EP 05</span>
+              <span class="pnc-ep-emoji">📲</span>
+            </div>
+            <div class="pnc-ep-body">
+              <span class="pnc-ep-tag pnc-ep-tag-phish">🎭 PHISH Win</span>
+              <h3 class="pnc-ep-title">The Viral Giveaway Trap</h3>
+              <p class="pnc-ep-desc">iPhone. PS5. MacBook. Fake giveaways. Instagram is Phish's playground.</p>
+              <span class="pnc-ep-tag pnc-ep-tag-both">📲 Social Scam</span>
+            </div>
+          </div>
+
+          <!-- ── SET 2 (duplicate for seamless loop) ── -->
+
+          <div class="pnc-ep-card" onclick="document.getElementById('interactive-comic').scrollIntoView({behavior:'smooth'})">
+            <div class="pnc-ep-thumb"><span class="pnc-ep-num">EP 01</span><span class="pnc-ep-emoji">📧</span></div>
+            <div class="pnc-ep-body">
+              <span class="pnc-ep-tag pnc-ep-tag-phish">🎭 PHISH Win</span>
+              <h3 class="pnc-ep-title">The ₹50 Lakh Email</h3>
+              <p class="pnc-ep-desc">A single email. A "government scholarship." 400 students fell for it in one week.</p>
+              <span class="pnc-ep-tag pnc-ep-tag-both">📧 Phishing Email</span>
+            </div>
+          </div>
+
+          <div class="pnc-ep-card" onclick="document.getElementById('interactive-comic').scrollIntoView({behavior:'smooth'})">
+            <div class="pnc-ep-thumb"><span class="pnc-ep-num">EP 02</span><span class="pnc-ep-emoji">💬</span></div>
+            <div class="pnc-ep-body">
+              <span class="pnc-ep-tag pnc-ep-tag-chip">🤖 CHIP Wins</span>
+              <h3 class="pnc-ep-title">Your OTP Is Not a Secret?</h3>
+              <p class="pnc-ep-desc">You'd never share your OTP. Or would you? Phish has 12 ways to make you hand it over.</p>
+              <span class="pnc-ep-tag pnc-ep-tag-both">🔐 OTP Scam</span>
+            </div>
+          </div>
+
+          <div class="pnc-ep-card" onclick="document.getElementById('interactive-comic').scrollIntoView({behavior:'smooth'})">
+            <div class="pnc-ep-thumb"><span class="pnc-ep-num">EP 03</span><span class="pnc-ep-emoji">🎮</span></div>
+            <div class="pnc-ep-body">
+              <span class="pnc-ep-tag pnc-ep-tag-phish">🎭 PHISH Win</span>
+              <h3 class="pnc-ep-title">Free Skins, Stolen Account</h3>
+              <p class="pnc-ep-desc">Gaming scams prey on FOMO. Free V-bucks. Free skins. All fake. All dangerous.</p>
+              <span class="pnc-ep-tag pnc-ep-tag-both">🎮 Gaming Scam</span>
+            </div>
+          </div>
+
+          <div class="pnc-ep-card" onclick="document.getElementById('interactive-comic').scrollIntoView({behavior:'smooth'})">
+            <div class="pnc-ep-thumb"><span class="pnc-ep-num">EP 04</span><span class="pnc-ep-emoji">❤️</span></div>
+            <div class="pnc-ep-body">
+              <span class="pnc-ep-tag pnc-ep-tag-chip">🤖 CHIP Wins</span>
+              <h3 class="pnc-ep-title">The 3AM DM Romance</h3>
+              <p class="pnc-ep-desc">They knew your name. Your college. Your schedule. It wasn't love — it was recon.</p>
+              <span class="pnc-ep-tag pnc-ep-tag-both">💔 Romance Fraud</span>
+            </div>
+          </div>
+
+          <div class="pnc-ep-card" onclick="document.getElementById('interactive-comic').scrollIntoView({behavior:'smooth'})">
+            <div class="pnc-ep-thumb"><span class="pnc-ep-num">EP 05</span><span class="pnc-ep-emoji">📲</span></div>
+            <div class="pnc-ep-body">
+              <span class="pnc-ep-tag pnc-ep-tag-phish">🎭 PHISH Win</span>
+              <h3 class="pnc-ep-title">The Viral Giveaway Trap</h3>
+              <p class="pnc-ep-desc">iPhone. PS5. MacBook. Fake giveaways. Instagram is Phish's playground.</p>
+              <span class="pnc-ep-tag pnc-ep-tag-both">📲 Social Scam</span>
+            </div>
+          </div>
+
+        </div><!-- /pnc-carousel-track -->
+      </div><!-- /pnc-carousel-wrapper -->
+
+      <p class="pnc-ep-cta-hint">⏸ Hover over any card to pause &nbsp;·&nbsp; Click any card to play the mission</p>
+
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 2 — MEET THE CHARACTERS
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="pnc-chars" id="characters">
+    <div class="pnc-section-label"><span>The Cast</span></div>
+    <h2 class="pnc-section-title">Meet the Characters</h2>
+
+    <!-- Tab switcher -->
+    <div class="pnc-char-tabs">
+      <button class="pnc-char-tab pnc-char-tab--phish active" onclick="switchCharTab('phish')">
+        🎭 PHISH &mdash; The Villain
+      </button>
+      <span class="pnc-tabs-vs">VS</span>
+      <button class="pnc-char-tab pnc-char-tab--chip" onclick="switchCharTab('chip')">
+        🤖 CHIP &mdash; The Hero
+      </button>
+    </div>
+
+    <!-- Profile showcase -->
+    <div class="pnc-char-showcase">
+
+      <!-- PHISH PROFILE (active by default) -->
+      <div class="pnc-char-profile active" id="profile-phish">
+        <div class="pnc-profile-img-col">
+          <img src="assets/phish.png" class="pnc-profile-img" alt="PHISH" />
+          <div class="pnc-profile-quote">
+            &ldquo;Click now before it&rsquo;s too late! Your account will be suspended in 30 minutes.&rdquo;
+          </div>
+        </div>
+        <div class="pnc-profile-info-col">
+          <p class="pnc-profile-role">The Villain</p>
+          <h3 class="pnc-profile-name pnc-profile-name--phish">PHISH</h3>
+          <p class="pnc-profile-subtitle">Master of Tricks</p>
+          <div class="pnc-card-traits">
+            <div class="pnc-trait"><span class="pnc-trait-icon">🎭</span>Creates fake giveaways &amp; prize scams</div>
+            <div class="pnc-trait"><span class="pnc-trait-icon">📧</span>Sends phishing emails &amp; fake links</div>
+            <div class="pnc-trait"><span class="pnc-trait-icon">⚡</span>Uses urgency &amp; fear to trigger panic</div>
+            <div class="pnc-trait"><span class="pnc-trait-icon">🎪</span>Expert at impersonation &amp; disguise</div>
+          </div>
+          <div class="pnc-stat">
+            <div class="pnc-stat-header"><span>Deception Skill</span><span>97%</span></div>
+            <div class="pnc-stat-bar"><div class="pnc-stat-fill" data-w="97%" style="width:0"></div></div>
+          </div>
+          <div class="pnc-stat">
+            <div class="pnc-stat-header"><span>Urgency Tactics</span><span>92%</span></div>
+            <div class="pnc-stat-bar"><div class="pnc-stat-fill" data-w="92%" style="width:0"></div></div>
+          </div>
+          <div class="pnc-stat" style="margin-bottom:0">
+            <div class="pnc-stat-header"><span>Victims per Day</span><span>3.4B globally</span></div>
+            <div class="pnc-stat-bar"><div class="pnc-stat-fill" data-w="85%" style="width:0"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHIP PROFILE (hidden by default) -->
+      <div class="pnc-char-profile" id="profile-chip">
+        <div class="pnc-profile-img-col">
+          <img src="assets/chip.png" class="pnc-profile-img" alt="CHIP" />
+          <div class="pnc-profile-quote">
+            &ldquo;Let&rsquo;s verify first. Urgency is a tactic. Take a breath and check the source.&rdquo;
+          </div>
+        </div>
+        <div class="pnc-profile-info-col">
+          <p class="pnc-profile-role">The Hero</p>
+          <h3 class="pnc-profile-name pnc-profile-name--chip">CHIP</h3>
+          <p class="pnc-profile-subtitle">Cyber Detective</p>
+          <div class="pnc-card-traits">
+            <div class="pnc-trait"><span class="pnc-trait-icon">🔍</span>Spots red flags instantly</div>
+            <div class="pnc-trait"><span class="pnc-trait-icon">🛡️</span>Verifies senders &amp; links before clicking</div>
+            <div class="pnc-trait"><span class="pnc-trait-icon">🧠</span>Investigates before reacting</div>
+            <div class="pnc-trait"><span class="pnc-trait-icon">📡</span>Trained on 10 billion cyber threats</div>
+          </div>
+          <div class="pnc-stat">
+            <div class="pnc-stat-header"><span>Detection Accuracy</span><span>99.4%</span></div>
+            <div class="pnc-stat-bar"><div class="pnc-stat-fill" data-w="99%" style="width:0"></div></div>
+          </div>
+          <div class="pnc-stat">
+            <div class="pnc-stat-header"><span>Response Speed</span><span>0.3s</span></div>
+            <div class="pnc-stat-bar"><div class="pnc-stat-fill" data-w="88%" style="width:0"></div></div>
+          </div>
+          <div class="pnc-stat" style="margin-bottom:0">
+            <div class="pnc-stat-header"><span>Scams Stopped</span><span>1.2M+ &amp; counting</span></div>
+            <div class="pnc-stat-bar"><div class="pnc-stat-fill" data-w="95%" style="width:0"></div></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /pnc-char-showcase -->
+  </section>
+
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 4 — WATCH THE SHOW
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="pnc-watch" id="watch-show">
+    <div class="pnc-watch-inner">
+
+      <div class="watch-hdr">
+        <span class="watch-overline">— New Episodes Weekly —</span>
+        <h2 class="watch-title">Watch the Show</h2>
+        <p class="watch-sub">Real scams. Real stories. Decoded for Gen Z.</p>
+      </div>
+
+      <div class="watch-layout">
+
+        <!-- LEFT: YouTube video player -->
+        <div class="watch-player-col">
+          <div class="watch-player-wrap">
+            <iframe id="watchIframe"
+              src="https://www.youtube-nocookie.com/embed/videoseries?list=PLplaceholderID&autoplay=0&rel=0&modestbranding=1&color=white"
+              title="Phish &amp; Chip Show — Episode 01"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="now-bar">
+            <div class="now-dot"></div>
+            <div class="now-label" id="nowLabel">Ep 01 — The Lottery Trap: How PHISH Steals Your Dreams</div>
+            <div class="now-tag">Phish &amp; Chip</div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Auto-scrolling episode playlist -->
+        <div class="watch-playlist">
+          <div class="plist-hd">
+            <span class="plist-hd-t">🎬 All Episodes</span>
+            <span class="plist-hd-b">↕ scroll</span>
+          </div>
+          <div class="plist-scroll-wrap">
+            <div class="plist-track" id="plistTrack">
+            <div class="plist-card active" onclick="switchEp('01',this)">
+              <div class="plist-thumb"><span class="plist-thumb-ep">EP 01</span></div>
+              <div class="plist-info">
+                <div class="plist-ep-num">Episode 01</div>
+                <div class="plist-ep-title">How PHISH Steals Your Dreams: The Lottery Trap</div>
+                <div class="plist-ep-dur">🎧 23 min</div>
+              </div>
+            </div>
+            <div class="plist-card" onclick="switchEp('02',this)">
+              <div class="plist-thumb"><span class="plist-thumb-ep">EP 02</span></div>
+              <div class="plist-info">
+                <div class="plist-ep-num">Episode 02</div>
+                <div class="plist-ep-title">Career Fraud in the Age of LinkedIn: Fake Job Scam</div>
+                <div class="plist-ep-dur">🎧 27 min</div>
+              </div>
+            </div>
+            <div class="plist-card" onclick="switchEp('03',this)">
+              <div class="plist-thumb"><span class="plist-thumb-ep">EP 03</span></div>
+              <div class="plist-info">
+                <div class="plist-ep-num">Episode 03</div>
+                <div class="plist-ep-title">When Love Is a Lie Online: Romance Scam</div>
+                <div class="plist-ep-dur">🎧 31 min</div>
+              </div>
+            </div>
+            <div class="plist-card" onclick="switchEp('04',this)">
+              <div class="plist-thumb"><span class="plist-thumb-ep">EP 04</span></div>
+              <div class="plist-info">
+                <div class="plist-ep-num">Episode 04</div>
+                <div class="plist-ep-title">Digital Payments &amp; Invisible Thieves: UPI Fraud</div>
+                <div class="plist-ep-dur">🎧 25 min</div>
+              </div>
+            </div>
+            <div class="plist-card" onclick="switchEp('05',this)">
+              <div class="plist-thumb"><span class="plist-thumb-ep">EP 05</span></div>
+              <div class="plist-info">
+                <div class="plist-ep-num">Episode 05</div>
+                <div class="plist-ep-title">Is That Really Your Boss?: Deepfake Alert</div>
+                <div class="plist-ep-dur">🎧 29 min</div>
+              </div>
+            </div>
+            <div class="plist-card" onclick="switchEp('06',this)">
+              <div class="plist-thumb"><span class="plist-thumb-ep">EP 06</span></div>
+              <div class="plist-info">
+                <div class="plist-ep-num">Episode 06</div>
+                <div class="plist-ep-title">How PHISH Cracks Accounts in Seconds: Password Heist</div>
+                <div class="plist-ep-dur">🎧 22 min</div>
+              </div>
+            </div>
+            <div class="plist-card" onclick="switchEp('07',this)">
+              <div class="plist-thumb"><span class="plist-thumb-ep">EP 07</span></div>
+              <div class="plist-info">
+                <div class="plist-ep-num">Episode 07</div>
+                <div class="plist-ep-title">The Art of Human Hacking: Social Engineering</div>
+                <div class="plist-ep-dur">🎧 34 min</div>
+              </div>
+            </div>
+            <div class="plist-card" onclick="switchEp('08',this)">
+              <div class="plist-thumb"><span class="plist-thumb-ep">EP 08</span></div>
+              <div class="plist-info">
+                <div class="plist-ep-num">Episode 08</div>
+                <div class="plist-ep-title">When Your Account Gets Stolen Mid-Match: Gaming Scams</div>
+                <div class="plist-ep-dur">🎧 26 min</div>
+              </div>
+            </div>
+            <div class="plist-card" onclick="switchEp('01',this)">
+              <div class="plist-thumb"><span class="plist-thumb-ep">EP 01</span></div>
+              <div class="plist-info">
+                <div class="plist-ep-num">Episode 01</div>
+                <div class="plist-ep-title">How PHISH Steals Your Dreams: The Lottery Trap</div>
+                <div class="plist-ep-dur">🎧 23 min</div>
+              </div>
+            </div>
+            <div class="plist-card" onclick="switchEp('02',this)">
+              <div class="plist-thumb"><span class="plist-thumb-ep">EP 02</span></div>
+              <div class="plist-info">
+                <div class="plist-ep-num">Episode 02</div>
+                <div class="plist-ep-title">Career Fraud in the Age of LinkedIn: Fake Job Scam</div>
+                <div class="plist-ep-dur">🎧 27 min</div>
+              </div>
+            </div>
+            <div class="plist-card" onclick="switchEp('03',this)">
+              <div class="plist-thumb"><span class="plist-thumb-ep">EP 03</span></div>
+              <div class="plist-info">
+                <div class="plist-ep-num">Episode 03</div>
+                <div class="plist-ep-title">When Love Is a Lie Online: Romance Scam</div>
+                <div class="plist-ep-dur">🎧 31 min</div>
+              </div>
+            </div>
+            <div class="plist-card" onclick="switchEp('04',this)">
+              <div class="plist-thumb"><span class="plist-thumb-ep">EP 04</span></div>
+              <div class="plist-info">
+                <div class="plist-ep-num">Episode 04</div>
+                <div class="plist-ep-title">Digital Payments &amp; Invisible Thieves: UPI Fraud</div>
+                <div class="plist-ep-dur">🎧 25 min</div>
+              </div>
+            </div>
+            <div class="plist-card" onclick="switchEp('05',this)">
+              <div class="plist-thumb"><span class="plist-thumb-ep">EP 05</span></div>
+              <div class="plist-info">
+                <div class="plist-ep-num">Episode 05</div>
+                <div class="plist-ep-title">Is That Really Your Boss?: Deepfake Alert</div>
+                <div class="plist-ep-dur">🎧 29 min</div>
+              </div>
+            </div>
+            <div class="plist-card" onclick="switchEp('06',this)">
+              <div class="plist-thumb"><span class="plist-thumb-ep">EP 06</span></div>
+              <div class="plist-info">
+                <div class="plist-ep-num">Episode 06</div>
+                <div class="plist-ep-title">How PHISH Cracks Accounts in Seconds: Password Heist</div>
+                <div class="plist-ep-dur">🎧 22 min</div>
+              </div>
+            </div>
+            <div class="plist-card" onclick="switchEp('07',this)">
+              <div class="plist-thumb"><span class="plist-thumb-ep">EP 07</span></div>
+              <div class="plist-info">
+                <div class="plist-ep-num">Episode 07</div>
+                <div class="plist-ep-title">The Art of Human Hacking: Social Engineering</div>
+                <div class="plist-ep-dur">🎧 34 min</div>
+              </div>
+            </div>
+            <div class="plist-card" onclick="switchEp('08',this)">
+              <div class="plist-thumb"><span class="plist-thumb-ep">EP 08</span></div>
+              <div class="plist-info">
+                <div class="plist-ep-num">Episode 08</div>
+                <div class="plist-ep-title">When Your Account Gets Stolen Mid-Match: Gaming Scams</div>
+                <div class="plist-ep-dur">🎧 26 min</div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 5 — SPOT THE PHISH CHALLENGE
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="pnc-spot" id="spot-the-phish">
+    <div class="spot-inner">
+
+      <div class="spot-header">
+        <span class="spot-overline">— The Real Game —</span>
+        <h2 class="spot-title">Spot the Phish</h2>
+        <p class="spot-subtitle">Watch PHISH corrupt a real email. Click every suspicious element before time runs out.</p>
+      </div>
+
+      <!-- Round progress dots -->
+      <div class="spot-rounds-bar">
+        <div class="spot-rpip current" id="srpip-1">1</div>
+        <div class="spot-rpip" id="srpip-2">2</div>
+        <div class="spot-rpip" id="srpip-3">3</div>
+        <div class="spot-rpip" id="srpip-4">4</div>
+        <div class="spot-rpip" id="srpip-5">5</div>
+      </div>
+
+      <!-- CHIP welcome bar -->
+      <div class="spot-chip-welcome">
+        <img src="assets/chip.png" class="spot-chip-img" alt="CHIP" />
+        <div>
+          <div class="spot-chip-name">🤖 Detective CHIP</div>
+          <div class="spot-chip-dialogue" id="chipDialogue">
+            <strong>Hey! Welcome to my lab.</strong> I'm going to show you a normal email. Then PHISH will sneak in and corrupt it.<br/>
+            Your job: <strong>click every element PHISH tampered with.</strong> No hints — use your instincts!
+          </div>
+        </div>
+      </div>
+
+      <!-- Game area (shown per-round) -->
+      <div id="spot-game-area">
+        <!-- Round 1 -->
+        <div class="spot-round" id="spot-round-1">
+          <div class="spot-arena">
+            <div class="spot-phish-col">
+              <img src="assets/phish.png" class="spot-phish-char" id="sphish-1" alt="PHISH" />
+              <div class="spot-phish-label">PHISH IS HERE!</div>
+            </div>
+            <div class="spot-email-col">
+              <div class="spot-found-bar">
+                <span>Found: <span class="spot-found-count" id="sfound-1">0</span> / 3 phishes</span>
+                <span class="spot-round-tag">⚡ ROUND 1 — BEGINNER</span>
+              </div>
+              <div class="spot-email-mock" id="semail-1">
+                <div class="spot-email-titlebar">
+                  <div class="spot-email-dot"></div><div class="spot-email-dot"></div><div class="spot-email-dot"></div>
+                  <span class="spot-email-tabname">📧 Mail — Inbox</span>
+                </div>
+                <div class="spot-email-body">
+                  <div class="spot-email-field"><span class="spot-email-field-label">FROM</span><span class="spot-email-field-val"><span class="spot-sender-clean">alerts@sbi.co.in</span><span class="spot-sender-phish phish-target" data-round="1" onclick="spotClick(this,1,3,'sfound-1','sresult-1','snext-1')">noreply@sbi.secure-alerts.net</span></span></div>
+                  <div class="spot-email-field"><span class="spot-email-field-label">TO</span><span class="spot-email-field-val">customer@gmail.com</span></div>
+                  <div class="spot-email-field"><span class="spot-email-field-label">DATE</span><span class="spot-email-field-val">Today, 3:47 AM</span></div>
+                  <div class="spot-email-divider"></div>
+                  <div class="spot-email-subject-line"><span class="spot-subject-clean">Your SBI account statement is ready</span><span class="spot-urgent-phish phish-target" data-round="1" onclick="spotClick(this,1,3,'sfound-1','sresult-1','snext-1')">🚨 URGENT: Your SBI account has been PERMANENTLY blocked</span></div>
+                  <div class="spot-email-content">
+                    Dear Valued Customer,<br/><br/>
+                    <span class="spot-urgent-clean">Your monthly account statement for May 2025 is now available. Log in to view it.</span>
+                    <span class="spot-urgent-phish" style="display:none">We have detected suspicious activity. Your account will be permanently closed unless you verify within <strong>2 hours</strong>.</span>
+                    <br/><br/>
+                    <span class="spot-link-clean"><a class="spot-email-cta-btn spot-cta-clean">View Statement →</a></span>
+                    <span class="spot-link-phish"><a class="spot-email-cta-btn spot-cta-phish phish-target" data-round="1" onclick="spotClick(this,1,3,'sfound-1','sresult-1','snext-1')">Verify My Account Now →</a></span>
+                  </div>
+                </div>
+              </div>
+              <div class="spot-round-result spot-round-result--good" id="sresult-1">🎯 All phishes caught! PHISH is running away!</div>
+              <button class="spot-next-btn" id="snext-1" style="display:none" onclick="spotNext(2)">Next Round →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Round 2 -->
+        <div class="spot-round" id="spot-round-2" style="display:none">
+          <div class="spot-arena">
+            <div class="spot-phish-col">
+              <img src="assets/phish.png" class="spot-phish-char" id="sphish-2" alt="PHISH" />
+              <div class="spot-phish-label">PHISH IS HERE!</div>
+            </div>
+            <div class="spot-email-col">
+              <div class="spot-found-bar">
+                <span>Found: <span class="spot-found-count" id="sfound-2">0</span> / 3 phishes</span>
+                <span class="spot-round-tag">⚡ ROUND 2 — EASY</span>
+              </div>
+              <div class="spot-email-mock" id="semail-2">
+                <div class="spot-email-titlebar">
+                  <div class="spot-email-dot"></div><div class="spot-email-dot"></div><div class="spot-email-dot"></div>
+                  <span class="spot-email-tabname">📦 Delivery Notification</span>
+                </div>
+                <div class="spot-email-body">
+                  <div class="spot-email-field"><span class="spot-email-field-label">FROM</span><span class="spot-email-field-val"><span class="spot-sender-clean">tracking@fedex.com</span><span class="spot-sender-phish phish-target" data-round="2" onclick="spotClick(this,2,3,'sfound-2','sresult-2','snext-2')">support@fedex-india-delivery.net</span></span></div>
+                  <div class="spot-email-field"><span class="spot-email-field-label">TO</span><span class="spot-email-field-val">customer@gmail.com</span></div>
+                  <div class="spot-email-divider"></div>
+                  <div class="spot-email-subject-line"><span class="spot-subject-clean">Your package #FDX-7291 is out for delivery</span><span class="spot-urgent-phish phish-target" data-round="2" onclick="spotClick(this,2,3,'sfound-2','sresult-2','snext-2')">⚠️ Package HELD — Customs fee ₹199 required</span></div>
+                  <div class="spot-email-content">
+                    Dear Customer,<br/><br/>
+                    <span class="spot-urgent-clean">Your package is estimated to arrive today between 2–5 PM.</span>
+                    <span class="spot-urgent-phish" style="display:none">Your international package is being held at customs. Pay ₹199 customs clearance fee immediately to release it.</span>
+                    <br/><br/>
+                    <span class="spot-link-clean"><a class="spot-email-cta-btn spot-cta-clean">Track Package →</a></span>
+                    <span class="spot-link-phish"><a class="spot-email-cta-btn spot-cta-phish phish-target" data-round="2" onclick="spotClick(this,2,3,'sfound-2','sresult-2','snext-2')">Pay ₹199 Customs Fee →</a></span>
+                  </div>
+                </div>
+              </div>
+              <div class="spot-round-result spot-round-result--good" id="sresult-2">🎯 All phishes caught! CHIP is proud of you!</div>
+              <button class="spot-next-btn" id="snext-2" style="display:none" onclick="spotNext(3)">Next Round →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Round 3 -->
+        <div class="spot-round" id="spot-round-3" style="display:none">
+          <div class="spot-arena">
+            <div class="spot-phish-col">
+              <img src="assets/phish.png" class="spot-phish-char" id="sphish-3" alt="PHISH" />
+              <div class="spot-phish-label">PHISH IS HERE!</div>
+            </div>
+            <div class="spot-email-col">
+              <div class="spot-found-bar">
+                <span>Found: <span class="spot-found-count" id="sfound-3">0</span> / 3 phishes</span>
+                <span class="spot-round-tag">⚡ ROUND 3 — MEDIUM</span>
+              </div>
+              <div class="spot-email-mock" id="semail-3">
+                <div class="spot-email-titlebar">
+                  <div class="spot-email-dot"></div><div class="spot-email-dot"></div><div class="spot-email-dot"></div>
+                  <span class="spot-email-tabname">📲 Instagram</span>
+                </div>
+                <div class="spot-email-body">
+                  <div class="spot-email-field"><span class="spot-email-field-label">FROM</span><span class="spot-email-field-val"><span class="spot-sender-clean">security@instagram.com</span><span class="spot-sender-phish phish-target" data-round="3" onclick="spotClick(this,3,3,'sfound-3','sresult-3','snext-3')">noreply@instagram-account-security.com</span></span></div>
+                  <div class="spot-email-divider"></div>
+                  <div class="spot-email-subject-line"><span class="spot-subject-clean">New login detected on your account</span><span class="spot-urgent-phish phish-target" data-round="3" onclick="spotClick(this,3,3,'sfound-3','sresult-3','snext-3')">🔴 Your account will be DISABLED in 24 hours</span></div>
+                  <div class="spot-email-content">
+                    Hi there,<br/><br/>
+                    <span class="spot-urgent-clean">We noticed a new login from Mumbai, India. If this was you, no action needed.</span>
+                    <span class="spot-urgent-phish" style="display:none">Your account has been flagged for policy violations. Verify your identity immediately or your account will be permanently disabled.</span>
+                    <br/><br/>
+                    <span class="spot-link-clean"><a class="spot-email-cta-btn spot-cta-clean">Review Login Activity →</a></span>
+                    <span class="spot-link-phish"><a class="spot-email-cta-btn spot-cta-phish phish-target" data-round="3" onclick="spotClick(this,3,3,'sfound-3','sresult-3','snext-3')">Verify Account Now →</a></span>
+                  </div>
+                </div>
+              </div>
+              <div class="spot-round-result spot-round-result--good" id="sresult-3">🎯 Nicely done! PHISH can't fool you!</div>
+              <button class="spot-next-btn" id="snext-3" style="display:none" onclick="spotNext(4)">Next Round →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Round 4 -->
+        <div class="spot-round" id="spot-round-4" style="display:none">
+          <div class="spot-arena">
+            <div class="spot-phish-col">
+              <img src="assets/phish.png" class="spot-phish-char" id="sphish-4" alt="PHISH" />
+              <div class="spot-phish-label">PHISH IS HERE!</div>
+            </div>
+            <div class="spot-email-col">
+              <div class="spot-found-bar">
+                <span>Found: <span class="spot-found-count" id="sfound-4">0</span> / 3 phishes</span>
+                <span class="spot-round-tag">⚡ ROUND 4 — HARD</span>
+              </div>
+              <div class="spot-email-mock" id="semail-4">
+                <div class="spot-email-titlebar">
+                  <div class="spot-email-dot"></div><div class="spot-email-dot"></div><div class="spot-email-dot"></div>
+                  <span class="spot-email-tabname">💼 Job Alert</span>
+                </div>
+                <div class="spot-email-body">
+                  <div class="spot-email-field"><span class="spot-email-field-label">FROM</span><span class="spot-email-field-val"><span class="spot-sender-clean">careers@infosys.com</span><span class="spot-sender-phish phish-target" data-round="4" onclick="spotClick(this,4,3,'sfound-4','sresult-4','snext-4')">hr.careers@infosys-recruitment-india.xyz</span></span></div>
+                  <div class="spot-email-divider"></div>
+                  <div class="spot-email-subject-line"><span class="spot-subject-clean">Job Opportunity — Software Engineer</span><span class="spot-urgent-phish phish-target" data-round="4" onclick="spotClick(this,4,3,'sfound-4','sresult-4','snext-4')">🎉 You're SELECTED! Pay ₹2,500 Registration Fee</span></div>
+                  <div class="spot-email-content">
+                    Dear Candidate,<br/><br/>
+                    <span class="spot-urgent-clean">We came across your profile on LinkedIn and would like to invite you for an interview for the role of Software Engineer.</span>
+                    <span class="spot-urgent-phish" style="display:none">Congratulations! You have been selected for the role. To confirm your position, pay a <strong>₹2,500 security deposit</strong> via the link below. This is refundable on joining.</span>
+                    <br/><br/>
+                    <span class="spot-link-clean"><a class="spot-email-cta-btn spot-cta-clean">Apply Now →</a></span>
+                    <span class="spot-link-phish"><a class="spot-email-cta-btn spot-cta-phish phish-target" data-round="4" onclick="spotClick(this,4,3,'sfound-4','sresult-4','snext-4')">Pay ₹2,500 Registration →</a></span>
+                  </div>
+                </div>
+              </div>
+              <div class="spot-round-result spot-round-result--good" id="sresult-4">🎯 Expert level! No job ever asks for a deposit!</div>
+              <button class="spot-next-btn" id="snext-4" style="display:none" onclick="spotNext(5)">Final Round →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Round 5 -->
+        <div class="spot-round" id="spot-round-5" style="display:none">
+          <div class="spot-arena">
+            <div class="spot-phish-col">
+              <img src="assets/phish.png" class="spot-phish-char" id="sphish-5" alt="PHISH" />
+              <div class="spot-phish-label">PHISH IS HERE!</div>
+            </div>
+            <div class="spot-email-col">
+              <div class="spot-found-bar">
+                <span>Found: <span class="spot-found-count" id="sfound-5">0</span> / 3 phishes</span>
+                <span class="spot-round-tag">⚡ ROUND 5 — EXPERT</span>
+              </div>
+              <div class="spot-email-mock" id="semail-5">
+                <div class="spot-email-titlebar">
+                  <div class="spot-email-dot"></div><div class="spot-email-dot"></div><div class="spot-email-dot"></div>
+                  <span class="spot-email-tabname">🔒 Google Security</span>
+                </div>
+                <div class="spot-email-body">
+                  <div class="spot-email-field"><span class="spot-email-field-label">FROM</span><span class="spot-email-field-val"><span class="spot-sender-clean">no-reply@accounts.google.com</span><span class="spot-sender-phish phish-target" data-round="5" onclick="spotClick(this,5,3,'sfound-5','sresult-5','snext-5')">security@google.accounts-verify.com</span></span></div>
+                  <div class="spot-email-divider"></div>
+                  <div class="spot-email-subject-line"><span class="spot-subject-clean">Security check-in for your Google Account</span><span class="spot-urgent-phish phish-target" data-round="5" onclick="spotClick(this,5,3,'sfound-5','sresult-5','snext-5')">⚠️ Your Google data will be DELETED in 48 hours</span></div>
+                  <div class="spot-email-content">
+                    Hi,<br/><br/>
+                    <span class="spot-urgent-clean">We'd like you to complete a quick security review. This helps keep your account safe.</span>
+                    <span class="spot-urgent-phish" style="display:none">Due to a policy violation, your Google Account is scheduled for deletion. Verify immediately to prevent data loss and account termination.</span>
+                    <br/><br/>
+                    <span class="spot-link-clean"><a class="spot-email-cta-btn spot-cta-clean">Start Security Review →</a></span>
+                    <span class="spot-link-phish"><a class="spot-email-cta-btn spot-cta-phish phish-target" data-round="5" onclick="spotClick(this,5,3,'sfound-5','sresult-5','snext-5')">Save My Account Now →</a></span>
+                  </div>
+                </div>
+              </div>
+              <div class="spot-round-result spot-round-result--good" id="sresult-5">🏆 LEGEND! You beat all 5 rounds! PHISH is defeated!</div>
+              <button class="spot-next-btn" id="snext-5" style="display:none" onclick="spotComplete()">See Your Score →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Complete screen -->
+      <div class="spot-complete" id="spot-complete-screen" style="display:none">
+        <div class="spot-complete-emoji" id="sCompleteEmoji">🏆</div>
+        <div class="spot-complete-title" id="sCompleteTitle">PHISH HUNTER!</div>
+        <div class="spot-complete-score">You spotted <strong id="sTotalFound">15</strong> / 15 phishes across 5 rounds</div>
+        <div class="spot-chip-welcome" style="max-width:500px;margin:0 auto 24px">
+          <img src="assets/chip.png" class="spot-chip-img" alt="CHIP" />
+          <div class="spot-chip-dialogue" id="sChipFinalMsg">You've got the instincts of a real cyber detective. Keep those eyes sharp!</div>
+        </div>
+        <button class="comic-restart-btn" onclick="spotRestart()" style="display:inline-block">🔄 Play Again</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 6 — CHIP'S DETECTIVE LAB
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="pnc-lab" id="detective-lab">
+    <div class="lab-inner">
+
+      <div class="lab-header">
+        <span class="lab-overline">— Investigation Room —</span>
+        <h2 class="lab-title">Chip's Detective Lab</h2>
+        <p class="lab-subtitle">Study the evidence. Crack the case. Deliver your verdict.</p>
+      </div>
+
+      <!-- Case selector tabs -->
+      <div class="lab-case-tabs">
+        <button class="lab-case-tab active" onclick="labLoadCase(0)">📧 Case 1: Amazon</button>
+        <button class="lab-case-tab" onclick="labLoadCase(1)">💬 Case 2: WhatsApp</button>
+        <button class="lab-case-tab" onclick="labLoadCase(2)">🏦 Case 3: UPI Refund</button>
+      </div>
+
+      <!-- Main layout -->
+      <div class="lab-layout">
+
+        <!-- CHIP column -->
+        <div class="lab-chip-col">
+          <img src="assets/chip.png" class="lab-chip-img" alt="CHIP" />
+          <div class="lab-chip-badge">🤖 Detective CHIP</div>
+          <div class="lab-chip-speech" id="labChipSpeech">
+            A suspicious message landed in our inbox. I've flagged it for investigation.<br/><br/>
+            <strong>Tap each evidence card</strong> to analyze it. When you've studied all 4, deliver your verdict.
+          </div>
+        </div>
+
+        <!-- Case panel -->
+        <div class="lab-case-panel" id="labCasePanel">
+
+          <div class="lab-case-header">
+            <span class="lab-case-tag" id="labCaseTag">🔍 ACTIVE CASE</span>
+            <span class="lab-case-num" id="labCaseNum">CASE #PC-2025-001</span>
+          </div>
+
+          <div class="lab-case-body">
+
+            <!-- Exhibit -->
+            <div class="lab-exhibit">
+              <div class="lab-exhibit-header">📄 EXHIBIT A — SUSPECT MESSAGE</div>
+              <div class="lab-exhibit-body" id="labExhibit">
+                <div class="lab-exhibit-from">FROM: <span id="labExFrom" class="lab-exhibit-highlight">support@amazon-india-help.com</span></div>
+                <div class="lab-exhibit-subject" id="labExSubject">Your Amazon order has been placed on hold</div>
+                <div id="labExBody">
+                  Dear Customer,<br/><br/>
+                  Your Amazon order #408-7291836-5523912 has been placed on hold due to a payment verification issue. Your order will be cancelled in 24 hours unless you re-verify your payment details.<br/><br/>
+                  Please click here to verify: <span class="lab-exhibit-highlight">amazon-india-help.com/verify-payment</span><br/><br/>
+                  — Amazon Customer Service Team
+                </div>
+              </div>
+            </div>
+
+            <!-- Evidence progress -->
+            <div class="lab-progress-row">
+              <div class="lab-progress-text">Evidence analyzed: <span id="labAnalyzed">0</span> / 4</div>
+              <div class="lab-progress-hint">Tap each card to investigate</div>
+            </div>
+
+            <!-- Evidence cards -->
+            <div class="lab-evidence-label">🔎 EVIDENCE CARDS</div>
+            <div class="lab-evidence-grid" id="labEvidenceGrid">
+              <div class="lab-ev-card" id="lev-0" onclick="labAnalyze(0)">
+                <div class="lab-ev-analyzed-check">✓</div>
+                <div class="lab-ev-icon">📮</div>
+                <div class="lab-ev-title">Sender Domain</div>
+                <div class="lab-ev-preview">Tap to analyze the sender address</div>
+                <div class="lab-ev-finding" id="levf-0">
+                  The sender is <strong>amazon-india-help.com</strong> — not amazon.in or amazon.com. Amazon NEVER uses third-party domains for official communications.
+                  <div><span class="lab-ev-flag lab-ev-flag-red">🚩 RED FLAG</span></div>
+                </div>
+              </div>
+              <div class="lab-ev-card" id="lev-1" onclick="labAnalyze(1)">
+                <div class="lab-ev-analyzed-check">✓</div>
+                <div class="lab-ev-icon">🔗</div>
+                <div class="lab-ev-title">Link / URL</div>
+                <div class="lab-ev-preview">Tap to inspect the verification link</div>
+                <div class="lab-ev-finding" id="levf-1">
+                  The link goes to <strong>amazon-india-help.com/verify-payment</strong>. The real Amazon URL is amazon.in — this is a spoofed domain designed to steal your payment info.
+                  <div><span class="lab-ev-flag lab-ev-flag-red">🚩 RED FLAG</span></div>
+                </div>
+              </div>
+              <div class="lab-ev-card" id="lev-2" onclick="labAnalyze(2)">
+                <div class="lab-ev-analyzed-check">✓</div>
+                <div class="lab-ev-icon">⏰</div>
+                <div class="lab-ev-title">Urgency Tactics</div>
+                <div class="lab-ev-preview">Tap to analyze the language used</div>
+                <div class="lab-ev-finding" id="levf-2">
+                  "Cancelled in 24 hours" and "re-verify immediately" are classic urgency tactics. Scammers create panic to stop you thinking clearly.
+                  <div><span class="lab-ev-flag lab-ev-flag-red">🚩 RED FLAG</span></div>
+                </div>
+              </div>
+              <div class="lab-ev-card" id="lev-3" onclick="labAnalyze(3)">
+                <div class="lab-ev-analyzed-check">✓</div>
+                <div class="lab-ev-icon">📦</div>
+                <div class="lab-ev-title">Order Verification</div>
+                <div class="lab-ev-preview">Tap to cross-check order details</div>
+                <div class="lab-ev-finding" id="levf-3">
+                  Amazon shows all order details inside the app. They would never ask you to re-enter payment info via email. If unsure, log in directly to amazon.in.
+                  <div><span class="lab-ev-flag lab-ev-flag-red">🚩 RED FLAG</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Verdict section -->
+            <div class="lab-verdict-section" id="labVerdictSection">
+              <div class="lab-verdict-label">— Deliver Your Verdict —</div>
+              <div class="lab-verdict-row">
+                <button class="lab-verdict-btn lab-verdict-scam" id="lbtn-scam" onclick="labVerdict('scam')">🚨 IT'S A SCAM<small>Phishing / Fraud</small></button>
+                <button class="lab-verdict-btn lab-verdict-legit" id="lbtn-legit" onclick="labVerdict('legit')">✅ IT'S LEGIT<small>Safe to proceed</small></button>
+              </div>
+              <div class="lab-result lab-result-correct" id="lresult-correct">
+                <h4>✅ Correct — It's a Scam!</h4>
+                <p>All 4 evidence flags pointed to phishing. The fake domain, spoofed link, urgency tactics, and impossible request are classic PHISH moves.</p>
+                <div class="lab-chip-analysis">
+                  <img src="assets/chip.png" alt="CHIP" />
+                  <span id="labChipVerdict">Case closed. You'd make a great cyber detective. The golden rule: always check the actual domain in the URL bar, never click from email.</span>
+                </div>
+                <div class="lab-next-row">
+                  <button class="lab-next-btn" id="labNextCaseBtn" onclick="labNextCase()" style="display:none">Next Case →</button>
+                  <button class="lab-reset-btn" onclick="labResetCase()">🔄 Retry This Case</button>
+                </div>
+              </div>
+              <div class="lab-result lab-result-wrong" id="lresult-wrong">
+                <h4>❌ Not quite — This IS a scam.</h4>
+                <p>Look at the evidence again: fake domain, spoofed link, artificial urgency. These are all hallmarks of a phishing attack.</p>
+                <div class="lab-chip-analysis">
+                  <img src="assets/chip.png" alt="CHIP" />
+                  <span>Don't worry — that's why we practice. The domain "amazon-india-help.com" is NOT Amazon. Always check the URL carefully before taking any action.</span>
+                </div>
+                <div class="lab-next-row">
+                  <button class="lab-reset-btn" onclick="labResetCase()">🔄 Try Again</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 8 — NATIONAL CYBER OLYMPIAD
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="pnc-nco" id="nco">
+
+    <!-- Announcement banner -->
+    <div class="nco-banner">
+      <span class="nco-banner-dot"></span>
+      🇮🇳 &nbsp; REGISTRATIONS OPEN — National Cyber Olympiad 2025 · Backed by CERT-In · Hosted on MyGov
+      <span class="nco-banner-dot"></span>
+    </div>
+
+    <div class="nco-inner">
+      <div class="nco-stage">
+
+        <!-- ── LEFT PANEL ── -->
+        <div class="nco-left">
+
+          <div class="nco-overline">National Cyber Olympiad</div>
+          <h2 class="nco-title">Train Hard.<br/>Compete <span>National.</span></h2>
+          <p class="nco-tagline">India's biggest cybersecurity competition for students. Prove you're sharper than PHISH. Represent your school. Win national recognition.</p>
+
+          <!-- CHIP Invite -->
+          <div class="nco-chip-invite">
+            <img src="assets/chip.png" alt="CHIP" />
+            <div class="nco-chip-words">
+              "You've played the comic. You've beaten PHISH in the game. <strong>Now prove it on a national stage.</strong> The NCO isn't just a quiz — it's a movement. Every round you clear, you protect someone who can't protect themselves."
+              <br/><br/>
+              <strong style="color:#ff9933">— Detective CHIP, rooting for you 🤖</strong>
+            </div>
+          </div>
+
+          <!-- Countdown -->
+          <div class="nco-countdown">
+            <div class="nco-countdown-label">⏰ Registration Closes In</div>
+            <div class="nco-clock">
+              <div class="nco-clock-unit"><div class="nco-clock-num" id="nco-days">--</div><div class="nco-clock-lbl">Days</div></div>
+              <div class="nco-clock-sep">:</div>
+              <div class="nco-clock-unit"><div class="nco-clock-num" id="nco-hours">--</div><div class="nco-clock-lbl">Hours</div></div>
+              <div class="nco-clock-sep">:</div>
+              <div class="nco-clock-unit"><div class="nco-clock-num" id="nco-mins">--</div><div class="nco-clock-lbl">Mins</div></div>
+              <div class="nco-clock-sep">:</div>
+              <div class="nco-clock-unit"><div class="nco-clock-num" id="nco-secs">--</div><div class="nco-clock-lbl">Secs</div></div>
+            </div>
+            <div class="nco-deadline">Deadline: 15 August 2025 · Independence Day 🇮🇳</div>
+          </div>
+
+          <!-- Tracks -->
+          <div style="font-size:10px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:10px">Two Competition Tracks</div>
+          <div class="nco-tracks">
+            <div class="nco-track nco-track--quiz">
+              <div class="nco-track-icon">🧠</div>
+              <div class="nco-track-name">Quiz Track</div>
+              <div class="nco-track-desc">Cyber hygiene, privacy, AI threats, scam psychology & digital citizenship. 40 MCQs. 45 minutes.</div>
+              <span class="nco-track-pill">School → State → National</span>
+            </div>
+            <div class="nco-track nco-track--reel">
+              <div class="nco-track-icon">🎬</div>
+              <div class="nco-track-name">Reel Track</div>
+              <div class="nco-track-desc">Make a 30–60 sec video about cyber safety. Best reels get amplified by CERT-In to millions of Indians.</div>
+              <span class="nco-track-pill">Submit → Judge → National</span>
+            </div>
+          </div>
+
+          <!-- Prizes -->
+          <div style="font-size:10px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:10px">Prizes & Recognition</div>
+          <div class="nco-prizes">
+            <div class="nco-prize nco-prize--gold">
+              <div class="nco-prize-medal">🥇</div>
+              <div class="nco-prize-rank">GOLD</div>
+              <div class="nco-prize-item">National Champion<br/>CERT-In Certificate<br/>Cash Prize + Trophy<br/>MyGov Feature</div>
+            </div>
+            <div class="nco-prize nco-prize--silver">
+              <div class="nco-prize-medal">🥈</div>
+              <div class="nco-prize-rank">SILVER</div>
+              <div class="nco-prize-item">State Champion<br/>Silver Certificate<br/>Cash Prize + Medal<br/>School Spotlight</div>
+            </div>
+            <div class="nco-prize nco-prize--bronze">
+              <div class="nco-prize-medal">🥉</div>
+              <div class="nco-prize-rank">BRONZE</div>
+              <div class="nco-prize-item">Top Finalist<br/>Bronze Certificate<br/>Digital Badge<br/>Platform Credits</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ── RIGHT PANEL — Registration form ── -->
+        <div class="nco-right">
+          <div class="nco-form-card">
+
+            <!-- Form header -->
+            <div class="nco-form-header">
+              <div class="nco-form-header-title">🏆 Register for NCO 2025</div>
+              <div class="nco-form-header-sub">Free · Open to students aged 12–19 · All states</div>
+            </div>
+
+            <!-- Step indicator -->
+            <div class="nco-steps">
+              <div class="nco-step active" id="nstep-1">① Personal</div>
+              <div class="nco-step" id="nstep-2">② Competition</div>
+              <div class="nco-step" id="nstep-3">③ Contact</div>
+            </div>
+
+            <!-- Form body -->
+            <div class="nco-form-body" id="nco-form-body">
+
+              <!-- Step 1: Personal Info -->
+              <div class="nco-form-step active" id="nfs-1">
+                <div class="nco-field">
+                  <label>Full Name *</label>
+                  <input type="text" class="nco-input" id="nf-name" placeholder="Your full name" />
+                  <div class="nco-field-error" id="nerr-name">Please enter your full name</div>
+                </div>
+                <div class="nco-field">
+                  <label>Age Category *</label>
+                  <select class="nco-input" id="nf-age">
+                    <option value="">Select your age group</option>
+                    <option value="junior">12–14 years (Junior)</option>
+                    <option value="inter">15–17 years (Intermediate)</option>
+                    <option value="senior">18–19 years (Senior)</option>
+                  </select>
+                  <div class="nco-field-error" id="nerr-age">Please select your age category</div>
+                </div>
+                <div class="nco-field">
+                  <label>State *</label>
+                  <select class="nco-input" id="nf-state">
+                    <option value="">Select your state</option>
+                    <option>Andhra Pradesh</option><option>Assam</option><option>Bihar</option>
+                    <option>Chhattisgarh</option><option>Delhi</option><option>Goa</option>
+                    <option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option>
+                    <option>Jharkhand</option><option>Karnataka</option><option>Kerala</option>
+                    <option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option>
+                    <option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option>
+                    <option>Odisha</option><option>Punjab</option><option>Rajasthan</option>
+                    <option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option>
+                    <option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option>
+                    <option>West Bengal</option><option>Other</option>
+                  </select>
+                  <div class="nco-field-error" id="nerr-state">Please select your state</div>
+                </div>
+                <div class="nco-btn-row">
+                  <button class="nco-btn-next" onclick="ncoNext(1)">Continue →</button>
+                </div>
+              </div>
+
+              <!-- Step 2: Competition Details -->
+              <div class="nco-form-step" id="nfs-2">
+                <div class="nco-field">
+                  <label>Choose Your Track *</label>
+                  <div class="nco-track-choices">
+                    <div class="nco-track-choice" id="ntc-quiz" onclick="ncoPickTrack('quiz')">
+                      <span class="ntc-icon">🧠</span>Quiz
+                    </div>
+                    <div class="nco-track-choice" id="ntc-reel" onclick="ncoPickTrack('reel')">
+                      <span class="ntc-icon">🎬</span>Reel
+                    </div>
+                    <div class="nco-track-choice" id="ntc-both" onclick="ncoPickTrack('both')">
+                      <span class="ntc-icon">⚡</span>Both!
+                    </div>
+                  </div>
+                  <div class="nco-field-error" id="nerr-track">Please choose a track</div>
+                </div>
+                <div class="nco-field">
+                  <label>School / College Name *</label>
+                  <input type="text" class="nco-input" id="nf-school" placeholder="Your school or college name" />
+                  <div class="nco-field-error" id="nerr-school">Please enter your school name</div>
+                </div>
+                <div class="nco-field">
+                  <label>Class / Year *</label>
+                  <select class="nco-input" id="nf-class">
+                    <option value="">Select your class</option>
+                    <option>Class 6</option><option>Class 7</option><option>Class 8</option>
+                    <option>Class 9</option><option>Class 10</option><option>Class 11</option>
+                    <option>Class 12</option><option>1st Year College</option>
+                    <option>2nd Year College</option><option>Other</option>
+                  </select>
+                  <div class="nco-field-error" id="nerr-class">Please select your class</div>
+                </div>
+                <div class="nco-btn-row">
+                  <button class="nco-btn-back" onclick="ncoBack(2)">← Back</button>
+                  <button class="nco-btn-next" onclick="ncoNext(2)">Continue →</button>
+                </div>
+              </div>
+
+              <!-- Step 3: Contact -->
+              <div class="nco-form-step" id="nfs-3">
+                <div class="nco-field">
+                  <label>Email Address *</label>
+                  <input type="email" class="nco-input" id="nf-email" placeholder="your@email.com" />
+                  <div class="nco-field-error" id="nerr-email">Please enter a valid email address</div>
+                </div>
+                <div class="nco-field">
+                  <label>Mobile Number *</label>
+                  <input type="tel" class="nco-input" id="nf-phone" placeholder="10-digit mobile number" maxlength="10" />
+                  <div class="nco-field-error" id="nerr-phone">Please enter a valid 10-digit mobile number</div>
+                </div>
+                <div class="nco-field">
+                  <label style="flex-direction:row;align-items:flex-start;gap:8px;display:flex;text-transform:none;letter-spacing:0;font-size:11px;color:rgba(255,255,255,0.4);cursor:pointer">
+                    <input type="checkbox" id="nf-consent" style="margin-top:2px;flex-shrink:0;accent-color:#ff9933" />
+                    I agree to receive updates about NCO 2025 and #Suraksha cyber safety initiatives.
+                  </label>
+                  <div class="nco-field-error" id="nerr-consent">Please give your consent to continue</div>
+                </div>
+                <div class="nco-btn-row">
+                  <button class="nco-btn-back" onclick="ncoBack(3)">← Back</button>
+                  <button class="nco-btn-next" onclick="ncoSubmit()" id="nco-submit-btn">🏆 Register Now!</button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Success screen -->
+            <div class="nco-success" id="nco-success">
+              <div class="nco-success-trophy">🏆</div>
+              <div class="nco-success-title">You're Registered!</div>
+              <div class="nco-success-name" id="nsuc-name">Detective Arjun</div>
+              <div class="nco-success-code" id="nsuc-code">NCO-2025-XXXXXX</div>
+              <div class="nco-success-detail" id="nsuc-detail">
+                Registered for the <strong id="nsuc-track" style="color:#ff9933">Quiz Track</strong> · <span id="nsuc-age"></span><br/>
+                Confirmation will be sent to <strong id="nsuc-email"></strong>
+              </div>
+              <div class="nco-success-next">Next Steps</div>
+              <div class="nco-next-steps">
+                <div class="nco-next-step">
+                  <div class="nco-next-step-num">1</div>
+                  Check your email for your official confirmation and registration ID.
+                </div>
+                <div class="nco-next-step">
+                  <div class="nco-next-step-num">2</div>
+                  Complete your official enrollment on MyGov using the link in your email.
+                </div>
+                <div class="nco-next-step">
+                  <div class="nco-next-step-num">3</div>
+                  Start practicing with Chip's Detective Lab and Spot the Phish above!
+                </div>
+              </div>
+              <a href="https://quiz.mygov.in" target="_blank" class="nco-mygov-btn">Complete on MyGov →</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Stats strip -->
+      <div class="nco-stats">
+        <div class="nco-stat"><div class="nco-stat-num">40,000+</div><div class="nco-stat-lbl">Participants</div></div>
+        <div class="nco-stat"><div class="nco-stat-num">20,000+</div><div class="nco-stat-lbl">Schools</div></div>
+        <div class="nco-stat"><div class="nco-stat-num">28</div><div class="nco-stat-lbl">States</div></div>
+        <div class="nco-stat"><div class="nco-stat-num">3</div><div class="nco-stat-lbl">Age Categories</div></div>
+        <div class="nco-stat"><div class="nco-stat-num">₹🏆</div><div class="nco-stat-lbl">Cash Prizes</div></div>
+        <div class="nco-stat"><div class="nco-stat-num">Free</div><div class="nco-stat-lbl">Registration</div></div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- (end of main sections) -->
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="cask-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-circle-link">
+            <div class="footer-logo-circle">
+              <img src="assets/logo-suraksha.png" alt="Hashtag Suraksha" class="footer-logo-img" />
+            </div>
+          </a>
+          <p>India's national cybersecurity movement. A joint initiative of CERT-In and Cyber Buddha.</p>
+          <div class="footer-partner-logos">
+            <img src="assets/logo-certin.png" alt="MeitY &amp; CERT-In" class="footer-certin-logo" />
+          </div>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/hashtagsuraksha" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.instagram.com/hashtag.suraksha" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.linkedin.com/company/hashtag-suraksha" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+        <div class="footer-links-group">
+          <div class="footer-col">
+            <h5>Ecosystem</h5>
+            <a href="platform.html">CASK Platform</a>
+            <a href="phishnchip.html" class="footer-cta-link">Phish &amp; Chip Show</a>
+            <a href="olympiad.html">Cyber Olympiad</a>
+            <a href="slanglish.html">Slanglish</a>
+          </div>
+          <div class="footer-col">
+            <h5>Organisation</h5>
+            <a href="surakshak.html">Become a Surakshak</a>
+            <a href="partner.html">Partner With Us</a>
+            <a href="resources.html">Resources</a>
+            <a href="index.html">About</a>
+          </div>
+          <div class="footer-col">
+            <h5>Contact</h5>
+            <a href="partner.html" class="footer-cta-link">Get in Touch →</a>
+            <a href="mailto:hello@hashtagsuraksha.in">hello@hashtagsuraksha.in</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>2026 Hashtag Suraksha. All rights reserved. A CERT-In and Cyber Buddha initiative under MeitY, Government of India.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS: nav scroll + theme toggle (matching other pages) -->
+  <script src="main.js"></script>
+  <script>
+    /* ── WATCH THE SHOW — episode switcher ──────────────── */
+    const epData = {
+      '01': { label: 'Ep 01 — The Lottery Trap: How PHISH Steals Your Dreams', vid: '' },
+      '02': { label: 'Ep 02 — Fake Job Scam: Career Fraud in the Age of LinkedIn', vid: '' },
+      '03': { label: 'Ep 03 — Romance Scam: When Love Is a Lie Online', vid: '' },
+      '04': { label: 'Ep 04 — UPI Fraud: Digital Payments & Invisible Thieves', vid: '' },
+      '05': { label: 'Ep 05 — Deepfake Alert: Is That Really Your Boss?', vid: '' },
+      '06': { label: 'Ep 06 — Password Heist: How PHISH Cracks Accounts in Seconds', vid: '' },
+      '07': { label: 'Ep 07 — Social Engineering: The Art of Human Hacking', vid: '' },
+      '08': { label: 'Ep 08 — Gaming Scams: When Your Account Gets Stolen Mid-Match', vid: '' },
+    };
+    function switchEp(num, card) {
+      // Update active card (both original and duplicate sets)
+      document.querySelectorAll('.plist-card').forEach(c => c.classList.remove('active'));
+      document.querySelectorAll(`.plist-card[onclick*="'${num}'"]`).forEach(c => c.classList.add('active'));
+      // Update now-playing label
+      const lbl = document.getElementById('nowLabel');
+      if (lbl && epData[num]) lbl.textContent = epData[num].label;
+      // Update iframe src if video ID available
+      const iframe = document.getElementById('watchIframe');
+      if (iframe && epData[num] && epData[num].vid) {
+        iframe.src = `https://www.youtube-nocookie.com/embed/${epData[num].vid}?autoplay=1&rel=0&modestbranding=1&color=white`;
+      }
+    }
+
+    // Cursor glow
+    const cursorGlow = document.getElementById('cursorGlow');
+    if (cursorGlow) {
+      document.addEventListener('mousemove', e => {
+        cursorGlow.style.left = e.clientX + 'px';
+        cursorGlow.style.top  = e.clientY + 'px';
+      });
+    }
+
+    /* ── SECTION 2: Character Tab Switcher ── */
+    function switchCharTab(char) {
+      // Update tab buttons
+      document.querySelectorAll('.pnc-char-tab').forEach(function(btn) {
+        btn.classList.remove('active');
+      });
+      var activeBtn = document.querySelector('.pnc-char-tab--' + char);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      // Update profiles
+      document.querySelectorAll('.pnc-char-profile').forEach(function(p) {
+        p.classList.remove('active');
+        p.style.display = 'none';
+      });
+      var activeProfile = document.getElementById('profile-' + char);
+      if (activeProfile) {
+        activeProfile.style.display = 'flex';
+        requestAnimationFrame(function() { activeProfile.classList.add('active'); });
+        // Animate stat bars
+        activeProfile.querySelectorAll('.pnc-stat-fill').forEach(function(fill) {
+          fill.style.width = '0';
+          setTimeout(function() { fill.style.transition = 'width 0.9s ease'; fill.style.width = fill.dataset.w; }, 80);
+        });
+      }
+    }
+
+    // Init stat bars on page load for default active profile
+    document.addEventListener('DOMContentLoaded', function() {
+      var defaultProfile = document.querySelector('.pnc-char-profile.active');
+      if (defaultProfile) {
+        defaultProfile.querySelectorAll('.pnc-stat-fill').forEach(function(fill) {
+          setTimeout(function() { fill.style.transition = 'width 0.9s ease'; fill.style.width = fill.dataset.w; }, 400);
+        });
+      }
+    });
+
+    /* ── SECTION 4: Interactive Comic ── */
+    var comicAnswers = {};
+    var comicGoodCount = 0;
+
+    function comicChoose(scene, outcome) {
+      if (comicAnswers[scene]) return; // already chosen
+      comicAnswers[scene] = outcome;
+      if (outcome === 'good') comicGoodCount++;
+
+      // Disable both buttons for this scene
+      var btnBad  = document.getElementById('cbtn-' + scene + '-bad');
+      var btnGood = document.getElementById('cbtn-' + scene + '-good');
+      if (btnBad)  { btnBad.disabled = true;  btnBad.style.opacity = '0.4'; }
+      if (btnGood) { btnGood.disabled = true; }
+      if (outcome === 'good' && btnGood) btnGood.style.boxShadow = '0 0 0 2px #4ade80';
+      if (outcome === 'bad'  && btnBad)  btnBad.style.boxShadow  = '0 0 0 2px #f87171';
+
+      // Show outcome block
+      var outcomeEl = document.getElementById('outcome-' + scene + '-' + outcome);
+      if (outcomeEl) {
+        outcomeEl.style.display = 'block';
+        setTimeout(function() { outcomeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 120);
+      }
+
+      // Update progress dot
+      var dot = document.getElementById('cdot-' + scene);
+      if (dot) { dot.classList.remove('active'); dot.classList.add(outcome === 'good' ? 'done-good' : 'done-bad'); }
+    }
+
+    function comicNext(fromScene) {
+      var nextScene = fromScene + 1;
+      var nextEl = document.getElementById('comic-scene-' + nextScene);
+      if (nextEl) {
+        nextEl.style.display = 'block';
+        var nextDot = document.getElementById('cdot-' + nextScene);
+        if (nextDot) nextDot.classList.add('active');
+        setTimeout(function() { nextEl.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+      }
+    }
+
+    function buildFinalStrip() {
+      var s1 = comicAnswers[1] || 'bad';
+      var s2 = comicAnswers[2] || 'bad';
+
+      // Panel 2 — scene 1 outcome
+      var fp2char = document.getElementById('fp2-char');
+      var fp2bubble = document.getElementById('fp2-bubble');
+      var fp2cap = document.getElementById('fp2-caption');
+      if (s1 === 'good') {
+        fp2char.src = 'assets/chip.png'; fp2char.alt = 'CHIP';
+        fp2bubble.className = 'cfp-bubble cfp-bubble--hero';
+        fp2bubble.textContent = '🔍 Fake domain! Deleted. ✅';
+        fp2cap.textContent = 'You spotted the fake domain';
+      } else {
+        fp2char.src = 'assets/phish.png'; fp2char.alt = 'PHISH';
+        fp2bubble.className = 'cfp-bubble cfp-bubble--villain';
+        fp2bubble.textContent = '😈 Clicked! Data stolen!';
+        fp2cap.textContent = 'You fell for the prize trap';
+      }
+
+      // Panel 4 — scene 2 outcome
+      var fp4char = document.getElementById('fp4-char');
+      var fp4bubble = document.getElementById('fp4-bubble');
+      var fp4cap = document.getElementById('fp4-caption');
+      if (s2 === 'good') {
+        fp4char.src = 'assets/chip.png'; fp4char.alt = 'CHIP';
+        fp4bubble.className = 'cfp-bubble cfp-bubble--hero';
+        fp4bubble.textContent = '🚫 OTP blocked. Account safe!';
+        fp4cap.textContent = 'PHISH BUSTED — you won!';
+      } else {
+        fp4char.src = 'assets/phish.png'; fp4char.alt = 'PHISH';
+        fp4bubble.className = 'cfp-bubble cfp-bubble--villain';
+        fp4bubble.textContent = '🤡 OTP = full access. HACKED!';
+        fp4cap.textContent = 'OTP shared — account drained';
+      }
+
+      // Badge
+      var badges = [
+        { icon: '😰', title: 'PHISH GOT YOU', msg: 'But now you know — knowledge is your shield!' },
+        { icon: '🔰', title: 'LEARNING DETECTIVE', msg: 'One right, one wrong. Keep training with CHIP!' },
+        { icon: '🛡️', title: 'CYBER DETECTIVE', msg: 'Perfect score! You spotted every trap. PHISH doesn\'t stand a chance!' }
+      ];
+      var b = badges[comicGoodCount] || badges[0];
+      document.getElementById('badgeIcon').textContent = b.icon;
+      document.getElementById('badgeTitle').textContent = b.title;
+      document.getElementById('badgeScore').textContent = comicGoodCount + ' / 2 Correct';
+      document.getElementById('badgeMessage').textContent = b.msg;
+
+      // Show final scene
+      var finalEl = document.getElementById('comic-scene-final');
+      finalEl.style.display = 'block';
+      var dot3 = document.getElementById('cdot-3');
+      if (dot3) dot3.classList.add('active');
+      setTimeout(function() { finalEl.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+    }
+
+    function saveComicStrip() {
+      var strip = document.getElementById('comicFinalStrip');
+      if (typeof html2canvas !== 'undefined') {
+        html2canvas(strip, { backgroundColor: '#ffffff', scale: 2 }).then(function(canvas) {
+          var link = document.createElement('a');
+          link.download = 'my-phish-chip-comic.png';
+          link.href = canvas.toDataURL('image/png');
+          link.click();
+        });
+      } else {
+        var w = window.open('');
+        w.document.write('<html><body style="margin:0;background:#fff">' + strip.outerHTML + '</body></html>');
+        w.document.close(); w.print();
+      }
+    }
+
+    function restartComic() {
+      comicAnswers = {}; comicGoodCount = 0;
+      // Reset scenes
+      document.getElementById('comic-scene-2').style.display = 'none';
+      document.getElementById('comic-scene-final').style.display = 'none';
+      // Re-enable buttons
+      ['cbtn-1-bad','cbtn-1-good','cbtn-2-bad','cbtn-2-good'].forEach(function(id) {
+        var btn = document.getElementById(id);
+        if (btn) { btn.disabled = false; btn.style.opacity = ''; btn.style.boxShadow = ''; }
+      });
+      // Hide outcomes
+      document.querySelectorAll('.comic-outcome').forEach(function(o) { o.style.display = 'none'; });
+      // Reset dots
+      document.querySelectorAll('.comic-dot').forEach(function(d, i) {
+        d.className = 'comic-dot' + (i === 0 ? ' active' : '');
+      });
+      document.getElementById('interactive-comic').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    (function() {
+      var s = document.createElement('script');
+      s.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+      document.head.appendChild(s);
+    })();
+
+    /* ── SECTION 5: Spot the Phish ── */
+    var spotFoundCounts = { 1:0, 2:0, 3:0, 4:0, 5:0 };
+    var spotTotalFound = 0;
+
+    function spotActivateRound(roundNum) {
+      // Animate PHISH slide-in
+      setTimeout(function() {
+        var phishEl = document.getElementById('sphish-' + roundNum);
+        if (phishEl) phishEl.classList.add('active');
+        // After PHISH appears, transform the email
+        setTimeout(function() {
+          var emailEl = document.getElementById('semail-' + roundNum);
+          if (emailEl) emailEl.classList.add('phished');
+          // CHIP dialogue update
+          var dialogues = {
+            1: '😤 <strong>PHISH just corrupted this SBI email!</strong> I can see 3 changes — can you spot them all?',
+            2: '😡 <strong>There it is again!</strong> PHISH disguised as FedEx. Look carefully — 3 red flags in this message.',
+            3: '🔍 <strong>Instagram this time.</strong> PHISH is getting sneakier. The domain change is subtle — find all 3!',
+            4: '<strong>A fake job offer?!</strong> PHISH is shameless. No legitimate company asks for a registration fee. Find all 3!',
+            5: '🚨 <strong>FINAL ROUND!</strong> PHISH is copying Google\'s exact style. This is the trickiest one yet — 3 red flags!'
+          };
+          document.getElementById('chipDialogue').innerHTML = dialogues[roundNum] || 'Find all 3 phishes to continue!';
+        }, 700);
+      }, 300);
+
+      // Update round pip
+      for (var i = 1; i <= 5; i++) {
+        var pip = document.getElementById('srpip-' + i);
+        if (!pip) continue;
+        pip.classList.remove('current', 'done');
+        if (i < roundNum) pip.classList.add('done');
+        if (i === roundNum) pip.classList.add('current');
+      }
+    }
+
+    function spotClick(el, roundNum, total, foundId, resultId, nextId) {
+      if (el.classList.contains('found')) return;
+      el.classList.add('found');
+      spotFoundCounts[roundNum]++;
+      spotTotalFound++;
+      document.getElementById(foundId).textContent = spotFoundCounts[roundNum];
+
+      if (spotFoundCounts[roundNum] >= total) {
+        // All phishes found — PHISH caught animation
+        var phishEl = document.getElementById('sphish-' + roundNum);
+        if (phishEl) {
+          phishEl.classList.remove('active');
+          phishEl.classList.add('caught');
+        }
+        // Show result and next button
+        setTimeout(function() {
+          var resultEl = document.getElementById(resultId);
+          if (resultEl) { resultEl.classList.add('show'); }
+          var nextBtn = document.getElementById(nextId);
+          if (nextBtn) {
+            nextBtn.style.display = 'inline-flex';
+            nextBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+          // Mark pip done
+          var pip = document.getElementById('srpip-' + roundNum);
+          if (pip) { pip.classList.remove('current'); pip.classList.add('done'); }
+        }, 600);
+      }
+    }
+
+    function spotNext(nextRound) {
+      // Hide current round
+      var curRound = nextRound - 1;
+      var curEl = document.getElementById('spot-round-' + curRound);
+      if (curEl) curEl.style.display = 'none';
+      // Show next round
+      var nextEl = document.getElementById('spot-round-' + nextRound);
+      if (nextEl) {
+        nextEl.style.display = 'block';
+        spotActivateRound(nextRound);
+        setTimeout(function() { nextEl.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+      }
+    }
+
+    function spotComplete() {
+      document.getElementById('spot-round-5').style.display = 'none';
+      var completeEl = document.getElementById('spot-complete-screen');
+      completeEl.style.display = 'block'; completeEl.classList.add('show');
+
+      var score = spotTotalFound;
+      var emoji, title, msg;
+      if (score >= 14) { emoji = '🏆'; title = 'PHISH HUNTER ELITE!'; msg = 'You spotted every trap across all 5 rounds. You\'d make a real cyber detective!'; }
+      else if (score >= 10) { emoji = '🎯'; title = 'SHARP DETECTIVE!'; msg = 'Excellent awareness! A few slipped past, but you\'re much harder to fool than most.'; }
+      else { emoji = '🔰'; title = 'TRAINING COMPLETE!'; msg = 'Good practice. The more you play, the sharper your instincts get. PHISH won\'t fool you for long!'; }
+
+      document.getElementById('sCompleteEmoji').textContent = emoji;
+      document.getElementById('sCompleteTitle').textContent = title;
+      document.getElementById('sTotalFound').textContent = score;
+      document.getElementById('sChipFinalMsg').textContent = msg;
+      completeEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function spotRestart() {
+      // Reset state
+      spotFoundCounts = { 1:0, 2:0, 3:0, 4:0, 5:0 };
+      spotTotalFound = 0;
+      // Hide complete screen
+      var sc = document.getElementById('spot-complete-screen'); sc.style.display = 'none'; sc.classList.remove('show');
+      // Reset all rounds
+      for (var r = 1; r <= 5; r++) {
+        var rEl = document.getElementById('spot-round-' + r);
+        if (rEl) rEl.style.display = (r === 1) ? 'block' : 'none';
+        // Reset email state
+        var emailEl = document.getElementById('semail-' + r);
+        if (emailEl) emailEl.classList.remove('phished');
+        // Reset phish char
+        var phishEl = document.getElementById('sphish-' + r);
+        if (phishEl) { phishEl.classList.remove('active', 'caught'); }
+        // Reset found count
+        var foundEl = document.getElementById('sfound-' + r);
+        if (foundEl) foundEl.textContent = '0';
+        // Reset result
+        var resultEl = document.getElementById('sresult-' + r);
+        if (resultEl) resultEl.classList.remove('show');
+        // Hide next btn
+        var nextBtn = document.getElementById('snext-' + r);
+        if (nextBtn) nextBtn.style.display = 'none';
+        // Reset phish targets
+        var targets = document.querySelectorAll('#spot-round-' + r + ' .phish-target');
+        targets.forEach(function(t) { t.classList.remove('found'); });
+      }
+      // Activate round 1
+      spotActivateRound(1);
+      document.getElementById('spot-the-phish').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Init round 1 on load
+    document.addEventListener('DOMContentLoaded', function() {
+      spotActivateRound(1);
+    });
+
+    /* ── SECTION 6: Detective Lab ── */
+    var labCases = [
+      {
+        tag: '📧 Amazon Phishing', num: 'CASE #PC-2025-001',
+        from: 'support@amazon-india-help.com', subject: 'Your Amazon order has been placed on hold',
+        body: 'Dear Customer,<br/><br/>Your Amazon order #408-7291836-5523912 has been placed on hold due to a payment verification issue. Your order will be cancelled in 24 hours unless you re-verify your payment details.<br/><br/>Please click here to verify: <span class="lab-exhibit-highlight">amazon-india-help.com/verify-payment</span><br/><br/>— Amazon Customer Service Team',
+        evidence: [
+          { icon: '📮', title: 'Sender Domain', preview: 'Tap to analyze the sender address', finding: 'The sender is <strong>amazon-india-help.com</strong> — not amazon.in or amazon.com. Amazon NEVER uses third-party domains for official communications.', flag: 'red' },
+          { icon: '🔗', title: 'Link / URL', preview: 'Tap to inspect the verification link', finding: 'The link goes to <strong>amazon-india-help.com/verify-payment</strong>. The real Amazon URL is amazon.in — this is a spoofed domain designed to steal your payment info.', flag: 'red' },
+          { icon: '⏰', title: 'Urgency Tactics', preview: 'Tap to analyze the language used', finding: '"Cancelled in 24 hours" and "re-verify immediately" are classic urgency tactics. Scammers create panic to stop you thinking clearly.', flag: 'red' },
+          { icon: '📦', title: 'Order Verification', preview: 'Tap to cross-check order details', finding: 'Amazon shows all order details inside the app. They would never ask you to re-enter payment info via email. If unsure, log in directly to amazon.in.', flag: 'red' }
+        ],
+        answer: 'scam',
+        chipVerdict: 'Case closed. You\'d make a great cyber detective. The golden rule: always check the actual domain in the URL bar, never click from email.',
+        chipDialogue: 'A suspicious message landed in our inbox. I\'ve flagged it for investigation.<br/><br/><strong>Tap each evidence card</strong> to analyze it. When you\'ve studied all 4, deliver your verdict.',
+        nextCase: true
+      },
+      {
+        tag: '💬 WhatsApp Scam', num: 'CASE #PC-2025-002',
+        from: 'WhatsApp: +91 98000 12345 (unknown)',
+        subject: '"KBC Lottery — You Won ₹25 Lakhs!"',
+        body: 'Dear Lucky Winner! 🎉<br/><br/>Your mobile number has been selected in the <strong>KBC Season 14 Lottery</strong>. You have won ₹25,00,000.<br/><br/>To claim your prize, send us:<br/>• Your full name, address, Aadhaar number<br/>• Pay ₹1,500 processing fee via UPI<br/><br/>Contact: lottery@kbc-official-india.com<br/><br/>Offer valid for 24 hours only! <span class="lab-exhibit-highlight">Do not tell anyone.</span>',
+        evidence: [
+          { icon: '📱', title: 'Source Channel', preview: 'Tap to analyze where this came from', finding: 'Legitimate lottery wins are NEVER communicated via WhatsApp from unknown numbers. KBC officially contacts winners through verified TV show channels only.', flag: 'red' },
+          { icon: '💰', title: 'Advance Fee Demand', preview: 'Tap to investigate the fee request', finding: 'Requesting a ₹1,500 "processing fee" before releasing a prize is the #1 red flag of an advance-fee scam. No real prize requires upfront payment.', flag: 'red' },
+          { icon: '🔒', title: 'Data Request', preview: 'Tap to analyze what information is being requested', finding: 'Asking for Aadhaar number + address + fee via WhatsApp is identity theft in progress. This data combination enables financial fraud and SIM-swap attacks.', flag: 'red' },
+          { icon: '🤫', title: '"Don\'t Tell Anyone"', preview: 'Tap to decode this instruction', finding: '"Do not tell anyone" is a manipulation tactic designed to prevent the victim from consulting friends or family who might warn them. Legitimate prizes don\'t require secrecy.', flag: 'red' }
+        ],
+        answer: 'scam',
+        chipVerdict: 'Classic advance-fee lottery scam. The combination of unsolicited WhatsApp contact + money demand + secrecy instruction = 100% fraud. Real lottery: no upfront fee, ever.',
+        chipDialogue: 'New case in! A WhatsApp message claiming to be from KBC. Something feels very wrong here.<br/><br/><strong>Examine all 4 evidence cards</strong> before delivering your verdict.',
+        nextCase: false
+      },
+      {
+        tag: '🏦 UPI Refund Scam', num: 'CASE #PC-2025-003',
+        from: 'Caller: "Paytm Customer Care" +91 97XXX XXXXX',
+        subject: 'Screen-share + QR Code Refund Request',
+        body: '"Hello sir/ma\'am, I\'m calling from Paytm customer care about your ₹500 failed transaction.<br/><br/>To process your refund, please:<br/>1. Download AnyDesk / TeamViewer<br/>2. Share your screen with me<br/>3. Open your Paytm app<br/>4. Scan this QR code to \'receive\' the refund<br/><br/><span class="lab-exhibit-highlight">QR codes on UPI REQUEST money, they do not send it.</span>"',
+        evidence: [
+          { icon: '📞', title: 'Unsolicited Call', preview: 'Tap to analyze the call context', finding: 'You never contacted Paytm support — they called you. Legitimate companies very rarely initiate support calls to random customers about "failed transactions".', flag: 'red' },
+          { icon: '🖥️', title: 'Screen-Share Request', preview: 'Tap to assess the screen-share demand', finding: 'Asking you to share your screen via AnyDesk/TeamViewer gives the scammer full visibility of your banking apps, passwords, and OTPs in real-time. This is instant account access.', flag: 'red' },
+          { icon: '📱', title: 'QR Code "Refund"', preview: 'Tap to decode how QR works on UPI', finding: 'This is the most important evidence: QR codes on UPI are for PAYMENTS, not receipts. Scanning a "refund QR" will debit your account, not credit it. This is how millions get scammed.', flag: 'red' },
+          { icon: '⚡', title: 'Urgency + Authority', preview: 'Tap to analyze the pressure tactics', finding: 'The caller claims to be a company representative (authority) and creates urgency around a refund. Both tactics are designed to bypass your critical thinking.', flag: 'red' }
+        ],
+        answer: 'scam',
+        chipVerdict: 'This is the QR code refund scam — one of India\'s most common. Remember: QR codes SEND money, they don\'t receive it. Never share your screen with anyone claiming to be customer care.',
+        chipDialogue: 'This one\'s about a phone call. These are the trickiest scams because a real person is talking to you.<br/><br/><strong>Analyze all 4 evidence cards</strong> — look at the mechanics of what they\'re asking you to do.',
+        nextCase: false
+      }
+    ];
+
+    var labCurrentCase = 0;
+    var labAnalyzedCount = 0;
+
+    function labLoadCase(idx) {
+      labCurrentCase = idx;
+      labAnalyzedCount = 0;
+      var c = labCases[idx];
+
+      // Update tabs
+      document.querySelectorAll('.lab-case-tab').forEach(function(t, i) {
+        t.classList.toggle('active', i === idx);
+      });
+
+      // Update header
+      document.getElementById('labCaseTag').textContent = c.tag;
+      document.getElementById('labCaseNum').textContent = c.num;
+
+      // Update exhibit
+      document.getElementById('labExFrom').textContent = c.from;
+      document.getElementById('labExSubject').textContent = c.subject;
+      document.getElementById('labExBody').innerHTML = c.body;
+
+      // CHIP dialogue
+      document.getElementById('labChipSpeech').innerHTML = c.chipDialogue;
+
+      // Reset analyzed count
+      document.getElementById('labAnalyzed').textContent = '0';
+
+      // Rebuild evidence cards
+      var grid = document.getElementById('labEvidenceGrid');
+      grid.innerHTML = '';
+      c.evidence.forEach(function(ev, i) {
+        var flagColor = ev.flag === 'red' ? 'lab-ev-flag-red' : 'lab-ev-flag-green';
+        var flagText  = ev.flag === 'red' ? '🚩 RED FLAG' : '✅ CLEAR';
+        grid.innerHTML += '<div class="lab-ev-card" id="lev-' + i + '" onclick="labAnalyze(' + i + ')">'
+          + '<div class="lab-ev-analyzed-check">✓</div>'
+          + '<div class="lab-ev-icon">' + ev.icon + '</div>'
+          + '<div class="lab-ev-title">' + ev.title + '</div>'
+          + '<div class="lab-ev-preview">' + ev.preview + '</div>'
+          + '<div class="lab-ev-finding" id="levf-' + i + '">' + ev.finding + '<div><span class="lab-ev-flag ' + flagColor + '">' + flagText + '</span></div></div>'
+          + '</div>';
+      });
+
+      // Reset verdict section
+      var vs = document.getElementById('labVerdictSection');
+      vs.classList.remove('unlocked');
+      document.getElementById('lresult-correct').style.display = 'none';
+      document.getElementById('lresult-wrong').style.display = 'none';
+      document.querySelectorAll('.lab-verdict-btn').forEach(function(b) { b.disabled = false; b.style.opacity = ''; });
+
+      // Show/hide next case button
+      var nextBtn = document.getElementById('labNextCaseBtn');
+      if (nextBtn) nextBtn.style.display = 'none';
+    }
+
+    function labAnalyze(idx) {
+      var card = document.getElementById('lev-' + idx);
+      if (!card || card.classList.contains('analyzed')) return;
+      card.classList.add('analyzed');
+      labAnalyzedCount++;
+      document.getElementById('labAnalyzed').textContent = labAnalyzedCount;
+
+      // Update CHIP speech as user progresses
+      var c = labCases[labCurrentCase];
+      var progressSpeech = [
+        'Good start. Keep going — there\'s more to find!',
+        'You\'re building the picture. 2 more pieces of evidence to review.',
+        'Getting clearer! Just one more evidence card left.',
+        'All evidence examined! Now you have everything you need. <strong>What\'s your verdict?</strong>'
+      ];
+      document.getElementById('labChipSpeech').innerHTML = progressSpeech[labAnalyzedCount - 1] || c.chipDialogue;
+
+      if (labAnalyzedCount >= c.evidence.length) {
+        var vs = document.getElementById('labVerdictSection');
+        vs.classList.add('unlocked');
+        setTimeout(function() { vs.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 200);
+      }
+    }
+
+    function labVerdict(v) {
+      document.querySelectorAll('.lab-verdict-btn').forEach(function(b) { b.disabled = true; b.style.opacity = '0.5'; });
+      var c = labCases[labCurrentCase];
+      var correct = (v === c.answer);
+      document.getElementById('lresult-correct').style.display = correct ? 'block' : 'none';
+      document.getElementById('lresult-wrong').style.display = correct ? 'none' : 'block';
+
+      if (correct) {
+        document.getElementById('labChipVerdict').textContent = c.chipVerdict;
+        // Show next case button if there is one
+        var nextBtn = document.getElementById('labNextCaseBtn');
+        if (nextBtn && labCurrentCase < labCases.length - 1) nextBtn.style.display = 'inline-flex';
+        document.getElementById('labChipSpeech').innerHTML = '🎉 <strong>Verdict confirmed!</strong> ' + c.chipVerdict;
+      } else {
+        document.getElementById('labChipSpeech').innerHTML = '🤔 Not quite. Review the evidence again — all 4 flags pointed the same way.';
+      }
+      setTimeout(function() {
+        (document.getElementById(correct ? 'lresult-correct' : 'lresult-wrong')).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 80);
+    }
+
+    function labNextCase() {
+      if (labCurrentCase < labCases.length - 1) labLoadCase(labCurrentCase + 1);
+    }
+
+    function labResetCase() { labLoadCase(labCurrentCase); }
+
+    // Init detective lab
+    document.addEventListener('DOMContentLoaded', function() {
+      if (document.getElementById('labEvidenceGrid')) labLoadCase(0);
+    });
+
+    /* ── SECTION 8: NCO Countdown + Registration ── */
+    (function ncoCountdown() {
+      var deadline = new Date('2025-08-15T23:59:59+05:30');
+      function pad(n) { return String(n).padStart(2, '0'); }
+      function tick() {
+        var diff = deadline - Date.now();
+        var d = document.getElementById('nco-days');
+        var h = document.getElementById('nco-hours');
+        var m = document.getElementById('nco-mins');
+        var s = document.getElementById('nco-secs');
+        if (!d) return;
+        if (diff <= 0) {
+          d.textContent = '00'; h.textContent = '00'; m.textContent = '00'; s.textContent = '00';
+          return;
+        }
+        d.textContent = Math.floor(diff / 86400000);
+        h.textContent = pad(Math.floor((diff % 86400000) / 3600000));
+        m.textContent = pad(Math.floor((diff % 3600000) / 60000));
+        s.textContent = pad(Math.floor((diff % 60000) / 1000));
+      }
+      tick(); setInterval(tick, 1000);
+    })();
+
+    /* NCO Track selection */
+    var ncoSelectedTrack = '';
+    function ncoPickTrack(track) {
+      ncoSelectedTrack = track;
+      document.querySelectorAll('.nco-track-choice').forEach(function(el) {
+        el.classList.toggle('selected', el.dataset.track === track);
+      });
+      var err = document.getElementById('nerr-track');
+      if (err) err.classList.remove('show');
+    }
+
+    /* NCO Step navigation */
+    function ncoShowStep(stepNum) {
+      for (var i = 1; i <= 3; i++) {
+        var panel = document.getElementById('nfs-' + i);
+        var ind   = document.getElementById('nstep-' + i);
+        if (panel) panel.classList.toggle('active', i === stepNum);
+        if (ind) {
+          ind.classList.remove('active', 'done');
+          if (i === stepNum) ind.classList.add('active');
+          else if (i < stepNum) ind.classList.add('done');
+        }
+      }
+    }
+
+    function ncoNext(fromStep) {
+      if (fromStep === 1) {
+        var name  = document.getElementById('nf-name');
+        var age   = document.getElementById('nf-age');
+        var state = document.getElementById('nf-state');
+        var ok = true;
+        [name, age, state].forEach(function(f) {
+          var err = f ? f.parentElement.querySelector('.nco-field-error') : null;
+          if (!f || !f.value.trim()) { if (err) err.classList.add('show'); ok = false; }
+          else { if (err) err.classList.remove('show'); }
+        });
+        if (!ok) return;
+        ncoShowStep(2);
+      } else if (fromStep === 2) {
+        var school = document.getElementById('nf-school');
+        var cls    = document.getElementById('nf-class');
+        var ok = true;
+        if (!ncoSelectedTrack) {
+          var terr = document.getElementById('nerr-track');
+          if (terr) terr.classList.add('show');
+          ok = false;
+        }
+        [school, cls].forEach(function(f) {
+          var err = f ? f.parentElement.querySelector('.nco-field-error') : null;
+          if (!f || !f.value.trim()) { if (err) err.classList.add('show'); ok = false; }
+          else { if (err) err.classList.remove('show'); }
+        });
+        if (!ok) return;
+        ncoShowStep(3);
+      }
+    }
+
+    function ncoBack(toStep) { ncoShowStep(toStep); }
+
+    function ncoSubmit() {
+      var email   = document.getElementById('nf-email');
+      var phone   = document.getElementById('nf-phone');
+      var consent = document.getElementById('nf-consent');
+      var ok = true;
+      [email, phone].forEach(function(f) {
+        var err = f ? f.parentElement.querySelector('.nco-field-error') : null;
+        if (!f || !f.value.trim()) { if (err) err.classList.add('show'); ok = false; }
+        else { if (err) err.classList.remove('show'); }
+      });
+      if (!consent || !consent.checked) {
+        var cerr = document.getElementById('nerr-consent');
+        if (cerr) cerr.classList.add('show');
+        ok = false;
+      } else {
+        var cerr = document.getElementById('nerr-consent');
+        if (cerr) cerr.classList.remove('show');
+      }
+      if (!ok) return;
+      /* Populate success screen */
+      var nameVal  = (document.getElementById('nf-name')  || {}).value || '';
+      var emailVal = (document.getElementById('nf-email') || {}).value || '';
+      var trackVal = ncoSelectedTrack || 'Quiz';
+      var ageVal   = (document.getElementById('nf-age')   || {}).value || '';
+      var code = 'NCO25-' + Math.random().toString(36).substr(2,5).toUpperCase();
+      var sn = document.getElementById('nsuc-name');   if (sn) sn.textContent = nameVal;
+      var sc = document.getElementById('nsuc-code');   if (sc) sc.textContent = code;
+      var st = document.getElementById('nsuc-track');  if (st) st.textContent = trackVal;
+      var sa = document.getElementById('nsuc-age');    if (sa) sa.textContent = ageVal;
+      var se = document.getElementById('nsuc-email');  if (se) se.textContent = emailVal;
+      var success = document.getElementById('nco-success');
+      if (success) success.classList.add('show');
+    }
+
+    /* ── Stat bar animation on scroll ── */
+    (function() {
+      var bars = document.querySelectorAll('.pnc-stat-fill');
+      bars.forEach(function(b){ b.style.width = '0'; });
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var fill = entry.target;
+            var target = fill.getAttribute('data-w') || fill.style.width;
+            setTimeout(function(){ fill.style.width = target; }, 100);
+            observer.unobserve(fill);
+          }
+        });
+      }, { threshold: 0.3 });
+      bars.forEach(function(b){ observer.observe(b); });
+    })();
+  </script>
+</body>
+</html>
