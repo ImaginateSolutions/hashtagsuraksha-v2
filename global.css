@@ -31,6 +31,8 @@
   --font-heading:    'Plus Jakarta Sans', system-ui, sans-serif;
   --font-body:       'Plus Jakarta Sans', system-ui, sans-serif;
   --font-ui:         'Plus Jakarta Sans', system-ui, sans-serif;
+  --site-max-width:  1460px;
+  --site-gutter:     32px;
 }
 
 [data-theme="light"] {
@@ -80,9 +82,9 @@ a { text-decoration: none; color: inherit; }
 img { max-width: 100%; }
 
 .container {
-  max-width: 1140px;
+  max-width: var(--site-max-width);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--site-gutter);
 }
 
 .center { text-align: center; }
@@ -158,7 +160,7 @@ img { max-width: 100%; }
 }
 
 .nav-inner {
-  max-width: 1300px;
+  max-width: var(--site-max-width);
   margin: 0 auto;
   padding: 0 24px;
   height: 82px;
@@ -285,9 +287,9 @@ img { max-width: 100%; }
 }
 
 .footer-inner {
-  max-width: 1140px;
+  max-width: var(--site-max-width);
   margin: 0 auto;
-  padding: 0 24px 60px;
+  padding: 0 var(--site-gutter) 60px;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   gap: 80px;
@@ -354,8 +356,8 @@ img { max-width: 100%; }
 
 .footer-bottom {
   border-top: 1px solid var(--border);
-  padding: 20px 24px;
-  max-width: 1140px;
+  padding: 20px var(--site-gutter);
+  max-width: var(--site-max-width);
   margin: 0 auto;
   text-align: center;
 }
@@ -602,9 +604,9 @@ img { max-width: 100%; }
 }
 
 .trust-strip-inner {
-  max-width: 1140px;
+  max-width: var(--site-max-width);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--site-gutter);
   display: flex;
   align-items: center;
   gap: 32px;

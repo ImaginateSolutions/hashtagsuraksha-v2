@@ -109,9 +109,9 @@
 }
 
 .nav-inner {
-  max-width: 1200px;
+  max-width: var(--site-max-width, 1460px);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--site-gutter, 32px);
   height: 68px;
   display: flex;
   align-items: center;
@@ -3103,7 +3103,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   grid-template-columns: 1fr 300px;
   gap: 40px;
   align-items: start;
-  max-width: 1160px;
+  max-width: var(--site-max-width, 1460px);
   margin: 0 auto;
 }
 
@@ -5433,8 +5433,8 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   gap: 0;
   align-items: start;
   min-height: 0;
-  padding: 0 32px;
-  max-width: 1280px;
+  padding: 0 var(--site-gutter, 32px);
+  max-width: var(--site-max-width, 1460px);
   margin: 0 auto;
 }
 
@@ -7097,10 +7097,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   .slanglish-spotlight-section > .container,
   .partner-wheel-section > .container {
     width: 100%;
-  }
-
-  .verticals-section > .container {
-    max-width: min(1540px, calc(100% - 64px));
+    max-width: min(var(--site-max-width, 1460px), calc(100% - 64px));
   }
 
   .section-header {
@@ -7141,7 +7138,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   }
 
   .hero > .container {
-    max-width: min(1460px, calc(100% - 64px));
+    max-width: min(var(--site-max-width, 1460px), calc(100% - 64px));
     width: 100%;
   }
 
@@ -7185,7 +7182,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 
   @media (max-width: 1440px) {
     .hero > .container {
-      max-width: min(1280px, calc(100% - 56px));
+      max-width: min(var(--site-max-width, 1460px), calc(100% - 56px));
     }
 
     .hero-inner {
