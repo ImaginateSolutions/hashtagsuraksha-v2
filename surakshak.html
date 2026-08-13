@@ -9,6 +9,18 @@
   <link rel="stylesheet" href="./assets/css/style.css" />
   <link rel="stylesheet" href="surakshak.css" />
   <style>
+    :root {
+      --text-v2: rgba(255,255,255,0.4);
+      --text-v3: rgba(255,255,255,0.3);
+      --bg-v1:rgba(255,255,255,0.05);
+      --bg-off-white: rgba(255,255,255,0.02);
+    }
+    [data-theme="light"] {
+      --text-v2: rgba(0,0,0,0.4);
+      --text-v3: rgba(0,0,0,0.3);
+      --bg-v1:rgba(0,0,0,0.05);
+      --bg-off-white: rgba(0,0,0,0.02);
+    }
     .surakshak-hero {
       background: linear-gradient(135deg, var(--navy-dark) 0%, #1e3a6e 60%, #1A3A6B 100%);
       padding: 140px 24px 80px;
@@ -62,22 +74,22 @@
     .fomo-stats { display: flex; gap: 32px; margin-bottom: 32px; }
     .fomo-stat { text-align: center; }
     .fomo-stat .num { font-family: 'Sora', sans-serif; font-size: 32px; font-weight: 800; color: var(--saffron); }
-    .fomo-stat .lbl { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+    .fomo-stat .lbl { font-size: 12px; color: var(--text-v3); margin-top: 4px; }
     .big-feed {
       background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       overflow: hidden;
     }
     .big-feed-header {
       padding: 16px 20px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
       gap: 8px;
     }
     .big-feed-header .live-dot { width: 8px; height: 8px; background: #4CAF50; border-radius: 50%; animation: pulse 1.5s infinite; }
-    .big-feed-header span { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.8); }
+    .big-feed-header span { font-size: 13px; font-weight: 600; color: var(--text-primary); }
     .big-feed-list { padding: 8px 0; min-height: 300px; }
     .big-feed-item {
       display: flex;
@@ -87,7 +99,7 @@
       border-bottom: 1px solid rgba(255,255,255,0.05);
       transition: background 0.2s;
     }
-    .big-feed-item:hover { background: rgba(255,255,255,0.05); }
+    .big-feed-item:hover { background: var(--bg-v1); }
     .feed-avatar {
       width: 36px; height: 36px;
       border-radius: 50%;
@@ -97,12 +109,12 @@
       flex-shrink: 0;
     }
     .feed-body { flex: 1; }
-    .feed-body p { font-size: 13px; color: rgba(255,255,255,0.85); line-height: 1.5; margin: 0; }
-    .feed-body strong { color: white; }
-    .feed-time-small { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 4px; display: block; }
+    .feed-body p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin: 0; }
+    .feed-body strong { color: var(--text-primary); }
+    .feed-time-small { font-size: 11px; color: var(--text-v2); margin-top: 4px; display: block; }
 
     /* ── TIERS ── */
-    .tiers-section { padding: 80px 24px; background: white; }
+    .tiers-section { padding: 80px 24px; background: var(--bg); }
     .tiers-grid {
       max-width: 1100px;
       margin: 48px auto 0;
@@ -135,7 +147,7 @@
     .tier-perks li::before { content: '→'; color: var(--saffron); font-weight: 700; flex-shrink: 0; }
 
     /* ── WHAT SURAKSHAKS DO ── */
-    .do-section { padding: 80px 24px; background: var(--off-white); }
+    .do-section { padding: 80px 24px; background: var(--bg); }
     .do-grid {
       max-width: 1100px;
       margin: 48px auto 0;
@@ -144,9 +156,10 @@
       gap: 24px;
     }
     .do-card {
-      background: white;
+      background: var(--bg);
       border-radius: var(--radius-lg);
       padding: 32px 24px;
+      border: 1px solid var(--border);
       border-bottom: 3px solid var(--saffron);
     }
     .do-icon { font-size: 32px; margin-bottom: 14px; }
@@ -212,6 +225,20 @@
     .footer-bottom p { font-size:12px; color:var(--text-secondary,rgba(255,255,255,.4)); }
     @media(max-width:768px){ .footer-grid{grid-template-columns:1fr;gap:40px;} .footer-links-group{grid-template-columns:repeat(2,1fr);} }
     @media(max-width:480px){ .footer-links-group{grid-template-columns:1fr;} }
+
+    a.btn-ghost{
+        border: 1px solid var(--saffron);
+        border-radius: 25px;
+        padding: 10px 20px;
+        color: var(--saffron);
+        transition: all 0.3s ease;
+    }
+    a.btn-ghost:hover {
+        background: var(--saffron);
+        transform: translateY(-2px);
+        color: #fff;
+        box-shadow: 0 8px 28px rgba(255, 153, 51, 0.45);
+    }
   </style>
 </head>
 <body>
