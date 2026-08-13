@@ -697,7 +697,7 @@
 
     /* ══════════════ PREPARE — HOVER BEFORE/AFTER ══════════════ */
     .ba { position:relative; max-width:880px; margin:34px auto 0; height:380px; border-radius:24px; overflow:hidden; border:1px solid var(--bdr); box-shadow:0 26px 64px rgba(0,0,0,.2); cursor:ew-resize; }
-    .ba-layer { position:absolute; inset:0; padding:34px 40px; display:flex; flex-direction:column; justify-content:center; }
+    .ba-layer { position:absolute; inset:0; padding:34px 60px; display:flex; flex-direction:column; justify-content:center; }
     .ba-before { background:linear-gradient(135deg,#1a1d29,#0f1119); color:#8b93a7; }
     .ba-after  { background:linear-gradient(135deg,#0a1f3a,#0a2e22); color:#eaf2ff; clip-path:inset(0 0 0 50%); }
     .ba-tag { display:inline-block; align-self:flex-start; font-family:'Outfit',sans-serif; font-weight:800; font-size:11px; letter-spacing:.14em; text-transform:uppercase; padding:6px 14px; border-radius:999px; margin-bottom:16px; }
@@ -712,7 +712,7 @@
     .ba-divider { position:absolute; top:0; bottom:0; left:50%; width:3px; margin-left:-1.5px; background:rgba(255,255,255,.85); box-shadow:0 0 18px 3px rgba(120,180,255,.6); z-index:5; transition:left .12s ease-out; }
     .ba-knob { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:44px; height:44px; border-radius:50%; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,.35); display:flex; align-items:center; justify-content:center; color:#2563EB; font-size:16px; font-weight:900; z-index:6; transition:left .12s ease-out; }
     .ba-hint { position:absolute; bottom:14px; left:50%; transform:translateX(-50%); z-index:6; font-family:'Outfit',sans-serif; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.6); pointer-events:none; }
-    @media(max-width:640px){ .ba{height:440px} .ba-layer{padding:24px} .ba-li{font-size:12px} }
+    @media(max-width:640px){ .ba{height:440px} .ba-layer{padding:30px} .ba-li{font-size:12px} }
 
   
     /* ══════════════ FAQ TYPING + REGISTER PULSE ══════════════ */
@@ -758,7 +758,7 @@
 
     /* ══════════════ TIMELINE — HORIZONTAL TRACK ══════════════ */
     .htl-scroll { overflow-x:auto; overflow-y:hidden; padding:8px 0 6px; margin-top:30px; }
-    .htl { position:relative; min-width:840px; margin:0 30px; padding:150px 40px; }
+    .htl { position:relative; min-width:840px; margin:0 30px; padding:150px 40px;margin-left: 90px; }
     .htl-track { position:absolute; left:40px; right:40px; top:50%; height:4px; background:var(--bdr); border-radius:4px; }
     .htl-fill { position:absolute; left:0; top:0; height:100%; width:0; border-radius:4px; background:linear-gradient(90deg,#EA580C,#F97316); transition:width 2.2s cubic-bezier(.4,0,.2,1); }
     .htl.in .htl-fill { width:100%; }
@@ -798,6 +798,16 @@
     /* ══════ PREPARE auto-sweep smoothing ══════ */
     .ba-after { transition:clip-path 1.5s cubic-bezier(.4,0,.2,1); }
     .ba-divider, .ba-knob { transition:left 1.5s cubic-bezier(.4,0,.2,1); }
+
+    @media screen and (max-width: 425px) {
+        .countdown{
+            flex-direction: column;
+            gap: 12px;
+        }
+        .countdown .cd-unit{
+          width: 60%;
+        }
+    }
 
   </style>
 </head>
@@ -1528,6 +1538,101 @@
       }
       loop();
     })();
+
+     // ─── BEFORE / AFTER KNOB CONTROLLER (Prepare section) ─────────
+  (function initBeforeAfter() {
+    const ba = document.getElementById('ba');
+    const baAfter = document.getElementById('baAfter');
+    const baDivider = document.getElementById('baDivider');
+    const baKnob = document.getElementById('baKnob');
+
+    if (!ba || !baAfter || !baDivider || !baKnob) return;
+
+    // accessibility
+    baKnob.tabIndex = 0;
+    baKnob.setAttribute('role', 'slider');
+    baKnob.setAttribute('aria-valuemin', '0');
+    baKnob.setAttribute('aria-valuemax', '100');
+
+    let rect = ba.getBoundingClientRect();
+    let isDragging = false;
+
+    function refreshRect() {
+      rect = ba.getBoundingClientRect();
+      if (!rect.width) rect.width = 1;
+    }
+
+    function setBAByPercent(pct) {
+      pct = Math.max(0, Math.min(100, pct));
+      baAfter.style.clipPath = `inset(0 0 0 ${pct}%)`;
+      baDivider.style.left = `${pct}%`;
+      baKnob.style.left = `${pct}%`;
+      baKnob.setAttribute('aria-valuenow', String(Math.round(pct)));
+    }
+
+    function setBAByClientX(clientX) {
+      if (typeof clientX !== 'number' || Number.isNaN(clientX)) return;
+      refreshRect();
+      const x = Math.max(0, Math.min(rect.width, clientX - rect.left));
+      const pct = (x / rect.width) * 100;
+      setBAByPercent(pct);
+    }
+
+    // prevent touch panning while interacting
+    ba.style.touchAction = 'none';
+    baKnob.style.touchAction = 'none';
+
+    // Pointer drag
+    baKnob.addEventListener('pointerdown', (ev) => {
+      isDragging = true;
+      refreshRect();
+      try { baKnob.setPointerCapture(ev.pointerId); } catch (e) {}
+      setBAByClientX(ev.clientX);
+      document.body.style.userSelect = 'none';
+      ev.preventDefault();
+    });
+
+    document.addEventListener('pointermove', (ev) => {
+      if (!isDragging) return;
+      setBAByClientX(ev.clientX);
+      ev.preventDefault();
+    }, { passive: false });
+
+    function endDrag(ev) {
+      if (!isDragging) return;
+      isDragging = false;
+      try { if (ev && ev.pointerId) baKnob.releasePointerCapture(ev.pointerId); } catch (e) {}
+      document.body.style.userSelect = '';
+    }
+    document.addEventListener('pointerup', endDrag);
+    document.addEventListener('pointercancel', endDrag);
+
+    // Click / tap on container moves knob
+    ba.addEventListener('click', (e) => setBAByClientX(e.clientX));
+    ba.addEventListener('touchstart', (e) => { if (e.touches && e.touches[0]) { setBAByClientX(e.touches[0].clientX); e.preventDefault(); } }, { passive: false });
+
+    // Fallback mousedown/up for environments without pointer events
+    baKnob.addEventListener('mousedown', (e) => { isDragging = true; refreshRect(); setBAByClientX(e.clientX); document.body.style.userSelect='none'; e.preventDefault(); });
+    document.addEventListener('mouseup', () => { if (isDragging) { isDragging = false; document.body.style.userSelect=''; } });
+
+    // Keyboard control
+    baKnob.addEventListener('keydown', (e) => {
+      refreshRect();
+      const current = parseFloat(baKnob.style.left) || 50;
+      const step = e.shiftKey ? 10 : 3;
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') { setBAByPercent(current - step); e.preventDefault(); }
+      else if (e.key === 'ArrowRight' || e.key === 'ArrowUp') { setBAByPercent(current + step); e.preventDefault(); }
+      else if (e.key === 'Home') { setBAByPercent(0); e.preventDefault(); }
+      else if (e.key === 'End') { setBAByPercent(100); e.preventDefault(); }
+    });
+
+    console.log('Before/After knob initialized.');
+
+    // initialize center
+    setBAByPercent(50);
+    // refresh on resize
+    window.addEventListener('resize', refreshRect);
+  })();
   </script>
 </body>
 </html>

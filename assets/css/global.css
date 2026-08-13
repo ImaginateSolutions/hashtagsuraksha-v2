@@ -25,6 +25,7 @@
   --border:          #2c3338;
   --border-hover:    rgba(0,122,255,0.5);
   --glass-blur:      blur(16px);
+      --text-popup: #F8FAFC;
   --radius:          12px;
   --radius-lg:       20px;
   --font-display:    'Plus Jakarta Sans', system-ui, sans-serif;
@@ -43,6 +44,7 @@
   --accent-saffron:  #1D4ED8;
   --accent-saffron-glow: rgba(29,78,216,0.18);
   --accent-cyan:     #0891B2;
+  --text-popup: #F8FAFC;
   --accent-amber:    #F59E0B;
   --accent-violet:   #6D28D9;
   --primary:         #1D4ED8;
@@ -806,6 +808,9 @@ img { max-width: 100%; }
 /* Book shelf */
 [data-theme="light"] .books-shelf .book-card { background: white !important; }
 
+.theme-option {
+    color: var(--text-popup) !important;
+}
 .nav-right-mobile {
     display: none;
     gap: 12px;
