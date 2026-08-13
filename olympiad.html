@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>National Cyber Olympiad 2025 — #Suraksha</title>
+  <title>National Cyber Olympiad 2026 — #Suraksha</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/global.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  
   <style>
     /* ═══════════════════════════════════════════
        NCO · Periwinkle Lavender + Dark Navy + Green
@@ -20,8 +23,8 @@
       --ink3:         #9CA3AF;
       --bdr:          rgba(13,14,28,0.1);
       --bdr-s:        rgba(13,14,28,0.06);
-      --acc:          #22C55E;
-      --acc-s:        rgba(34,197,94,0.10);
+      --acc:          #F97316;
+      --acc-s:        rgba(249,115,22,0.10);
       --org:          #F97316;
       --pat:          rgba(60,45,140,0.07);
       --dark-btn:     #0D0E1C;
@@ -38,8 +41,8 @@
       --ink3:         #6B7280;
       --bdr:          rgba(255,255,255,0.09);
       --bdr-s:        rgba(255,255,255,0.04);
-      --acc:          #22C55E;
-      --acc-s:        rgba(34,197,94,0.12);
+      --acc:          #F97316;
+      --acc-s:        rgba(249,115,22,0.12);
       --org:          #FB923C;
       --pat:          rgba(170,160,255,0.055);
       --dark-btn:     #EAEAFF;
@@ -71,94 +74,6 @@
       position: fixed; inset: 0; z-index: -1;
       pointer-events: none; overflow: visible;
       color: var(--pat);
-    }
-
-    /* ══════════════════════════════════════════
-       NAV — Always white, never changes
-    ══════════════════════════════════════════ */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(255,255,255,0.96);
-      border-bottom: 1px solid #E2E8F0;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      transition: box-shadow .3s;
-    }
-    .nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
-    [data-theme="dark"] .nav {
-      background: rgba(255,255,255,0.96) !important;
-      border-bottom: 1px solid #E2E8F0 !important;
-    }
-    .nav-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: flex; align-items: center; gap: 32px;
-      padding: 0 32px; height: 68px;
-    }
-    .nav-logo { flex-shrink: 0; }
-    .nav-logo-img { height: 40px; width: auto; display: block; }
-    .nav-links {
-      display: flex; align-items: center; gap: 4px;
-      flex: 1;
-    }
-    .nav-links li a {
-      font-family: 'Manrope', sans-serif;
-      font-size: 13px; font-weight: 600;
-      color: #1A1A2E;
-      padding: 7px 13px; border-radius: 8px;
-      transition: background .18s, color .18s;
-    }
-    .nav-links li a:hover,
-    .nav-links li a.active {
-      color: #22C55E;
-      background: rgba(34,197,94,0.08);
-    }
-    [data-theme="dark"] .nav-links li a { color: #1A1A2E; }
-    [data-theme="dark"] .nav-links li a:hover,
-    [data-theme="dark"] .nav-links li a.active { color: #22C55E; background: rgba(34,197,94,0.08); }
-    .nav-right { display: flex; align-items: center; gap: 12px; margin-left: auto; }
-    .theme-toggle-btn {
-      width: 36px; height: 36px; border-radius: 8px;
-      border: 1px solid #E2E8F0; background: transparent;
-      cursor: pointer; display: flex; align-items: center; justify-content: center;
-      color: #1A1A2E; transition: border-color .2s, color .2s;
-    }
-    .theme-toggle-btn:hover { border-color: #22C55E; color: #22C55E; }
-    .theme-toggle-btn svg { width: 15px; height: 15px; }
-    [data-theme="light"] .icon-moon { display: none; }
-    [data-theme="dark"]  .icon-sun  { display: none; }
-    .nav-cta {
-      font-family: 'Outfit', sans-serif;
-      font-size: 13px; font-weight: 700;
-      background: #0D0E1C; color: #fff;
-      border-radius: 999px; padding: 9px 20px;
-      transition: opacity .2s;
-      white-space: nowrap;
-    }
-    .nav-cta:hover { opacity: .82; }
-    .hamburger {
-      display: none; background: none; border: none;
-      font-size: 22px; cursor: pointer; color: #1A1A2E;
-    }
-    .mobile-menu {
-      display: none; flex-direction: column; gap: 0;
-      background: #fff; border-top: 1px solid #E2E8F0;
-      padding: 8px 0;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      font-family: 'Manrope', sans-serif;
-      font-size: 14px; font-weight: 600; color: #1A1A2E;
-      padding: 13px 28px; transition: background .15s;
-    }
-    .mobile-menu a:hover { background: #f5f5ff; color: #22C55E; }
-    .mobile-cta {
-      margin: 8px 20px !important;
-      background: #0D0E1C !important; color: #fff !important;
-      border-radius: 10px; text-align: center; padding: 13px 20px !important;
-    }
-    @media(max-width:900px) {
-      .nav-links, .nav-right { display: none !important; }
-      .hamburger { display: flex !important; }
     }
 
     /* ══════════════════════════════════════════
@@ -314,7 +229,7 @@
     .gl-desc { font-size: 15px; color: var(--ink2); line-height: 1.85; margin-bottom: 22px; }
     .gl-acc {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--acc-s); border: 1px solid rgba(34,197,94,.2);
+      background: var(--acc-s); border: 1px solid rgba(249,115,22,.2);
       border-radius: 999px; padding: 6px 16px;
       font-size: 12px; font-weight: 700; color: var(--acc);
     }
@@ -352,7 +267,7 @@
     .stage-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 20px 48px rgba(13,14,28,.1);
-      border-color: rgba(34,197,94,.3);
+      border-color: rgba(249,115,22,.3);
     }
     [data-theme="dark"] .stage-card:hover { box-shadow: 0 20px 48px rgba(0,0,0,.35); }
     .sc-step {
@@ -396,7 +311,7 @@
       transition: background .2s;
     }
     .eli-item:last-child { border-right: none; }
-    .eli-item:hover { background: rgba(34,197,94,.04); }
+    .eli-item:hover { background: rgba(249,115,22,.04); }
     .eli-grade { font-family: 'Outfit', sans-serif; font-size: 36px; font-weight: 900; color: var(--ink); margin-bottom: 4px; }
     .eli-lbl { font-family: 'Outfit', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink3); }
     .eli-sub { font-size: 12px; color: var(--ink2); margin-top: 6px; }
@@ -453,7 +368,7 @@
     /* ══════════════════════════════════════════
        PREPARE / CASK (dark box)
     ══════════════════════════════════════════ */
-    .prep-sec { padding: 0 48px 96px; }
+    .prep-sec { padding: 80px 48px 96px; }
     .prep-box {
       max-width: 1160px; margin: 0 auto;
       background: var(--sec-dark-bg); border-radius: 28px;
@@ -462,7 +377,7 @@
     .prep-box::before {
       content: ''; position: absolute; right: -80px; top: -80px;
       width: 360px; height: 360px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(34,197,94,.07) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(249,115,22,.07) 0%, transparent 70%);
       pointer-events: none;
     }
     .prep-box::after {
@@ -541,7 +456,7 @@
     .reg-sec { padding: 96px 48px; text-align: center; }
     .reg-badge {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--acc-s); border: 1px solid rgba(34,197,94,.2);
+      background: var(--acc-s); border: 1px solid rgba(249,115,22,.2);
       border-radius: 999px; padding: 6px 18px; margin-bottom: 22px;
       font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 700;
       letter-spacing: .1em; text-transform: uppercase; color: var(--acc);
@@ -580,7 +495,7 @@
     .footer-socials a { font-size:13px; color:rgba(255,255,255,.5); transition:color .2s; }
     .footer-socials a:hover { color:var(--acc,#0891B2); }
     .footer-links-group { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
-    .footer-col h5 { font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.4); margin-bottom:16px; font-family:'Manrope',sans-serif; }
+    .footer-col h5 { font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; margin-bottom:16px; font-family:'Manrope',sans-serif; }
     .footer-col a { display:block; font-size:13px; font-weight:400; color:rgba(255,255,255,.5); margin-bottom:10px; transition:color .2s; font-family:'Manrope',sans-serif; }
     .footer-col a:hover { color:var(--acc,#0891B2); }
     .footer-cta-link { color:var(--acc,#0891B2)!important; font-weight:500!important; }
@@ -606,7 +521,7 @@
       .prep-inner      { grid-template-columns: 1fr; gap: 36px; }
       .sec, .reg-sec   { padding: 64px 24px; }
       .hero            { padding: 120px 24px 72px; }
-      .prep-sec        { padding: 0 24px 64px; }
+      .prep-sec        { padding: 64px 24px 64px; }
       .prep-box        { padding: 40px 28px; }
     }
     @media(max-width:720px){
@@ -619,10 +534,277 @@
       .cd-n            { font-size: 38px; }
       .tl-track        { left: 51px; }
     }
+  
+    /* ══════════════ FORKED SHADER BACKGROUND (orange/pearl · orange/obsidian) ══════════════ */
+    #shader-canvas { position:fixed; inset:0; width:100vw; height:100vh; z-index:-3; display:block; pointer-events:none; }
+    /* readability veil over the shader */
+    body::before {
+      content:''; position:fixed; inset:0; z-index:-2; pointer-events:none;
+      background: linear-gradient(180deg, rgba(255,248,240,0.68), rgba(255,245,235,0.80) 45%, rgba(255,247,238,0.72)); }
+    [data-theme="dark"] body::before {
+      background: linear-gradient(180deg, rgba(8,6,10,0.60), rgba(6,4,8,0.72) 45%, rgba(9,6,10,0.62)); }
+    .nco-energy { display:none; }
+    #nco-bg { z-index:-1; opacity:.35; }
+
+    /* ══════════════ HERO TRIPTYCH ══════════════ */
+    .nh { position:relative; margin-top:68px; min-height:calc(100vh - 68px); display:grid; grid-template-columns:1fr 1.18fr 1fr; overflow:hidden; background:#05070f; }
+    .nh-panel { position:relative; display:flex; overflow:hidden; }
+    .nh-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .nh-left .nh-img  { object-position:center; }
+    .nh-right .nh-img { object-position:center; }
+    /* colored scrims */
+    .nh-left::after { content:''; position:absolute; inset:0; background:linear-gradient(90deg, rgba(20,10,2,0.66) 0%, rgba(120,60,15,0.12) 55%, rgba(30,60,140,0.30) 100%); }
+    .nh-right::after{ content:''; position:absolute; inset:0; background:linear-gradient(270deg, rgba(4,20,14,0.60) 0%, rgba(15,90,70,0.12) 55%, rgba(20,60,140,0.30) 100%); }
+    .nh-cap { position:absolute; top:46px; left:40px; z-index:3; font-family:'Outfit',sans-serif; font-weight:700; font-size:clamp(22px,2.4vw,34px); line-height:1.14; color:#F4F6FF; text-shadow:0 2px 18px rgba(0,0,0,.5); }
+    .nh-cap-r { left:auto; right:40px; text-align:right; }
+    .nh-cap span { display:block; }
+    .nh-cap em { font-style:normal; color:#F59E0B; }
+    .nh-cap-r em { color:#34D399; }
+    /* center */
+    .nh-mid { flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:60px 30px 96px; background:radial-gradient(ellipse 90% 70% at 50% 42%, #0a1836 0%, #060a18 70%); }
+    .nh-mid::before { content:''; position:absolute; width:120%; height:70%; left:-10%; top:14%; background:radial-gradient(ellipse at 50% 50%, rgba(56,132,255,0.28), transparent 62%); filter:blur(8px); pointer-events:none; animation:ncoPulse 4.6s ease-in-out infinite; }
+    @keyframes ncoPulse { 0%,100%{opacity:.6;transform:scale(.96)} 50%{opacity:1;transform:scale(1.04)} }
+    .nh-seam { position:absolute; top:8%; height:84%; width:2px; z-index:4; background:linear-gradient(180deg,transparent,rgba(120,180,255,0.9),transparent); box-shadow:0 0 26px 6px rgba(80,150,255,0.55); }
+    .nh-seam-l { left:0; } .nh-seam-r { right:0; background:linear-gradient(180deg,transparent,rgba(120,255,190,0.85),transparent); box-shadow:0 0 26px 6px rgba(60,220,150,0.5); }
+    .nh-canvas { position:absolute; inset:0; z-index:1; pointer-events:none; }
+    .nh-inner2 { position:relative; z-index:2; }
+    .nh-eyebrow { font-family:'Outfit',sans-serif; font-weight:800; font-size:12px; letter-spacing:.28em; text-transform:uppercase; color:#5AA9FF; margin-bottom:18px; }
+    .nh-title { font-family:'Outfit',sans-serif; font-weight:900; font-size:clamp(34px,5vw,68px); line-height:0.98; letter-spacing:-.01em; color:#fff; text-shadow:0 4px 30px rgba(30,90,200,.4); }
+    .nh-year { background:linear-gradient(180deg,#7FE3FF,#38A2E8); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .nh-sub { margin:22px 0 26px; color:#C6D4EE; font-size:clamp(14px,1.5vw,17px); line-height:1.5; font-weight:500; }
+    .nh-ctas { display:flex; flex-direction:column; align-items:center; gap:14px; }
+    .nh-btn-main { display:inline-flex; align-items:center; justify-content:center; min-width:230px; padding:15px 30px; border-radius:999px; font-family:'Outfit',sans-serif; font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:linear-gradient(135deg,#3B82F6,#2563EB); box-shadow:0 12px 34px rgba(37,99,235,.5); transition:transform .2s, box-shadow .2s; }
+    .nh-btn-main:hover { transform:translateY(-2px); box-shadow:0 18px 44px rgba(37,99,235,.62); }
+    .nh-btn-ghost { display:inline-flex; align-items:center; gap:8px; padding:13px 26px; border-radius:999px; font-family:'Outfit',sans-serif; font-weight:700; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:#B9C9E8; border:1px solid rgba(150,180,230,0.34); transition:border-color .2s, color .2s; }
+    .nh-btn-ghost:hover { color:#fff; border-color:rgba(150,180,230,0.7); }
+    /* chip rail */
+    .nh-chips { position:absolute; left:0; right:0; bottom:0; z-index:5; display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:10px 26px; padding:15px 20px; background:linear-gradient(180deg,transparent,rgba(3,6,14,0.85)); font-family:'Outfit',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; color:#AFC0DD; }
+    .nh-chips b { color:#EAF2FF; font-weight:800; }
+    .nh-chip { display:inline-flex; align-items:center; gap:8px; }
+    .nh-chip svg { width:15px; height:15px; opacity:.85; }
+    .nh-chip + .nh-chip::before { content:'·'; margin-right:26px; opacity:.4; }
+    @media(max-width:860px){
+      .nh { grid-template-columns:1fr; }
+      .nh-panel { min-height:230px; }
+      .nh-mid { min-height:auto; padding:54px 24px 80px; }
+      .nh-cap { font-size:24px; top:24px; left:26px; }
+      .nh-cap-r { right:26px; left:auto; }
+      .nh-seam { display:none; }
+      .nh-chips { position:static; }
+    }
+
+  
+    /* ══════════════ AT A GLANCE — ORBIT ══════════════ */
+    .orb-wrap { text-align:center; }
+    .orb { position:relative; width:min(560px,92vw); height:min(560px,92vw); margin:22px auto 0; }
+    .orb-hub { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:min(210px,40%); aspect-ratio:1; border-radius:50%;
+      background:var(--card-s); border:1px solid var(--bdr); backdrop-filter:blur(14px); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:18px; z-index:5; box-shadow:0 20px 50px rgba(0,0,0,.14); transition:box-shadow .3s; }
+    .orb-hub-k { font-family:'Outfit',sans-serif; font-weight:900; font-size:clamp(30px,6vw,44px); line-height:1; background:linear-gradient(135deg,#EA580C,#F97316); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .orb-hub-t { font-family:'Outfit',sans-serif; font-weight:800; font-size:13.5px; color:var(--ink); margin-top:8px; min-height:1.1em; }
+    .orb-hub-d { font-size:11.5px; color:var(--ink2); line-height:1.45; margin-top:6px; }
+    .orb-ringline { position:absolute; inset:9%; border-radius:50%; border:2.5px solid rgba(249,115,22,0.34); }
+    .orb-ringline.two { inset:24%; border-width:2px; opacity:.55; }
+    .orb-node { position:absolute; width:118px; margin:-30px 0 0 -59px; display:flex; flex-direction:column; align-items:center; gap:5px; cursor:pointer; will-change:left,top; }
+    .orb-node-ico { width:56px; height:56px; border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:25px; background:var(--card-s); border:1px solid var(--bdr); box-shadow:0 10px 24px rgba(0,0,0,.12); transition:transform .25s, border-color .25s, box-shadow .25s; }
+    .orb-node-l { font-family:'Outfit',sans-serif; font-weight:700; font-size:11px; color:var(--ink); text-align:center; line-height:1.2; opacity:.9; }
+    .orb-node:hover .orb-node-ico, .orb-node.active .orb-node-ico { transform:scale(1.14); border-color:var(--acc); box-shadow:0 14px 30px rgba(249,115,22,.32); }
+    @media(max-width:520px){ .orb-node { width:92px; margin-left:-46px; } .orb-node-ico{ width:46px; height:46px; font-size:20px; } .orb-node-l{ font-size:9.5px; } }
+
+    /* ══════════════ STAGES — 3D STACK ══════════════ */
+    .st3 { position:relative; max-width:720px; margin:34px auto 0; height:340px; perspective:1400px; }
+    .st3-card { position:absolute; left:0; right:0; margin:0 auto; width:100%; max-width:640px; padding:32px 34px; border-radius:24px;
+      background:var(--card-s); border:1px solid var(--bdr); backdrop-filter:blur(16px); box-shadow:0 30px 70px rgba(0,0,0,.2);
+      transition:transform .6s cubic-bezier(.22,1,.36,1), opacity .6s, box-shadow .6s; transform-style:preserve-3d; left:0; right:0; }
+    .st3-num { position:absolute; top:22px; right:30px; font-family:'Outfit',sans-serif; font-weight:900; font-size:64px; line-height:1; color:var(--acc); opacity:.16; }
+    .st3-step { font-family:'Outfit',sans-serif; font-weight:800; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--acc); }
+    .st3-title { font-family:'Outfit',sans-serif; font-weight:800; font-size:clamp(22px,3vw,30px); color:var(--ink); margin:10px 0 12px; }
+    .st3-desc { color:var(--ink2); font-size:14.5px; line-height:1.62; max-width:480px; }
+    .st3-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+    .st3-tag { font-family:'Outfit',sans-serif; font-size:11.5px; font-weight:700; color:var(--ink); padding:6px 12px; border-radius:999px; background:var(--acc-s); border:1px solid var(--bdr-s); }
+    .st3-ctrl { display:flex; align-items:center; justify-content:center; gap:16px; margin-top:26px; }
+    .st3-arrow { width:46px; height:46px; border-radius:50%; border:1px solid var(--bdr); background:var(--card-s); color:var(--ink); font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:transform .2s, border-color .2s, color .2s; }
+    .st3-arrow:hover { transform:translateY(-2px); border-color:var(--acc); color:var(--acc); }
+    .st3-dots { display:flex; gap:9px; align-items:center; }
+    .st3-dot { width:9px; height:9px; border-radius:50%; background:var(--bdr); border:none; cursor:pointer; transition:transform .2s, background .2s; }
+    .st3-dot.on { background:var(--acc); transform:scale(1.35); }
+
+  
+    /* ══════════════ ELIGIBILITY — GRADE DIAL ══════════════ */
+    .dial-wrap { max-width:680px; margin:34px auto 0; }
+    .dial-panel { text-align:center; background:var(--card-s); border:1px solid var(--bdr); border-radius:24px; padding:30px 26px 26px; backdrop-filter:blur(14px); box-shadow:0 20px 50px rgba(0,0,0,.14); }
+    .dial-cat { display:inline-block; font-family:'Outfit',sans-serif; font-weight:800; font-size:11px; letter-spacing:.14em; text-transform:uppercase; padding:6px 14px; border-radius:999px; background:var(--acc-s); color:var(--acc); margin-bottom:14px; transition:background .3s,color .3s; }
+    .dial-grade { font-family:'Outfit',sans-serif; font-weight:900; font-size:clamp(42px,8vw,72px); line-height:1; background:linear-gradient(135deg,#EA580C,#F97316); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .dial-lbl { font-family:'Outfit',sans-serif; font-weight:800; font-size:19px; color:var(--ink); margin-top:8px; }
+    .dial-note { color:var(--ink2); font-size:14px; line-height:1.55; margin-top:8px; max-width:420px; margin-left:auto; margin-right:auto; }
+    .dial-ctl { position:relative; margin:30px 8px 6px; height:54px; }
+    .dial-track { position:absolute; top:24px; left:0; right:0; height:6px; border-radius:6px; background:var(--bdr); }
+    .dial-fill { position:absolute; top:0; left:0; height:100%; border-radius:6px; background:linear-gradient(90deg,#EA580C,#F97316); transition:width .25s cubic-bezier(.22,1,.36,1); }
+    .dial-handle { position:absolute; top:14px; width:26px; height:26px; margin-left:-13px; border-radius:50%; background:#fff; border:3px solid var(--acc); box-shadow:0 6px 16px rgba(249,115,22,.42); transition:left .25s cubic-bezier(.22,1,.36,1); pointer-events:none; }
+    .dial-ticks { position:absolute; top:18px; left:0; right:0; display:flex; justify-content:space-between; }
+    .dial-tick { width:16px; height:16px; margin:0 -8px; border-radius:50%; background:var(--card-s); border:2px solid var(--bdr); transition:border-color .25s, background .25s; }
+    .dial-tick.done { border-color:var(--acc); background:var(--acc); }
+    .dial-range { position:absolute; top:8px; left:0; width:100%; height:40px; margin:0; opacity:0; cursor:grab; -webkit-appearance:none; appearance:none; background:transparent; }
+    .dial-range:active { cursor:grabbing; }
+    .dial-range::-webkit-slider-thumb { -webkit-appearance:none; width:44px; height:40px; }
+    .dial-labels { display:flex; justify-content:space-between; margin-top:6px; }
+    .dial-labels span { font-family:'Outfit',sans-serif; font-weight:700; font-size:12px; color:var(--ink3); width:20%; text-align:center; transition:color .25s; }
+    .dial-labels span.on { color:var(--acc); }
+
+    /* ══════════════ TIMELINE — ZIG-ZAG ══════════════ */
+    .ztl { position:relative; max-width:860px; margin:40px auto 0; }
+    .ztl-line { position:absolute; left:50%; top:0; transform:translateX(-50%); width:3px; height:100%; background:var(--bdr); border-radius:3px; overflow:hidden; }
+    .ztl-line i { position:absolute; left:0; top:0; width:100%; height:0; background:linear-gradient(180deg,#EA580C,#F97316); transition:height 1.8s cubic-bezier(.4,0,.2,1); }
+    .ztl.in .ztl-line i { height:100%; }
+    .ztl-item { position:relative; display:grid; grid-template-columns:1fr 1fr; margin-bottom:30px; min-height:104px; align-items:center; }
+    .ztl-item:last-child { margin-bottom:0; }
+    .ztl-card { background:var(--card-s); border:1px solid var(--bdr); border-radius:18px; padding:18px 22px; backdrop-filter:blur(12px); box-shadow:0 14px 36px rgba(0,0,0,.12); opacity:0; transition:opacity .6s ease, transform .6s cubic-bezier(.22,1,.36,1); }
+    .ztl-item:nth-child(odd) .ztl-card { grid-column:1; margin-right:50px; transform:translateX(-30px); text-align:right; }
+    .ztl-item:nth-child(even) .ztl-card { grid-column:2; margin-left:50px; transform:translateX(30px); }
+    .ztl-item.in .ztl-card { opacity:1; transform:none; }
+    .ztl-date { font-family:'Outfit',sans-serif; font-weight:800; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--acc); margin-bottom:5px; }
+    .ztl-title { font-family:'Outfit',sans-serif; font-weight:800; font-size:16px; color:var(--ink); margin-bottom:5px; }
+    .ztl-desc { color:var(--ink2); font-size:13px; line-height:1.55; }
+    .ztl-node { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) scale(.5); width:50px; height:50px; border-radius:50%; background:var(--card-s); border:2px solid var(--bdr); display:flex; align-items:center; justify-content:center; font-family:'Outfit',sans-serif; font-weight:900; font-size:12px; color:var(--ink2); z-index:3; text-align:center; line-height:1; transition:transform .5s cubic-bezier(.34,1.56,.64,1) .1s, background .5s, color .5s, box-shadow .5s, border-color .5s; }
+    .ztl-item.in .ztl-node { transform:translate(-50%,-50%) scale(1); background:linear-gradient(135deg,#EA580C,#F97316); color:#fff; border-color:transparent; box-shadow:0 0 0 7px rgba(249,115,22,.14), 0 10px 24px rgba(37,99,235,.4); }
+    @media(max-width:720px){
+      .ztl-line { left:24px; }
+      .ztl-item { grid-template-columns:1fr; }
+      .ztl-item:nth-child(odd) .ztl-card, .ztl-item:nth-child(even) .ztl-card { grid-column:1; margin:0 0 0 62px; text-align:left; transform:translateY(22px); }
+      .ztl-item.in .ztl-card { transform:none; }
+      .ztl-node { left:24px; }
+    }
+
+  
+    /* ══════════════ AWARDS — PODIUM ══════════════ */
+    .pod { display:flex; justify-content:center; align-items:flex-end; gap:16px; margin:44px auto 0; max-width:820px; flex-wrap:nowrap; }
+    .pod-col { display:flex; flex-direction:column; align-items:center; width:33%; max-width:250px; opacity:0; transform:translateY(46px); transition:opacity .7s ease, transform .7s cubic-bezier(.22,1,.36,1); }
+    .pod.in .pod-col { opacity:1; transform:none; }
+    .pod.in .pod-col.c2 { transition-delay:.05s; } .pod.in .pod-col.c1 { transition-delay:.18s; } .pod.in .pod-col.c3 { transition-delay:.3s; }
+    .pod-card { width:100%; background:var(--card-s); border:1px solid var(--bdr); border-radius:18px 18px 0 0; padding:20px 16px 16px; text-align:center; backdrop-filter:blur(12px); box-shadow:0 -6px 30px rgba(0,0,0,.1); }
+    .pod-col.c1 .pod-card { border-color:rgba(234,179,8,.5); box-shadow:0 0 0 1px rgba(234,179,8,.4),0 10px 40px rgba(234,179,8,.24); }
+    .pod-medal { font-size:44px; line-height:1; display:inline-block; opacity:0; transform:translateY(-22px) scale(.4) rotate(-18deg); transition:transform .6s cubic-bezier(.34,1.56,.64,1), opacity .5s; }
+    .pod.in .pod-medal { opacity:1; transform:none; }
+    .pod.in .pod-col.c1 .pod-medal { transition-delay:.35s; } .pod.in .pod-col.c2 .pod-medal { transition-delay:.2s; } .pod.in .pod-col.c3 .pod-medal { transition-delay:.45s; }
+    .pod-rank { font-family:'Outfit',sans-serif; font-weight:800; font-size:14px; color:var(--ink); margin-top:8px; }
+    .pod-prize { font-family:'Outfit',sans-serif; font-weight:900; font-size:24px; margin:4px 0 12px; background:linear-gradient(135deg,#EA580C,#F97316); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .pod-col.c1 .pod-prize { background:linear-gradient(135deg,#EAB308,#F97316); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .pod-items { display:flex; flex-direction:column; gap:6px; }
+    .pod-it { font-size:11.5px; color:var(--ink2); line-height:1.35; }
+    .pod-base { width:100%; height:0; border-radius:0 0 6px 6px; display:flex; align-items:center; justify-content:center; font-family:'Outfit',sans-serif; font-weight:900; font-size:15px; color:#fff; letter-spacing:.05em; overflow:hidden; transition:height .8s cubic-bezier(.22,1,.36,1) .2s; }
+    .pod-col.c1 .pod-base { background:linear-gradient(180deg,#EAB308,#CA8A04); } .pod-col.c2 .pod-base { background:linear-gradient(180deg,#94A3B8,#64748B); } .pod-col.c3 .pod-base { background:linear-gradient(180deg,#B45309,#92400E); }
+    .pod.in .pod-col.c1 .pod-base { height:150px; } .pod.in .pod-col.c2 .pod-base { height:112px; } .pod.in .pod-col.c3 .pod-base { height:84px; }
+    @media(max-width:640px){ .pod-medal{font-size:32px} .pod-prize{font-size:19px} .pod-it{font-size:10px} .pod-card{padding:14px 8px} .pod{gap:8px} }
+
+    /* ══════════════ PREPARE — HOVER BEFORE/AFTER ══════════════ */
+    .ba { position:relative; max-width:880px; margin:34px auto 0; height:380px; border-radius:24px; overflow:hidden; border:1px solid var(--bdr); box-shadow:0 26px 64px rgba(0,0,0,.2); cursor:ew-resize; }
+    .ba-layer { position:absolute; inset:0; padding:34px 40px; display:flex; flex-direction:column; justify-content:center; }
+    .ba-before { background:linear-gradient(135deg,#1a1d29,#0f1119); color:#8b93a7; }
+    .ba-after  { background:linear-gradient(135deg,#0a1f3a,#0a2e22); color:#eaf2ff; clip-path:inset(0 0 0 50%); }
+    .ba-tag { display:inline-block; align-self:flex-start; font-family:'Outfit',sans-serif; font-weight:800; font-size:11px; letter-spacing:.14em; text-transform:uppercase; padding:6px 14px; border-radius:999px; margin-bottom:16px; }
+    .ba-before .ba-tag { background:rgba(255,255,255,.06); color:#9aa3b7; }
+    .ba-after .ba-tag { background:rgba(249,115,22,.18); color:#5eead4; }
+    .ba-h { font-family:'Outfit',sans-serif; font-weight:800; font-size:clamp(20px,2.6vw,26px); margin-bottom:16px; }
+    .ba-after .ba-h { color:#fff; }
+    .ba-li { display:flex; align-items:flex-start; gap:10px; font-size:13.5px; line-height:1.4; margin-bottom:10px; max-width:360px; }
+    .ba-li span { flex-shrink:0; font-size:15px; }
+    .ba-after .ba-li { color:#d7e6ff; }
+    .ba-cta { align-self:flex-start; margin-top:8px; padding:11px 22px; border-radius:999px; font-family:'Outfit',sans-serif; font-weight:800; font-size:13px; color:#fff; background:linear-gradient(135deg,#F97316,#EA580C); }
+    .ba-divider { position:absolute; top:0; bottom:0; left:50%; width:3px; margin-left:-1.5px; background:rgba(255,255,255,.85); box-shadow:0 0 18px 3px rgba(120,180,255,.6); z-index:5; transition:left .12s ease-out; }
+    .ba-knob { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:44px; height:44px; border-radius:50%; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,.35); display:flex; align-items:center; justify-content:center; color:#2563EB; font-size:16px; font-weight:900; z-index:6; transition:left .12s ease-out; }
+    .ba-hint { position:absolute; bottom:14px; left:50%; transform:translateX(-50%); z-index:6; font-family:'Outfit',sans-serif; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.6); pointer-events:none; }
+    @media(max-width:640px){ .ba{height:440px} .ba-layer{padding:24px} .ba-li{font-size:12px} }
+
+  
+    /* ══════════════ FAQ TYPING + REGISTER PULSE ══════════════ */
+    .faq-item.open .faq-a { max-height: 420px; }
+    .faq-a-inner.typing::after { content:'▍'; display:inline-block; margin-left:1px; color:var(--acc); animation:faqCaret .8s step-end infinite; }
+    @keyframes faqCaret { 50% { opacity:0; } }
+
+    .reg-sec { position:relative; overflow:hidden; }
+    .reg-sec::before { content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
+      background:
+        radial-gradient(ellipse 42% 60% at 20% 40%, rgba(249,140,40,0.10), transparent 60%),
+        radial-gradient(ellipse 50% 70% at 50% 50%, rgba(37,99,235,0.16), transparent 62%),
+        radial-gradient(ellipse 42% 60% at 80% 45%, rgba(249,115,22,0.12), transparent 60%);
+      animation:regPulse 3.6s ease-in-out infinite; }
+    @keyframes regPulse { 0%,100%{ opacity:.55; transform:scale(.96); } 50%{ opacity:1; transform:scale(1.05); } }
+    .reg-badge { animation:regBadge 2.4s ease-in-out infinite; }
+    @keyframes regBadge { 0%,100%{ box-shadow:0 0 0 0 rgba(249,115,22,0); } 50%{ box-shadow:0 0 0 6px rgba(249,115,22,.14); } }
+    .countdown .cd-unit { padding:14px 10px; border-radius:16px; background:var(--card-s); border:1px solid var(--bdr); backdrop-filter:blur(10px); min-width:78px; box-shadow:0 12px 30px rgba(0,0,0,.1); }
+    .cd-n { transition:transform .2s; }
+    .cd-n.tick { animation:cdTick .3s ease; }
+    @keyframes cdTick { 0%{ transform:translateY(-4px); opacity:.5; } 100%{ transform:none; opacity:1; } }
+
+  
+    /* ══════ STAGES ZIG-ZAG extras ══════ */
+    .ztl-step { font-family:'Outfit',sans-serif; font-weight:800; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--acc); margin-bottom:4px; }
+    .ztl-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+    .ztl-item:nth-child(odd) .ztl-tags { justify-content:flex-end; }
+    @media(max-width:720px){ .ztl-item:nth-child(odd) .ztl-tags { justify-content:flex-start; } }
+
+    /* ══════════════ ELIGIBILITY — STAIRCASE ══════════════ */
+    .stair-panel { text-align:center; max-width:520px; margin:0 auto 6px; min-height:88px; }
+    .stair-cat { display:inline-block; font-family:'Outfit',sans-serif; font-weight:800; font-size:11px; letter-spacing:.14em; text-transform:uppercase; padding:5px 14px; border-radius:999px; background:var(--acc-s); color:var(--acc); margin-bottom:10px; }
+    .stair-note { color:var(--ink2); font-size:14px; line-height:1.5; }
+    .stair { display:flex; align-items:flex-end; justify-content:center; gap:12px; max-width:720px; margin:22px auto 0; min-height:250px; }
+    .stair-step { flex:1; max-width:126px; display:flex; flex-direction:column; align-items:center; cursor:pointer; }
+    .stair-block { width:100%; border-radius:14px 14px 0 0; background:linear-gradient(180deg,#F97316,#EA580C); display:flex; align-items:flex-start; justify-content:center; padding-top:12px; color:#fff; font-family:'Outfit',sans-serif; font-weight:900; font-size:17px; letter-spacing:.02em; opacity:0; transform:translateY(34px); transition:opacity .55s ease, transform .55s cubic-bezier(.22,1,.36,1), filter .25s, box-shadow .25s; box-shadow:0 -4px 20px rgba(249,115,22,.24); }
+    .stair.in .stair-block { opacity:1; transform:none; }
+    .stair-step:hover .stair-block, .stair-step.active .stair-block { filter:brightness(1.08); transform:translateY(-8px); box-shadow:0 -6px 30px rgba(249,115,22,.5); }
+    .stair-step.senior .stair-block { background:linear-gradient(180deg,#FB923C,#C2410C); }
+    .stair-cap { font-family:'Outfit',sans-serif; font-weight:800; font-size:12px; color:var(--ink); margin-top:9px; }
+    .stair-sub { font-size:10.5px; color:var(--ink3); }
+    @media(max-width:560px){ .stair { gap:6px; min-height:200px; } .stair-block { font-size:13px; } .stair-cap { font-size:10px; } }
+
+    /* ══════════════ TIMELINE — HORIZONTAL TRACK ══════════════ */
+    .htl-scroll { overflow-x:auto; overflow-y:hidden; padding:8px 0 6px; margin-top:30px; }
+    .htl { position:relative; min-width:840px; margin:0 30px; padding:150px 40px; }
+    .htl-track { position:absolute; left:40px; right:40px; top:50%; height:4px; background:var(--bdr); border-radius:4px; }
+    .htl-fill { position:absolute; left:0; top:0; height:100%; width:0; border-radius:4px; background:linear-gradient(90deg,#EA580C,#F97316); transition:width 2.2s cubic-bezier(.4,0,.2,1); }
+    .htl.in .htl-fill { width:100%; }
+    .htl-marker { position:absolute; top:50%; left:0; width:16px; height:16px; margin:-8px 0 0 -8px; border-radius:50%; background:#fff; border:3px solid #F97316; box-shadow:0 0 16px 3px rgba(249,115,22,.6); z-index:4; transition:left 2.2s cubic-bezier(.4,0,.2,1); }
+    .htl.in .htl-marker { left:100%; }
+    .htl-node { position:absolute; top:50%; transform:translate(-50%,-50%); z-index:3; }
+    .htl-dot { width:20px; height:20px; border-radius:50%; background:var(--card-s); border:3px solid var(--bdr); transition:background .4s, border-color .4s, box-shadow .4s; }
+    .htl-node.lit .htl-dot { background:linear-gradient(135deg,#EA580C,#F97316); border-color:transparent; box-shadow:0 0 0 6px rgba(249,115,22,.14); }
+    .htl-card { position:absolute; left:50%; transform:translateX(-50%); width:180px; background:var(--card-s); border:1px solid var(--bdr); border-radius:14px; padding:12px 14px; backdrop-filter:blur(12px); box-shadow:0 12px 30px rgba(0,0,0,.12); opacity:0; transition:opacity .55s ease; }
+    .htl-node.lit .htl-card { opacity:1; }
+    .htl-node.up .htl-card { bottom:28px; }
+    .htl-node.down .htl-card { top:28px; }
+    .htl-node:first-child .htl-card { left:0; transform:none; }
+    .htl-node:last-child .htl-card { left:auto; right:0; transform:none; }
+    .htl-date { font-family:'Outfit',sans-serif; font-weight:800; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--acc); margin-bottom:4px; }
+    .htl-title { font-family:'Outfit',sans-serif; font-weight:800; font-size:13px; color:var(--ink); margin-bottom:4px; }
+    .htl-desc { font-size:11.5px; color:var(--ink2); line-height:1.45; }
+
+    /* ══════════════ AWARDS — VAULT UNLOCK ══════════════ */
+    .vault { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:900px; margin:44px auto 0; }
+    @media(max-width:760px){ .vault { grid-template-columns:1fr; max-width:420px; } }
+    .vault-card { position:relative; border-radius:20px; padding:28px 20px; background:var(--card-s); border:1px solid var(--bdr); overflow:hidden; text-align:center; backdrop-filter:blur(12px); box-shadow:0 16px 44px rgba(0,0,0,.14); }
+    .vault-card.gold { border-color:rgba(234,88,12,.5); box-shadow:0 0 0 1px rgba(249,115,22,.4),0 16px 50px rgba(249,115,22,.28); }
+    .vault-card::after { content:''; position:absolute; inset:0; background:linear-gradient(120deg,transparent 32%,rgba(255,255,255,.55) 48%,transparent 64%); transform:translateX(-130%); pointer-events:none; }
+    .vault-card.unlocked::after { animation:vaultShine 1.1s ease .1s; }
+    @keyframes vaultShine { to { transform:translateX(130%); } }
+    .vault-inner { filter:blur(7px); opacity:.35; transform:scale(.97); transition:filter .7s ease, opacity .7s ease, transform .7s cubic-bezier(.22,1,.36,1); }
+    .vault-card.unlocked .vault-inner { filter:none; opacity:1; transform:none; }
+    .vault-lock { position:absolute; top:14px; right:16px; font-size:16px; opacity:.6; transition:opacity .4s; }
+    .vault-card.unlocked .vault-lock { opacity:0; }
+    .vault-medal { font-size:46px; line-height:1; }
+    .vault-rank { font-family:'Outfit',sans-serif; font-weight:800; font-size:14px; color:var(--ink); margin-top:8px; }
+    .vault-prize { font-family:'Outfit',sans-serif; font-weight:900; font-size:26px; margin:4px 0 12px; background:linear-gradient(135deg,#EA580C,#F97316); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .vault-items { display:flex; flex-direction:column; gap:6px; }
+    .vault-it { font-size:11.5px; color:var(--ink2); line-height:1.35; }
+
+    /* ══════ PREPARE auto-sweep smoothing ══════ */
+    .ba-after { transition:clip-path 1.5s cubic-bezier(.4,0,.2,1); }
+    .ba-divider, .ba-knob { transition:left 1.5s cubic-bezier(.4,0,.2,1); }
+
   </style>
 </head>
 <body>
 
+  <canvas id="shader-canvas" aria-hidden="true"></canvas>
+  <div class="nco-energy" aria-hidden="true"></div>
   <!-- Background SVG pattern (JS-generated) -->
   <svg id="nco-bg" aria-hidden="true" style="position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:visible;color:var(--pat);width:100%;height:100%"></svg>
 
@@ -637,9 +819,9 @@
         <li><a href="platform.html">CASK</a></li>
         <li><a href="surakshak.html">Surakshak</a></li>
         <li><a href="olympiad.html" class="active">Olympiad</a></li>
-        <li><a href="phishnchip.html">Phish &amp; Chip</a></li>
+        <li><a href="phishnchip.html">The Phish &amp; Chip Show</a></li>
         <li><a href="slanglish.html">Slanglish</a></li>
-        <li><a href="resources.html">Resources</a></li>
+        <li><a href="resources.html">Books</a></li>
         <li><a href="partner.html">Partner With Us</a></li>
       </ul>
       <div class="nav-right">
@@ -649,75 +831,76 @@
         </button>
         <a href="surakshak.html" class="nav-cta">Join the Movement</a>
       </div>
-      <button class="hamburger" id="hamburger">&#9776;</button>
+     <div class="nav-right-mobile">
+         <button id="themeToggle1" class="themeToggle theme-toggle-btn" aria-label="Toggle theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="hamburger" id="hamburger">&#9776;</button>
+      </div>
     </div>
     <div class="mobile-menu" id="mobileMenu">
       <a href="index.html">Home</a>
       <a href="platform.html">CASK</a>
       <a href="surakshak.html">Surakshak</a>
       <a href="olympiad.html">Olympiad</a>
-      <a href="phishnchip.html">Phish &amp; Chip</a>
+      <a href="phishnchip.html">The Phish &amp; Chip Show</a>
       <a href="slanglish.html">Slanglish</a>
-      <a href="resources.html">Resources</a>
+      <a href="resources.html">Books</a>
       <a href="partner.html">Partner With Us</a>
       <a href="surakshak.html" class="mobile-cta">Join the Movement</a>
     </div>
   </nav>
 
-  <!-- ═══════ HERO ═══════ -->
-  <section class="hero" id="home">
-    <div class="hero-inner">
-      <div class="hero-badge rev">
-        <span class="badge-dot"></span>
-        AN INITIATIVE OF <strong>#Suraksha</strong>
+  <!-- ═══════ HERO (triptych) ═══════ -->
+  <section class="nh" id="home">
+    <div class="nh-panel nh-left">
+      <img class="nh-img" src="assets/ncoheroleft.png" alt="A curious student learning at a laptop" />
+      <div class="nh-cap"><span>Today,</span><span>A <em>Curious</em></span><span>Student.</span></div>
+    </div>
+    <div class="nh-panel nh-mid">
+      <div class="nh-seam nh-seam-l" aria-hidden="true"></div>
+      <canvas class="nh-canvas" id="nhCanvas" aria-hidden="true"></canvas>
+      <div class="nh-inner2">
+        <div class="nh-eyebrow">Bridge to Tomorrow</div>
+        <h1 class="nh-title">National<br/>Cyber<br/>Olympiad<br/><span class="nh-year">2026</span></h1>
+        <p class="nh-sub">Learn. Compete. Protect.<br/>Build India's Cyber Future.</p>
+        <div class="nh-ctas">
+          <a href="#register" class="nh-btn-main">Join the Mission</a>
+          <a href="#stages" class="nh-btn-ghost">Explore Journey ›</a>
+        </div>
       </div>
-      <h1 class="hero-h1 rev d1">
-        <span class="h1-l1">National</span>
-        <span class="h1-l2">Cyber</span>
-        <span class="h1-l3">Olympiad.</span>
-      </h1>
-      <p class="hero-desc rev d2">
-        A national stage for India's next generation of digital citizens. Three progressive assessment stages. One ambition — a cyber-aware Bharat.
-      </p>
-      <div class="hero-stats rev d2">
-        <div class="hs"><div class="hs-lbl">National</div><div class="hs-val">Level</div></div>
-        <div class="hs"><div class="hs-lbl">Grades</div><div class="hs-val">VI – XII</div></div>
-        <div class="hs"><div class="hs-lbl">Every</div><div class="hs-val">October</div></div>
-        <div class="hs"><div class="hs-lbl">Stages</div><div class="hs-val">Three</div></div>
-      </div>
-      <div class="hero-ctas rev d3">
-        <a href="#register" class="btn-dark">🛡 Register as Student ↗</a>
-        <a href="#register" class="btn-out">🏫 Register as School</a>
-        <a href="#" class="btn-out">⬇ Download Brochure</a>
-      </div>
-      <div class="hero-ticker rev d3">
-        <div class="tk-item"><span class="tk-live"></span>&nbsp;Registrations open</div>
-        <span class="tk-sep">·</span>
-        <div class="tk-item">Closes 15 August</div>
-        <span class="tk-sep">·</span>
-        <div class="tk-item">Felicitation · New Delhi</div>
-      </div>
+      <div class="nh-seam nh-seam-r" aria-hidden="true"></div>
+    </div>
+    <div class="nh-panel nh-right">
+      <img class="nh-img" src="assets/ncoheroright.png" alt="A confident young cyber leader" />
+      <div class="nh-cap nh-cap-r"><span>Tomorrow,</span><span>A <em>Cyber</em></span><span>Leader.</span></div>
+    </div>
+    <div class="nh-chips">
+      <span class="nh-chip">🔷 <b>National Level</b></span>
+      <span class="nh-chip">📘 <b>Grades VI – XII</b></span>
+      <span class="nh-chip">🪜 <b>Three Progressive Stages</b></span>
+      <span class="nh-chip">🎯 <b>One Mission</b></span>
+      <span class="nh-chip">🛡 <b>Cyber-Aware Bharat</b></span>
     </div>
   </section>
 
   <!-- ═══════ AT A GLANCE ═══════ -->
   <section class="sec glance-sec" id="about">
     <div class="sw">
-      <div class="glance-grid rev">
-        <div class="gl-text">
-          <span class="sec-ey">About the Olympiad</span>
-          <h2 class="sec-h2">What is NCO?</h2>
-          <p class="gl-desc">India's first and only national-level cybersecurity competition designed exclusively for school students. The National Cyber Olympiad identifies and celebrates India's sharpest digital minds — testing not just knowledge, but the ability to think, respond, and act in real-world cyber scenarios.</p>
-          <p class="gl-desc">Backed by the United Service Institution of India and powered by the CASK AI platform, NCO gives every student — from any school, in any state — a fair shot at national recognition.</p>
-          <div class="gl-acc">🎖 Backed by USI of India · Est. 1870</div>
-        </div>
-        <div class="card d1">
-          <div class="gl-rows">
-            <div class="gl-row"><div class="gl-icon">🏆</div><div><div class="gl-key">First of its kind</div><div class="gl-val">India's only national cybersecurity olympiad for students</div></div></div>
-            <div class="gl-row"><div class="gl-icon">🗺</div><div><div class="gl-key">Pan-India reach</div><div class="gl-val">Open to all 28 states and 8 Union Territories</div></div></div>
-            <div class="gl-row"><div class="gl-icon">🤖</div><div><div class="gl-key">CASK AI powered</div><div class="gl-val">Adaptive preparation platform included with registration</div></div></div>
-            <div class="gl-row"><div class="gl-icon">🆓</div><div><div class="gl-key">Zero cost to students</div><div class="gl-val">Free registration. Always.</div></div></div>
-            <div class="gl-row"><div class="gl-icon">📜</div><div><div class="gl-key">USI certification</div><div class="gl-val">Nationally recognised certificates for all participants</div></div></div>
+      <div class="rev" style="text-align:center;max-width:640px;margin:0 auto">
+        <span class="sec-ey">About the Olympiad</span>
+        <h2 class="sec-h2">What is NCO?</h2>
+        <p class="sec-lead" style="margin:0 auto">India's first and only national-level cybersecurity competition built exclusively for school students — testing not just knowledge, but the ability to think, respond, and act in real cyber scenarios. Hover a node to explore.</p>
+      </div>
+      <div class="orb-wrap rev d1">
+        <div class="orb" id="orbGlance">
+          <div class="orb-ringline" aria-hidden="true"></div>
+          <div class="orb-ringline two" aria-hidden="true"></div>
+          <div class="orb-hub" id="orbHub">
+            <div class="orb-hub-k">NCO</div>
+            <div class="orb-hub-t">India's national cyber olympiad</div>
+            <div class="orb-hub-d">🎖 Backed by USI · Est. 1870</div>
           </div>
         </div>
       </div>
@@ -732,27 +915,19 @@
         <h2 class="sec-h2">How the Olympiad works</h2>
         <p class="sec-lead">Each stage is progressively more challenging — from online school-level screening to an in-person national final in New Delhi.</p>
       </div>
-      <div class="stages-grid">
-        <div class="stage-card rev d1">
-          <div class="sc-num">I</div>
-          <div class="sc-step">Stage One · School Level</div>
-          <div class="sc-title">The Online Screening</div>
-          <div class="sc-desc">Open to all registered students. A 60-minute online test covering cyber threat awareness, phishing identification, password security, and digital privacy basics. Top scorers from each school advance.</div>
-          <div class="sc-tags"><div class="sc-tag">60 min</div><div class="sc-tag">Online</div><div class="sc-tag">MCQ format</div><div class="sc-tag">September</div></div>
+      <div class="ztl rev d1" id="ztlStages">
+        <div class="ztl-line" aria-hidden="true"><i></i></div>
+        <div class="ztl-item">
+          <div class="ztl-card"><div class="ztl-step">Stage One · School Level</div><div class="ztl-title">The Online Screening</div><div class="ztl-desc">Open to all registered students. A 60-minute online test covering cyber threat awareness, phishing identification, password security, and digital privacy basics. Top scorers from each school advance.</div><div class="ztl-tags"><span class="st3-tag">60 min</span><span class="st3-tag">Online</span><span class="st3-tag">MCQ format</span><span class="st3-tag">September</span></div></div>
+          <div class="ztl-node">I</div>
         </div>
-        <div class="stage-card rev d2">
-          <div class="sc-num">II</div>
-          <div class="sc-step">Stage Two · State Level</div>
-          <div class="sc-title">The State Round</div>
-          <div class="sc-desc">Top performers from Stage I compete at the state level. Includes scenario-based case studies, practical threat analysis, and real-world decision-making. Top 5 per state advance to the National Final.</div>
-          <div class="sc-tags"><div class="sc-tag">90 min</div><div class="sc-tag">Hybrid</div><div class="sc-tag">Case studies</div><div class="sc-tag">October</div></div>
+        <div class="ztl-item">
+          <div class="ztl-card"><div class="ztl-step">Stage Two · State Level</div><div class="ztl-title">The State Round</div><div class="ztl-desc">Top performers from Stage I compete at the state level — scenario-based case studies, practical threat analysis, and real-world decision-making. Top 5 per state advance to the National Final.</div><div class="ztl-tags"><span class="st3-tag">90 min</span><span class="st3-tag">Hybrid</span><span class="st3-tag">Case studies</span><span class="st3-tag">October</span></div></div>
+          <div class="ztl-node">II</div>
         </div>
-        <div class="stage-card rev d3">
-          <div class="sc-num">III</div>
-          <div class="sc-step">Stage Three · National Final</div>
-          <div class="sc-title">The National Final</div>
-          <div class="sc-desc">India's best young cyber minds compete in New Delhi. Live scenario challenges, expert panel evaluation, and felicitation ceremony. Winners receive national recognition, cash prizes, and mentorship.</div>
-          <div class="sc-tags"><div class="sc-tag">In-person</div><div class="sc-tag">New Delhi</div><div class="sc-tag">Live challenges</div><div class="sc-tag">November</div></div>
+        <div class="ztl-item">
+          <div class="ztl-card"><div class="ztl-step">Stage Three · National Final</div><div class="ztl-title">The National Final</div><div class="ztl-desc">India's best young cyber minds compete in New Delhi. Live scenario challenges, expert panel evaluation, and felicitation. Winners receive national recognition, cash prizes, and mentorship.</div><div class="ztl-tags"><span class="st3-tag">In-person</span><span class="st3-tag">New Delhi</span><span class="st3-tag">Live challenges</span><span class="st3-tag">November</span></div></div>
+          <div class="ztl-node">III</div>
         </div>
       </div>
     </div>
@@ -766,34 +941,28 @@
         <h2 class="sec-h2">Eligibility</h2>
         <p class="sec-lead" style="max-width:520px;margin:0 auto">Open to all students enrolled in any recognised Indian school. No prior cybersecurity knowledge required.</p>
       </div>
-      <div class="eli-band rev d1">
-        <div class="eli-item eli-acc">
-          <div class="eli-grade">VI</div>
-          <div class="eli-lbl">Grade Six</div>
-          <div class="eli-sub">Junior</div>
+      <div class="stair-panel rev d1">
+        <div class="stair-cat" id="stairCat">Junior Category</div>
+        <div class="stair-note" id="stairNote">Every grade from VI to XII is eligible and free to enter — hover a step to see the details.</div>
+      </div>
+      <div class="stair rev d1" id="stair">
+        <div class="stair-step" data-cat="Junior Category" data-note="Grade Six · Junior category. Eligible &amp; free — competes across all three stages.">
+          <div class="stair-block" style="height:96px">VI</div><div class="stair-cap">VI<span class="stair-sub"> · Junior</span></div>
         </div>
-        <div class="eli-item">
-          <div class="eli-grade">VII</div>
-          <div class="eli-lbl">Grade Seven</div>
-          <div class="eli-sub">Junior</div>
+        <div class="stair-step" data-cat="Junior Category" data-note="Grade Seven · Junior category. Eligible &amp; free — competes across all three stages.">
+          <div class="stair-block" style="height:124px">VII</div><div class="stair-cap">VII<span class="stair-sub"> · Junior</span></div>
         </div>
-        <div class="eli-item">
-          <div class="eli-grade">VIII</div>
-          <div class="eli-lbl">Grade Eight</div>
-          <div class="eli-sub">Junior</div>
+        <div class="stair-step" data-cat="Junior Category" data-note="Grade Eight · Junior category. Eligible &amp; free — competes across all three stages.">
+          <div class="stair-block" style="height:152px">VIII</div><div class="stair-cap">VIII<span class="stair-sub"> · Junior</span></div>
         </div>
-        <div class="eli-item eli-acc">
-          <div class="eli-grade">IX–X</div>
-          <div class="eli-lbl">Grades 9–10</div>
-          <div class="eli-sub">Senior</div>
+        <div class="stair-step senior" data-cat="Senior Category" data-note="Grades 9–10 · Senior category. Deeper scenario challenges and case studies.">
+          <div class="stair-block" style="height:186px">IX–X</div><div class="stair-cap">IX–X<span class="stair-sub"> · Senior</span></div>
         </div>
-        <div class="eli-item eli-acc">
-          <div class="eli-grade">XI–XII</div>
-          <div class="eli-lbl">Grades 11–12</div>
-          <div class="eli-sub">Senior</div>
+        <div class="stair-step senior" data-cat="Senior Category" data-note="Grades 11–12 · Senior category — the toughest tier and a direct pathway to internships.">
+          <div class="stair-block" style="height:220px">XI–XII</div><div class="stair-cap">XI–XII<span class="stair-sub"> · Senior</span></div>
         </div>
       </div>
-      <p style="text-align:center;font-size:13px;color:var(--ink3);margin-top:20px">Students from both government and private schools are equally eligible. Schools may register as a group.</p>
+      <p style="text-align:center;font-size:13px;color:var(--ink3);margin-top:22px">Students from both government and private schools are equally eligible — schools may register as a group.</p>
     </div>
   </section>
 
@@ -802,37 +971,34 @@
     <div class="sw">
       <div class="rev" style="text-align:center">
         <span class="sec-ey">Key Dates</span>
-        <h2 class="sec-h2">Timeline 2025</h2>
+        <h2 class="sec-h2">Timeline 2026</h2>
       </div>
-      <div class="tl-wrap rev d1">
-        <div class="tl-track"></div>
-        <div class="tl-items">
-          <div class="tl-item">
-            <div class="tl-date"><div class="tld-m">Jun</div><div class="tld-d">01</div></div>
-            <div class="tl-dot tl-dot--acc"></div>
-            <div class="tl-body"><div class="tl-title">Registrations Open</div><div class="tl-desc">Individual and school-group registrations open on the #Suraksha platform at zero cost.</div></div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-date"><div class="tld-m">Aug</div><div class="tld-d">15</div></div>
-            <div class="tl-dot"></div>
-            <div class="tl-body"><div class="tl-title">Registration Deadline</div><div class="tl-desc">Final date to register for NCO 2025. Late registrations will not be accepted.</div></div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-date"><div class="tld-m">Sep</div><div class="tld-d">01</div></div>
-            <div class="tl-dot"></div>
-            <div class="tl-body"><div class="tl-title">Stage I — School Level</div><div class="tl-desc">Online MCQ test for all registered students. Results declared within 7 days. Top students advance to Stage II.</div></div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-date"><div class="tld-m">Oct</div><div class="tld-d">10</div></div>
-            <div class="tl-dot"></div>
-            <div class="tl-body"><div class="tl-title">Stage II — State Level</div><div class="tl-desc">State-level competition with case studies and scenario analysis. Top 5 per state advance to the National Final.</div></div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-date"><div class="tld-m">Nov</div><div class="tld-d">22</div></div>
-            <div class="tl-dot"></div>
-            <div class="tl-body"><div class="tl-title">National Final · New Delhi</div><div class="tl-desc">Live challenges, expert panel judging, felicitation ceremony, and award presentation at the United Service Institution of India.</div></div>
-          </div>
+      <div class="htl-scroll rev d1">
+       <div class="htl" id="htl">
+        <div class="htl-track"><div class="htl-fill"></div></div>
+        <div class="htl-marker" aria-hidden="true"></div>
+        <div class="htl-node up" style="left:0%">
+          <div class="htl-card"><div class="htl-date">Jun 01</div><div class="htl-title">Registrations Open</div><div class="htl-desc">Individual &amp; school-group registrations open at zero cost.</div></div>
+          <div class="htl-dot"></div>
         </div>
+        <div class="htl-node down" style="left:25%">
+          <div class="htl-card"><div class="htl-date">Aug 15</div><div class="htl-title">Registration Deadline</div><div class="htl-desc">Final date to register. Late entries not accepted.</div></div>
+          <div class="htl-dot"></div>
+        </div>
+        <div class="htl-node up" style="left:50%">
+          <div class="htl-card"><div class="htl-date">Sep 01</div><div class="htl-title">Stage I · School</div><div class="htl-desc">Online MCQ test. Results in 7 days; top students advance.</div></div>
+          <div class="htl-dot"></div>
+        </div>
+        <div class="htl-node down" style="left:75%">
+          <div class="htl-card"><div class="htl-date">Oct 10</div><div class="htl-title">Stage II · State</div><div class="htl-desc">Case studies &amp; scenarios. Top 5 per state advance.</div></div>
+          <div class="htl-dot"></div>
+        </div>
+        <div class="htl-node up" style="left:100%">
+          <div class="htl-card"><div class="htl-date">Nov 22</div><div class="htl-title">National Final · Delhi</div><div class="htl-desc">Live challenges, judging &amp; felicitation at USI.</div></div>
+          <div class="htl-dot"></div>
+        </div>
+       </div>
+      </div>
       </div>
     </div>
   </section>
@@ -845,36 +1011,32 @@
         <h2 class="sec-h2">Awards</h2>
         <p class="sec-lead" style="max-width:500px;margin:0 auto">Top performers at every stage receive recognition. National Final winners receive prizes, mentorship, and opportunities to represent India internationally.</p>
       </div>
-      <div class="awards-grid rev d1">
-        <div class="award-card">
-          <div class="aw-medal">🥈</div>
-          <div class="aw-rank">National Runner-Up</div>
-          <div class="aw-prize">₹15,000</div>
-          <div class="aw-items">
-            <div class="aw-item">National certificate</div>
-            <div class="aw-item">USI recognition trophy</div>
-            <div class="aw-item">CASK Pro — 1 year</div>
+      <div class="vault rev d1" id="vault">
+        <div class="vault-card">
+          <span class="vault-lock">🔒</span>
+          <div class="vault-inner">
+            <div class="vault-medal">🥈</div>
+            <div class="vault-rank">National Runner-Up</div>
+            <div class="vault-prize">₹15,000</div>
+            <div class="vault-items"><div class="vault-it">National certificate</div><div class="vault-it">USI recognition trophy</div><div class="vault-it">CASK Pro — 1 year</div></div>
           </div>
         </div>
-        <div class="award-card award-card--gold">
-          <div class="aw-medal">🥇</div>
-          <div class="aw-rank">National Champion</div>
-          <div class="aw-prize">₹50,000</div>
-          <div class="aw-items">
-            <div class="aw-item">National champion trophy</div>
-            <div class="aw-item">USI felicitation certificate</div>
-            <div class="aw-item">Cybersecurity internship</div>
-            <div class="aw-item">CASK Pro — Lifetime</div>
+        <div class="vault-card gold">
+          <span class="vault-lock">🔒</span>
+          <div class="vault-inner">
+            <div class="vault-medal">🥇</div>
+            <div class="vault-rank">National Champion</div>
+            <div class="vault-prize">₹50,000</div>
+            <div class="vault-items"><div class="vault-it">National champion trophy</div><div class="vault-it">USI felicitation certificate</div><div class="vault-it">Cybersecurity internship</div><div class="vault-it">CASK Pro — Lifetime</div></div>
           </div>
         </div>
-        <div class="award-card">
-          <div class="aw-medal">🥉</div>
-          <div class="aw-rank">Third Place</div>
-          <div class="aw-prize">₹10,000</div>
-          <div class="aw-items">
-            <div class="aw-item">National certificate</div>
-            <div class="aw-item">Recognition trophy</div>
-            <div class="aw-item">CASK Pro — 6 months</div>
+        <div class="vault-card">
+          <span class="vault-lock">🔒</span>
+          <div class="vault-inner">
+            <div class="vault-medal">🥉</div>
+            <div class="vault-rank">Third Place</div>
+            <div class="vault-prize">₹10,000</div>
+            <div class="vault-items"><div class="vault-it">National certificate</div><div class="vault-it">Recognition trophy</div><div class="vault-it">CASK Pro — 6 months</div></div>
           </div>
         </div>
       </div>
@@ -884,32 +1046,33 @@
 
   <!-- ═══════ PREPARE / CASK ═══════ -->
   <section class="prep-sec" id="prepare">
-    <div class="prep-box rev">
-      <div class="prep-inner">
-        <div>
-          <div class="prep-ey">Powered by CASK AI</div>
-          <h2 class="prep-h">Prepare smarter.<br/>Win bigger.</h2>
-          <p class="prep-p">Every registered student gets full access to CASK — our AI-powered cyber safety platform. Practice real phishing identification, scenario-based drills, and mock Stage I tests — all built around the NCO syllabus.</p>
-          <a href="platform.html" class="prep-cta">Explore CASK AI ↗</a>
+    <div class="sw">
+      <div class="rev" style="text-align:center;max-width:560px;margin:0 auto 6px">
+        <div class="prep-ey" style="justify-content:center">Powered by CASK AI</div>
+        <h2 class="sec-h2">Prepare smarter. Win bigger.</h2>
+        <p class="sec-lead" style="margin:0 auto">Hover across to see the difference CASK makes — every registered student gets it free.</p>
+      </div>
+      <div class="ba rev d1" id="ba">
+        <div class="ba-layer ba-before">
+          <span class="ba-tag">Preparing Alone</span>
+          <div class="ba-h">Guesswork &amp; nerves</div>
+          <div class="ba-li"><span>✕</span> No idea what the real exam format looks like</div>
+          <div class="ba-li"><span>✕</span> Random articles, no structured practice</div>
+          <div class="ba-li"><span>✕</span> Can't tell strong prep from weak spots</div>
+          <div class="ba-li"><span>✕</span> English-only resources</div>
         </div>
-        <div class="prep-feats">
-          <div class="prep-feat">
-            <div class="prep-feat-ico">🎯</div>
-            <div><div class="prep-feat-title">Adaptive mock tests</div><div class="prep-feat-sub">Timed Stage I simulations matching the real exam format</div></div>
-          </div>
-          <div class="prep-feat">
-            <div class="prep-feat-ico">🕵️</div>
-            <div><div class="prep-feat-title">Phishing drills</div><div class="prep-feat-sub">Real-world scenarios — spot fake emails, URLs, and social attacks</div></div>
-          </div>
-          <div class="prep-feat">
-            <div class="prep-feat-ico">📊</div>
-            <div><div class="prep-feat-title">Progress dashboard</div><div class="prep-feat-sub">Track your readiness across every NCO topic area</div></div>
-          </div>
-          <div class="prep-feat">
-            <div class="prep-feat-ico">🌐</div>
-            <div><div class="prep-feat-title">12 Indian languages</div><div class="prep-feat-sub">Prepare in Hindi, Tamil, Bengali and 9 more</div></div>
-          </div>
+        <div class="ba-layer ba-after" id="baAfter">
+          <span class="ba-tag">CASK-Ready</span>
+          <div class="ba-h">Confident &amp; sharp</div>
+          <div class="ba-li"><span>✓</span> Timed mock tests matching the real Stage I format</div>
+          <div class="ba-li"><span>✓</span> Real phishing drills — spot fake emails, URLs &amp; scams</div>
+          <div class="ba-li"><span>✓</span> Progress dashboard across every NCO topic</div>
+          <div class="ba-li"><span>✓</span> Prepare in 12 Indian languages</div>
+          <a href="platform.html" class="ba-cta">Explore CASK AI ↗</a>
         </div>
+        <div class="ba-divider" id="baDivider"></div>
+        <div class="ba-knob" id="baKnob">⇔</div>
+        <div class="ba-hint">Hover to compare</div>
       </div>
     </div>
   </section>
@@ -954,7 +1117,7 @@
   <section class="reg-sec" id="register">
     <div class="sw">
       <div class="rev">
-        <div class="reg-badge"><span></span>&nbsp;Registrations Open · Closes Aug 15</div>
+        <div class="reg-badge"><span></span>&nbsp;Registrations Open · Closes Oct 1</div>
         <h2 class="reg-h">Register<br/><em>now.</em></h2>
         <p class="reg-p">Join thousands of students across India competing to become the next National Cyber Champion.</p>
         <div class="countdown">
@@ -975,8 +1138,8 @@
   </section>
 
   <!-- ═══════ FOOTER ═══════ -->
-  <footer class="footer">
-    <div class="pw" style="padding-top:56px;">
+   <footer class="footer">
+    <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="footer-logo-circle-link">
@@ -999,14 +1162,14 @@
             <h5>Ecosystem</h5>
             <a href="platform.html">CASK</a>
             <a href="surakshak.html">Surakshak</a>
-            <a href="olympiad.html">National Cyber Olympiad</a>
+            <a href="olympiad.html">Olympiad</a>
             <a href="phishnchip.html">The Phish &amp; Chip Show</a>
             <a href="slanglish.html">Slanglish</a>
           </div>
           <div class="footer-col">
             <h5>Organisation</h5>
-            <a href="index.html#about">About</a>
-            <a href="resources.html">Resources</a>
+            <a href="#about">About</a>
+            <a href="resources.html">Books</a>
             <a href="partner.html">Partner With Us</a>
             <a href="https://hashtagsuraksha.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
             <a href="https://hashtagsuraksha.com/terms-of-use" target="_blank" rel="noopener">Terms of Use</a>
@@ -1035,10 +1198,59 @@
     });
 
     /* ── THEME TOGGLE ── */
-    document.getElementById('themeToggle').addEventListener('click', function() {
-      var h = document.documentElement;
-      h.setAttribute('data-theme', h.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-      drawPattern();
+   document.addEventListener('DOMContentLoaded', () => {
+
+      // ─── THEME SYSTEM ──────────────────────────────────────────────
+      const htmlEl       = document.documentElement;
+      const chooser      = document.getElementById('themeChooser');
+      const themeToggle  = document.getElementById('themeToggle');
+      const themeToggles = document.querySelectorAll('.themeToggle');
+      const THEME_KEY    = 'hs-theme';
+
+      function applyTheme(theme) {
+        htmlEl.setAttribute('data-theme', theme);
+        localStorage.setItem(THEME_KEY, theme);
+      }
+
+      function dismissChooser(theme) {
+        applyTheme(theme);
+        if (!chooser) return;
+        chooser.classList.add('fade-out');
+        setTimeout(() => chooser.classList.add('hidden'), 500);
+      }
+
+      // On load: check saved preference
+      const savedTheme = localStorage.getItem(THEME_KEY);
+      if (savedTheme) {
+        applyTheme(savedTheme);
+        if (chooser) chooser.classList.add('hidden');
+      } else {
+        // Show chooser — apply dark by default behind it
+        applyTheme('dark');
+        if (chooser) {
+          chooser.querySelectorAll('.theme-option').forEach(btn => {
+            btn.addEventListener('click', () => dismissChooser(btn.dataset.theme));
+          });
+        }
+      }
+
+      // Toggle button in nav
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          const current = htmlEl.getAttribute('data-theme');
+          applyTheme(current === 'dark' ? 'light' : 'dark');
+        });
+      }
+
+      if (themeToggle) {
+          themeToggles.forEach((themeToggle) => {
+              themeToggle.addEventListener('click', () => {
+                  const current = htmlEl.getAttribute('data-theme');
+                  applyTheme(current === 'dark' ? 'light' : 'dark');
+              });
+          });
+      }
+
     });
 
     /* ── BACKGROUND GEOMETRIC PATTERN ── */
@@ -1101,19 +1313,25 @@
     }, { threshold: 0.07 });
     document.querySelectorAll('.rev').forEach(function(el) { io.observe(el); });
 
-    /* ── FAQ ── */
-    document.querySelectorAll('.faq-q').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var item = btn.parentElement;
-        var wasOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
-        if (!wasOpen) item.classList.add('open');
+    /* ── FAQ: ask-reveal typing ── */
+    (function(){
+      var faqTimer=null;
+      document.querySelectorAll('.faq-a-inner').forEach(function(inr){ inr.dataset.full=inr.textContent.trim(); inr.textContent=''; });
+      function typeOut(el){ var full=el.dataset.full||'', i=0; el.classList.add('typing'); el.textContent='';
+        faqTimer=setInterval(function(){ i+=2; el.textContent=full.slice(0,i); if(i>=full.length){ clearInterval(faqTimer); el.classList.remove('typing'); el.textContent=full; } },12); }
+      document.querySelectorAll('.faq-q').forEach(function(btn){
+        btn.addEventListener('click',function(){
+          var item=btn.parentElement, wasOpen=item.classList.contains('open');
+          clearInterval(faqTimer);
+          document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); var inr=i.querySelector('.faq-a-inner'); if(inr){ inr.textContent=''; inr.classList.remove('typing'); } });
+          if(!wasOpen){ item.classList.add('open'); typeOut(item.querySelector('.faq-a-inner')); }
+        });
       });
-    });
+    })();
 
     /* ── COUNTDOWN ── */
     function tick() {
-      var target = new Date('2025-08-15T23:59:59+05:30').getTime();
+      var target = new Date('2026-10-01T23:59:59+05:30').getTime();
       var diff = Math.max(0, target - Date.now());
       var d = Math.floor(diff / 86400000);
       var h = Math.floor((diff % 86400000) / 3600000);
@@ -1123,9 +1341,193 @@
       document.getElementById('cd-d').textContent = d;
       document.getElementById('cd-h').textContent = p(h);
       document.getElementById('cd-m').textContent = p(m);
-      document.getElementById('cd-s').textContent = p(s);
+      var cs=document.getElementById('cd-s'); cs.textContent = p(s);
+      cs.classList.remove('tick'); void cs.offsetWidth; cs.classList.add('tick');
     }
     tick(); setInterval(tick, 1000);
+
+    /* ── At a Glance: orbit ── */
+    (function(){
+      var orb=document.getElementById('orbGlance'); if(!orb) return;
+      var hub=document.getElementById('orbHub'), hubDefault=hub.innerHTML;
+      var FACTS=[
+        {ico:'🏆',l:'First of its kind',t:'First of its kind',d:"India's only national cybersecurity olympiad for school students."},
+        {ico:'🗺',l:'Pan-India reach',t:'Pan-India reach',d:'Open to all 28 states and 8 Union Territories.'},
+        {ico:'🤖',l:'CASK AI powered',t:'CASK AI powered',d:'Adaptive preparation platform, included free with registration.'},
+        {ico:'🆓',l:'Zero cost',t:'Zero cost to students',d:'Free registration. No exam fee. Always.'},
+        {ico:'📜',l:'USI certified',t:'USI certification',d:'Nationally recognised certificates for all participants.'},
+        {ico:'🎯',l:'Real scenarios',t:'Real-world scenarios',d:'Tests practical judgement, not rote memory.'}
+      ];
+      var nodes=[], base=[], n=FACTS.length, angle=0, paused=false;
+      FACTS.forEach(function(f,i){
+        var el=document.createElement('div'); el.className='orb-node';
+        el.innerHTML='<div class="orb-node-ico">'+f.ico+'</div><div class="orb-node-l">'+f.l+'</div>';
+        el.addEventListener('mouseenter',function(){ paused=true; nodes.forEach(function(x){x.classList.remove('active');}); el.classList.add('active');
+          hub.innerHTML='<div class="orb-hub-k" style="font-size:30px">'+f.ico+'</div><div class="orb-hub-t">'+f.t+'</div><div class="orb-hub-d">'+f.d+'</div>'; });
+        el.addEventListener('mouseleave',function(){ paused=false; el.classList.remove('active'); hub.innerHTML=hubDefault; });
+        orb.appendChild(el); nodes.push(el); base.push(i/n*6.283);
+      });
+      function frame(){
+        if(!paused) angle+=0.0032;
+        var R=orb.clientWidth*0.39, cx=orb.clientWidth/2, cy=orb.clientHeight/2;
+        nodes.forEach(function(el,i){ var a=base[i]+angle, x=cx+Math.cos(a)*R, y=cy+Math.sin(a)*R*0.86, depth=(Math.sin(a)+1)/2;
+          el.style.left=x+'px'; el.style.top=y+'px'; el.style.zIndex=String(10+Math.round(depth*12)); el.style.transform='scale('+(0.8+depth*0.3)+')'; el.style.opacity=String(0.5+depth*0.5); });
+        requestAnimationFrame(frame);
+      }
+      frame();
+    })();
+
+    /* ── Stages: 3D stack ── */
+    (function(){
+      var wrap=document.getElementById('st3'); if(!wrap) return;
+      var S=[
+        {n:'I',step:'Stage One · School Level',t:'The Online Screening',d:'Open to all registered students. A 60-minute online test covering cyber threat awareness, phishing identification, password security, and digital privacy basics. Top scorers from each school advance.',tags:['60 min','Online','MCQ format','September']},
+        {n:'II',step:'Stage Two · State Level',t:'The State Round',d:'Top performers from Stage I compete at the state level — scenario-based case studies, practical threat analysis, and real-world decision-making. Top 5 per state advance to the National Final.',tags:['90 min','Hybrid','Case studies','October']},
+        {n:'III',step:'Stage Three · National Final',t:'The National Final',d:"India's best young cyber minds compete in New Delhi. Live scenario challenges, expert panel evaluation, and felicitation. Winners receive national recognition, cash prizes, and mentorship.",tags:['In-person','New Delhi','Live challenges','November']}
+      ];
+      var active=0, cards=[], dotsW=document.getElementById('st3Dots');
+      S.forEach(function(s,i){
+        var c=document.createElement('div'); c.className='st3-card';
+        c.innerHTML='<div class="st3-num">'+s.n+'</div><div class="st3-step">'+s.step+'</div><div class="st3-title">'+s.t+'</div><div class="st3-desc">'+s.d+'</div><div class="st3-tags">'+s.tags.map(function(t){return '<span class="st3-tag">'+t+'</span>';}).join('')+'</div>';
+        wrap.appendChild(c); cards.push(c);
+        var dot=document.createElement('button'); dot.className='st3-dot'; dot.addEventListener('click',function(){ active=i; layout(); }); dotsW.appendChild(dot);
+      });
+      var dots=dotsW.querySelectorAll('.st3-dot');
+      function layout(){ cards.forEach(function(c,i){ var off=(i-active+S.length)%S.length;
+          if(off===0){ c.style.transform='translateY(0) scale(1) rotateX(0deg)'; c.style.opacity='1'; c.style.zIndex='30'; c.style.pointerEvents='auto'; }
+          else if(off===1){ c.style.transform='translateY(24px) scale(.93) rotateX(4deg)'; c.style.opacity='.5'; c.style.zIndex='20'; c.style.pointerEvents='none'; }
+          else { c.style.transform='translateY(48px) scale(.86) rotateX(7deg)'; c.style.opacity='.22'; c.style.zIndex='10'; c.style.pointerEvents='none'; }
+        }); dots.forEach(function(d,i){ d.classList.toggle('on',i===active); }); }
+      document.getElementById('st3Next').addEventListener('click',function(){ active=(active+1)%S.length; layout(); });
+      document.getElementById('st3Prev').addEventListener('click',function(){ active=(active-1+S.length)%S.length; layout(); });
+      layout();
+    })();
+
+    /* ── Eligibility: grade dial ── */
+    (function(){
+      var range=document.getElementById('dialRange'); if(!range) return;
+      var DATA=[
+        {g:'VI',l:'Grade Six',cat:'Junior Category',note:'Eligible &amp; free to enter. Competes in the Junior category across all three stages.'},
+        {g:'VII',l:'Grade Seven',cat:'Junior Category',note:'Eligible &amp; free to enter. Competes in the Junior category across all three stages.'},
+        {g:'VIII',l:'Grade Eight',cat:'Junior Category',note:'Eligible &amp; free to enter. Competes in the Junior category across all three stages.'},
+        {g:'IX–X',l:'Grades 9–10',cat:'Senior Category',note:'Eligible &amp; free to enter. Competes in the Senior category — deeper scenario challenges.'},
+        {g:'XI–XII',l:'Grades 11–12',cat:'Senior Category',note:'Eligible &amp; free to enter. Senior category — the toughest tier and a direct pathway to internships.'}
+      ];
+      var ticksW=document.getElementById('dialTicks'), fill=document.getElementById('dialFill'), handle=document.getElementById('dialHandle');
+      var cat=document.getElementById('dialCat'), grade=document.getElementById('dialGrade'), lbl=document.getElementById('dialLbl'), note=document.getElementById('dialNote');
+      var labels=document.getElementById('dialLabels').querySelectorAll('span');
+      DATA.forEach(function(){ var t=document.createElement('div'); t.className='dial-tick'; ticksW.appendChild(t); });
+      var ticks=ticksW.querySelectorAll('.dial-tick');
+      function set(i){ i=+i; var pct=i/(DATA.length-1)*100; fill.style.width=pct+'%'; handle.style.left=pct+'%';
+        var d=DATA[i]; grade.textContent=d.g; lbl.textContent=d.l; cat.textContent=d.cat; note.innerHTML=d.note;
+        ticks.forEach(function(t,j){ t.classList.toggle('done',j<=i); });
+        labels.forEach(function(s,j){ s.classList.toggle('on',j===i); }); }
+      range.addEventListener('input',function(){ set(range.value); });
+      set(0);
+    })();
+
+    /* ── Stages: zig-zag reveal ── */
+    (function(){ var z=document.getElementById('ztlStages'); if(!z) return;
+      var items=z.querySelectorAll('.ztl-item');
+      var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ z.classList.add('in');
+        items.forEach(function(it,i){ setTimeout(function(){ it.classList.add('in'); }, 240*i+150); }); io.disconnect(); } }); },{threshold:.2});
+      io.observe(z);
+    })();
+
+    /* ── Eligibility: staircase ── */
+    (function(){ var stair=document.getElementById('stair'); if(!stair) return;
+      var steps=stair.querySelectorAll('.stair-step'), cat=document.getElementById('stairCat'), note=document.getElementById('stairNote');
+      var defCat=cat.textContent, defNote=note.innerHTML;
+      var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ stair.classList.add('in');
+        steps.forEach(function(s,i){ var b=s.querySelector('.stair-block'); b.style.transitionDelay=(90*i)+'ms'; }); io.disconnect(); } }); },{threshold:.3});
+      io.observe(stair);
+      steps.forEach(function(s){
+        s.addEventListener('mouseenter',function(){ steps.forEach(function(x){x.classList.remove('active');}); s.classList.add('active'); cat.textContent=s.dataset.cat; note.innerHTML=s.dataset.note; });
+        s.addEventListener('mouseleave',function(){ s.classList.remove('active'); cat.textContent=defCat; note.innerHTML=defNote; });
+      });
+    })();
+
+    /* ── Timeline: horizontal track ── */
+    (function(){ var h=document.getElementById('htl'); if(!h) return;
+      var nodes=h.querySelectorAll('.htl-node');
+      var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ h.classList.add('in');
+        nodes.forEach(function(nd,i){ setTimeout(function(){ nd.classList.add('lit'); }, 2200/nodes.length*i+250); }); io.disconnect(); } }); },{threshold:.25});
+      io.observe(h);
+    })();
+
+    /* ── Awards: vault unlock ── */
+    (function(){ var v=document.getElementById('vault'); if(!v) return;
+      var cards=v.querySelectorAll('.vault-card');
+      var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){
+        cards.forEach(function(c,i){ setTimeout(function(){ c.classList.add('unlocked'); }, 320*i+200); }); io.disconnect(); } }); },{threshold:.3});
+      io.observe(v);
+    })();
+
+    /* ── Prepare: automatic sweep, rest on CASK ── */
+    (function(){ var ba=document.getElementById('ba'); if(!ba) return;
+      var after=document.getElementById('baAfter'), div=document.getElementById('baDivider'), knob=document.getElementById('baKnob');
+      var hint=ba.querySelector('.ba-hint');
+      function setP(p){ after.style.clipPath='inset(0 0 0 '+p+'%)'; div.style.left=p+'%'; knob.style.left=p+'%'; }
+      setP(88); /* start showing "before" */
+      var played=false;
+      var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting && !played){ played=true;
+        setTimeout(function(){ setP(8); if(hint) hint.textContent='CASK-Ready'; }, 700); io.disconnect(); } }); },{threshold:.4});
+      io.observe(ba);
+    })();
+
+    /* ── Forked background shader (light ribbon / dark heat) ── */
+    (function(){
+      var canvas=document.getElementById('shader-canvas'); if(!canvas) return;
+      var gl=canvas.getContext('webgl')||canvas.getContext('experimental-webgl'); if(!gl){ canvas.style.display='none'; return; }
+      function syncSize(){ var dpr=Math.min(window.devicePixelRatio||1,1.5); var w=Math.floor(window.innerWidth*dpr), h=Math.floor(window.innerHeight*dpr); if(canvas.width!==w||canvas.height!==h){ canvas.width=w; canvas.height=h; } }
+      window.addEventListener('resize',syncSize); syncSize();
+      var vs='attribute vec2 a_position;varying vec2 v_texCoord;void main(){v_texCoord=a_position*0.5+0.5;gl_Position=vec4(a_position,0.0,1.0);}';
+      var fs=[
+        'precision highp float;',
+        'uniform float u_time; uniform vec2 u_resolution; uniform float u_dark; varying vec2 v_texCoord;',
+        'void main(){ vec2 uv=v_texCoord;',
+        ' float t=u_time*0.5;',
+        ' float n=sin(uv.x*3.0+t)+sin(uv.y*5.0-t*0.5);',
+        ' vec2 p=uv+0.1*vec2(sin(t+n),cos(t-n));',
+        ' vec3 c1=vec3(1.0,0.47,0.0), c2=vec3(1.0,0.8,0.2), c3=vec3(1.0,0.95,0.9);',
+        ' float ripple=sin(length(p-0.5)*12.0-t*2.0)*0.5+0.5;',
+        ' vec3 lightCol=mix(c1,c2,ripple); lightCol=mix(lightCol,c3,pow(ripple,8.0)*0.7);',
+        ' float t2=u_time*0.4; vec2 q=uv-0.5; q.x*=u_resolution.x/max(u_resolution.y,1.0);',
+        ' for(float i=1.0;i<4.0;i++){ q.x+=0.2/i*sin(i*3.0*q.y+t2); q.y+=0.2/i*cos(i*3.0*q.x+t2); }',
+        ' float d=length(q); float flow=sin(d*8.0-t2*2.0)*0.5+0.5;',
+        ' vec3 d1=vec3(1.0,0.4,0.0), d2=vec3(0.6,0.1,0.0), d3=vec3(0.02,0.01,0.03);',
+        ' vec3 darkCol=mix(d3,d2,flow); darkCol=mix(darkCol,d1,pow(flow,8.0)); darkCol+=d1*(0.02/max(d,0.02))*flow;',
+        ' vec3 finalCol=mix(lightCol,darkCol,u_dark);',
+        ' gl_FragColor=vec4(finalCol,1.0);}'
+      ].join('\n');
+      function sh(type,src){ var s=gl.createShader(type); gl.shaderSource(s,src); gl.compileShader(s); if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){ console.error(gl.getShaderInfoLog(s)); return null; } return s; }
+      var prog=gl.createProgram(); gl.attachShader(prog,sh(gl.VERTEX_SHADER,vs)); gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,fs)); gl.linkProgram(prog); gl.useProgram(prog);
+      var buf=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,buf); gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+      var pl=gl.getAttribLocation(prog,'a_position'); gl.enableVertexAttribArray(pl); gl.vertexAttribPointer(pl,2,gl.FLOAT,false,0,0);
+      var uT=gl.getUniformLocation(prog,'u_time'), uR=gl.getUniformLocation(prog,'u_resolution'), uD=gl.getUniformLocation(prog,'u_dark');
+      function render(now){ gl.viewport(0,0,canvas.width,canvas.height); gl.uniform1f(uT,now*0.001); gl.uniform2f(uR,canvas.width,canvas.height);
+        gl.uniform1f(uD, document.documentElement.getAttribute('data-theme')==='dark'?1.0:0.0);
+        gl.drawArrays(gl.TRIANGLE_STRIP,0,4); requestAnimationFrame(render); }
+      requestAnimationFrame(render);
+    })();
+
+    /* ── Hero centre particle burst ── */
+    (function(){
+      var c=document.getElementById('nhCanvas'); if(!c||!c.getContext) return;
+      var ctx=c.getContext('2d'), P=[], W=0,H=0;
+      function size(){ W=c.width=c.offsetWidth; H=c.height=c.offsetHeight; }
+      size(); window.addEventListener('resize',size);
+      for(var i=0;i<46;i++){ P.push({a:Math.random()*6.28, r:Math.random()*0.5+0.1, sp:Math.random()*0.0016+0.0004, rad:Math.random()*1.8+0.5, o:Math.random()*0.5+0.25}); }
+      function loop(){
+        ctx.clearRect(0,0,W,H); var cx=W/2, cy=H*0.44, maxR=Math.min(W,H)*0.62;
+        for(var i=0;i<P.length;i++){ var p=P[i]; p.a+=p.sp; p.r+=0.0006; if(p.r>1)p.r=0.1;
+          var x=cx+Math.cos(p.a)*p.r*maxR, y=cy+Math.sin(p.a)*p.r*maxR*0.8;
+          ctx.beginPath(); ctx.arc(x,y,p.rad,0,6.283); ctx.fillStyle='rgba(120,185,255,'+(p.o*(1-p.r))+')'; ctx.fill(); p._x=x; p._y=y; }
+        for(var i=0;i<P.length;i++){ for(var j=i+1;j<P.length;j++){ var dx=P[i]._x-P[j]._x, dy=P[i]._y-P[j]._y, d=dx*dx+dy*dy; if(d<5200){ ctx.beginPath(); ctx.moveTo(P[i]._x,P[i]._y); ctx.lineTo(P[j]._x,P[j]._y); ctx.strokeStyle='rgba(90,160,255,'+(0.13*(1-d/5200)).toFixed(3)+')'; ctx.lineWidth=1; ctx.stroke(); } } }
+        requestAnimationFrame(loop);
+      }
+      loop();
+    })();
   </script>
 </body>
 </html>

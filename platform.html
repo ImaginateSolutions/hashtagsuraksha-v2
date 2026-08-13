@@ -6,22 +6,17 @@
   <title>CASK — AI-Powered Cyber Safety Curriculum | Hashtag Suraksha</title>
   <meta name="description" content="CASK (Cyber Abhyas Sakriya Kshamta) — India's first AI tutor for cyber safety education. NEP 2020 aligned, built with CERT-In & MeitY." />
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Hind:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="global.css" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./assets/css/global.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     /* position:sticky requires overflow-x:clip (not hidden) on body */
     body { overflow-x: clip !important; }
     /* ── PLATFORM PAGE: NAV ALWAYS WHITE ── */
-    .nav {
-      background: rgba(255,255,255,0.96) !important;
-      border-bottom: 1px solid #E2E8F0 !important;
-    }
     .nav.scrolled {
       background: rgba(255,255,255,0.98) !important;
       box-shadow: 0 4px 24px rgba(0,0,0,0.08) !important;
     }
-    .nav-links li a { color: #1a1a2e !important; }
     .nav-links li a:hover, .nav-links li a.active { color: #007aff !important; }
 
 
@@ -232,7 +227,7 @@
     .cask-section-mid  { background: #080808; }
     [data-theme="light"] .cask-section-dark { background: #f0f4ff; }
     [data-theme="light"] .cask-section-mid  { background: #fff; }
-    .cask-container { max-width: var(--site-max-width, 1460px); margin: 0 auto; }
+    .cask-container { max-width: 1160px; margin: 0 auto; }
     .cask-tag {
       display: inline-block;
       font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
@@ -263,7 +258,7 @@
       display: grid;
       grid-template-columns: 1fr 1.4fr;
       gap: 56px; align-items: center;
-      max-width: var(--site-max-width, 1460px); margin: 0 auto;
+      max-width: 1160px; margin: 0 auto;
     }
     .cask-intro-pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0; }
     .cask-pill {
@@ -1031,7 +1026,7 @@
   position: relative;
   overflow: hidden;
 }
-.cy-atlas-inner { max-width: var(--site-max-width, 1460px); margin: 0 auto; padding: 0 40px; }
+.cy-atlas-inner { max-width: 1300px; margin: 0 auto; padding: 0 40px; }
 .cy-eyebrow {
   display: inline-block;
   font-family: 'Hind','Plus Jakarta Sans',sans-serif;
@@ -1179,7 +1174,7 @@
   animation: cy-star-twinkle 3s ease-in-out infinite;
 }
 @keyframes cy-star-twinkle { 0%,100%{opacity:0.2} 50%{opacity:0.7} }
-.cy-const-inner { max-width: var(--site-max-width, 1460px); margin: 0 auto; padding: 0 40px; }
+.cy-const-inner { max-width: 1300px; margin: 0 auto; padding: 0 40px; }
 .cy-const-header { text-align: center; margin-bottom: 52px; }
 .cy-const-h2 {
   font-family: 'Archivo Black','Plus Jakarta Sans',sans-serif;
@@ -1494,7 +1489,7 @@
   pointer-events: none;
 }
 .cy-deck-inner {
-  max-width: var(--site-max-width, 1460px); margin: 0 auto; padding: 0 var(--site-gutter, 32px);
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
 }
 .cy-deck-header { text-align: center; margin-bottom: 48px; }
 .cy-deck-h2 {
@@ -1847,7 +1842,7 @@
 .cs2-layout {
   position: relative; z-index: 1;
   display: grid; grid-template-columns: 320px 1fr 300px;
-  gap: 0; max-width: var(--site-max-width, 1460px); margin: 0 auto; padding: 0 var(--site-gutter, 32px);
+  gap: 0; max-width: 1320px; margin: 0 auto; padding: 0 24px;
   min-height: 520px; align-items: center;
 }
 /* LEFT */
@@ -3621,9 +3616,9 @@
         <li><a href="platform.html" class="active">CASK</a></li>
         <li><a href="surakshak.html">Surakshak</a></li>
         <li><a href="olympiad.html">Olympiad</a></li>
-        <li><a href="phishnchip.html">Phish &amp; Chip</a></li>
+        <li><a href="phishnchip.html">The Phish &amp; Chip Show</a></li>
         <li><a href="slanglish.html">Slanglish</a></li>
-        <li><a href="resources.html">Resources</a></li>
+        <li><a href="resources.html">Books</a></li>
         <li><a href="partner.html">Partner With Us</a></li>
       </ul>
       <div class="nav-right">
@@ -3633,22 +3628,111 @@
         </button>
         <a href="surakshak.html" class="nav-cta">Join the Movement</a>
       </div>
-      <button class="hamburger" id="hamburger">&#9776;</button>
+      <div class="nav-right-mobile">
+         <button id="themeToggle1" class="themeToggle theme-toggle-btn" aria-label="Toggle theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="hamburger" id="hamburger">&#9776;</button>
+      </div>
     </div>
     <div class="mobile-menu" id="mobileMenu">
       <a href="index.html">Home</a>
       <a href="platform.html">CASK</a>
       <a href="surakshak.html">Surakshak</a>
       <a href="olympiad.html">Olympiad</a>
-      <a href="phishnchip.html">Phish &amp; Chip</a>
+      <a href="phishnchip.html">The Phish &amp; Chip Show</a>
       <a href="slanglish.html">Slanglish</a>
-      <a href="resources.html">Resources</a>
+      <a href="resources.html">Books</a>
       <a href="partner.html">Partner With Us</a>
       <a href="surakshak.html" class="mobile-cta">Join the Movement</a>
     </div>
   </nav>
 
   <!-- ═══ HERO ═══ -->
+  <style id="cask-light-overrides">
+  /* ══════════════════════════════════════════════════════════
+     LIGHT-MODE support for the cinematic dark sections:
+     Constellation (cs2) · Four Transformations (fyt) · Trophy (cask-recog)
+     ══════════════════════════════════════════════════════════ */
+
+  /* ── Constellation ── */
+  [data-theme="light"] .cs2-section { background: linear-gradient(180deg,#eef3fb 0%,#e5edf8 100%); }
+  [data-theme="light"] .cs2-stars { opacity: 0.12; }
+  [data-theme="light"] .cs2-h2 { color: #0a0f20; }
+  [data-theme="light"] .cs2-desc { color: rgba(10,15,32,0.6); }
+  [data-theme="light"] .cs2-top-tag { background: rgba(124,77,255,0.10); border-color: rgba(124,77,255,0.30); color: #7c4dff; }
+  [data-theme="light"] .cs2-hint { background: rgba(10,15,32,0.03); border-color: rgba(10,15,32,0.10); }
+  [data-theme="light"] .cs2-hint strong { color: #0a0f20; }
+  [data-theme="light"] .cs2-hint span { color: rgba(10,15,32,0.5); }
+  [data-theme="light"] .cs2-node-circle { background: #ffffff; border-color: rgba(0,120,220,0.6); box-shadow: 0 2px 10px rgba(0,80,180,0.14), 0 0 18px rgba(0,140,255,0.12); }
+  [data-theme="light"] .cs2-node-lbl { color: rgba(10,15,32,0.68); }
+  [data-theme="light"] .cs2-node.cs2-active .cs2-node-lbl,
+  [data-theme="light"] .cs2-node:hover .cs2-node-lbl { color: #0a0f20; }
+  [data-theme="light"] .cs2-core-body { background: radial-gradient(circle,#dcebff 0%,#bcd8ff 55%,#a6c9ff 100%); border-color: rgba(0,120,220,0.6); box-shadow: 0 0 26px rgba(0,140,255,0.22), inset 0 0 20px rgba(0,150,255,0.15); }
+  [data-theme="light"] .cs2-core-name { color: #0a2a5a; }
+  [data-theme="light"] .cs2-panel { background: rgba(255,255,255,0.92); border-color: rgba(10,40,90,0.12); box-shadow: 0 20px 50px rgba(10,40,90,0.14); }
+  [data-theme="light"] .cs2-panel-title { color: #0a0f20; }
+  [data-theme="light"] .cs2-panel-list li { color: rgba(10,15,32,0.68); }
+  [data-theme="light"] .cs2-panel-close { background: rgba(10,15,32,0.05); border-color: rgba(10,15,32,0.12); color: rgba(10,15,32,0.5); }
+  [data-theme="light"] .cs2-panel-icon-wrap { background: rgba(0,120,255,0.08); border-color: rgba(0,120,255,0.25); }
+
+  /* ── Four Years · Four Transformations ── */
+  [data-theme="light"] .fyt-section,
+  [data-theme="light"] .fyt-panel,
+  [data-theme="light"] .fyt-overlay { background: #eef3fb; }
+  [data-theme="light"] .fyt-ov-h2 { color: #0a0f20; }
+  [data-theme="light"] .fyt-ov-sub { color: rgba(10,15,32,0.5); }
+  [data-theme="light"] .fyt-hl { color: #0a0f20; }
+  [data-theme="light"] .fyt-body { color: rgba(10,15,32,0.62); }
+  [data-theme="light"] .fyt-yr-label { color: rgba(10,15,32,0.4); }
+  [data-theme="light"] .fyt-left { border-right-color: rgba(10,15,32,0.08); }
+  [data-theme="light"] .fyt-sec-lbl { color: rgba(10,15,32,0.42); }
+  [data-theme="light"] .fyt-unit-row { background: rgba(255,255,255,0.78); border-color: rgba(10,15,32,0.09); box-shadow: 0 4px 14px rgba(10,40,90,0.05); }
+  [data-theme="light"] .fyt-unit-row:hover,
+  [data-theme="light"] .fyt-unit-row.fyt-ur-active { background: #ffffff; border-color: rgba(var(--fyt-rgb),0.45); box-shadow: 0 8px 22px rgba(var(--fyt-rgb),0.14); }
+  [data-theme="light"] .fyt-uname { color: rgba(10,15,32,0.85); }
+  [data-theme="light"] .fyt-bottom-row { border-top-color: rgba(10,15,32,0.08); }
+  [data-theme="light"] .fyt-oc,
+  [data-theme="light"] .fyt-bottom-row .fyt-oc { color: rgba(10,15,32,0.7); }
+  [data-theme="light"] .fyt-term { color: #0a0f20; }
+  [data-theme="light"] .fyt-detail-panel { background: rgba(var(--fyt-rgb),0.07); border-color: rgba(var(--fyt-rgb),0.28); }
+  [data-theme="light"] .fyt-detail-ttl { color: rgba(10,15,32,0.85); }
+  [data-theme="light"] .fyt-detail-bul li { color: rgba(10,15,32,0.6); }
+  [data-theme="light"] .fyt-prog-bar { background: linear-gradient(to top, rgba(238,243,251,0.96) 40%, transparent); }
+  [data-theme="light"] .fyt-prog-track { background: rgba(10,15,32,0.10); }
+  [data-theme="light"] .fyt-prog-lbl { color: rgba(10,15,32,0.4); }
+  [data-theme="light"] .fyt-watermark { color: rgba(10,15,32,0.045); }
+
+  /* ── Trophy / CASK Recognition ── */
+  [data-theme="light"] .cask-recog { background: linear-gradient(180deg,#eef3fb 0%,#e3ebf7 100%); }
+  [data-theme="light"] .cask-recog::after { opacity: 0.025; }
+  [data-theme="light"] .cask-recog::before { opacity: 0.7; }
+  [data-theme="light"] .cask-recog-h2 { color: #0a0f20; }
+  [data-theme="light"] .cask-recog-sub { color: rgba(10,15,32,0.55); }
+  [data-theme="light"] .cask-mile-title { color: #0a0f20; }
+  [data-theme="light"] .cask-tagline-txt { color: rgba(10,15,32,0.62); }
+  [data-theme="light"] .cask-glass {
+    background:
+      linear-gradient(to bottom, rgba(255,255,255,0.55) 0%, transparent 16%),
+      linear-gradient(to right, rgba(var(--pl-rgb),0.12) 0px, rgba(255,255,255,0.42) 20px, rgba(255,255,255,0.18) 42%, rgba(255,255,255,0.18) 58%, rgba(var(--pl-rgb),0.12) 100%),
+      rgba(255,255,255,0.30);
+    border-color: rgba(var(--pl-rgb),0.55);
+    border-top-color: rgba(var(--pl-rgb),0.65);
+    box-shadow: 0 0 22px rgba(var(--pl-rgb),0.14), inset 0 0 26px rgba(var(--pl-rgb),0.06), inset 0 1px 0 rgba(255,255,255,0.7);
+  }
+  [data-theme="light"] .cask-lid { background: linear-gradient(to bottom,#e9eef6 0%,#d3dcec 55%,#c2cddf 100%); border-color: rgba(10,40,90,0.14); border-bottom-color: rgba(10,40,90,0.22); box-shadow: inset 0 2px 3px rgba(255,255,255,0.9), inset 0 -3px 5px rgba(10,40,90,0.10), 0 5px 14px rgba(10,40,90,0.14); }
+  [data-theme="light"] .cask-lid::before { background: linear-gradient(158deg,#f2f5fb 0%,#dbe3ef 45%,#c7d2e4 100%); border-color: rgba(10,40,90,0.14); box-shadow: inset 0 3px 6px rgba(255,255,255,0.9), inset 0 -4px 8px rgba(10,40,90,0.10), 0 2px 6px rgba(10,40,90,0.10); }
+  [data-theme="light"] .cask-lid::after { background: linear-gradient(to bottom,#e4eaf3,#d0d9e9); border-color: rgba(10,40,90,0.10); }
+  [data-theme="light"] .cask-pedestal { background: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.2) 12%, transparent 40%, rgba(10,40,90,0.06) 80%, rgba(10,40,90,0.12) 100%), #dfe6f2; border-color: rgba(10,40,90,0.12); box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 16px 40px rgba(10,40,90,0.16), 0 6px 16px rgba(10,40,90,0.10); }
+  [data-theme="light"] .cask-pedestal::before { background: linear-gradient(to bottom,#e4eaf3,#cdd7e8); border-color: rgba(10,40,90,0.12); }
+  [data-theme="light"] .cask-pedestal::after { background: linear-gradient(to bottom,#eef2f8,#d7dfec); border-color: rgba(10,40,90,0.12); }
+  [data-theme="light"] .cask-plaque { background: linear-gradient(to bottom, rgba(255,255,255,0.6), rgba(10,40,90,0.05)), #eaf0f8; border-color: rgba(10,40,90,0.14); color: rgba(10,15,32,0.5); text-shadow: 0 1px 0 rgba(255,255,255,0.8); }
+  [data-theme="light"] .cask-recog-bar-inner { background: rgba(255,255,255,0.72); border-color: rgba(10,40,90,0.12); box-shadow: 0 12px 34px rgba(10,40,90,0.08); }
+  [data-theme="light"] .cask-recog-bar-col { border-right-color: rgba(10,40,90,0.08); }
+  [data-theme="light"] .cask-recog-bar-txt strong { color: #0a0f20; }
+  [data-theme="light"] .cask-recog-bar-txt span { color: rgba(10,15,32,0.5); }
+  </style>
   <section class="cask-hero">
 
     <div class="cask-hero-inner">
@@ -3659,7 +3743,7 @@
       </div>
       <div class="cask-hero-tag">NEP Aligned Cyber Learning Platform</div>
       <h1>
-        <span style="display:block;">Cyber Saksham Bharat</span>
+        <span style="display:block;">The Future of Cyber Education.</span>
         <span class="dim">Cyber Abhyas Sakriya Kshamta</span>
       </h1>
       <div class="cask-stats">
@@ -3676,11 +3760,9 @@
     <div class="cask-logo-strip cask-logo-strip-hero" style="position:absolute;bottom:0;left:0;right:0;width:100%;margin:0;z-index:5;border-radius:0;">
       <span class="cask-logo-strip-lbl">Built with</span>
       <div class="cask-logo-divider"></div>
-      <div class="cask-logo-item"><img src="assets/meity.svg" alt="MeitY" class="cask-logo-img" /></div>
+      <div class="cask-logo-item"><img src="assets/logo-certin.png" alt="CERT-In" class="cask-logo-img" style="height:28px" /></div>
       <div class="cask-logo-divider"></div>
-      <div class="cask-logo-item"><img src="assets/logo-certin.png" alt="CERT-In" class="cask-logo-img" /></div>
-      <div class="cask-logo-divider"></div>
-      <div class="cask-logo-item"><img src="assets/cyber buddha elongated logo.png" alt="Cyber Buddha" class="cask-logo-img cask-logo-img-wide" /></div>
+      <div class="cask-logo-item"><img src="assets/logo-cyberbuddha.png" alt="Cyber Buddha" class="cask-logo-img" style="height:28px" /></div>
     </div>
     <div class="cask-hero-bg" id="caskHeroBg"></div>
     <canvas id="hexWave" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;display:block;"></canvas>
@@ -3749,7 +3831,7 @@
   
 
   <!-- ═══ WHAT IS CASK + VIDEO ═══ -->
-  <section class="cask-video-section" id="video">
+    <section class="cask-video-section" id="video">
     <div class="cask-video-grid">
       <div>
         <span class="cask-tag">What is CASK</span>
@@ -4389,822 +4471,7 @@
 
 </section>
 
-<!-- === CERTIFICATION === -->
-<style>
-/* ═══════════════════════════════════════════════════════════
-   CASK Recognition — Premium Acrylic Museum Display Cylinders
-   Design language: Apple Industrial · Luxury Watch Museum
-═══════════════════════════════════════════════════════════ */
-
-/* ── Section container ── */
-.cask-recog {
-  position: relative;
-  background: #060B14;
-  padding: 120px 0 100px;
-  overflow: hidden;
-}
-/* Background atmosphere: corner radial glows */
-.cask-recog::before {
-  content: ''; position: absolute; inset: 0; pointer-events: none;
-  background:
-    radial-gradient(ellipse 55% 65% at 0% 0%,   rgba(84,244,255,0.04) 0%, transparent 60%),
-    radial-gradient(ellipse 55% 65% at 100% 0%, rgba(139,92,246,0.04) 0%, transparent 60%);
-}
-/* Background: very faint star field */
-.cask-recog::after {
-  content: ''; position: absolute; inset: 0; pointer-events: none;
-  background-image:
-    radial-gradient(circle, rgba(255,255,255,0.60) 1px, transparent 1px),
-    radial-gradient(circle, rgba(255,255,255,0.25) 1px, transparent 1px);
-  background-size: 120px 120px, 55px 55px;
-  background-position: 7px 12px, 30px 30px;
-  opacity: 0.045;
-}
-
-/* ── Section content wrapper ── */
-.cask-recog-inner {
-  position: relative; z-index: 2;
-  max-width: var(--site-max-width, 1460px); margin: 0 auto;
-  padding: 0 80px; box-sizing: border-box;
-}
-
-/* ── Section header ── */
-.cask-recog-header { text-align: center; margin-bottom: 88px; }
-.cask-recog-eyebrow {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px; font-weight: 700;
-  letter-spacing: 0.20em; text-transform: uppercase;
-  color: #A78BFA; display: inline-block; margin-bottom: 26px;
-  padding: 7px 18px; border-radius: 999px;
-  border: 1px solid rgba(139,92,246,0.38);
-  background: rgba(139,92,246,0.06);
-}
-.cask-recog-h2 {
-  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(38px, 4.5vw, 64px); font-weight: 700;
-  color: #fff; line-height: 1.1; margin: 0 0 20px;
-  letter-spacing: -0.02em;
-}
-.cask-recog-grad {
-  background: linear-gradient(90deg, #59F3FF 20%, #8B5CF6 80%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.cask-recog-sub {
-  font-family: 'Inter', sans-serif;
-  font-size: 18px; font-weight: 400;
-  color: #7A8BA0; max-width: 480px;
-  margin: 0 auto; line-height: 1.65;
-}
-
-/* ── Four cylinders row ── */
-.cask-pillars {
-  display: flex; gap: 40px; justify-content: center;
-  align-items: flex-start; position: relative;
-  margin-bottom: 60px;
-}
-
-/* ── Per-grade CSS custom properties ── */
-.cask-pl-vii  { --pl-rgb: 59,130,246;  --pl-light: #93C5FD; --pl-sat: #3B82F6; }
-.cask-pl-viii { --pl-rgb: 139,92,246;  --pl-light: #C4B5FD; --pl-sat: #8B5CF6; }
-.cask-pl-ix   { --pl-rgb: 16,185,129;  --pl-light: #6EE7B7; --pl-sat: #10B981; }
-.cask-pl-x    { --pl-rgb: 212,160,23;  --pl-light: #FCD34D; --pl-sat: #D4A017; }
-
-/* ── Single cylinder pillar ── */
-.cask-pillar {
-  width: 250px;
-  display: flex; flex-direction: column; align-items: center;
-  position: relative; cursor: pointer;
-  transition: transform 0.30s cubic-bezier(0.22,1,0.36,1);
-}
-.cask-pillar:hover { transform: translateY(-8px) scale(1.02); }
-
-/* ── Overhead spotlight cone (above cylinder, fades before pedestal) ── */
-.cask-sp {
-  position: absolute;
-  top: -140px; left: 50%; transform: translateX(-50%);
-  width: 180px; height: 290px;
-  clip-path: polygon(50% 0%, 14% 100%, 86% 100%);
-  background: linear-gradient(
-    to bottom,
-    rgba(var(--pl-rgb), 0.28) 0%,
-    rgba(var(--pl-rgb), 0.07) 60%,
-    transparent 100%
-  );
-  pointer-events: none; opacity: 0.50;
-  transition: opacity 0.30s;
-  z-index: 0;
-}
-.cask-pillar:hover .cask-sp { opacity: 0.80; }
-
-/* ══════════════════════════════════════════════════
-   TOP CAP — Brushed graphite aluminium ring
-   The elliptical top face is THE critical cue that
-   makes the object read as a cylinder, not a card.
-══════════════════════════════════════════════════ */
-.cask-cap {
-  width: 250px;
-  position: relative; z-index: 5; flex-shrink: 0;
-  /* Space above for the ellipse pseudo-element */
-  margin-top: 16px;
-}
-/* Elliptical top surface — viewport perspective reveals the top of the cylinder */
-.cask-cap::before {
-  content: '';
-  position: absolute;
-  top: -13px; left: -3px; right: -3px;
-  height: 26px;
-  border-radius: 50%;
-  background: linear-gradient(
-    158deg,
-    #3E4260 0%,
-    #2A2E46 35%,
-    #1E2138 70%,
-    #161928 100%
-  );
-  border: 1px solid rgba(255,255,255,0.16);
-  box-shadow:
-    inset 0 3px 7px rgba(255,255,255,0.12),
-    inset 0 -4px 10px rgba(0,0,0,0.55),
-    0 -2px 8px rgba(0,0,0,0.7);
-  z-index: 7;
-}
-/* Machining ring line on the ellipse top */
-.cask-cap::after {
-  content: '';
-  position: absolute;
-  top: -5px; left: 16px; right: 16px;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(255,255,255,0.18), transparent);
-  border-radius: 50%;
-  z-index: 8;
-}
-/* Front face of the cap ring */
-.cask-cap-face {
-  height: 24px; width: 100%;
-  background: linear-gradient(to bottom, #242742, #1C1F34);
-  border-left:  1px solid rgba(255,255,255,0.14);
-  border-right: 1px solid rgba(255,255,255,0.07);
-  border-bottom: 1px solid rgba(0,0,0,0.50);
-  box-shadow:
-    inset 2px 0 0 rgba(255,255,255,0.07),
-    inset -1px 0 0 rgba(0,0,0,0.30);
-}
-
-/* ══════════════════════════════════════════════════
-   GLASS CYLINDER BODY
-   Convex front surface physics:
-   — Left edge: brightest point (nearest to viewer on curved surface)
-   — Gradual falloff toward centre
-   — Right edge: subtle rear reflection
-   — Vertical edge borders define the cylinder silhouette
-   — Interior: coloured LED atmosphere per grade
-   — Shimmer: light sweep on hover
-══════════════════════════════════════════════════ */
-.cask-glass {
-  width: 250px; height: 452px;
-  position: relative; overflow: hidden; flex-shrink: 0;
-  backdrop-filter: blur(18px);
-  /* Primary convex surface gradient */
-  background:
-    /* Overhead LED diffusion from top */
-    linear-gradient(to bottom, rgba(255,255,255,0.055) 0%, transparent 14%),
-    /* Convex wrap: bright left edge → fade → subtle right edge */
-    linear-gradient(to right,
-      rgba(255,255,255,0.26) 0px,
-      rgba(255,255,255,0.14) 5px,
-      rgba(255,255,255,0.06) 14px,
-      transparent 22%,
-      transparent 78%,
-      rgba(255,255,255,0.03) 90%,
-      rgba(255,255,255,0.09) 100%
-    ),
-    /* Glass material body */
-    rgba(190,210,255,0.042);
-  /* Cylinder profile borders */
-  border-left:  1px solid rgba(255,255,255,0.24);
-  border-right: 1px solid rgba(255,255,255,0.11);
-}
-/* Left curved reflection strip (near edge — physically: specular highlight) */
-.cask-glass::before {
-  content: '';
-  position: absolute; top: 0; left: 0; bottom: 0; width: 22px;
-  background: linear-gradient(to right,
-    rgba(255,255,255,0.20),
-    rgba(255,255,255,0.08) 35%,
-    transparent
-  );
-  pointer-events: none; z-index: 3;
-}
-/* Right soft reflection (rear curved surface) */
-.cask-glass::after {
-  content: '';
-  position: absolute; top: 0; right: 0; bottom: 0; width: 16px;
-  background: linear-gradient(to left,
-    rgba(255,255,255,0.14),
-    rgba(255,255,255,0.05) 40%,
-    transparent
-  );
-  pointer-events: none; z-index: 3;
-}
-
-/* Interior coloured LED atmosphere — per grade, stays INSIDE cylinder */
-.cask-atm {
-  position: absolute; inset: 0; pointer-events: none; z-index: 1;
-  background:
-    /* Overhead LED bloom from top */
-    radial-gradient(ellipse 88% 38% at 50% 0%,
-      rgba(var(--pl-rgb), 0.24) 0%, transparent 70%),
-    /* Ambient interior fill */
-    radial-gradient(ellipse 75% 55% at 50% 38%,
-      rgba(var(--pl-rgb), 0.12) 0%, transparent 80%);
-  transition: opacity 0.30s;
-}
-.cask-pillar:hover .cask-atm {
-  background:
-    radial-gradient(ellipse 88% 38% at 50% 0%,
-      rgba(var(--pl-rgb), 0.38) 0%, transparent 70%),
-    radial-gradient(ellipse 75% 55% at 50% 38%,
-      rgba(var(--pl-rgb), 0.20) 0%, transparent 80%);
-}
-
-/* Glass shimmer — light sweeps across on hover */
-.cask-shimmer {
-  position: absolute; top: 0; bottom: 0;
-  left: -80px; width: 65px;
-  background: linear-gradient(to right,
-    transparent,
-    rgba(255,255,255,0.10) 50%,
-    transparent
-  );
-  pointer-events: none; z-index: 10; opacity: 0;
-}
-@keyframes cask-shimmer-pass {
-  0%   { left: -80px; opacity: 0; }
-  8%   { opacity: 1; }
-  88%  { opacity: 1; }
-  100% { left: 315px; opacity: 0; }
-}
-.cask-pillar:hover .cask-shimmer {
-  animation: cask-shimmer-pass 0.78s ease-out forwards;
-}
-
-/* Content block — upper 60% of cylinder, lower 40% is intentionally empty */
-.cask-content {
-  position: absolute;
-  top: 38px; left: 0; right: 0;
-  display: flex; flex-direction: column; align-items: center;
-  gap: 0; padding: 0 18px;
-  z-index: 2;
-}
-
-/* ── SVG Emblem mount ── */
-.cask-emblem {
-  width: 118px; height: 118px;
-  display: flex; align-items: center; justify-content: center;
-  position: relative; margin-bottom: 16px;
-}
-/* Defined circular glow disc behind emblem — lit from behind like a mounted trophy */
-.cask-emblem::before {
-  content: '';
-  position: absolute; inset: -14px; border-radius: 50%;
-  background: radial-gradient(circle,
-    rgba(var(--pl-rgb), 0.30) 0%,
-    rgba(var(--pl-rgb), 0.12) 42%,
-    transparent 72%
-  );
-  box-shadow:
-    0 0 40px rgba(var(--pl-rgb), 0.40),
-    inset 0 0 0 1px rgba(var(--pl-rgb), 0.14);
-  pointer-events: none;
-  transition: box-shadow 0.30s;
-}
-.cask-pillar:hover .cask-emblem::before {
-  box-shadow:
-    0 0 60px rgba(var(--pl-rgb), 0.62),
-    inset 0 0 0 1px rgba(var(--pl-rgb), 0.22);
-}
-.cask-emblem svg { width: 88px; height: 98px; position: relative; z-index: 2; }
-
-/* Grade label */
-.cask-grade-lbl {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px; font-weight: 600;
-  letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--pl-light);
-  margin-bottom: 6px;
-}
-/* Separator */
-.cask-sep-dot {
-  width: 4px; height: 4px; border-radius: 50%;
-  background: rgba(var(--pl-rgb), 0.80);
-  margin-bottom: 6px; flex-shrink: 0;
-}
-/* Milestone title */
-.cask-mile-title {
-  font-family: 'Inter', sans-serif;
-  font-size: 22px; font-weight: 700;
-  letter-spacing: 0.06em; text-transform: uppercase;
-  color: #FFFFFF; text-align: center;
-  line-height: 1.15; margin-bottom: 8px;
-}
-/* Three-word tagline — single line, spaced */
-.cask-tagline-txt {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px; font-weight: 400;
-  color: rgba(255,255,255,0.34);
-  text-align: center; letter-spacing: 0.04em;
-  white-space: nowrap;
-}
-
-/* ══════════════════════════════════════════════════
-   BOTTOM METAL RING — same brushed graphite material
-══════════════════════════════════════════════════ */
-.cask-base-ring {
-  width: 250px; height: 18px; flex-shrink: 0;
-  position: relative;
-  background: linear-gradient(to bottom, #22253C, #181B2E);
-  border-left:  1px solid rgba(255,255,255,0.13);
-  border-right: 1px solid rgba(255,255,255,0.07);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.65);
-}
-/* Bottom ellipse — mirrors the top cap, closes the cylinder */
-.cask-base-ring::after {
-  content: '';
-  position: absolute;
-  bottom: -11px; left: -3px; right: -3px;
-  height: 22px; border-radius: 50%;
-  background: linear-gradient(to top, #13162A, #1B1E30);
-  border: 1px solid rgba(255,255,255,0.07);
-  z-index: -1;
-}
-
-/* ══════════════════════════════════════════════════
-   PEDESTAL — Heavy anodized aluminium
-   Matte black, not glossy. Machined bevel. Weight.
-══════════════════════════════════════════════════ */
-.cask-pedestal {
-  width: 250px; height: 78px; flex-shrink: 0;
-  position: relative; margin-top: 10px;
-  background:
-    /* Top surface machined sheen */
-    linear-gradient(to bottom,
-      rgba(255,255,255,0.048) 0%,
-      rgba(255,255,255,0.016) 6%,
-      transparent 30%,
-      rgba(0,0,0,0.12) 75%,
-      rgba(0,0,0,0.28) 100%
-    ),
-    /* Anodized black substrate */
-    #0B0E19;
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.08);
-  display: flex; align-items: center; justify-content: center;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.12),   /* top edge catch-light */
-    inset 3px 0 8px rgba(255,255,255,0.03),  /* left bevel */
-    inset -3px 0 8px rgba(0,0,0,0.22),       /* right shadow */
-    0 18px 50px rgba(0,0,0,0.80),            /* ground shadow / weight */
-    0 7px 20px rgba(0,0,0,0.60);
-}
-/* Machined top edge highlight line */
-.cask-pedestal::before {
-  content: '';
-  position: absolute;
-  top: 1px; left: 32px; right: 32px; height: 1px;
-  background: linear-gradient(to right, transparent, rgba(255,255,255,0.12), transparent);
-  border-radius: 50%;
-}
-
-/* Laser-engraved gunmetal plaque */
-.cask-plaque {
-  width: 170px; height: 36px;
-  background:
-    linear-gradient(to bottom, rgba(255,255,255,0.034), rgba(0,0,0,0.12)),
-    #141828;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.08);
-  display: flex; align-items: center; justify-content: center;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.07),
-    inset 0 -1px 0 rgba(0,0,0,0.45),
-    0 3px 7px rgba(0,0,0,0.45);
-  font-family: 'Inter', sans-serif;
-  font-size: 7.5px; font-weight: 700;
-  letter-spacing: 0.28em; text-transform: uppercase;
-  color: rgba(255,255,255,0.19);
-}
-
-/* ── Floor reflection (coloured, blurred, inverted) ── */
-.cask-floor-ref {
-  width: 210px; height: 55px; flex-shrink: 0;
-  margin-top: -3px;
-  background: linear-gradient(to bottom,
-    rgba(var(--pl-rgb), 0.06) 0%,
-    rgba(255,255,255,0.016) 25%,
-    transparent 100%
-  );
-  filter: blur(7px);
-  transform: scaleY(-1);
-  pointer-events: none;
-  border-radius: 0 0 50% 50%;
-  opacity: 0.50;
-}
-
-/* ══════════════════════════════════════════════════
-   BOTTOM TRUST BAR
-══════════════════════════════════════════════════ */
-.cask-recog-bar {
-  position: relative; z-index: 2;
-  max-width: var(--site-max-width, 1460px); margin: 0 auto;
-  padding: 0 80px; width: 100%; box-sizing: border-box;
-}
-.cask-recog-bar-inner {
-  background: rgba(255,255,255,0.020);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 22px; backdrop-filter: blur(20px);
-  display: grid; grid-template-columns: repeat(4,1fr);
-  height: 110px;
-}
-.cask-recog-bar-col {
-  display: flex; align-items: center; gap: 16px;
-  padding: 0 28px;
-  border-right: 1px solid rgba(255,255,255,0.05);
-  --bar-rgb: 89,243,255;
-}
-.cask-recog-bar-col.cask-bar-vii  { --bar-rgb: 59,130,246; }
-.cask-recog-bar-col.cask-bar-viii { --bar-rgb: 139,92,246; }
-.cask-recog-bar-col.cask-bar-ix   { --bar-rgb: 16,185,129; }
-.cask-recog-bar-col.cask-bar-x    { --bar-rgb: 212,160,23; }
-.cask-recog-bar-col:last-child { border-right: none; }
-.cask-recog-bar-ico {
-  width: 46px; height: 46px; border-radius: 50%;
-  background: rgba(var(--bar-rgb),0.06);
-  border: 1px solid rgba(var(--bar-rgb),0.30);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.cask-recog-bar-ico svg {
-  width: 20px; height: 20px;
-  stroke: rgb(var(--bar-rgb)); fill: none;
-  stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
-}
-.cask-recog-bar-txt strong {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px; font-weight: 700; color: #FFFFFF;
-  display: block; margin-bottom: 3px;
-}
-.cask-recog-bar-txt span {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px; color: rgba(255,255,255,0.40); line-height: 1.4;
-}
-</style>
-
-<section class="cask-recog" id="cyCertification">
-
-  <div class="cask-recog-inner">
-
-    <!-- Header -->
-    <div class="cask-recog-header">
-      <span class="cask-recog-eyebrow">CASK Recognition</span>
-      <h2 class="cask-recog-h2">Four Years. Four Milestones.<br><span class="cask-recog-grad">One Empowered You.</span></h2>
-      <p class="cask-recog-sub">Your journey in cyber safety. Your growth, recognised.</p>
-    </div>
-
-    <!-- Four acrylic display cylinders -->
-    <div class="cask-pillars">
-
-      <!-- ══ GRADE VII — FOUNDATION (Blue) ══ -->
-      <div class="cask-pillar cask-pl-vii">
-        <div class="cask-sp" aria-hidden="true"></div>
-        <div class="cask-cap"><div class="cask-cap-face"></div></div>
-        <div class="cask-glass">
-          <div class="cask-atm" aria-hidden="true"></div>
-          <div class="cask-shimmer" aria-hidden="true"></div>
-          <div class="cask-content">
-            <div class="cask-emblem">
-              <svg viewBox="0 0 82 92" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="sg7f" x1="18%" y1="6%" x2="82%" y2="94%">
-                    <stop offset="0%"   stop-color="#BAD8FE"/>
-                    <stop offset="28%"  stop-color="#60A5FA"/>
-                    <stop offset="62%"  stop-color="#2563EB"/>
-                    <stop offset="100%" stop-color="#1A3A8E"/>
-                  </linearGradient>
-                  <linearGradient id="sg7h" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%"   stop-color="rgba(255,255,255,0.58)"/>
-                    <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
-                  </linearGradient>
-                  <filter id="sg7s">
-                    <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
-                    <feOffset dx="1" dy="2"/>
-                    <feComposite in2="SourceGraphic" operator="over"/>
-                  </filter>
-                </defs>
-                <!-- Shield base fill -->
-                <path d="M41 5 L74 18 L74 48 C74 68 58 80 41 88 C24 80 8 68 8 48 L8 18 Z"
-                  fill="url(#sg7f)"/>
-                <!-- Emboss: top-left highlight edge -->
-                <path d="M41 7 L72 19 L72 48 C72 67 57 78 41 85"
-                  fill="none" stroke="url(#sg7h)" stroke-width="1.8" stroke-linecap="round"/>
-                <!-- Shadow edge: bottom-right -->
-                <path d="M41 7 L10 19 L10 48 C10 67 25 78 41 85"
-                  fill="none" stroke="rgba(0,0,0,0.28)" stroke-width="1.3" stroke-linecap="round"/>
-                <!-- Inner shield inset line -->
-                <path d="M41 13 L68 23 L68 48 C68 65 54 75 41 82 C28 75 14 65 14 48 L14 23 Z"
-                  fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="0.9"/>
-                <!-- Fingerprint crest (concentric arcs) -->
-                <g transform="translate(41 50)" fill="none">
-                  <path d="M-19 0 A19 19 0 0 1 19 0" stroke="rgba(255,255,255,0.44)" stroke-width="1.9"/>
-                  <path d="M-14 0 A14 14 0 0 1 14 0" stroke="rgba(255,255,255,0.37)" stroke-width="1.7"/>
-                  <path d="M-9 0 A9 9 0 0 1 9 0"    stroke="rgba(255,255,255,0.30)" stroke-width="1.6"/>
-                  <path d="M-4 0 A4 4 0 0 1 4 0"    stroke="rgba(255,255,255,0.22)" stroke-width="1.4"/>
-                  <circle cx="0" cy="0" r="1.8" fill="rgba(255,255,255,0.52)"/>
-                </g>
-              </svg>
-            </div>
-            <div class="cask-grade-lbl">Grade VII</div>
-            <div class="cask-sep-dot"></div>
-            <div class="cask-mile-title">Foundation</div>
-            <div class="cask-tagline-txt">Learn · Practice · Stay Safe</div>
-          </div>
-        </div>
-        <div class="cask-base-ring"></div>
-        <div class="cask-pedestal"><div class="cask-plaque">National Credential</div></div>
-        <div class="cask-floor-ref" aria-hidden="true"></div>
-      </div>
-
-      <!-- ══ GRADE VIII — DEFENCE (Purple) ══ -->
-      <div class="cask-pillar cask-pl-viii">
-        <div class="cask-sp" aria-hidden="true"></div>
-        <div class="cask-cap"><div class="cask-cap-face"></div></div>
-        <div class="cask-glass">
-          <div class="cask-atm" aria-hidden="true"></div>
-          <div class="cask-shimmer" aria-hidden="true"></div>
-          <div class="cask-content">
-            <div class="cask-emblem">
-              <svg viewBox="0 0 82 92" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="sg8f" x1="18%" y1="6%" x2="82%" y2="94%">
-                    <stop offset="0%"   stop-color="#D8C8FF"/>
-                    <stop offset="28%"  stop-color="#A78BFA"/>
-                    <stop offset="62%"  stop-color="#7C3AED"/>
-                    <stop offset="100%" stop-color="#4C1D95"/>
-                  </linearGradient>
-                  <linearGradient id="sg8h" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%"   stop-color="rgba(255,255,255,0.58)"/>
-                    <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
-                  </linearGradient>
-                </defs>
-                <path d="M41 5 L74 18 L74 48 C74 68 58 80 41 88 C24 80 8 68 8 48 L8 18 Z"
-                  fill="url(#sg8f)"/>
-                <path d="M41 7 L72 19 L72 48 C72 67 57 78 41 85"
-                  fill="none" stroke="url(#sg8h)" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M41 7 L10 19 L10 48 C10 67 25 78 41 85"
-                  fill="none" stroke="rgba(0,0,0,0.28)" stroke-width="1.3" stroke-linecap="round"/>
-                <path d="M41 13 L68 23 L68 48 C68 65 54 75 41 82 C28 75 14 65 14 48 L14 23 Z"
-                  fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="0.9"/>
-                <!-- Crossed swords -->
-                <g transform="translate(41 48)">
-                  <!-- Blade 1 (top-right to bottom-left) -->
-                  <line x1="14" y1="-18" x2="-10" y2="16"
-                    stroke="rgba(255,255,255,0.62)" stroke-width="2.8" stroke-linecap="round"/>
-                  <!-- Tip 1 -->
-                  <line x1="14" y1="-18" x2="17" y2="-24"
-                    stroke="rgba(255,255,255,0.45)" stroke-width="1.6" stroke-linecap="round"/>
-                  <!-- Guard 1 (horizontal crossbar) -->
-                  <line x1="6" y1="-8" x2="22" y2="-8"
-                    stroke="rgba(255,255,255,0.52)" stroke-width="2.2" stroke-linecap="round"/>
-                  <!-- Blade 2 (top-left to bottom-right) -->
-                  <line x1="-14" y1="-18" x2="10" y2="16"
-                    stroke="rgba(255,255,255,0.62)" stroke-width="2.8" stroke-linecap="round"/>
-                  <!-- Tip 2 -->
-                  <line x1="-14" y1="-18" x2="-17" y2="-24"
-                    stroke="rgba(255,255,255,0.45)" stroke-width="1.6" stroke-linecap="round"/>
-                  <!-- Guard 2 -->
-                  <line x1="-22" y1="-8" x2="-6" y2="-8"
-                    stroke="rgba(255,255,255,0.52)" stroke-width="2.2" stroke-linecap="round"/>
-                  <!-- Centre diamond -->
-                  <circle cx="0" cy="-1" r="3" fill="rgba(255,255,255,0.38)"/>
-                </g>
-              </svg>
-            </div>
-            <div class="cask-grade-lbl">Grade VIII</div>
-            <div class="cask-sep-dot"></div>
-            <div class="cask-mile-title">Defence</div>
-            <div class="cask-tagline-txt">Protect · Defend · Respond</div>
-          </div>
-        </div>
-        <div class="cask-base-ring"></div>
-        <div class="cask-pedestal"><div class="cask-plaque">National Credential</div></div>
-        <div class="cask-floor-ref" aria-hidden="true"></div>
-      </div>
-
-      <!-- ══ GRADE IX — UNDERSTANDING (Emerald) ══ -->
-      <div class="cask-pillar cask-pl-ix">
-        <div class="cask-sp" aria-hidden="true"></div>
-        <div class="cask-cap"><div class="cask-cap-face"></div></div>
-        <div class="cask-glass">
-          <div class="cask-atm" aria-hidden="true"></div>
-          <div class="cask-shimmer" aria-hidden="true"></div>
-          <div class="cask-content">
-            <div class="cask-emblem">
-              <svg viewBox="0 0 82 92" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="sg9f" x1="18%" y1="6%" x2="82%" y2="94%">
-                    <stop offset="0%"   stop-color="#86EFBF"/>
-                    <stop offset="28%"  stop-color="#34D399"/>
-                    <stop offset="62%"  stop-color="#059669"/>
-                    <stop offset="100%" stop-color="#064E3B"/>
-                  </linearGradient>
-                  <linearGradient id="sg9h" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%"   stop-color="rgba(255,255,255,0.58)"/>
-                    <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
-                  </linearGradient>
-                </defs>
-                <path d="M41 5 L74 18 L74 48 C74 68 58 80 41 88 C24 80 8 68 8 48 L8 18 Z"
-                  fill="url(#sg9f)"/>
-                <path d="M41 7 L72 19 L72 48 C72 67 57 78 41 85"
-                  fill="none" stroke="url(#sg9h)" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M41 7 L10 19 L10 48 C10 67 25 78 41 85"
-                  fill="none" stroke="rgba(0,0,0,0.28)" stroke-width="1.3" stroke-linecap="round"/>
-                <path d="M41 13 L68 23 L68 48 C68 65 54 75 41 82 C28 75 14 65 14 48 L14 23 Z"
-                  fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="0.9"/>
-                <!-- Neural network pattern -->
-                <g transform="translate(41 46)">
-                  <!-- Connection lines (drawn first, behind nodes) -->
-                  <line x1="0" y1="-20" x2="-16" y2="-4"  stroke="rgba(255,255,255,0.30)" stroke-width="1.4"/>
-                  <line x1="0" y1="-20" x2="16" y2="-4"   stroke="rgba(255,255,255,0.30)" stroke-width="1.4"/>
-                  <line x1="-16" y1="-4" x2="-8" y2="12"  stroke="rgba(255,255,255,0.24)" stroke-width="1.4"/>
-                  <line x1="16" y1="-4"  x2="8" y2="12"   stroke="rgba(255,255,255,0.24)" stroke-width="1.4"/>
-                  <line x1="-16" y1="-4" x2="16" y2="-4"  stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
-                  <line x1="-8" y1="12"  x2="8" y2="12"   stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
-                  <line x1="-16" y1="-4" x2="8" y2="12"   stroke="rgba(255,255,255,0.14)" stroke-width="1.1"/>
-                  <line x1="16" y1="-4"  x2="-8" y2="12"  stroke="rgba(255,255,255,0.14)" stroke-width="1.1"/>
-                  <!-- Nodes -->
-                  <circle cx="0"   cy="-20" r="4.0" fill="rgba(255,255,255,0.58)"/>
-                  <circle cx="-16" cy="-4"  r="3.2" fill="rgba(255,255,255,0.48)"/>
-                  <circle cx="16"  cy="-4"  r="3.2" fill="rgba(255,255,255,0.48)"/>
-                  <circle cx="-8"  cy="12"  r="2.6" fill="rgba(255,255,255,0.40)"/>
-                  <circle cx="8"   cy="12"  r="2.6" fill="rgba(255,255,255,0.40)"/>
-                </g>
-              </svg>
-            </div>
-            <div class="cask-grade-lbl">Grade IX</div>
-            <div class="cask-sep-dot"></div>
-            <div class="cask-mile-title">Understanding</div>
-            <div class="cask-tagline-txt">Understand · Analyse · Decide</div>
-          </div>
-        </div>
-        <div class="cask-base-ring"></div>
-        <div class="cask-pedestal"><div class="cask-plaque">National Credential</div></div>
-        <div class="cask-floor-ref" aria-hidden="true"></div>
-      </div>
-
-      <!-- ══ GRADE X — LEADERSHIP (Gold) ══ -->
-      <div class="cask-pillar cask-pl-x">
-        <div class="cask-sp" aria-hidden="true"></div>
-        <div class="cask-cap"><div class="cask-cap-face"></div></div>
-        <div class="cask-glass">
-          <div class="cask-atm" aria-hidden="true"></div>
-          <div class="cask-shimmer" aria-hidden="true"></div>
-          <div class="cask-content">
-            <div class="cask-emblem">
-              <svg viewBox="0 0 82 92" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="sg10f" x1="18%" y1="6%" x2="82%" y2="94%">
-                    <stop offset="0%"   stop-color="#FDE98A"/>
-                    <stop offset="28%"  stop-color="#F59E0B"/>
-                    <stop offset="62%"  stop-color="#B45309"/>
-                    <stop offset="100%" stop-color="#78350F"/>
-                  </linearGradient>
-                  <linearGradient id="sg10h" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%"   stop-color="rgba(255,255,255,0.65)"/>
-                    <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
-                  </linearGradient>
-                </defs>
-                <path d="M41 5 L74 18 L74 48 C74 68 58 80 41 88 C24 80 8 68 8 48 L8 18 Z"
-                  fill="url(#sg10f)"/>
-                <path d="M41 7 L72 19 L72 48 C72 67 57 78 41 85"
-                  fill="none" stroke="url(#sg10h)" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M41 7 L10 19 L10 48 C10 67 25 78 41 85"
-                  fill="none" stroke="rgba(0,0,0,0.22)" stroke-width="1.3" stroke-linecap="round"/>
-                <path d="M41 13 L68 23 L68 48 C68 65 54 75 41 82 C28 75 14 65 14 48 L14 23 Z"
-                  fill="none" stroke="rgba(255,255,255,0.20)" stroke-width="0.9"/>
-                <!-- Crown with laurel -->
-                <g transform="translate(41 46)">
-                  <!-- Crown base bar -->
-                  <rect x="-18" y="10" width="36" height="8" rx="4"
-                    fill="rgba(255,255,255,0.55)"/>
-                  <!-- Crown body with five points -->
-                  <path d="M-18 10 L-18 -2 L-10 5 L-4 -12 L0 5 L4 -12 L10 5 L18 -2 L18 10 Z"
-                    fill="rgba(255,255,255,0.58)"/>
-                  <!-- Crown highlight (top-left bevel) -->
-                  <path d="M-18 10 L-18 -2 L-10 5 L-4 -12 L0 5"
-                    fill="none" stroke="rgba(255,255,255,0.32)" stroke-width="0.8" stroke-linejoin="round"/>
-                  <!-- Gem stones on points -->
-                  <circle cx="-4"  cy="-7" r="2.2" fill="rgba(255,235,100,0.95)"/>
-                  <circle cx="0"   cy="-10" r="2.8" fill="rgba(255,245,120,1.00)"/>
-                  <circle cx="4"   cy="-7" r="2.2" fill="rgba(255,235,100,0.95)"/>
-                  <!-- Left laurel branch -->
-                  <path d="M-24 13 C-27 8 -24 3 -20 7"
-                    fill="none" stroke="rgba(255,255,255,0.44)" stroke-width="1.6" stroke-linecap="round"/>
-                  <path d="M-24 13 C-28 9 -27 3 -21 5"
-                    fill="none" stroke="rgba(255,255,255,0.38)" stroke-width="1.5" stroke-linecap="round"/>
-                  <!-- Right laurel branch -->
-                  <path d="M24 13 C27 8 24 3 20 7"
-                    fill="none" stroke="rgba(255,255,255,0.44)" stroke-width="1.6" stroke-linecap="round"/>
-                  <path d="M24 13 C28 9 27 3 21 5"
-                    fill="none" stroke="rgba(255,255,255,0.38)" stroke-width="1.5" stroke-linecap="round"/>
-                </g>
-              </svg>
-            </div>
-            <div class="cask-grade-lbl">Grade X</div>
-            <div class="cask-sep-dot"></div>
-            <div class="cask-mile-title">Leadership</div>
-            <div class="cask-tagline-txt">Lead · Respond · Inspire</div>
-          </div>
-        </div>
-        <div class="cask-base-ring"></div>
-        <div class="cask-pedestal"><div class="cask-plaque">National Credential</div></div>
-        <div class="cask-floor-ref" aria-hidden="true"></div>
-      </div>
-
-    </div><!-- /cask-pillars -->
-  </div><!-- /cask-recog-inner -->
-
-  <!-- Bottom trust bar -->
-  <div class="cask-recog-bar">
-    <div class="cask-recog-bar-inner">
-      <div class="cask-recog-bar-col cask-bar-vii">
-        <div class="cask-recog-bar-ico">
-          <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
-        </div>
-        <div class="cask-recog-bar-txt"><strong>Nationally Recognised</strong><span>Aligned with national cyber safety standards</span></div>
-      </div>
-      <div class="cask-recog-bar-col cask-bar-viii">
-        <div class="cask-recog-bar-ico">
-          <svg viewBox="0 0 24 24"><path d="M12 2.5l2.1 1.5 2.6-.1.8 2.5 2.2 1.4-.9 2.5.9 2.5-2.2 1.4-.8 2.5-2.6-.1L12 19.5l-2.1-1.5-2.6.1-.8-2.5-2.2-1.4.9-2.5-.9-2.5 2.2-1.4.8-2.5 2.6.1z"/><path d="M9.2 12l2 2 3.6-3.6"/></svg>
-        </div>
-        <div class="cask-recog-bar-txt"><strong>Verifiable Credential</strong><span>Your achievement. Verified. Trusted. Validated.</span></div>
-      </div>
-      <div class="cask-recog-bar-col cask-bar-ix">
-        <div class="cask-recog-bar-ico">
-          <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>
-        </div>
-        <div class="cask-recog-bar-txt"><strong>Digital &amp; Secure</strong><span>Blockchain-backed tamper-proof recognition</span></div>
-      </div>
-      <div class="cask-recog-bar-col cask-bar-x">
-        <div class="cask-recog-bar-ico">
-          <svg viewBox="0 0 24 24"><path d="M16 20v-1.5a3.5 3.5 0 00-3.5-3.5h-5A3.5 3.5 0 004 18.5V20"/><circle cx="10" cy="8" r="3.3"/><path d="M20 20v-1.5a3.5 3.5 0 00-2.7-3.4"/><path d="M15.5 5.2a3.3 3.3 0 010 6"/></svg>
-        </div>
-        <div class="cask-recog-bar-txt"><strong>Future Ready</strong><span>Building skills for a safe digital tomorrow</span></div>
-      </div>
-    </div>
-  </div>
-
-</section>
-<!-- === CONSTELLATION MAP === --><!-- === MULTILINGUAL === --><!-- === MULTILINGUAL === -->
-  <section class="cask-section cask-section-mid" style="text-align:center">
-    <div class="cask-container">
-      <span class="cask-tag">Multilingual</span>
-      <h2 class="cask-h2">Cyber safety in your language.</h2>
-      <p class="cask-sub" style="margin:0 auto">CASK speaks to students in the language they think in — so safety concepts actually stick. Not just translated, but culturally contextualised.</p>
-      <div class="cask-lang-pills">
-        <button class="cask-lang-pill active" onclick="caskSetLang(this,'hi')">&#2361;&#2367;&#2344;&#2381;&#2342;&#2368;</button>
-        <button class="cask-lang-pill" onclick="caskSetLang(this,'en')">English</button>
-        <button class="cask-lang-pill" onclick="caskSetLang(this,'bn')">&#2476;&#2494;&#2434;&#2482;&#2494;</button>
-        <button class="cask-lang-pill" onclick="caskSetLang(this,'te')">&#3108;&#3142;&#3122;&#3137;&#3095;&#3137;</button>
-        <button class="cask-lang-pill" onclick="caskSetLang(this,'kn')">&#3221;&#3240;&#3277;&#3240;&#3233;</button>
-        <button class="cask-lang-pill" onclick="caskSetLang(this,'gu')">&#2711;&#2753;&#2716;&#2736;&#2750;&#2724;&#2752;</button>
-        <button class="cask-lang-pill" onclick="caskSetLang(this,'mr')">&#2350;&#2352;&#2366;&#2336;&#2368;</button>
-        <button class="cask-lang-pill" onclick="caskSetLang(this,'ta')">&#2980;&#2990;&#3007;&#2996;&#3021;</button>
-        <button class="cask-lang-pill" onclick="caskSetLang(this,'ml')">&#3374;&#3378;&#3375;&#3390;&#3379;&#3330;</button>
-        <button class="cask-lang-pill cask-lang-more" disabled>+ more coming</button>
-      </div>
-      <div class="cask-chat-preview">
-        <div class="cask-chat-head">
-          <div class="cask-chat-avatar">AI</div>
-          <div class="cask-chat-meta">
-            <div class="name">Suraksha AI</div>
-            <div class="status" id="caskLangStatus">Responding in Hindi</div>
-          </div>
-        </div>
-        <div class="cask-bubble user">How do I know if a UPI request is fake?</div>
-        <div class="cask-bubble" id="caskLangBubble">&#2344;&#2350;&#2360;&#2381;&#2340;&#2375;! &#2325;&#2367;&#2360;&#2368; &#2349;&#2368; &#2309;&#2344;&#2332;&#2366;&#2344; UPI request &#2325;&#2379; &#2325;&#2349;&#2368; approve &#2350;&#2340; &#2325;&#2352;&#2379;&#2404; &#2346;&#2376;&#2360;&#2375; &#2354;&#2375;&#2344;&#2375; &#2325;&#2375; &#2354;&#2367;&#2319; PIN &#2325;&#2368; &#2332;&#2364;&#2352;&#2370;&#2352;&#2340; &#2344;&#2361;&#2368;&#2306; &#2361;&#2379;&#2340;&#2368; &#2360;&#2367;&#2352;&#2381;&#2347;&#2492; &#2349;&#2375;&#2332;&#2344;&#2375; &#2325;&#2375; &#2354;&#2367;&#2319; &#2361;&#2379;&#2340;&#2368; &#2361;&#2376;&#2404;</div>
-      </div>
-      <div class="cask-lang-stats">
-        <span><b>9+</b> Languages</span>
-        <span>&middot;</span>
-        <span><b>22+</b> States</span>
-        <span>&middot;</span>
-        <span><b>1</b> Platform</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ COMMAND DECK v4 ═══ -->
+<!-- ═══ COMMAND DECK v4 ═══ -->
 <style>
 /* ══ cd4 sidebar card system ══ */
 .cd4-ic {
@@ -5429,11 +4696,42 @@
 .cd4-card:hover .cd4-card-desc { opacity: 1; transform: translateY(0); }
 .cd4-card-glow .cd4-card-desc { background: linear-gradient(to top, #0f1c30 58%, transparent); }
 </style>
-<section class="cd4-section">
+<style>
+  /* ── Everything Inside CASK — simplified & centered ── */
+  .cd4-simplified .cd4-head {
+    flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; gap: 16px; padding: 64px 24px 6px; border-bottom: none;
+  }
+  .cd4-simplified .cd4-h2 { margin: 0 0 6px; }
+  .cd4-simplified .cd4-sub { margin: 0 auto; }
+  .cd4-simplified .cd4-cards { max-width: 1180px; margin: 0 auto; padding: 30px 24px 76px; }
+  .cd4-simplified .cd4-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 1040px) { .cd4-simplified .cd4-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px)  { .cd4-simplified .cd4-grid { grid-template-columns: 1fr; } }
 
-  <!-- Header -->
+  /* Light-theme polish for the cards + toggle */
+  [data-theme="light"] .cd4-section { background: #f4f7fc; }
+  [data-theme="light"] .cd4-section::before { background:
+      radial-gradient(ellipse 55% 45% at 0% 0%, rgba(0,150,220,0.05) 0%, transparent 55%),
+      radial-gradient(ellipse 45% 40% at 100% 0%, rgba(124,77,255,0.05) 0%, transparent 55%); }
+  [data-theme="light"] .cd4-h2 { color: #0a0f20; }
+  [data-theme="light"] .cd4-sub { color: rgba(10,15,32,0.55); }
+  [data-theme="light"] .cd4-toggle { background: #eef2f8; border-color: #e2e8f0; }
+  [data-theme="light"] .cd4-wing strong { color: #0a0f20; }
+  [data-theme="light"] .cd4-wing small { color: rgba(10,15,32,0.5); }
+  [data-theme="light"] .cd4-wing-active { background: rgba(0,150,200,0.10); border-color: rgba(0,150,200,0.3); }
+  [data-theme="light"] .cd4-card { background: #ffffff; border-color: #e3e9f2; box-shadow: 0 10px 30px rgba(10,40,90,0.06); }
+  [data-theme="light"] .cd4-card strong { color: #0a0f20; }
+  [data-theme="light"] .cd4-card-desc { color: rgba(10,15,32,0.6); }
+  [data-theme="light"] .cd4-card:hover { border-color: #29a3ff; box-shadow: 0 18px 44px rgba(0,90,200,0.14); }
+  [data-theme="light"] .cd4-card-glow { background: #eaf5ff; border-color: rgba(0,150,220,0.35) !important; box-shadow: 0 0 24px rgba(0,150,220,0.10) inset, 0 12px 32px rgba(10,40,90,0.08); }
+  [data-theme="light"] .cd4-card-ico { background: rgba(0,120,255,0.08); box-shadow: 0 0 18px rgba(0,120,255,0.10); }
+  [data-theme="light"] .cd4-card-glow .cd4-card-ico { background: rgba(0,150,220,0.12); }
+</style>
+<section class="cd4-section cd4-simplified">
+
   <div class="cd4-head">
-    <div>
+    <div class="cd4-head-txt">
       <h2 class="cd4-h2">EVERYTHING <span class="cd4-grad">INSIDE CASK</span></h2>
       <p class="cd4-sub">One platform. Two experiences. Infinite impact.</p>
     </div>
@@ -5449,46 +4747,8 @@
     </div>
   </div>
 
-  <!-- 3-panel dashboard -->
-  <div class="cd4-dash">
-
-    <!-- LEFT NAV -->
-    <div class="cd4-nav">
-      <!-- PLATFORM OVERVIEW card -->
-      <div class="cd4-ic" style="flex:1;min-height:0;display:flex;flex-direction:column;">
-        <span class="cd4-ic-head">PLATFORM OVERVIEW</span>
-        <div style="display:flex;flex-direction:column;gap:0;flex:1;min-height:0;justify-content:space-between;">
-          <div class="cd4-ov-row"><div class="cd4-ov-ico">📚</div><span class="cd4-ov-title">13 Learning Resources</span></div>
-          <div class="cd4-ov-row"><div class="cd4-ov-ico">🎓</div><span class="cd4-ov-title">4-Year Curriculum</span></div>
-          <div class="cd4-ov-row"><div class="cd4-ov-ico">🛡</div><span class="cd4-ov-title">8 Learning Strands</span></div>
-          <div class="cd4-ov-row"><div class="cd4-ov-ico">🤖</div><span class="cd4-ov-title">AI Tutor + Voice AI</span></div>
-          <div class="cd4-ov-row"><div class="cd4-ov-ico">🏆</div><span class="cd4-ov-title">Annual Certification</span></div>
-          <div class="cd4-ov-row"><div class="cd4-ov-ico">👩‍🏫</div><span class="cd4-ov-title">Student &amp; Teacher Mode</span></div>
-          <div class="cd4-ov-row" style="border-bottom:none;"><div class="cd4-ov-ico">🌍</div><span class="cd4-ov-title">Offline + 22 Languages</span></div>
-        </div>
-      </div>
-      <!-- PLATFORM SNAPSHOT card -->
-      <div class="cd4-ic" style="flex-shrink:0;">
-        <span class="cd4-ic-head">PLATFORM SNAPSHOT</span>
-        <div class="cd4-snap-grid">
-          <div class="cd4-snap-item"><span class="cd4-snap-val">4</span><span class="cd4-snap-lbl">Years</span></div>
-          <div class="cd4-snap-item"><span class="cd4-snap-val">8</span><span class="cd4-snap-lbl">Strands</span></div>
-          <div class="cd4-snap-item"><span class="cd4-snap-val">13</span><span class="cd4-snap-lbl">Resources</span></div>
-          <div class="cd4-snap-item"><span class="cd4-snap-val">50h</span><span class="cd4-snap-lbl">Content</span></div>
-          <div class="cd4-snap-item"><span class="cd4-snap-val">22</span><span class="cd4-snap-lbl">Languages</span></div>
-          <div class="cd4-snap-item"><span class="cd4-snap-val" style="font-size:0.85rem;">NEP</span><span class="cd4-snap-lbl">2020</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- MAIN -->
-    <div class="cd4-main">
-      <div class="cd4-wing-head" style="flex-direction:column;align-items:flex-start;gap:3px;">
-        <span class="cd4-wing-title" id="cd4WingTitle">STUDENT COMMAND CENTER</span>
-        <span class="cd4-wing-sub"   id="cd4WingSub">Everything you need to master cyber safety</span>
-      </div>
-
-      <!-- Student grid -->
+  <div class="cd4-cards">
+    <!-- Student grid -->
       <div class="cd4-grid" id="cd4StudentGrid">
         <div class="cd4-card"><div class="cd4-card-ico">📖</div><strong>Textbooks</strong><div class="cd4-card-desc">NEP-aligned interactive chapters across all four grades, available offline in 22 languages.</div></div>
         <div class="cd4-card cd4-card-glow"><div class="cd4-card-ico">🤖</div><strong>AI Tutor</strong><div class="cd4-card-desc">Ask anything — voice-powered explanations with adaptive difficulty that learns as you grow.</div></div>
@@ -5501,7 +4761,7 @@
         <div class="cd4-card"><div class="cd4-card-ico">🌐</div><strong>22+ Languages</strong><div class="cd4-card-desc">Full platform in Hindi, Tamil, Bengali and 20+ Indian languages — learn in your mother tongue.</div></div>
         <div class="cd4-card"><div class="cd4-card-ico">📶</div><strong>Works Offline</strong><div class="cd4-card-desc">Download any content and study without internet — syncs automatically when you're back online.</div></div>
         <div class="cd4-card"><div class="cd4-card-ico">🔔</div><strong>Smart Reminders</strong><div class="cd4-card-desc">AI-powered streak reminders and push nudges keep your learning consistent every single day.</div></div>
-        <div class="cd4-card"><div class="cd4-card-ico">🎙</div><strong>Podcasts</strong><div class="cd4-card-desc">Phish &amp; Chips — India's first Gen Z cybersecurity podcast, available on Spotify and CASK.</div></div>
+        <div class="cd4-card"><div class="cd4-card-ico">🎙</div><strong>Podcasts</strong><div class="cd4-card-desc">The Phish &amp; Chip Show — India's first Gen Z cybersecurity podcast, available on Spotify and CASK.</div></div>
       </div>
 
       <!-- Teacher grid (hidden by default) -->
@@ -5519,82 +4779,955 @@
         <div class="cd4-card"><div class="cd4-card-ico">🌐</div><strong>Multilingual UI</strong><div class="cd4-card-desc">Teacher dashboard fully available in Hindi, Tamil and 20+ Indian regional languages.</div></div>
         <div class="cd4-card"><div class="cd4-card-ico">🎤</div><strong>Parent Connect</strong><div class="cd4-card-desc">Share student progress reports directly with parents via SMS and WhatsApp notifications.</div></div>
       </div>
-
-      <!-- Stats bar -->
-      <div class="cd4-stats">
-        <div class="cd4-stat"><span class="cd4-stat-n">12</span><span class="cd4-stat-l">Modules</span></div>
-        <div class="cd4-stat-sep"></div>
-        <div class="cd4-stat"><span class="cd4-stat-n">48</span><span class="cd4-stat-l">Quizzes</span></div>
-        <div class="cd4-stat-sep"></div>
-        <div class="cd4-stat"><span class="cd4-stat-n">92%</span><span class="cd4-stat-l">Score</span></div>
-        <div class="cd4-stat-sep"></div>
-        <div class="cd4-stat"><span class="cd4-stat-n">5</span><span class="cd4-stat-l">Certs</span></div>
-        <div class="cd4-stat-sep"></div>
-        <div class="cd4-stat"><span class="cd4-stat-n">🔥15</span><span class="cd4-stat-l">Streak</span></div>
-      </div>
-    </div>
-
-    <!-- RIGHT: INFO PANELS -->
-    <div class="cd4-asst" style="justify-content:space-between;">
-      <!-- WHY CASK? -->
-      <div class="cd4-ic">
-        <span class="cd4-ic-head">WHY CASK</span>
-        <div class="cd4-compare">
-          <div class="cd4-compare-col">
-            <div class="cd4-cmp-hd cd4-cmp-neg">Traditional LMS</div>
-            <div class="cd4-cmp-row cd4-cmp-neg">PDFs &amp; Videos</div>
-            <div class="cd4-cmp-row cd4-cmp-neg">MCQs only</div>
-            <div class="cd4-cmp-row cd4-cmp-neg">Teacher Dependent</div>
-            <div class="cd4-cmp-row cd4-cmp-neg">No Local Languages</div>
-            <div class="cd4-cmp-row cd4-cmp-neg">No Offline Access</div>
-          </div>
-          <div class="cd4-compare-col">
-            <div class="cd4-cmp-hd cd4-cmp-pos">CASK</div>
-            <div class="cd4-cmp-row cd4-cmp-pos">AI Tutor + Voice AI</div>
-            <div class="cd4-cmp-row cd4-cmp-pos">Scenario Learning</div>
-            <div class="cd4-cmp-row cd4-cmp-pos">Teacher Dashboard</div>
-            <div class="cd4-cmp-row cd4-cmp-pos">22+ Languages</div>
-            <div class="cd4-cmp-row cd4-cmp-pos">Offline Ready</div>
-          </div>
-        </div>
-      </div>
-      <!-- BUILT ON TRUST -->
-      <div class="cd4-ic">
-        <span class="cd4-ic-head">BUILT ON TRUST</span>
-        <div class="cd4-trust-grid">
-          <div class="cd4-trust-tile"><span class="cd4-trust-ico">🏛</span><span class="cd4-trust-lbl">NEP</span></div>
-          <div class="cd4-trust-tile"><span class="cd4-trust-ico">📘</span><span class="cd4-trust-lbl">CBSE</span></div>
-          <div class="cd4-trust-tile"><span class="cd4-trust-ico">🔐</span><span class="cd4-trust-lbl">CERT-In</span></div>
-          <div class="cd4-trust-tile"><span class="cd4-trust-ico">🛡</span><span class="cd4-trust-lbl">NCPCR</span></div>
-          <div class="cd4-trust-tile"><span class="cd4-trust-ico">⚖️</span><span class="cd4-trust-lbl">DPDP</span></div>
-          <div class="cd4-trust-tile"><span class="cd4-trust-ico">🔬</span><span class="cd4-trust-lbl">Research</span></div>
-        </div>
-      </div>
-      <!-- LEARNING PHILOSOPHY -->
-      <div class="cd4-ic">
-        <span class="cd4-ic-head">LEARNING PHILOSOPHY</span>
-        <div class="cd4-philos">
-          <div class="cd4-philo-step"><div class="cd4-philo-ico">📖</div><span class="cd4-philo-lbl">Story</span></div>
-          <span class="cd4-philo-arr">›</span>
-          <div class="cd4-philo-step"><div class="cd4-philo-ico">💡</div><span class="cd4-philo-lbl">Understand</span></div>
-          <span class="cd4-philo-arr">›</span>
-          <div class="cd4-philo-step"><div class="cd4-philo-ico">✅</div><span class="cd4-philo-lbl">Practice</span></div>
-          <span class="cd4-philo-arr">›</span>
-          <div class="cd4-philo-step"><div class="cd4-philo-ico">🪞</div><span class="cd4-philo-lbl">Reflect</span></div>
-          <span class="cd4-philo-arr">›</span>
-          <div class="cd4-philo-step"><div class="cd4-philo-ico">🚀</div><span class="cd4-philo-lbl">Apply</span></div>
-          <span class="cd4-philo-arr">›</span>
-          <div class="cd4-philo-step"><div class="cd4-philo-ico">🌟</div><span class="cd4-philo-lbl">Lead</span></div>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /cd4-dash -->
+  </div>
 
 </section>
 
 
   <!-- ═══ CTA ═══ -->
+<!-- === CONSTELLATION MAP === --><!-- === MULTILINGUAL === --><!-- === MULTILINGUAL === -->
+  <style>
+    /* ── Multilingual: floating messaging chat-bubble cloud ── */
+    .cask-lang-cloud {
+      display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+      gap: 16px 12px; max-width: 760px; margin: 40px auto 10px; padding: 14px 4px;
+    }
+    .clb-wrap { display: inline-block; animation: caskFloatA 6s ease-in-out infinite; will-change: transform; }
+    .clb-wrap:nth-child(3n)   { animation-name: caskFloatB; animation-duration: 7s; }
+    .clb-wrap:nth-child(3n+1) { animation-name: caskFloatC; animation-duration: 6.4s; }
+    .clb-wrap:nth-child(odd)  { animation-delay: -2.1s; }
+    .clb-wrap:nth-child(4n)   { animation-delay: -3.6s; margin-left: -10px; }
+    .clb-wrap:nth-child(5n)   { animation-delay: -1.2s; margin-right: -8px; }
+    @keyframes caskFloatA { 0%,100%{ transform: translateY(0) rotate(-1.6deg);} 50%{ transform: translateY(-11px) rotate(1.4deg);} }
+    @keyframes caskFloatB { 0%,100%{ transform: translateY(-4px) rotate(1.4deg);} 50%{ transform: translateY(8px) rotate(-1.6deg);} }
+    @keyframes caskFloatC { 0%,100%{ transform: translateY(3px) rotate(0.6deg);} 50%{ transform: translateY(-9px) rotate(-1deg);} }
+
+    .cask-lang-bubble {
+      display: inline-flex; flex-direction: column; align-items: flex-start; gap: 1px;
+      padding: 12px 20px; border-radius: 20px 20px 20px 6px;
+      font-family: 'Hind', sans-serif; white-space: nowrap; cursor: default;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 12px 34px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.10);
+      transition: transform 0.3s cubic-bezier(.22,1,.36,1), box-shadow 0.3s, border-color 0.3s;
+    }
+    .clb-wrap:nth-child(even) .cask-lang-bubble { border-radius: 20px 20px 6px 20px; align-items: flex-end; }
+    .cask-lang-bubble:hover { transform: translateY(-4px) scale(1.06); border-color: rgba(0,122,255,0.5); box-shadow: 0 18px 44px rgba(0,122,255,0.22), inset 0 1px 0 rgba(255,255,255,0.14); }
+    .cask-lang-bubble .clb-greet { font-size: 1.02rem; font-weight: 600; color: #f4f8ff; line-height: 1.25; }
+    .cask-lang-bubble .clb-lang  { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.05em; color: rgba(255,255,255,0.48); }
+    .cask-lang-bubble.clb-lg { padding: 15px 26px; }
+    .cask-lang-bubble.clb-lg .clb-greet { font-size: 1.28rem; }
+    .cask-lang-bubble.clb-sm { padding: 9px 15px; }
+    .cask-lang-bubble.clb-sm .clb-greet { font-size: 0.9rem; }
+    .cask-lang-bubble.clb-accent {
+      background: linear-gradient(135deg, rgba(0,122,255,0.92), rgba(90,165,255,0.78));
+      border-color: rgba(130,185,255,0.5);
+      box-shadow: 0 14px 36px rgba(0,122,255,0.34), inset 0 1px 0 rgba(255,255,255,0.28);
+    }
+    .cask-lang-bubble.clb-accent .clb-greet { color: #fff; }
+    .cask-lang-bubble.clb-accent .clb-lang  { color: rgba(255,255,255,0.72); }
+
+    /* Light theme — softer glass, lighter shadows */
+    [data-theme="light"] .cask-lang-bubble {
+      background: rgba(255,255,255,0.75);
+      border-color: rgba(10,15,32,0.06);
+      box-shadow: 0 10px 26px rgba(0,60,140,0.10), inset 0 1px 0 rgba(255,255,255,0.9);
+    }
+    [data-theme="light"] .cask-lang-bubble .clb-greet { color: #0a0f20; }
+    [data-theme="light"] .cask-lang-bubble .clb-lang  { color: rgba(10,15,32,0.5); }
+    [data-theme="light"] .cask-lang-bubble:hover { border-color: rgba(0,122,255,0.35); box-shadow: 0 16px 36px rgba(0,122,255,0.18); }
+    [data-theme="light"] .cask-lang-bubble.clb-accent {
+      background: linear-gradient(135deg, #007aff, #4da3ff);
+      border-color: rgba(0,122,255,0.3);
+      box-shadow: 0 14px 32px rgba(0,122,255,0.26), inset 0 1px 0 rgba(255,255,255,0.35);
+    }
+    [data-theme="light"] .cask-lang-bubble.clb-accent .clb-greet { color: #fff; }
+    [data-theme="light"] .cask-lang-bubble.clb-accent .clb-lang  { color: rgba(255,255,255,0.8); }
+    @media (prefers-reduced-motion: reduce) { .clb-wrap { animation: none; } }
+  </style>
+  <section class="cask-section cask-section-mid" style="text-align:center">
+    <div class="cask-container">
+      <span class="cask-tag">Multilingual</span>
+      <h2 class="cask-h2">Cyber safety in your language.</h2>
+      <p class="cask-sub" style="margin:0 auto">CASK speaks to students in the language they think in — so safety concepts actually stick. Not just translated, but culturally contextualised.</p>
+      <div class="cask-lang-cloud" aria-label="CASK speaks many languages">
+        <div class="clb-wrap"><span class="cask-lang-bubble clb-accent clb-lg"><span class="clb-greet">&#2361;&#2367;&#2344;&#2381;&#2342;&#2368;</span><span class="clb-lang">Hindi</span></span></div>
+        <div class="clb-wrap"><span class="cask-lang-bubble"><span class="clb-greet">English</span><span class="clb-lang">Global</span></span></div>
+        <div class="clb-wrap"><span class="cask-lang-bubble clb-sm"><span class="clb-greet">&#2476;&#2494;&#2434;&#2482;&#2494;</span><span class="clb-lang">Bengali</span></span></div>
+        <div class="clb-wrap"><span class="cask-lang-bubble clb-accent"><span class="clb-greet">&#3108;&#3142;&#3122;&#3137;&#3095;&#3137;</span><span class="clb-lang">Telugu</span></span></div>
+        <div class="clb-wrap"><span class="cask-lang-bubble"><span class="clb-greet">&#3221;&#3240;&#3277;&#3240;&#3233;</span><span class="clb-lang">Kannada</span></span></div>
+        <div class="clb-wrap"><span class="cask-lang-bubble clb-sm"><span class="clb-greet">&#2711;&#2753;&#2716;&#2736;&#2750;&#2724;&#2752;</span><span class="clb-lang">Gujarati</span></span></div>
+        <div class="clb-wrap"><span class="cask-lang-bubble clb-accent clb-lg"><span class="clb-greet">&#2350;&#2352;&#2366;&#2336;&#2368;</span><span class="clb-lang">Marathi</span></span></div>
+        <div class="clb-wrap"><span class="cask-lang-bubble clb-accent"><span class="clb-greet">&#2980;&#2990;&#3007;&#2996;&#3021;</span><span class="clb-lang">Tamil</span></span></div>
+        <div class="clb-wrap"><span class="cask-lang-bubble clb-sm"><span class="clb-greet">&#3374;&#3378;&#3375;&#3390;&#3379;&#3330;</span><span class="clb-lang">Malayalam</span></span></div>
+        <div class="clb-wrap"><span class="cask-lang-bubble"><span class="clb-greet">+9 more</span><span class="clb-lang">&amp; growing</span></span></div>
+      </div>
+      <div class="cask-chat-preview">
+        <div class="cask-chat-head">
+          <div class="cask-chat-avatar">AI</div>
+          <div class="cask-chat-meta">
+            <div class="name">Suraksha AI</div>
+            <div class="status" id="caskLangStatus">Responding in Hindi</div>
+          </div>
+        </div>
+        <div class="cask-bubble user">How do I know if a UPI request is fake?</div>
+        <div class="cask-bubble" id="caskLangBubble">&#2344;&#2350;&#2360;&#2381;&#2340;&#2375;! &#2325;&#2367;&#2360;&#2368; &#2349;&#2368; &#2309;&#2344;&#2332;&#2366;&#2344; UPI request &#2325;&#2379; &#2325;&#2349;&#2368; approve &#2350;&#2340; &#2325;&#2352;&#2379;&#2404; &#2346;&#2376;&#2360;&#2375; &#2354;&#2375;&#2344;&#2375; &#2325;&#2375; &#2354;&#2367;&#2319; PIN &#2325;&#2368; &#2332;&#2364;&#2352;&#2370;&#2352;&#2340; &#2344;&#2361;&#2368;&#2306; &#2361;&#2379;&#2340;&#2368; &#2360;&#2367;&#2352;&#2381;&#2347;&#2492; &#2349;&#2375;&#2332;&#2344;&#2375; &#2325;&#2375; &#2354;&#2367;&#2319; &#2361;&#2379;&#2340;&#2368; &#2361;&#2376;&#2404;</div>
+      </div>
+      <div class="cask-lang-stats">
+        <span><b>9+</b> Languages</span>
+        <span>&middot;</span>
+        <span><b>22+</b> States</span>
+        <span>&middot;</span>
+        <span><b>1</b> Platform</span>
+      </div>
+    </div>
+  </section>
+
+<!-- === CERTIFICATION === -->
+<style>
+/* ═══════════════════════════════════════════════════════════
+   CASK Recognition — Illuminated Glass Trophy Cylinders
+   Matched to reference: centered header, glowing cylinder
+   vitrines, laurel shield emblems, NATIONAL CREDENTIAL plaques
+   Full-viewport section: header + 4 cases + trust bar = 100vh
+═══════════════════════════════════════════════════════════ */
+
+/* ── Section container: one full screen ── */
+.cask-recog {
+  position: relative;
+  background: #030509;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: clamp(24px, 3.6vh, 44px) 0 clamp(18px, 2.6vh, 32px);
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+/* Background atmosphere: corner spotlight beams + glows */
+.cask-recog::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background:
+    /* top-left cool beam */
+    linear-gradient(112deg, transparent 4%, rgba(96,140,255,0.05) 7%, transparent 12%),
+    /* top-right warm beam */
+    linear-gradient(248deg, transparent 4%, rgba(226,178,66,0.05) 7%, transparent 12%),
+    radial-gradient(ellipse 45% 50% at 4% 0%,   rgba(59,130,246,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 45% 50% at 96% 0%,  rgba(217,164,32,0.055) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 35% at 50% 108%, rgba(120,100,255,0.05) 0%, transparent 65%);
+}
+/* Very faint star dust */
+.cask-recog::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.60) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,255,255,0.25) 1px, transparent 1px);
+  background-size: 130px 130px, 60px 60px;
+  background-position: 7px 12px, 33px 30px;
+  opacity: 0.05;
+}
+
+/* ── Content wrapper ── */
+.cask-recog-inner {
+  position: relative; z-index: 2;
+  width: 100%; max-width: 1380px; margin: 0 auto;
+  padding: 0 clamp(20px, 3.6vw, 56px); box-sizing: border-box;
+  display: flex; flex-direction: column; flex: 1 1 auto;
+}
+
+/* ── Header — CENTERED, compact ── */
+.cask-recog-header { text-align: center; margin: 0 auto clamp(10px, 2.2vh, 22px); flex: 0 0 auto; }
+.cask-recog-h2 {
+  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(28px, 3.4vw, 46px); font-weight: 700;
+  color: #fff; line-height: 1.16; margin: 0 0 10px;
+  letter-spacing: -0.015em;
+}
+.cask-recog-grad {
+  background: linear-gradient(90deg, #57ABFF 0%, #7C7BF4 52%, #A855F7 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.cask-recog-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(13px, 1.5vh, 16px); font-weight: 400;
+  color: #8E9AAD; margin: 0; line-height: 1.5;
+}
+
+/* ── Four cylinders row ── */
+.cask-pillars {
+  display: flex; gap: clamp(16px, 3vw, 46px); justify-content: center;
+  align-items: flex-start; position: relative;
+  flex: 1 1 auto;
+  padding-top: clamp(4px, 1vh, 12px);
+}
+
+/* ── Per-grade palette ── */
+.cask-pl-vii  { --pl-rgb: 59,130,246;  --pl-light: #7CB7FF; }
+.cask-pl-viii { --pl-rgb: 147,102,255; --pl-light: #B39DFC; }
+.cask-pl-ix   { --pl-rgb: 34,197,163;  --pl-light: #5EEAD4; }
+.cask-pl-x    { --pl-rgb: 219,166,44;  --pl-light: #F5CE58; }
+
+/* ── Single trophy case ── */
+.cask-pillar {
+  --w: clamp(188px, 15.6vw, 238px);
+  width: calc(var(--w) + 34px);
+  display: flex; flex-direction: column; align-items: center;
+  position: relative; cursor: pointer;
+  transition: transform 0.30s cubic-bezier(0.22,1,0.36,1);
+}
+.cask-pillar:hover { transform: translateY(-6px); }
+
+/* ══════════════════════════════════════════════════
+   LID — flared graphite cap (ellipse top + lip)
+══════════════════════════════════════════════════ */
+.cask-lid {
+  width: calc(var(--w) + 10px); height: 20px;
+  position: relative; z-index: 6; flex-shrink: 0;
+  margin-bottom: -4px;
+  background: linear-gradient(to bottom, #23273D 0%, #161A2E 55%, #0D1020 100%);
+  border-radius: 8px 8px 5px 5px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-bottom-color: rgba(0,0,0,0.65);
+  box-shadow:
+    inset 0 2px 3px rgba(255,255,255,0.11),
+    inset 0 -3px 5px rgba(0,0,0,0.55),
+    0 5px 14px rgba(0,0,0,0.65);
+}
+/* Elliptical top plate — wider, overhanging lip */
+.cask-lid::before {
+  content: '';
+  position: absolute;
+  top: -10px; left: -12px; right: -12px; height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(158deg, #3A4060 0%, #252A47 45%, #141830 100%);
+  border: 1px solid rgba(255,255,255,0.16);
+  box-shadow:
+    inset 0 3px 6px rgba(255,255,255,0.12),
+    inset 0 -4px 8px rgba(0,0,0,0.6),
+    0 2px 6px rgba(0,0,0,0.5);
+}
+/* Second lip ring under the plate */
+.cask-lid::after {
+  content: '';
+  position: absolute;
+  top: 2px; left: -6px; right: -6px; height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #1E2238, #12152A);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ══════════════════════════════════════════════════
+   GLASS CYLINDER — colored rim-lit vitrine
+══════════════════════════════════════════════════ */
+.cask-glass {
+  width: var(--w);
+  height: clamp(272px, 44vh, 400px);
+  position: relative; overflow: hidden; flex-shrink: 0;
+  /* cylinder silhouette: elliptical top & bottom */
+  border-radius: calc(var(--w) / 2) calc(var(--w) / 2) calc(var(--w) / 2) calc(var(--w) / 2) / 20px 20px 20px 20px;
+  backdrop-filter: blur(12px);
+  background:
+    /* overhead diffusion */
+    linear-gradient(to bottom, rgba(255,255,255,0.06) 0%, transparent 15%),
+    /* convex wrap highlights */
+    linear-gradient(to right,
+      rgba(var(--pl-rgb),0.18) 0px,
+      rgba(255,255,255,0.10) 6px,
+      rgba(255,255,255,0.03) 18px,
+      transparent 26%,
+      transparent 74%,
+      rgba(255,255,255,0.03) 84%,
+      rgba(var(--pl-rgb),0.14) 100%
+    ),
+    rgba(175,200,255,0.03);
+  /* coloured glowing edges — the case is rim-lit in its grade colour */
+  border: 1.5px solid rgba(var(--pl-rgb), 0.50);
+  border-top-color: rgba(var(--pl-rgb), 0.65);
+  box-shadow:
+    0 0 24px rgba(var(--pl-rgb), 0.16),
+    0 0 60px rgba(var(--pl-rgb), 0.08),
+    inset 0 0 26px rgba(var(--pl-rgb), 0.07),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+  transition: box-shadow 0.3s;
+}
+.cask-pillar:hover .cask-glass {
+  box-shadow:
+    0 0 34px rgba(var(--pl-rgb), 0.26),
+    0 0 80px rgba(var(--pl-rgb), 0.12),
+    inset 0 0 34px rgba(var(--pl-rgb), 0.10),
+    inset 0 1px 0 rgba(255,255,255,0.14);
+}
+/* Left bright vertical edge reflection */
+.cask-glass::before {
+  content: '';
+  position: absolute; top: 14px; left: 4px; bottom: 14px; width: 12px;
+  border-radius: 12px;
+  background: linear-gradient(to right,
+    rgba(255,255,255,0.16),
+    rgba(255,255,255,0.045) 45%,
+    transparent);
+  pointer-events: none; z-index: 3;
+}
+/* Right vertical edge reflection */
+.cask-glass::after {
+  content: '';
+  position: absolute; top: 14px; right: 4px; bottom: 14px; width: 10px;
+  border-radius: 12px;
+  background: linear-gradient(to left,
+    rgba(255,255,255,0.12),
+    rgba(255,255,255,0.035) 45%,
+    transparent);
+  pointer-events: none; z-index: 3;
+}
+
+/* Glowing downlight lamp — ellipse just under the lid, inside glass */
+.cask-lamp {
+  position: absolute; top: 5px; left: 50%; transform: translateX(-50%);
+  width: 68px; height: 15px; border-radius: 50%;
+  background: radial-gradient(ellipse at center,
+    #FFFFFF 0%,
+    rgba(var(--pl-rgb), 0.95) 38%,
+    rgba(var(--pl-rgb), 0.28) 72%,
+    transparent 100%);
+  box-shadow:
+    0 0 10px 2px rgba(255,255,255,0.35),
+    0 6px 24px 8px rgba(var(--pl-rgb), 0.45);
+  pointer-events: none; z-index: 4;
+  transition: box-shadow 0.3s;
+}
+.cask-pillar:hover .cask-lamp {
+  box-shadow:
+    0 0 14px 3px rgba(255,255,255,0.5),
+    0 8px 32px 12px rgba(var(--pl-rgb), 0.6);
+}
+
+/* Light cone from the lamp */
+.cask-beam {
+  position: absolute; top: 8px; left: 0; right: 0; height: 60%;
+  clip-path: polygon(43% 0%, 57% 0%, 98% 100%, 2% 100%);
+  background: linear-gradient(to bottom,
+    rgba(var(--pl-rgb), 0.34) 0%,
+    rgba(var(--pl-rgb), 0.10) 48%,
+    transparent 100%);
+  pointer-events: none; z-index: 1;
+  opacity: 0.65; transition: opacity 0.3s;
+}
+.cask-pillar:hover .cask-beam { opacity: 1; }
+
+/* Interior coloured atmosphere */
+.cask-atm {
+  position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  background:
+    radial-gradient(ellipse 92% 30% at 50% 0%,
+      rgba(var(--pl-rgb), 0.26) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 46% at 50% 38%,
+      rgba(var(--pl-rgb), 0.10) 0%, transparent 80%),
+    radial-gradient(ellipse 90% 26% at 50% 102%,
+      rgba(var(--pl-rgb), 0.20) 0%, transparent 70%);
+}
+
+/* Glowing floor ring at the base of the glass */
+.cask-floor-ellipse {
+  position: absolute; bottom: 9px; left: 50%; transform: translateX(-50%);
+  width: 82%; height: 26px; border-radius: 50%;
+  border: 2px solid rgba(var(--pl-rgb), 0.55);
+  background: radial-gradient(ellipse at center,
+    rgba(var(--pl-rgb), 0.30) 0%,
+    rgba(var(--pl-rgb), 0.10) 58%,
+    transparent 82%);
+  box-shadow:
+    0 0 16px rgba(var(--pl-rgb), 0.45),
+    inset 0 0 14px rgba(var(--pl-rgb), 0.35);
+  pointer-events: none; z-index: 1;
+}
+
+/* Glass shimmer sweep on hover */
+.cask-shimmer {
+  position: absolute; top: 0; bottom: 0;
+  left: -80px; width: 60px;
+  background: linear-gradient(to right,
+    transparent, rgba(255,255,255,0.10) 50%, transparent);
+  pointer-events: none; z-index: 10; opacity: 0;
+}
+@keyframes cask-shimmer-pass {
+  0%   { left: -80px; opacity: 0; }
+  8%   { opacity: 1; }
+  88%  { opacity: 1; }
+  100% { left: 300px; opacity: 0; }
+}
+.cask-pillar:hover .cask-shimmer {
+  animation: cask-shimmer-pass 0.78s ease-out forwards;
+}
+
+/* Content inside the case */
+.cask-content {
+  position: absolute;
+  top: 8.5%; left: 0; right: 0;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 0 12px;
+  z-index: 2;
+}
+
+/* ── Metallic laurel-shield emblem ── */
+.cask-emblem {
+  width: clamp(104px, 13vh, 132px); height: clamp(100px, 12.6vh, 128px);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; margin-bottom: clamp(10px, 1.8vh, 18px);
+}
+.cask-emblem::before {
+  content: '';
+  position: absolute; inset: -12px; border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(var(--pl-rgb), 0.22) 0%,
+    rgba(var(--pl-rgb), 0.07) 48%,
+    transparent 72%);
+  pointer-events: none;
+}
+.cask-emblem svg {
+  width: 100%; height: 100%; position: relative; z-index: 2;
+  filter:
+    drop-shadow(0 0 7px rgba(var(--pl-rgb), 0.55))
+    drop-shadow(0 3px 14px rgba(0,0,0,0.6));
+  transition: filter 0.30s;
+}
+.cask-pillar:hover .cask-emblem svg {
+  filter:
+    drop-shadow(0 0 11px rgba(var(--pl-rgb), 0.85))
+    drop-shadow(0 3px 14px rgba(0,0,0,0.6));
+}
+
+/* Grade label */
+.cask-grade-lbl {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(10px, 1.3vh, 12px); font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--pl-light);
+  text-shadow: 0 0 8px rgba(var(--pl-rgb), 0.5);
+  margin-bottom: 7px;
+}
+/* Milestone title */
+.cask-mile-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(17px, 2.4vh, 23px); font-weight: 800;
+  letter-spacing: 0.01em;
+  color: #FFFFFF; text-align: center;
+  line-height: 1.1; margin-bottom: 10px;
+  white-space: nowrap;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+}
+/* Divider — thin line with glowing centre dot */
+.cask-divider {
+  position: relative;
+  width: 106px; height: 1px;
+  background: linear-gradient(to right,
+    transparent,
+    rgba(var(--pl-rgb), 0.5) 22%,
+    rgba(var(--pl-rgb), 0.5) 78%,
+    transparent);
+  margin-bottom: 13px; flex-shrink: 0;
+}
+.cask-divider::after {
+  content: '';
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgb(var(--pl-rgb));
+  box-shadow: 0 0 9px rgba(var(--pl-rgb), 0.9);
+}
+/* Tagline — three stacked lines */
+.cask-tagline-txt {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(12px, 1.6vh, 14.5px); font-weight: 400;
+  color: rgba(255,255,255,0.72);
+  text-align: center; letter-spacing: 0.01em;
+  line-height: 1.62;
+}
+
+/* ══════════════════════════════════════════════════
+   PEDESTAL — two-tier drum + engraved plaque
+══════════════════════════════════════════════════ */
+.cask-pedestal {
+  width: calc(var(--w) + 34px);
+  height: clamp(46px, 6.8vh, 60px);
+  flex-shrink: 0;
+  position: relative; margin-top: 12px; z-index: 5;
+  background:
+    linear-gradient(to bottom,
+      rgba(255,255,255,0.05) 0%,
+      rgba(255,255,255,0.015) 10%,
+      transparent 36%,
+      rgba(0,0,0,0.18) 80%,
+      rgba(0,0,0,0.34) 100%),
+    #0B0E1A;
+  border-radius: 14px 14px 16px 16px;
+  border: 1px solid rgba(255,255,255,0.09);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    inset 3px 0 8px rgba(255,255,255,0.03),
+    inset -3px 0 8px rgba(0,0,0,0.22),
+    0 16px 40px rgba(0,0,0,0.85),
+    0 6px 16px rgba(0,0,0,0.6);
+}
+/* Upper narrower tier between glass and drum */
+.cask-pedestal::before {
+  content: '';
+  position: absolute;
+  top: -13px; left: 13px; right: 13px; height: 15px;
+  background: linear-gradient(to bottom, #232842, #12152A);
+  border-radius: 7px 7px 3px 3px;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-bottom: none;
+  box-shadow: inset 0 2px 3px rgba(255,255,255,0.08);
+}
+/* Drum top rim ellipse */
+.cask-pedestal::after {
+  content: '';
+  position: absolute;
+  top: -6px; left: 2px; right: 2px; height: 13px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #272C48, #131728);
+  border: 1px solid rgba(255,255,255,0.11);
+}
+/* Engraved metal plaque */
+.cask-plaque {
+  position: relative; z-index: 2;
+  width: 74%; height: clamp(24px, 3.6vh, 30px);
+  margin-top: 5px;
+  background:
+    linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(0,0,0,0.16)),
+    #10141F;
+  border-radius: 7px;
+  border: 1px solid rgba(255,255,255,0.13);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.09),
+    inset 0 -1px 0 rgba(0,0,0,0.5),
+    0 2px 6px rgba(0,0,0,0.5);
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(7.5px, 1vh, 9px); font-weight: 700;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: rgba(255,255,255,0.48);
+  text-shadow: 0 1px 1px rgba(0,0,0,0.9);
+  white-space: nowrap;
+}
+
+/* ── Floor reflection ── */
+.cask-floor-ref {
+  width: calc(var(--w) - 10px); height: 22px; flex-shrink: 0;
+  margin-top: -1px;
+  background: linear-gradient(to bottom,
+    rgba(var(--pl-rgb), 0.10) 0%,
+    rgba(255,255,255,0.015) 35%,
+    transparent 100%);
+  filter: blur(7px);
+  pointer-events: none;
+  border-radius: 0 0 50% 50%;
+  opacity: 0.55;
+}
+
+/* ══════════════════════════════════════════════════
+   BOTTOM TRUST BAR — compact, fits viewport
+══════════════════════════════════════════════════ */
+.cask-recog-bar {
+  position: relative; z-index: 2;
+  width: 100%; max-width: 1380px; margin: 0 auto;
+  padding: 0 clamp(20px, 3.6vw, 56px); box-sizing: border-box;
+  flex: 0 0 auto;
+}
+.cask-recog-bar-inner {
+  background: rgba(255,255,255,0.022);
+  border: 1px solid rgba(255,255,255,0.075);
+  border-radius: 16px; backdrop-filter: blur(20px);
+  display: grid; grid-template-columns: repeat(4,1fr);
+}
+.cask-recog-bar-col {
+  display: flex; align-items: center; gap: clamp(10px, 1vw, 15px);
+  padding: clamp(11px, 1.8vh, 17px) clamp(12px, 1.6vw, 24px);
+  border-right: 1px solid rgba(255,255,255,0.06);
+  min-width: 0;
+  --bar-rgb: 89,243,255;
+}
+.cask-recog-bar-col.cask-bar-vii  { --bar-rgb: 59,130,246; }
+.cask-recog-bar-col.cask-bar-viii { --bar-rgb: 147,102,255; }
+.cask-recog-bar-col.cask-bar-ix   { --bar-rgb: 34,197,163; }
+.cask-recog-bar-col.cask-bar-x    { --bar-rgb: 219,166,44; }
+.cask-recog-bar-col:last-child { border-right: none; }
+.cask-recog-bar-ico {
+  width: clamp(34px, 4.6vh, 42px); height: clamp(34px, 4.6vh, 42px);
+  border-radius: 50%;
+  background: rgba(var(--bar-rgb),0.07);
+  border: 1px solid rgba(var(--bar-rgb),0.45);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(var(--bar-rgb),0.16);
+}
+.cask-recog-bar-ico svg {
+  width: 46%; height: 46%;
+  stroke: rgb(var(--bar-rgb)); fill: none;
+  stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
+}
+.cask-recog-bar-txt { min-width: 0; }
+.cask-recog-bar-txt strong {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(10px, 1.35vh, 12px); font-weight: 800;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  color: #FFFFFF;
+  display: block; margin-bottom: 3px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.cask-recog-bar-txt span {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(9.5px, 1.25vh, 11.5px); color: rgba(255,255,255,0.46);
+  line-height: 1.38;
+  display: block;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1180px) {
+  .cask-recog { min-height: 0; }
+  .cask-pillars { flex-wrap: wrap; gap: 52px 30px; padding: 18px 0 26px; }
+  .cask-pillar { --w: 226px; }
+  .cask-glass { height: 372px; }
+  .cask-recog-bar-inner { grid-template-columns: repeat(2,1fr); }
+  .cask-recog-bar-col:nth-child(2) { border-right: none; }
+  .cask-recog-bar-col:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,0.06); }
+}
+@media (max-width: 640px) {
+  .cask-recog { padding: 52px 0 40px; }
+  .cask-recog-header { margin-bottom: 36px; }
+  .cask-recog-bar-inner { grid-template-columns: 1fr; }
+  .cask-recog-bar-col { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .cask-recog-bar-col:last-child { border-bottom: none; }
+}
+</style>
+
+<section class="cask-recog" id="cyCertification">
+
+  <div class="cask-recog-inner">
+
+    <!-- Header -->
+    <div class="cask-recog-header">
+      <h2 class="cask-recog-h2">Four Years. Four Milestones.<br>One <span class="cask-recog-grad">Empowered You.</span></h2>
+      <p class="cask-recog-sub">Your journey in cyber safety. Your growth, recognised.</p>
+    </div>
+
+    <!-- Four illuminated trophy cylinders -->
+    <div class="cask-pillars">
+
+      <!-- ══ GRADE VII — FOUNDATION (Blue) ══ -->
+      <div class="cask-pillar cask-pl-vii">
+        <div class="cask-lid" aria-hidden="true"></div>
+        <div class="cask-glass">
+          <div class="cask-lamp" aria-hidden="true"></div>
+          <div class="cask-beam" aria-hidden="true"></div>
+          <div class="cask-atm" aria-hidden="true"></div>
+          <div class="cask-shimmer" aria-hidden="true"></div>
+          <div class="cask-content">
+            <div class="cask-emblem">
+              <svg viewBox="0 0 120 116" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="csk7" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%"   stop-color="#9DCBFF"/>
+                    <stop offset="55%"  stop-color="#4A8DF0"/>
+                    <stop offset="100%" stop-color="#1D4FC4"/>
+                  </linearGradient>
+                  <linearGradient id="csk7b" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%"   stop-color="#14295C"/>
+                    <stop offset="100%" stop-color="#060D22"/>
+                  </linearGradient>
+                </defs>
+                <!-- Laurel left -->
+                <g fill="url(#csk7)" opacity="0.88">
+                  <path d="M27 92 C17 84 12 70 14 54 L16.5 54.5 C15 69 19.5 81.5 28.5 89 Z"/>
+                  <ellipse cx="15" cy="58" rx="2.8" ry="6" transform="rotate(-28 15 58)"/>
+                  <ellipse cx="14.5" cy="68" rx="2.8" ry="6" transform="rotate(-12 14.5 68)"/>
+                  <ellipse cx="17" cy="78" rx="2.8" ry="6" transform="rotate(6 17 78)"/>
+                  <ellipse cx="22" cy="86.5" rx="2.8" ry="6" transform="rotate(28 22 86.5)"/>
+                </g>
+                <!-- Laurel right -->
+                <g fill="url(#csk7)" opacity="0.88">
+                  <path d="M93 92 C103 84 108 70 106 54 L103.5 54.5 C105 69 100.5 81.5 91.5 89 Z"/>
+                  <ellipse cx="105" cy="58" rx="2.8" ry="6" transform="rotate(28 105 58)"/>
+                  <ellipse cx="105.5" cy="68" rx="2.8" ry="6" transform="rotate(12 105.5 68)"/>
+                  <ellipse cx="103" cy="78" rx="2.8" ry="6" transform="rotate(-6 103 78)"/>
+                  <ellipse cx="98" cy="86.5" rx="2.8" ry="6" transform="rotate(-28 98 86.5)"/>
+                </g>
+                <!-- Shield: dark metal body, coloured bevel border -->
+                <path d="M60 10 L94 23 L94 51 C94 74 79 88 60 95 C41 88 26 74 26 51 L26 23 Z"
+                  fill="url(#csk7b)" stroke="url(#csk7)" stroke-width="3.6" stroke-linejoin="round"/>
+                <!-- Inner bevel line -->
+                <path d="M60 17 L88 28 L88 51 C88 69 76 81 60 88 C44 81 32 69 32 51 L32 28 Z"
+                  fill="none" stroke="rgba(157,203,255,0.30)" stroke-width="1.1"/>
+                <!-- Fingerprint crest -->
+                <g stroke="url(#csk7)" stroke-width="3" fill="none" stroke-linecap="round">
+                  <path d="M43 62 C43 50 50 42.5 60 42.5 C70 42.5 77 50 77 62"/>
+                  <path d="M49 65 C49 55.5 53.5 50 60 50 C66.5 50 71 55.5 71 65"/>
+                  <path d="M55 68 C55 60.5 57 56.5 60 56.5 C63 56.5 65 60.5 65 68"/>
+                  <path d="M60 63 L60 70.5"/>
+                </g>
+              </svg>
+            </div>
+            <div class="cask-grade-lbl">Grade VII</div>
+            <div class="cask-mile-title">Foundation</div>
+            <div class="cask-divider" aria-hidden="true"></div>
+            <div class="cask-tagline-txt">Learn.<br>Practice.<br>Stay Safe.</div>
+          </div>
+          <div class="cask-floor-ellipse" aria-hidden="true"></div>
+        </div>
+        <div class="cask-pedestal"><div class="cask-plaque">National Credential</div></div>
+        <div class="cask-floor-ref" aria-hidden="true"></div>
+      </div>
+
+      <!-- ══ GRADE VIII — DEFENCE (Purple) ══ -->
+      <div class="cask-pillar cask-pl-viii">
+        <div class="cask-lid" aria-hidden="true"></div>
+        <div class="cask-glass">
+          <div class="cask-lamp" aria-hidden="true"></div>
+          <div class="cask-beam" aria-hidden="true"></div>
+          <div class="cask-atm" aria-hidden="true"></div>
+          <div class="cask-shimmer" aria-hidden="true"></div>
+          <div class="cask-content">
+            <div class="cask-emblem">
+              <svg viewBox="0 0 120 116" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="csk8" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%"   stop-color="#CDBBFF"/>
+                    <stop offset="55%"  stop-color="#9268F5"/>
+                    <stop offset="100%" stop-color="#5B21C9"/>
+                  </linearGradient>
+                  <linearGradient id="csk8b" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%"   stop-color="#2A1A5E"/>
+                    <stop offset="100%" stop-color="#0C0724"/>
+                  </linearGradient>
+                </defs>
+                <!-- Laurels -->
+                <g fill="url(#csk8)" opacity="0.88">
+                  <path d="M27 92 C17 84 12 70 14 54 L16.5 54.5 C15 69 19.5 81.5 28.5 89 Z"/>
+                  <ellipse cx="15" cy="58" rx="2.8" ry="6" transform="rotate(-28 15 58)"/>
+                  <ellipse cx="14.5" cy="68" rx="2.8" ry="6" transform="rotate(-12 14.5 68)"/>
+                  <ellipse cx="17" cy="78" rx="2.8" ry="6" transform="rotate(6 17 78)"/>
+                  <ellipse cx="22" cy="86.5" rx="2.8" ry="6" transform="rotate(28 22 86.5)"/>
+                </g>
+                <g fill="url(#csk8)" opacity="0.88">
+                  <path d="M93 92 C103 84 108 70 106 54 L103.5 54.5 C105 69 100.5 81.5 91.5 89 Z"/>
+                  <ellipse cx="105" cy="58" rx="2.8" ry="6" transform="rotate(28 105 58)"/>
+                  <ellipse cx="105.5" cy="68" rx="2.8" ry="6" transform="rotate(12 105.5 68)"/>
+                  <ellipse cx="103" cy="78" rx="2.8" ry="6" transform="rotate(-6 103 78)"/>
+                  <ellipse cx="98" cy="86.5" rx="2.8" ry="6" transform="rotate(-28 98 86.5)"/>
+                </g>
+                <!-- Shield -->
+                <path d="M60 10 L94 23 L94 51 C94 74 79 88 60 95 C41 88 26 74 26 51 L26 23 Z"
+                  fill="url(#csk8b)" stroke="url(#csk8)" stroke-width="3.6" stroke-linejoin="round"/>
+                <path d="M60 17 L88 28 L88 51 C88 69 76 81 60 88 C44 81 32 69 32 51 L32 28 Z"
+                  fill="none" stroke="rgba(205,187,255,0.30)" stroke-width="1.1"/>
+                <!-- Star above swords -->
+                <path d="M60 24.5 l1.7 3.5 3.8.55 -2.75 2.7.65 3.8L60 33.25l-3.4 1.8.65-3.8-2.75-2.7 3.8-.55Z"
+                  fill="url(#csk8)"/>
+                <!-- Crossed swords -->
+                <g stroke="url(#csk8)" fill="none" stroke-linecap="round">
+                  <line x1="47" y1="41" x2="71" y2="69" stroke-width="3.4"/>
+                  <line x1="73" y1="41" x2="49" y2="69" stroke-width="3.4"/>
+                  <line x1="66.5" y1="71.5" x2="75" y2="64" stroke-width="2.7"/>
+                  <line x1="53.5" y1="71.5" x2="45" y2="64" stroke-width="2.7"/>
+                  <circle cx="74" cy="72" r="2.2" fill="url(#csk8)" stroke="none"/>
+                  <circle cx="46" cy="72" r="2.2" fill="url(#csk8)" stroke="none"/>
+                </g>
+                <!-- Small star below -->
+                <path d="M60 76 l1.1 2.2 2.4.35 -1.75 1.7.4 2.4L60 81.5l-2.15 1.15.4-2.4-1.75-1.7 2.4-.35Z"
+                  fill="url(#csk8)" opacity="0.8"/>
+              </svg>
+            </div>
+            <div class="cask-grade-lbl">Grade VIII</div>
+            <div class="cask-mile-title">Defence</div>
+            <div class="cask-divider" aria-hidden="true"></div>
+            <div class="cask-tagline-txt">Protect.<br>Defend.<br>Respond.</div>
+          </div>
+          <div class="cask-floor-ellipse" aria-hidden="true"></div>
+        </div>
+        <div class="cask-pedestal"><div class="cask-plaque">National Credential</div></div>
+        <div class="cask-floor-ref" aria-hidden="true"></div>
+      </div>
+
+      <!-- ══ GRADE IX — UNDERSTANDING (Teal) ══ -->
+      <div class="cask-pillar cask-pl-ix">
+        <div class="cask-lid" aria-hidden="true"></div>
+        <div class="cask-glass">
+          <div class="cask-lamp" aria-hidden="true"></div>
+          <div class="cask-beam" aria-hidden="true"></div>
+          <div class="cask-atm" aria-hidden="true"></div>
+          <div class="cask-shimmer" aria-hidden="true"></div>
+          <div class="cask-content">
+            <div class="cask-emblem">
+              <svg viewBox="0 0 120 116" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="csk9" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%"   stop-color="#8FF3E0"/>
+                    <stop offset="55%"  stop-color="#2FBFA3"/>
+                    <stop offset="100%" stop-color="#0B7D68"/>
+                  </linearGradient>
+                  <linearGradient id="csk9b" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%"   stop-color="#0B3B34"/>
+                    <stop offset="100%" stop-color="#04140F"/>
+                  </linearGradient>
+                </defs>
+                <!-- Laurels -->
+                <g fill="url(#csk9)" opacity="0.88">
+                  <path d="M27 92 C17 84 12 70 14 54 L16.5 54.5 C15 69 19.5 81.5 28.5 89 Z"/>
+                  <ellipse cx="15" cy="58" rx="2.8" ry="6" transform="rotate(-28 15 58)"/>
+                  <ellipse cx="14.5" cy="68" rx="2.8" ry="6" transform="rotate(-12 14.5 68)"/>
+                  <ellipse cx="17" cy="78" rx="2.8" ry="6" transform="rotate(6 17 78)"/>
+                  <ellipse cx="22" cy="86.5" rx="2.8" ry="6" transform="rotate(28 22 86.5)"/>
+                </g>
+                <g fill="url(#csk9)" opacity="0.88">
+                  <path d="M93 92 C103 84 108 70 106 54 L103.5 54.5 C105 69 100.5 81.5 91.5 89 Z"/>
+                  <ellipse cx="105" cy="58" rx="2.8" ry="6" transform="rotate(28 105 58)"/>
+                  <ellipse cx="105.5" cy="68" rx="2.8" ry="6" transform="rotate(12 105.5 68)"/>
+                  <ellipse cx="103" cy="78" rx="2.8" ry="6" transform="rotate(-6 103 78)"/>
+                  <ellipse cx="98" cy="86.5" rx="2.8" ry="6" transform="rotate(-28 98 86.5)"/>
+                </g>
+                <!-- Shield -->
+                <path d="M60 10 L94 23 L94 51 C94 74 79 88 60 95 C41 88 26 74 26 51 L26 23 Z"
+                  fill="url(#csk9b)" stroke="url(#csk9)" stroke-width="3.6" stroke-linejoin="round"/>
+                <path d="M60 17 L88 28 L88 51 C88 69 76 81 60 88 C44 81 32 69 32 51 L32 28 Z"
+                  fill="none" stroke="rgba(143,243,224,0.30)" stroke-width="1.1"/>
+                <!-- Circuit-brain crest -->
+                <g stroke="url(#csk9)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M58.5 40 C56 36.5 50.5 36.5 48.5 40 C44 40 41.5 44.5 43.5 48 C40 50 40 55.5 43.5 57.5 C41.5 62 45 66.5 49.5 65.5 C50.5 68.5 55.5 69.5 58.5 67 Z"/>
+                  <path d="M61.5 40 C64 36.5 69.5 36.5 71.5 40 C76 40 78.5 44.5 76.5 48 C80 50 80 55.5 76.5 57.5 C78.5 62 75 66.5 70.5 65.5 C69.5 68.5 64.5 69.5 61.5 67 Z"/>
+                </g>
+                <!-- Circuit traces + nodes -->
+                <g stroke="url(#csk9)" stroke-width="1.6" fill="none" stroke-linecap="round">
+                  <path d="M52 45 L52 50 L48 53"/>
+                  <path d="M55 58 L52 61"/>
+                  <path d="M68 45 L68 50 L72 53"/>
+                  <path d="M65 58 L68 61"/>
+                </g>
+                <g fill="url(#csk9)">
+                  <circle cx="48" cy="53.8" r="1.9"/>
+                  <circle cx="52" cy="44" r="1.9"/>
+                  <circle cx="51.3" cy="61.7" r="1.9"/>
+                  <circle cx="72" cy="53.8" r="1.9"/>
+                  <circle cx="68" cy="44" r="1.9"/>
+                  <circle cx="68.7" cy="61.7" r="1.9"/>
+                </g>
+                <!-- Sparkles above/below -->
+                <path d="M60 27 l1 2 2 .3 -1.5 1.4.35 2L60 31.75l-1.85 1 .35-2-1.5-1.4 2-.3Z" fill="url(#csk9)" opacity="0.85"/>
+                <path d="M60 74.5 l.9 1.8 1.8.28 -1.3 1.3.3 1.85L60 78.9l-1.7.93.3-1.85-1.3-1.3 1.8-.28Z" fill="url(#csk9)" opacity="0.7"/>
+              </svg>
+            </div>
+            <div class="cask-grade-lbl">Grade IX</div>
+            <div class="cask-mile-title">Understanding</div>
+            <div class="cask-divider" aria-hidden="true"></div>
+            <div class="cask-tagline-txt">Understand.<br>Analyse.<br>Decide.</div>
+          </div>
+          <div class="cask-floor-ellipse" aria-hidden="true"></div>
+        </div>
+        <div class="cask-pedestal"><div class="cask-plaque">National Credential</div></div>
+        <div class="cask-floor-ref" aria-hidden="true"></div>
+      </div>
+
+      <!-- ══ GRADE X — LEADERSHIP (Gold) ══ -->
+      <div class="cask-pillar cask-pl-x">
+        <div class="cask-lid" aria-hidden="true"></div>
+        <div class="cask-glass">
+          <div class="cask-lamp" aria-hidden="true"></div>
+          <div class="cask-beam" aria-hidden="true"></div>
+          <div class="cask-atm" aria-hidden="true"></div>
+          <div class="cask-shimmer" aria-hidden="true"></div>
+          <div class="cask-content">
+            <div class="cask-emblem">
+              <svg viewBox="0 0 120 116" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="csk10" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%"   stop-color="#FBE49A"/>
+                    <stop offset="55%"  stop-color="#E3A93B"/>
+                    <stop offset="100%" stop-color="#9A6510"/>
+                  </linearGradient>
+                  <linearGradient id="csk10b" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%"   stop-color="#4A320C"/>
+                    <stop offset="100%" stop-color="#170F03"/>
+                  </linearGradient>
+                </defs>
+                <!-- Laurels -->
+                <g fill="url(#csk10)" opacity="0.9">
+                  <path d="M27 92 C17 84 12 70 14 54 L16.5 54.5 C15 69 19.5 81.5 28.5 89 Z"/>
+                  <ellipse cx="15" cy="58" rx="2.8" ry="6" transform="rotate(-28 15 58)"/>
+                  <ellipse cx="14.5" cy="68" rx="2.8" ry="6" transform="rotate(-12 14.5 68)"/>
+                  <ellipse cx="17" cy="78" rx="2.8" ry="6" transform="rotate(6 17 78)"/>
+                  <ellipse cx="22" cy="86.5" rx="2.8" ry="6" transform="rotate(28 22 86.5)"/>
+                </g>
+                <g fill="url(#csk10)" opacity="0.9">
+                  <path d="M93 92 C103 84 108 70 106 54 L103.5 54.5 C105 69 100.5 81.5 91.5 89 Z"/>
+                  <ellipse cx="105" cy="58" rx="2.8" ry="6" transform="rotate(28 105 58)"/>
+                  <ellipse cx="105.5" cy="68" rx="2.8" ry="6" transform="rotate(12 105.5 68)"/>
+                  <ellipse cx="103" cy="78" rx="2.8" ry="6" transform="rotate(-6 103 78)"/>
+                  <ellipse cx="98" cy="86.5" rx="2.8" ry="6" transform="rotate(-28 98 86.5)"/>
+                </g>
+                <!-- Shield -->
+                <path d="M60 10 L94 23 L94 51 C94 74 79 88 60 95 C41 88 26 74 26 51 L26 23 Z"
+                  fill="url(#csk10b)" stroke="url(#csk10)" stroke-width="3.6" stroke-linejoin="round"/>
+                <path d="M60 17 L88 28 L88 51 C88 69 76 81 60 88 C44 81 32 69 32 51 L32 28 Z"
+                  fill="none" stroke="rgba(251,228,154,0.32)" stroke-width="1.1"/>
+                <!-- Crown crest -->
+                <g fill="url(#csk10)">
+                  <path d="M44 62 L41.5 45.5 L51 53.5 L60 40 L69 53.5 L78.5 45.5 L76 62 Z"/>
+                  <rect x="43" y="65" width="34" height="6" rx="3"/>
+                  <circle cx="60" cy="36" r="2.8"/>
+                  <circle cx="40.5" cy="42" r="2.2"/>
+                  <circle cx="79.5" cy="42" r="2.2"/>
+                  <circle cx="60" cy="56" r="2.2" fill="rgba(23,15,3,0.6)"/>
+                </g>
+                <!-- Sparkle below -->
+                <path d="M60 76 l1 2 2 .3 -1.5 1.4.35 2L60 80.75l-1.85 1 .35-2-1.5-1.4 2-.3Z" fill="url(#csk10)" opacity="0.85"/>
+              </svg>
+            </div>
+            <div class="cask-grade-lbl">Grade X</div>
+            <div class="cask-mile-title">Leadership</div>
+            <div class="cask-divider" aria-hidden="true"></div>
+            <div class="cask-tagline-txt">Lead.<br>Respond.<br>Inspire.</div>
+          </div>
+          <div class="cask-floor-ellipse" aria-hidden="true"></div>
+        </div>
+        <div class="cask-pedestal"><div class="cask-plaque">National Credential</div></div>
+        <div class="cask-floor-ref" aria-hidden="true"></div>
+      </div>
+
+    </div><!-- /cask-pillars -->
+  </div><!-- /cask-recog-inner -->
+
+  <!-- Bottom trust bar -->
+  <div class="cask-recog-bar">
+    <div class="cask-recog-bar-inner">
+      <div class="cask-recog-bar-col cask-bar-vii">
+        <div class="cask-recog-bar-ico">
+          <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <div class="cask-recog-bar-txt"><strong>Nationally Recognised</strong><span>Aligned with national cyber safety standards.</span></div>
+      </div>
+      <div class="cask-recog-bar-col cask-bar-viii">
+        <div class="cask-recog-bar-ico">
+          <svg viewBox="0 0 24 24"><path d="M12 2.5l2.1 1.5 2.6-.1.8 2.5 2.2 1.4-.9 2.5.9 2.5-2.2 1.4-.8 2.5-2.6-.1L12 19.5l-2.1-1.5-2.6.1-.8-2.5-2.2-1.4.9-2.5-.9-2.5 2.2-1.4.8-2.5 2.6.1z"/><path d="M9.2 12l2 2 3.6-3.6"/></svg>
+        </div>
+        <div class="cask-recog-bar-txt"><strong>Verifiable Credential</strong><span>Your achievement. Verified. Trusted. Validated.</span></div>
+      </div>
+      <div class="cask-recog-bar-col cask-bar-ix">
+        <div class="cask-recog-bar-ico">
+          <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/><path d="M12 14.5v2"/></svg>
+        </div>
+        <div class="cask-recog-bar-txt"><strong>Digital &amp; Secure</strong><span>Blockchain-backed tamper-proof recognition.</span></div>
+      </div>
+      <div class="cask-recog-bar-col cask-bar-x">
+        <div class="cask-recog-bar-ico">
+          <svg viewBox="0 0 24 24"><path d="M16 20v-1.5a3.5 3.5 0 00-3.5-3.5h-5A3.5 3.5 0 004 18.5V20"/><circle cx="10" cy="8" r="3.3"/><path d="M20 20v-1.5a3.5 3.5 0 00-2.7-3.4"/><path d="M15.5 5.2a3.3 3.3 0 010 6"/></svg>
+        </div>
+        <div class="cask-recog-bar-txt"><strong>Future Ready</strong><span>Building skills for a safe digital tomorrow.</span></div>
+      </div>
+    </div>
+  </div>
+
+</section>
   <section class="cask-cta-section">
     <div class="cask-cta-inner">
       <h2>Begin your<br/>Cyber journey</h2>
@@ -5605,7 +5738,7 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="cask-container">
+    <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="footer-logo-circle-link">
@@ -5629,13 +5762,13 @@
             <a href="platform.html">CASK</a>
             <a href="surakshak.html">Surakshak</a>
             <a href="olympiad.html">Olympiad</a>
-            <a href="phishnchip.html">Phish &amp; Chip</a>
+            <a href="phishnchip.html">The Phish &amp; Chip Show</a>
             <a href="slanglish.html">Slanglish</a>
           </div>
           <div class="footer-col">
             <h5>Organisation</h5>
-            <a href="index.html#about">About</a>
-            <a href="resources.html">Resources</a>
+            <a href="#about">About</a>
+            <a href="resources.html">Books</a>
             <a href="partner.html">Partner With Us</a>
             <a href="https://hashtagsuraksha.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
             <a href="https://hashtagsuraksha.com/terms-of-use" target="_blank" rel="noopener">Terms of Use</a>
@@ -5649,603 +5782,11 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>2026 Hashtag Suraksha. All rights reserved. A CERT-In and Cyber Buddha initiative under MeitY, Government of India.</p>
+        <p>2025 Hashtag Suraksha. All rights reserved. A CERT-In and Cyber Buddha initiative under MeitY, Government of India.</p>
       </div>
     </div>
   </footer>
 
-  <style>
-    /* PDF requested CASK refinements */
-    .cask-hero {
-      padding-bottom: 112px;
-    }
-
-    .cask-platform-logo {
-      width: 112px;
-      height: 112px;
-    }
-
-    .cask-logo-strip.cask-logo-strip-hero {
-      min-height: 88px;
-      padding: 18px 40px !important;
-      gap: clamp(24px, 4vw, 56px);
-      box-shadow: 0 -10px 34px rgba(0,0,0,0.08);
-    }
-
-    .cask-logo-strip.cask-logo-strip-hero .cask-logo-strip-lbl {
-      color: #475569;
-      font-size: 11px;
-    }
-
-    .cask-logo-strip.cask-logo-strip-hero .cask-logo-img {
-      height: clamp(40px, 3.2vw, 54px);
-      max-width: 220px;
-    }
-
-    .cask-logo-strip.cask-logo-strip-hero .cask-logo-img-wide {
-      max-width: 260px;
-    }
-
-    .cask-logo-strip.cask-logo-strip-hero .cask-logo-divider {
-      height: 44px;
-      background: rgba(15,23,42,0.18);
-    }
-
-    .cask-video-grid {
-      align-items: stretch;
-    }
-
-    .cask-video-grid > div:first-child {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .cask-video-frame {
-      height: 100%;
-      min-height: 420px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .cask-video-wrap {
-      flex: 1;
-      min-height: 0;
-    }
-
-    [data-theme="light"] .fyt-section,
-    [data-theme="light"] .fyt-sticky-vp,
-    [data-theme="light"] .fyt-panel {
-      background: #f8fbff;
-      color: #0f172a;
-    }
-
-    [data-theme="light"] .fyt-hl,
-    [data-theme="light"] .fyt-detail-ttl,
-    [data-theme="light"] .fyt-uname,
-    [data-theme="light"] .fyt-ov-h2 {
-      color: #0f172a;
-    }
-
-    [data-theme="light"] .fyt-body,
-    [data-theme="light"] .fyt-yr-label,
-    [data-theme="light"] .fyt-detail-bul,
-    [data-theme="light"] .fyt-ubullets,
-    [data-theme="light"] .fyt-oc,
-    [data-theme="light"] .fyt-ov-sub {
-      color: rgba(15,23,42,0.72);
-    }
-
-    [data-theme="light"] .fyt-orbit {
-      border-color: rgba(var(--fyt-rgb), 0.38);
-      box-shadow: 0 0 24px rgba(var(--fyt-rgb), 0.18);
-    }
-
-    [data-theme="light"] .fyt-orbit::after {
-      box-shadow: 0 0 0 5px rgba(var(--fyt-rgb), 0.20), 0 0 22px rgba(var(--fyt-rgb), 0.55);
-    }
-
-    [data-theme="light"] .fyt-cert,
-    [data-theme="light"] .fyt-unit-row,
-    [data-theme="light"] .fyt-detail-panel,
-    [data-theme="light"] .fyt-oc,
-    [data-theme="light"] .fyt-term {
-      background: rgba(255,255,255,0.82);
-      border-color: rgba(var(--fyt-rgb), 0.28);
-      box-shadow: 0 16px 42px rgba(15,23,42,0.08);
-    }
-
-    .cd4-card {
-      border-color: rgba(84,244,255,0.20) !important;
-      box-shadow:
-        0 0 28px rgba(84,244,255,0.10) inset,
-        0 14px 34px rgba(0,0,0,0.30),
-        0 0 0 1px rgba(84,244,255,0.06) !important;
-    }
-
-    .cd4-card:hover {
-      border-color: rgba(84,244,255,0.70) !important;
-      box-shadow:
-        0 0 36px rgba(84,244,255,0.20) inset,
-        0 22px 54px rgba(0,0,0,0.42),
-        0 0 0 4px rgba(84,244,255,0.07) !important;
-    }
-
-    .cd4-card-desc {
-      top: auto;
-      min-height: 74px;
-      padding: 16px 18px 14px;
-      background: linear-gradient(to top, rgba(13,21,36,0.98) 86%, rgba(13,21,36,0.72));
-      color: rgba(238,242,255,0.86);
-      border-top: 1px solid rgba(84,244,255,0.14);
-    }
-
-    .cd4-card-glow .cd4-card-desc {
-      background: linear-gradient(to top, rgba(15,28,48,0.98) 86%, rgba(15,28,48,0.72));
-    }
-
-    [data-theme="light"] .cd4-card {
-      background: rgba(255,255,255,0.92);
-      border-color: rgba(0,122,255,0.22) !important;
-      box-shadow:
-        0 0 26px rgba(0,122,255,0.08) inset,
-        0 16px 38px rgba(15,23,42,0.10),
-        0 0 0 1px rgba(0,122,255,0.06) !important;
-    }
-
-    [data-theme="light"] .cd4-card strong {
-      color: #0f172a;
-    }
-
-    [data-theme="light"] .cd4-card:hover {
-      background: #fff;
-      border-color: rgba(0,122,255,0.45) !important;
-      box-shadow:
-        0 0 28px rgba(0,122,255,0.12) inset,
-        0 22px 54px rgba(15,23,42,0.16),
-        0 0 0 4px rgba(0,122,255,0.08) !important;
-    }
-
-    [data-theme="light"] .cd4-card-desc,
-    [data-theme="light"] .cd4-card-glow .cd4-card-desc {
-      background: linear-gradient(to top, #fff 86%, rgba(255,255,255,0.82));
-      color: #1e293b;
-      border-top-color: rgba(0,122,255,0.18);
-    }
-
-    .cask-lang-pills {
-      flex-wrap: nowrap;
-      max-width: min(1100px, 100%);
-      overflow: visible;
-    }
-
-    .cask-lang-pill {
-      transform: translateY(0);
-      box-shadow: 0 8px 22px rgba(0,122,255,0.08);
-    }
-
-    .cask-lang-pill:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 32px rgba(0,122,255,0.18);
-    }
-
-    [data-theme="light"] .cask-lang-pill:not(.active) {
-      background: rgba(255,255,255,0.92);
-      color: #334155;
-    }
-
-    .cask-chat-preview {
-      min-height: 230px;
-    }
-
-    .cask-bubble {
-      color: var(--text-primary);
-    }
-
-    [data-theme="light"] .cask-bubble {
-      color: #0f172a;
-    }
-
-    [data-theme="light"] .cask-glass {
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.72), rgba(232,242,255,0.32)),
-        radial-gradient(circle at 50% 0%, rgba(var(--pl-rgb),0.18), transparent 62%);
-      border-color: rgba(var(--pl-rgb),0.30);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.80),
-        0 20px 50px rgba(15,23,42,0.12),
-        0 0 32px rgba(var(--pl-rgb),0.16);
-    }
-
-    [data-theme="light"] .cask-grade-lbl,
-    [data-theme="light"] .cask-tagline-txt {
-      color: rgba(15,23,42,0.68);
-    }
-
-    [data-theme="light"] .cask-mile-title {
-      color: #0f172a;
-    }
-
-    [data-theme="light"] .cask-emblem {
-      background: rgba(255,255,255,0.92);
-      box-shadow: 0 12px 34px rgba(15,23,42,0.10), 0 0 24px rgba(var(--pl-rgb),0.18);
-    }
-
-    /* Layout polish: one-screen desktop rhythm for CASK page */
-    @media (min-width: 1024px) {
-      .cask-hero,
-      .cask-video-section,
-      .cs2-section,
-      .cask-recog,
-      .cask-section.cask-section-mid,
-      .cd4-section {
-        min-height: 100svh;
-        box-sizing: border-box;
-      }
-
-      .cask-hero {
-        display: flex;
-        align-items: center;
-        padding: calc(82px + 18px) 24px 96px;
-      }
-
-      .cask-hero-inner {
-        width: 100%;
-      }
-
-      .cask-platform-logo {
-        width: 104px;
-        height: 104px;
-      }
-
-      .cask-hero-tag {
-        margin-bottom: 18px;
-      }
-
-      .cask-hero h1 {
-        font-size: clamp(42px, 6vw, 72px);
-        margin-bottom: 18px;
-      }
-
-      .cask-hero h1 .dim {
-        margin-top: 8px;
-      }
-
-      .cask-hero-sub {
-        max-width: 640px;
-        margin-bottom: 28px;
-        line-height: 1.58;
-      }
-
-      .cask-stat {
-        padding: 16px 12px;
-      }
-
-      .cask-logo-strip {
-        padding: 18px 40px;
-      }
-
-      .cask-video-section {
-        display: flex;
-        align-items: center;
-        padding: 56px 24px;
-      }
-
-      .cask-video-grid {
-        width: 100%;
-        gap: clamp(28px, 4vw, 44px);
-      }
-
-      .cask-video-grid .cask-h2,
-      .cask-h2 {
-        font-size: clamp(28px, 3.4vw, 42px);
-        line-height: 1.12;
-      }
-
-      .cask-sub {
-        line-height: 1.58;
-      }
-
-      .cask-intro-pills {
-        margin: 18px 0;
-      }
-
-      .cask-vstat {
-        padding: 10px 10px;
-      }
-
-      .cs2-section {
-        display: flex;
-        align-items: center;
-        padding: 52px 0 56px;
-      }
-
-      .cs2-layout {
-        width: 100%;
-        min-height: calc(100svh - 160px);
-        grid-template-columns: minmax(260px, 0.9fr) minmax(420px, 1.4fr) minmax(250px, 0.85fr);
-      }
-
-      .cs2-gradient-text span,
-      .cs2-gt-line {
-        font-size: clamp(1.9rem, 3vw, 2.65rem);
-      }
-
-      .cs2-desc {
-        margin: 12px 0 18px;
-        line-height: 1.55;
-      }
-
-      .fyt-sticky-vp {
-        height: 100svh;
-      }
-
-      .fyt-content {
-        height: calc(100svh - 54px);
-        padding: 28px 56px 0;
-      }
-
-      .fyt-left {
-        gap: 12px;
-        padding-right: 34px;
-      }
-
-      .fyt-right {
-        padding-left: 34px;
-      }
-
-      .fyt-prog-bar {
-        padding: 0 56px 16px;
-      }
-
-      .cask-recog {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 38px 0 30px;
-      }
-
-      .cask-recog-inner {
-        padding: 0 56px;
-      }
-
-      .cask-recog-header {
-        margin-bottom: 26px;
-      }
-
-      .cask-recog-eyebrow {
-        margin-bottom: 16px;
-      }
-
-      .cask-recog-h2 {
-        font-size: clamp(30px, 3.4vw, 44px);
-        margin-bottom: 10px;
-      }
-
-      .cask-recog-sub {
-        font-size: 14px;
-        line-height: 1.45;
-      }
-
-      .cask-pillars {
-        gap: 24px;
-        margin-bottom: 24px;
-      }
-
-      .cask-pillar,
-      .cask-cap,
-      .cask-glass,
-      .cask-base-ring,
-      .cask-pedestal {
-        width: 188px;
-      }
-
-      .cask-sp {
-        top: -82px;
-        width: 136px;
-        height: 190px;
-      }
-
-      .cask-cap {
-        margin-top: 8px;
-      }
-
-      .cask-cap-face {
-        height: 18px;
-      }
-
-      .cask-glass {
-        height: 246px;
-      }
-
-      .cask-content {
-        top: 26px;
-        padding: 0 14px;
-      }
-
-      .cask-emblem {
-        width: 72px;
-        height: 72px;
-        margin-bottom: 8px;
-      }
-
-      .cask-emblem svg {
-        width: 54px;
-        height: 62px;
-      }
-
-      .cask-grade-lbl {
-        font-size: 9px;
-        margin-bottom: 5px;
-      }
-
-      .cask-mile-title {
-        font-size: 14px;
-        line-height: 1.12;
-        margin-bottom: 6px;
-      }
-
-      .cask-tagline-txt {
-        font-size: 10px;
-        white-space: normal;
-      }
-
-      .cask-base-ring {
-        height: 14px;
-      }
-
-      .cask-pedestal {
-        height: 40px;
-        margin-top: 6px;
-        border-radius: 15px;
-      }
-
-      .cask-plaque {
-        width: 126px;
-        height: 26px;
-        font-size: 6.5px;
-      }
-
-      .cask-floor-ref {
-        width: 150px;
-        height: 16px;
-      }
-
-      .cask-recog-bar {
-        padding: 0 56px;
-      }
-
-      .cask-recog-bar-inner {
-        height: 66px;
-        border-radius: 18px;
-      }
-
-      .cask-recog-bar-col {
-        gap: 12px;
-        padding: 0 18px;
-      }
-
-      .cask-recog-bar-ico {
-        width: 32px;
-        height: 32px;
-      }
-
-      .cask-recog-bar-txt strong {
-        font-size: 11px;
-      }
-
-      .cask-recog-bar-txt span {
-        font-size: 9.5px;
-        line-height: 1.3;
-      }
-
-      .cask-section.cask-section-mid {
-        display: flex;
-        align-items: center;
-        padding: 44px 24px;
-      }
-
-      .cask-lang-pills {
-        margin: 22px auto 20px;
-      }
-
-      .cask-chat-preview {
-        padding: 18px 20px;
-      }
-
-      .cask-bubble {
-        padding: 10px 14px;
-        line-height: 1.5;
-      }
-
-      .cd4-section {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .cd4-head {
-        padding: 34px 48px 20px;
-      }
-
-      .cd4-dash {
-        height: calc(100svh - 128px);
-        max-height: none;
-        padding: 0 40px;
-        grid-template-columns: 248px 1fr 248px;
-      }
-
-      .cd4-nav,
-      .cd4-side {
-        padding-top: 18px;
-        padding-bottom: 18px;
-      }
-    }
-
-    @media (min-width: 1024px) and (max-height: 760px) {
-      .cask-hero {
-        padding-top: calc(82px + 18px);
-        padding-bottom: 34px;
-      }
-
-      .cask-platform-logo {
-        width: 88px;
-        height: 88px;
-      }
-
-      .cask-hero h1 {
-        font-size: clamp(36px, 5.4vw, 62px);
-      }
-
-      .cask-hero-sub,
-      .cask-sub,
-      .cs2-desc {
-        font-size: 14px;
-      }
-
-      .cask-video-section,
-      .cs2-section,
-      .cask-section.cask-section-mid {
-        padding-top: 42px;
-        padding-bottom: 42px;
-      }
-
-      .cask-recog {
-        padding-top: 32px;
-        padding-bottom: 26px;
-      }
-
-      .cask-recog-header {
-        margin-bottom: 30px;
-      }
-
-      .cask-pillars {
-        margin-bottom: 18px;
-      }
-
-      .cask-glass {
-        height: 228px;
-      }
-
-      .cd4-head {
-        padding: 24px 40px 16px;
-      }
-
-      .cd4-dash {
-        height: calc(100svh - 104px);
-      }
-    }
-
-    @media (max-width: 1023px) {
-      .cask-hero,
-      .cask-video-section,
-      .cs2-section,
-      .cask-recog,
-      .cask-section.cask-section-mid,
-      .cd4-section {
-        min-height: auto;
-      }
-    }
-  </style>
   <script src="main.js"></script>
   <script>
     // ── Curriculum tabs ─────────────────────────────────
@@ -6283,21 +5824,6 @@
         status.textContent = 'Responding in ' + d.name;
       }, 200);
     }
-
-    function caskWireLangHover() {
-      document.querySelectorAll('.cask-lang-pill:not(.cask-lang-more)').forEach(function(btn) {
-        if (btn.dataset.hoverBound === '1') return;
-        var match = (btn.getAttribute('onclick') || '').match(/'([^']+)'/);
-        if (!match) return;
-        var lang = match[1];
-        btn.dataset.hoverBound = '1';
-        btn.addEventListener('mouseenter', function() { caskSetLang(btn, lang); });
-        btn.addEventListener('mouseover', function() { caskSetLang(btn, lang); });
-        btn.addEventListener('focus', function() { caskSetLang(btn, lang); });
-      });
-    }
-    caskWireLangHover();
-    window.addEventListener('DOMContentLoaded', caskWireLangHover);
 
     // Also wire via event delegation as backup
     var tabRow = document.getElementById('caskTabRow');
@@ -6344,6 +5870,7 @@
     var clmQCount = 0;
 
     function addClmMsg() {
+      if (!clmFeed) return;
       var m = clmMessages[clmIdx % clmMessages.length];
       var row = document.createElement('div');
       row.className = 'clm-msg ' + (m.type === 'ai' ? 'ai' : '');
@@ -7435,14 +6962,36 @@
     panelTop.classList.add('cs2-panel-open');
     centerTop.classList.add('cs2-has-panel');
   }
+  // AI Tutor (first node) is the default active entry point into the ecosystem.
+  var defaultNode = nodes[0];
+  function activateDefault(){
+    nodes.forEach(function(n){ n.classList.remove('cs2-active','cs2-node-hover'); });
+    if(defaultNode){ defaultNode.classList.add('cs2-active'); openPanel(defaultNode); }
+  }
   nodes.forEach(n=>{
-    n.addEventListener('mouseenter',()=>{ openPanel(n); n.classList.add('cs2-node-hover'); });
-    n.addEventListener('mouseleave',()=>{ n.classList.remove('cs2-node-hover'); panelTop.classList.remove('cs2-panel-open'); centerTop.classList.remove('cs2-has-panel'); });
+    n.addEventListener('mouseenter',()=>{
+      nodes.forEach(function(x){ x.classList.remove('cs2-active','cs2-node-hover'); });
+      n.classList.add('cs2-active','cs2-node-hover');
+      openPanel(n);
+    });
+    n.addEventListener('mouseleave',()=>{
+      n.classList.remove('cs2-node-hover');
+      activateDefault();          // fall back to AI Tutor as the resting state
+    });
   });
   if(closeTop) closeTop.addEventListener('click',()=>{
     panelTop.classList.remove('cs2-panel-open');
     centerTop.classList.remove('cs2-has-panel');
+    nodes.forEach(function(n){ n.classList.remove('cs2-active'); });
   });
+  // Illuminate AI Tutor + open its panel on load and whenever the section rests.
+  activateDefault();
+  var cs2Section = centerTop.closest('.cs2-section');
+  if('IntersectionObserver' in window && cs2Section){
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting) activateDefault(); });
+    },{threshold:0.25}).observe(cs2Section);
+  }
 })();
 
 /* ─── Mountain Climb — connector lines ─── */

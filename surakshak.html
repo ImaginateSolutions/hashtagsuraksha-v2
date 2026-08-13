@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Become a Surakshak — Hashtag Suraksha</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Serif+Display&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="./assets/css/global.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
   <link rel="stylesheet" href="surakshak.css" />
   <style>
     .surakshak-hero {
@@ -190,20 +190,8 @@
       .tiers-grid { grid-template-columns: 1fr; }
     }
     /* ── NAV ALWAYS WHITE ─────────────────── */
-    .nav,
-    [data-theme="dark"] .nav {
-      background: rgba(255,255,255,0.96) !important;
-      border-bottom: 1px solid #E2E8F0 !important;
-      backdrop-filter: blur(20px) !important;
-    }
-    [data-theme="dark"] .nav .nav-links li a { color: #1A1A2E !important; }
-    [data-theme="dark"] .nav .nav-links li a.active,
-    [data-theme="dark"] .nav .nav-links li a:hover { color: #0891B2 !important; }
     [data-theme="dark"] .nav-logo-img { filter: none !important; }
-    [data-theme="dark"] .theme-toggle-btn { color: #1A1A2E !important; }
-    [data-theme="dark"] .nav-cta {
-      background: #1E1B4B !important; color: #fff !important;
-    }
+ 
     /* ── FOOTER ────────────────────────────── */
     .footer-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:60px; padding-bottom:48px; }
     .footer-logo-circle-link { display:inline-block; margin-bottom:16px; }
@@ -240,9 +228,9 @@
         <li><a href="platform.html">CASK</a></li>
         <li><a href="surakshak.html" class="active">Surakshak</a></li>
         <li><a href="olympiad.html">Olympiad</a></li>
-        <li><a href="phishnchip.html">Phish &amp; Chip</a></li>
+        <li><a href="phishnchip.html">The Phish &amp; Chip Show</a></li>
         <li><a href="slanglish.html">Slanglish</a></li>
-        <li><a href="resources.html">Resources</a></li>
+        <li><a href="resources.html">Books</a></li>
         <li><a href="partner.html">Partner With Us</a></li>
       </ul>
       <div class="nav-right">
@@ -252,16 +240,22 @@
         </button>
         <a href="surakshak.html" class="nav-cta">Join the Movement</a>
       </div>
-      <button class="hamburger" id="hamburger">&#9776;</button>
+      <div class="nav-right-mobile">
+         <button id="themeToggle1" class="themeToggle theme-toggle-btn" aria-label="Toggle theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="hamburger" id="hamburger">&#9776;</button>
+      </div>
     </div>
     <div class="mobile-menu" id="mobileMenu">
       <a href="index.html">Home</a>
       <a href="platform.html">CASK</a>
       <a href="surakshak.html">Surakshak</a>
       <a href="olympiad.html">Olympiad</a>
-      <a href="phishnchip.html">Phish &amp; Chip</a>
+      <a href="phishnchip.html">The Phish &amp; Chip Show</a>
       <a href="slanglish.html">Slanglish</a>
-      <a href="resources.html">Resources</a>
+      <a href="resources.html">Books</a>
       <a href="partner.html">Partner With Us</a>
       <a href="surakshak.html" class="mobile-cta">Join the Movement</a>
     </div>
@@ -499,7 +493,7 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="pw" style="padding-top:56px;">
+    <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="footer-logo-circle-link">
@@ -522,14 +516,14 @@
             <h5>Ecosystem</h5>
             <a href="platform.html">CASK</a>
             <a href="surakshak.html">Surakshak</a>
-            <a href="olympiad.html">National Cyber Olympiad</a>
+            <a href="olympiad.html">Olympiad</a>
             <a href="phishnchip.html">The Phish &amp; Chip Show</a>
             <a href="slanglish.html">Slanglish</a>
           </div>
           <div class="footer-col">
             <h5>Organisation</h5>
-            <a href="index.html#about">About</a>
-            <a href="resources.html">Resources</a>
+            <a href="#about">About</a>
+            <a href="resources.html">Books</a>
             <a href="partner.html">Partner With Us</a>
             <a href="https://hashtagsuraksha.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
             <a href="https://hashtagsuraksha.com/terms-of-use" target="_blank" rel="noopener">Terms of Use</a>
