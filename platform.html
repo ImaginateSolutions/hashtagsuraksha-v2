@@ -211,7 +211,7 @@
       display: flex; align-items: center; gap: 8px;
     }
     .cask-logo-img {
-      height: 32px; width: auto;
+      height: 44px; width: auto;
       object-fit: contain; object-position: center;
       transition: all 0.2s;
     }
@@ -722,6 +722,7 @@
       .cask-tabs { flex-direction: column; }
       .cask-hero { padding: 120px 16px 60px; }
       .cask-logo-strip { gap: 20px; }
+      .cask-logo-img{ height: 32px;}
     }
 
     /* GRADE PANELS */
@@ -1831,7 +1832,18 @@
   position: absolute; inset: 0; pointer-events: none; z-index: 0;
 }
 .cs2-tag-wrap {
-  position: absolute; top: 24px; left: 32px; z-index: 2;
+  margin-bottom: 15px;
+}
+[data-theme="light"] .cs2-kpi-row{
+   border: 1px solid rgba(0,0,0,0.08);
+}
+
+[data-theme="light"] .cs2-kpi-l {
+    color: rgb(0 0 0 / 45%);
+}
+
+[data-theme="light"] .cs2-kpi {
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
 }
 .cs2-top-tag {
   display: inline-flex; align-items: center;
@@ -3732,12 +3744,40 @@
   [data-theme="light"] .cask-recog-bar-col { border-right-color: rgba(10,40,90,0.08); }
   [data-theme="light"] .cask-recog-bar-txt strong { color: #0a0f20; }
   [data-theme="light"] .cask-recog-bar-txt span { color: rgba(10,15,32,0.5); }
+  @media (max-width: 1024px) {
+     .cs2-layout{
+      grid-template-columns: 326px 1fr 250px;
+    }
+  }
+  @media (max-width: 999px) {
+    .cs2-layout{
+      grid-template-columns: 1fr;
+      grid-row-gap: 25px;
+    }
+  }
+  @media (max-width: 480px) {
+    .cask-logo-container {
+        margin-top: 0 !important;
+    }
+    .cask-stats{
+      flex-wrap: wrap;
+    }
+    .cask-stat {
+      width: 50%;
+      flex: unset;
+    }
+    .cask-hero {
+        padding: 120px 16px 120px;
+    }
+    [data-theme="light"] .cask-stat:nth-child(3), [data-theme="light"] .cask-stat:nth-child(4) { border-top: 1px solid rgba(10,40,90,0.08); }
+    [data-theme="dark"] .cask-stat:nth-child(3), [data-theme="dark"] .cask-stat:nth-child(4) { border-top: 1px solid rgba(255, 255, 255, 0.08); }
+  }
   </style>
   <section class="cask-hero">
 
     <div class="cask-hero-inner">
       <!-- CASK Logo — dark/light mode -->
-      <div style="display:flex;justify-content:center;margin-top:72px;margin-bottom:4px;">
+      <div class="cask-logo-container" style="display:flex;justify-content:center;margin-top:72px;margin-bottom:4px;">
         <img src="assets/1.png" alt="CASK" class="cask-platform-logo logo-dark" />
         <img src="assets/2.png" alt="CASK" class="cask-platform-logo logo-light" />
       </div>
@@ -3760,9 +3800,9 @@
     <div class="cask-logo-strip cask-logo-strip-hero" style="position:absolute;bottom:0;left:0;right:0;width:100%;margin:0;z-index:5;border-radius:0;">
       <span class="cask-logo-strip-lbl">Built with</span>
       <div class="cask-logo-divider"></div>
-      <div class="cask-logo-item"><img src="assets/logo-certin.png" alt="CERT-In" class="cask-logo-img" style="height:28px" /></div>
+      <div class="cask-logo-item"><img src="assets/logo-certin.png" alt="CERT-In" class="cask-logo-img" /></div>
       <div class="cask-logo-divider"></div>
-      <div class="cask-logo-item"><img src="assets/logo-cyberbuddha.png" alt="Cyber Buddha" class="cask-logo-img" style="height:28px" /></div>
+      <div class="cask-logo-item"><img src="assets/logo-cyberbuddha.png" alt="Cyber Buddha" class="cask-logo-img" /></div>
     </div>
     <div class="cask-hero-bg" id="caskHeroBg"></div>
     <canvas id="hexWave" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;display:block;"></canvas>
@@ -3882,11 +3922,10 @@
   <!-- ═══ PLATFORM PYRAMID ═══ -->
 <section class="cs2-section cs2-section-top">
   <div class="cs2-stars" id="cs2StarsTop"></div>
-  <div class="cs2-tag-wrap"><span class="cs2-top-tag">Key Features</span></div>
-
   <div class="cs2-layout">
     <!-- LEFT -->
     <div class="cs2-left">
+      <div class="cs2-tag-wrap"><span class="cs2-top-tag">Key Features</span></div
       <h2 class="cs2-h2">CASK Ecosystem</h2>
       <div class="cs2-gradient-text">
         <span class="cs2-gt-line">Everything</span>
@@ -5951,6 +5990,38 @@
       gu: { name:'Gujarati', text:'\u0aa8\u0aae\u0ab8\u0acd\u0aa4\u0ac7! \u0a85\u0a9c\u0abe\u0aa3\u0acd\u0aaf\u0abe \u0ab5\u0acd\u0aaf\u0a95\u0acd\u0aa4\u0abf\u0aa8\u0ac0 UPI \u0ab5\u0abf\u0aa8\u0ab5\u0aa3\u0ac0 \u0a95\u0acd\u0aaf\u0abe\u0ab0\u0ac7\u0aaf \u0aae\u0a82\u0a9c\u0ac2\u0ab0 \u0aa8 \u0a95\u0ab0\u0ab6\u0acb.' },
       ml: { name:'Malayalam', text:'\u0d28\u0d2e\u0d38\u0d4d\u0d15\u0d3e\u0d30\u0d02! \u0d05\u0d2a\u0d30\u0d3f\u0d1a\u0d3f\u0d24\u0d30\u0d3e\u0d2f \u0d12\u0d30\u0d3e\u0d33\u0d41\u0d1f\u0d46 UPI \u0d05\u0d2d\u0d4d\u0d2f\u0d7c\u0d24\u0d4d\u0d25\u0d28 \u0d12\u0d30\u0d3f\u0d15\u0d4d\u0d15\u0d32\u0d41\u0d02 \u0d05\u0d28\u0d41\u0d35\u0d26\u0d3f\u0d15\u0d4d\u0d15\u0d30\u0d41\u0d24\u0d4f.' }
     };
+
+      // ── Multilingual bubble hover → update chat preview ──────
+    (function() {
+      // Map each bubble's language to langData keys
+      var bubbleLangMap = ['hi','en','bn','te','kn','gu','mr','ta','ml',null];
+      var cloud = document.querySelector('.cask-lang-cloud');
+      if (!cloud) return;
+      var wraps = cloud.querySelectorAll('.clb-wrap');
+      var bubble = document.getElementById('caskLangBubble');
+      var status = document.getElementById('caskLangStatus');
+      function setLang(key) {
+        if (!key || !langData[key] || !bubble || !status) return;
+        var d = langData[key];
+        bubble.classList.add('hs-fading');
+        setTimeout(function() {
+          bubble.textContent = d.text;
+          status.textContent = 'Responding in ' + d.name;
+          bubble.classList.remove('hs-fading');
+        }, 220);
+      }
+      wraps.forEach(function(wrap, i) {
+        var key = bubbleLangMap[i] || null;
+        wrap.addEventListener('mouseenter', function() {
+          wraps.forEach(function(w) { w.classList.remove('clb-active'); });
+          wrap.classList.add('clb-active');
+          setLang(key);
+        });
+        wrap.addEventListener('mouseleave', function() {
+          wrap.classList.remove('clb-active');
+        });
+      });
+    })();
     // Language pill clicks handled via onclick="caskSetLang(this, lang)" on each button
 
     // ── Hero bg shader variants ──────────────────────
