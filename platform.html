@@ -18,6 +18,48 @@
       box-shadow: 0 4px 24px rgba(0,0,0,0.08) !important;
     }
     .nav-links li a:hover, .nav-links li a.active { color: #007aff !important; }
+    [data-theme="light"] .cd4-card-glow:hover {
+        border-color: rgba(0, 122, 255, 0.44) !important;
+        box-shadow: 0 14px 44px rgba(0, 122, 255, 0.16), 0 0 28px rgba(0, 122, 255, 0.10) inset !important;
+    }
+
+    /* ── R2-1. CASK CARDS: dark-mode hover subtitle overlap fix ── */
+    /* Strengthen the gradient so it completely covers the card bottom
+      and the text never bleeds transparent into the icon/title zone */
+    .cd4-card-desc {
+      background: linear-gradient(to top,
+        #0d1524 0%,
+        #0d1524 64%,
+        rgba(13,21,36,0.88) 80%,
+        transparent 100%) !important;
+      font-size: 12px !important;
+      line-height: 1.52 !important;
+    }
+    .cd4-card-glow .cd4-card-desc {
+      background: linear-gradient(to top,
+        #0f1c30 0%,
+        #0f1c30 64%,
+        rgba(15,28,48,0.88) 80%,
+        transparent 100%) !important;
+    }
+
+    /* ── R2-2. CASK CARDS: light-mode hover description fix ────── */
+    /* Replace the dark gradient with a clean white one */
+    [data-theme="light"] .cd4-card-desc {
+      background: linear-gradient(to top,
+        rgba(255,255,255,1) 0%,
+        rgba(255,255,255,0.98) 64%,
+        rgba(255,255,255,0.80) 82%,
+        transparent 100%) !important;
+      color: rgba(10,15,32,0.70) !important;
+    }
+    [data-theme="light"] .cd4-card-glow .cd4-card-desc {
+      background: linear-gradient(to top,
+        #eaf5ff 0%,
+        #eaf5ff 64%,
+        rgba(234,245,255,0.80) 82%,
+        transparent 100%) !important;
+    }
 
 
     /* ── ANIMATED BG ORBS ────────────────────────────────── */
