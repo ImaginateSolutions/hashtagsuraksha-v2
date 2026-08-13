@@ -4,19 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hashtag Suraksha — India's National Cyber Safety Movement</title>
-  <meta name="description" content="India's national cybersecurity movement. CASK, Surakshak, Olympiad, Phish and Chip, Slanglish. Backed by CERT-In and MeitY." />
+  <meta name="description" content="India's national cybersecurity movement. CASK, Surakshak, Olympiad, The Phish & Chip Show, Slanglish. Backed by CERT-In and MeitY." />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Yatra+One&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="global.css" />
-  <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="./assets/css/global.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/css/home.css" />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <style>
+    .nav.scrolled {
+        background: rgba(255, 255, 255, 0.98) !important;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08) !important;
+    }
+    [data-theme="light"] section.hero {
+        background: linear-gradient(180deg, #F5F7FF 0%, #E6E9F4 100%) !important;
+    }
+     [data-theme="light"] p.hero-sub{
+        color: #1A1A1A !important;
+     }
+     [data-theme="light"] .btn-hero-outline{
+        color: #1A1A1A !important;
+        border-color: #1A1A1A !important;
+     }
+  </style>
 </head>
 <body>
 
   <div id="cursorGlow" class="cursor-glow"></div>
 
   <!-- THEME CHOOSER -->
-  <div id="themeChooser" class="theme-chooser" role="dialog" aria-modal="true" aria-label="Choose your theme">
+  <div id="themeChooser" class="theme-chooser hidden" role="dialog" aria-modal="true" aria-label="Choose your theme">
     <div class="theme-chooser-inner">
       <div class="theme-chooser-logo">
         <img src="assets/logo-suraksha.svg" alt="Hashtag Suraksha" />
@@ -47,9 +63,9 @@
         <li><a href="platform.html">CASK</a></li>
         <li><a href="surakshak.html">Surakshak</a></li>
         <li><a href="olympiad.html">Olympiad</a></li>
-        <li><a href="phishnchip.html">Phish &amp; Chip</a></li>
+        <li><a href="phishnchip.html">The Phish &amp; Chip Show</a></li>
         <li><a href="slanglish.html">Slanglish</a></li>
-        <li><a href="resources.html">Resources</a></li>
+        <li><a href="resources.html">Books</a></li>
         <li><a href="partner.html">Partner With Us</a></li>
       </ul>
       <div class="nav-right">
@@ -59,16 +75,22 @@
         </button>
         <a href="surakshak.html" class="nav-cta">Join the Movement</a>
       </div>
-      <button class="hamburger" id="hamburger">&#9776;</button>
+      <div class="nav-right-mobile">
+         <button id="themeToggle1" class="themeToggle theme-toggle-btn" aria-label="Toggle theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="hamburger" id="hamburger">&#9776;</button>
+      </div>
     </div>
     <div class="mobile-menu" id="mobileMenu">
       <a href="index.html">Home</a>
       <a href="platform.html">CASK</a>
       <a href="surakshak.html">Surakshak</a>
       <a href="olympiad.html">Olympiad</a>
-      <a href="phishnchip.html">Phish &amp; Chip</a>
+      <a href="phishnchip.html">The Phish &amp; Chip Show</a>
       <a href="slanglish.html">Slanglish</a>
-      <a href="resources.html">Resources</a>
+      <a href="resources.html">Books</a>
       <a href="partner.html">Partner With Us</a>
       <a href="surakshak.html" class="mobile-cta">Join the Movement</a>
     </div>
@@ -588,7 +610,8 @@
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l6 6"/><path d="M4 14l6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="M22 22l-5-10-5 10"/><path d="M14 18h6"/></svg>
             </div>
             <div class="slang-card-logo-col">
-              <img src="assets/slanglish-logo.png" alt="Slanglish" class="slang-vcard-logo" />
+              <img src="assets/Slanglish logos_transparent background/1.png" alt="Slanglish" class="slang-vcard-logo logo-dark" />
+              <img src="assets/Slanglish logos_transparent background/2.png" alt="Slanglish" class="slang-vcard-logo logo-light" />
             </div>
           </div>
           <span class="card-tag">Digital Literacy</span>
@@ -1049,320 +1072,179 @@
     </div>
   </section>
 
-  <!-- OLYMPIAD QUIZ -->
-  <section class="nco-section" id="olympiad-quiz">
-    <div class="nco-bg-grid"></div>
-    <div class="container">
-      <div class="nco-hd center">
-        <span class="section-tag">National Cyber Olympiad</span>
-        <h2 style="margin-top:12px">Three Levels. One Mission.<br>Prove You&rsquo;re Cyber-Ready.</h2>
-        <p class="section-sub">India&rsquo;s premier student cyber challenge. Scroll through the path, test your instincts, and register.</p>
+        <!-- NATIONAL CYBER OLYMPIAD -->
+  <style>
+  .olymp {
+    --oly-card: rgba(255,255,255,0.045); --oly-bd: rgba(255,255,255,0.09);
+    --oly-txt: #f4f7ff; --oly-sub: rgba(255,255,255,0.64); --oly-muted: rgba(255,255,255,0.44);
+    --saffron:#FF9933; --green:#1eaf5b; --gold:#E8B923; --silver:#C0C8D4; --bronze:#D9915A; --cyber:#3aa0ff;
+    position: relative; overflow: hidden; min-height: 100vh; box-sizing: border-box;
+    padding: 40px 0; display: flex; flex-direction: column; justify-content: center;
+    background: linear-gradient(180deg,#060a16,#0a1122 60%,#080d1c);
+  }
+  [data-theme="light"] .olymp {
+    --oly-card: #ffffff; --oly-bd: #e4ebf5;
+    --oly-txt: #0a1226; --oly-sub: rgba(10,18,38,0.64); --oly-muted: rgba(10,18,38,0.46);
+    background: linear-gradient(180deg,#f7faff,#eef3fb 60%,#f4f7fd);
+  }
+  /* Tricolor animated top edge */
+  .olymp::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; z-index:3;
+    background: linear-gradient(90deg,var(--saffron),#fff,var(--green),var(--saffron)); background-size:300% 100%;
+    animation: olyBar 6s linear infinite; }
+  @keyframes olyBar { to { background-position: 300% 0; } }
+  /* Grid + vignette */
+  .olymp::after { content:''; position:absolute; inset:0; z-index:0; pointer-events:none; opacity:0.5;
+    background-image: linear-gradient(rgba(120,150,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(120,150,255,0.05) 1px, transparent 1px);
+    background-size: 46px 46px; mask-image: radial-gradient(ellipse 80% 70% at 50% 45%, #000 30%, transparent 80%); -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 45%, #000 30%, transparent 80%); }
+  [data-theme="light"] .olymp::after { background-image: linear-gradient(rgba(30,60,140,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(30,60,140,0.05) 1px, transparent 1px); }
+
+  /* Floating background orbs */
+  .olymp-fx { position:absolute; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+  .olymp-orb { position:absolute; border-radius:50%; filter: blur(46px); opacity:0.5; will-change: transform; }
+  .olymp-orb.o1 { width:340px; height:340px; left:-6%; top:8%;  background: radial-gradient(circle, rgba(255,153,51,0.5), transparent 70%); animation: olyDrift1 16s ease-in-out infinite; }
+  .olymp-orb.o2 { width:300px; height:300px; right:-4%; top:2%;  background: radial-gradient(circle, rgba(30,175,91,0.45), transparent 70%); animation: olyDrift2 19s ease-in-out infinite; }
+  .olymp-orb.o3 { width:360px; height:360px; left:38%; bottom:-14%; background: radial-gradient(circle, rgba(58,160,255,0.4), transparent 70%); animation: olyDrift3 22s ease-in-out infinite; }
+  @keyframes olyDrift1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(40px,30px)} }
+  @keyframes olyDrift2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-36px,26px)} }
+  @keyframes olyDrift3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(30px,-30px)} }
+  .olymp-spark { position:absolute; width:3px; height:3px; border-radius:50%; background:rgba(255,255,255,0.7); box-shadow:0 0 6px rgba(150,190,255,0.8); animation: olyFloat 7s linear infinite; opacity:0; }
+  @keyframes olyFloat { 0%{transform:translateY(20px); opacity:0} 15%,85%{opacity:0.8} 100%{transform:translateY(-90px); opacity:0} }
+
+  .olymp-inner { max-width: 1160px; width: 100%; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; box-sizing: border-box; }
+
+  .olymp-ribbon { display: flex; justify-content: center; margin-bottom: 14px; }
+  .olymp-ribbon > span { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-ui); font-size: 11.5px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--saffron); padding: 8px 18px; border-radius: 999px; background: rgba(255,153,51,0.12); border: 1px solid rgba(255,153,51,0.42); box-shadow: 0 0 22px rgba(255,153,51,0.14); }
+  .olymp-ribbon .odot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); animation: olyPulse 1.5s infinite; }
+  @keyframes olyPulse { 0%,100%{opacity:1; transform:scale(1)} 50%{opacity:0.4; transform:scale(0.8)} }
+
+  .olymp-head { text-align: center; margin-bottom: 22px; }
+  .olymp-eyebrow { font-family: var(--font-ui); font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--oly-muted); display: block; margin-bottom: 10px; }
+  .olymp-title { font-family: 'Syne', var(--font-ui), sans-serif; font-size: clamp(28px,4.2vw,48px); font-weight: 800; color: var(--oly-txt); line-height: 1.05; margin: 0 0 10px; letter-spacing: -0.02em; }
+  .olymp-title .g { background: linear-gradient(90deg,var(--saffron),var(--green)); background-size:200% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: olyShine 5s linear infinite; }
+  @keyframes olyShine { to { background-position: 200% 0; } }
+  .olymp-sub { font-family: var(--font-ui); font-size: 15px; color: var(--oly-sub); max-width: 620px; margin: 0 auto; line-height: 1.55; }
+
+  .olymp-facts { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin: 0 auto 22px; max-width: 900px; }
+  .olymp-fact { position:relative; background: var(--oly-card); border: 1px solid var(--oly-bd); border-radius: 16px; padding: 15px 12px; text-align: center; transition: transform .25s cubic-bezier(.22,1,.36,1), border-color .25s, box-shadow .25s; overflow:hidden; }
+  .olymp-fact::after { content:''; position:absolute; inset:0; background: radial-gradient(circle at 50% 0%, rgba(255,153,51,0.14), transparent 70%); opacity:0; transition:opacity .25s; }
+  .olymp-fact:hover { transform: translateY(-5px); border-color: rgba(255,153,51,0.55); box-shadow: 0 14px 34px rgba(0,0,0,0.28); }
+  .olymp-fact:hover::after { opacity:1; }
+  .olymp-fact:hover .olymp-fact-ico { transform: scale(1.18) translateY(-1px); }
+  .olymp-fact-ico { font-size: 23px; margin-bottom: 6px; transition: transform .25s cubic-bezier(.34,1.56,.64,1); position:relative; z-index:1; }
+  .olymp-fact-val { font-family: 'Syne', var(--font-ui), sans-serif; font-size: 18px; font-weight: 800; color: var(--oly-txt); line-height: 1.1; position:relative; z-index:1; }
+  .olymp-fact-lbl { font-family: var(--font-ui); font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--oly-muted); margin-top: 4px; position:relative; z-index:1; }
+
+  .olymp-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 18px; align-items: stretch; }
+  .olymp-panel { background: var(--oly-card); border: 1px solid var(--oly-bd); border-radius: 20px; padding: 20px; transition: border-color .25s, box-shadow .25s; }
+  .olymp-panel:hover { border-color: rgba(120,160,255,0.28); box-shadow: 0 16px 40px rgba(0,0,0,0.22); }
+  .olymp-panel-t { font-family: var(--font-ui); font-size: 12px; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; color: var(--oly-muted); margin-bottom: 13px; display: flex; align-items: center; gap: 8px; }
+  .olymp-rounds { display: flex; flex-direction: column; gap: 10px; }
+  .olymp-round { display: flex; align-items: center; gap: 13px; padding: 12px 13px; border-radius: 14px; background: var(--oly-card); border: 1px solid var(--oly-bd); transition: transform .25s cubic-bezier(.22,1,.36,1), border-color .25s, background .25s; cursor: default; }
+  .olymp-round:hover { transform: translateX(6px); border-color: rgba(58,160,255,0.55); background: rgba(58,160,255,0.06); }
+  .olymp-round:hover .olymp-round-num { transform: rotate(-8deg) scale(1.1); box-shadow: 0 8px 22px rgba(0,140,255,0.5); }
+  .olymp-round-num { width: 38px; height: 38px; border-radius: 11px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 15px; color: #fff; background: linear-gradient(135deg,var(--cyber),#0067d6); box-shadow: 0 6px 16px rgba(0,103,214,0.3); transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s; }
+  .olymp-round-txt strong { display: block; font-family: var(--font-ui); font-size: 14.5px; font-weight: 700; color: var(--oly-txt); margin-bottom: 2px; }
+  .olymp-round-txt span { font-family: var(--font-ui); font-size: 12px; color: var(--oly-sub); line-height: 1.42; }
+
+  .olymp-prizes { display: flex; flex-direction: column; gap: 10px; }
+  .olymp-prize { display: flex; align-items: center; gap: 12px; padding: 11px 14px; border-radius: 14px; border: 1px solid var(--oly-bd); transition: transform .25s, box-shadow .25s; cursor: default; }
+  .olymp-prize:hover { transform: translateX(5px) scale(1.015); }
+  .olymp-prize:hover .olymp-prize-medal { animation: olyMedal .6s ease; }
+  @keyframes olyMedal { 0%,100%{transform:rotate(0) scale(1)} 30%{transform:rotate(-14deg) scale(1.22)} 60%{transform:rotate(10deg) scale(1.12)} }
+  .olymp-prize.gold   { background: linear-gradient(90deg,rgba(232,185,35,0.18),transparent); border-color: rgba(232,185,35,0.5); }
+  .olymp-prize.gold:hover   { box-shadow: 0 10px 26px rgba(232,185,35,0.22); }
+  .olymp-prize.silver { background: linear-gradient(90deg,rgba(192,200,212,0.18),transparent); border-color: rgba(192,200,212,0.5); }
+  .olymp-prize.bronze { background: linear-gradient(90deg,rgba(217,145,90,0.18),transparent); border-color: rgba(217,145,90,0.5); }
+  .olymp-prize-medal { font-size: 25px; flex-shrink: 0; transition: transform .25s; }
+  .olymp-prize-txt strong { display: block; font-family: var(--font-ui); font-size: 13.5px; color: var(--oly-txt); font-weight: 800; }
+  .olymp-prize-txt span { font-family: var(--font-ui); font-size: 11.5px; color: var(--oly-sub); }
+  .olymp-cert { margin-top: 12px; font-family: var(--font-ui); font-size: 12px; color: var(--oly-sub); text-align: center; padding-top: 11px; border-top: 1px dashed var(--oly-bd); }
+
+  .olymp-footer { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 20px; flex-wrap: wrap; }
+  .olymp-tagline { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-ui); font-size: 13px; color: var(--oly-muted); font-weight: 700; }
+  .olymp-cta { position:relative; overflow:hidden; display: inline-flex; align-items: center; gap: 10px; padding: 13px 28px; border-radius: 12px; background: linear-gradient(135deg,var(--saffron),#ff7a00); color: #fff; font-family: var(--font-ui); font-weight: 800; font-size: 15px; text-decoration: none; box-shadow: 0 12px 30px rgba(255,120,0,0.32); transition: transform .2s, box-shadow .2s; }
+  .olymp-cta::before { content:''; position:absolute; top:0; left:-120%; width:60%; height:100%; background: linear-gradient(105deg, transparent, rgba(255,255,255,0.45), transparent); transform: skewX(-18deg); transition: left .6s; }
+  .olymp-cta:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 18px 46px rgba(255,120,0,0.5); }
+  .olymp-cta:hover::before { left: 130%; }
+
+  /* Rotating tricolor "chakra" glow behind the content */
+  .olymp-chakra { position:absolute; top:46%; left:50%; width:min(78vw,780px); height:min(78vw,780px); transform:translate(-50%,-50%); z-index:0; pointer-events:none; border-radius:50%;
+    background: conic-gradient(from 0deg, rgba(255,153,51,0.12), rgba(255,255,255,0.05) 18%, rgba(30,175,91,0.12) 42%, rgba(58,160,255,0.10) 68%, rgba(255,153,51,0.12));
+    filter: blur(24px); opacity:0.5; animation: olySpin 46s linear infinite; }
+  .olymp-chakra::after { content:''; position:absolute; inset:26%; border-radius:50%; border:1px dashed rgba(255,255,255,0.06); }
+  [data-theme="light"] .olymp-chakra { opacity:0.42; }
+  @keyframes olySpin { to { transform:translate(-50%,-50%) rotate(360deg); } }
+
+  /* Scroll-reveal entrance transitions */
+  .oly-reveal { opacity:0; transform: translateY(24px) scale(0.985); transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1); }
+  .oly-reveal.in { opacity:1; transform: none; }
+  .olymp-facts .olymp-fact:nth-child(1){ transition-delay:.02s } .olymp-facts .olymp-fact:nth-child(2){ transition-delay:.09s } .olymp-facts .olymp-fact:nth-child(3){ transition-delay:.16s } .olymp-facts .olymp-fact:nth-child(4){ transition-delay:.23s }
+  .olymp-grid .olymp-panel:nth-child(2){ transition-delay:.12s }
+  @media (prefers-reduced-motion: reduce){ .oly-reveal{ opacity:1; transform:none; } .olymp-chakra,.olymp-orb,.olymp-spark{ animation:none; } }
+
+  @media (max-width: 860px) { .olymp { min-height: 0; padding: 64px 0; } .olymp-grid { grid-template-columns: 1fr; } .olymp-facts { grid-template-columns: repeat(2,1fr); } .olymp-footer { flex-direction: column; align-items: stretch; text-align: center; } .olymp-cta { justify-content: center; } .olymp-tagline { justify-content: center; } }
+  </style>
+
+  <section class="olymp" id="olympiad-quiz">
+    <div class="olymp-fx" aria-hidden="true">
+      <div class="olymp-chakra"></div>
+      <div class="olymp-orb o1"></div><div class="olymp-orb o2"></div><div class="olymp-orb o3"></div>
+      <span class="olymp-spark" style="left:20%; animation-delay:0s"></span>
+      <span class="olymp-spark" style="left:38%; animation-delay:1.6s"></span>
+      <span class="olymp-spark" style="left:57%; animation-delay:3.1s"></span>
+      <span class="olymp-spark" style="left:72%; animation-delay:0.8s"></span>
+      <span class="olymp-spark" style="left:85%; animation-delay:2.4s"></span>
+    </div>
+    <div class="olymp-inner">
+      <div class="olymp-ribbon"><span><span class="odot"></span>National Cyber Olympiad · 2025 Season</span></div>
+
+      <div class="olymp-head">
+        <span class="olymp-eyebrow">🇮🇳 India's Student Cyber Championship</span>
+        <h2 class="olymp-title">Train Hard. <span class="g">Compete National.</span></h2>
+        <p class="olymp-sub">Sharpen your instincts, represent your school, and prove you're cyber-ready on a national stage.</p>
       </div>
 
-      <div class="nco-layout">
+      <div class="olymp-facts">
+        <div class="olymp-fact oly-reveal"><div class="olymp-fact-ico">🎓</div><div class="olymp-fact-val">Ages 12–19</div><div class="olymp-fact-lbl">Grades VI–XII</div></div>
+        <div class="olymp-fact oly-reveal"><div class="olymp-fact-ico">🗺️</div><div class="olymp-fact-val">All India</div><div class="olymp-fact-lbl">Every State &amp; UT</div></div>
+        <div class="olymp-fact oly-reveal"><div class="olymp-fact-ico">🧩</div><div class="olymp-fact-val">3 Rounds</div><div class="olymp-fact-lbl">Progressive difficulty</div></div>
+        <div class="olymp-fact oly-reveal"><div class="olymp-fact-ico">🏅</div><div class="olymp-fact-val">National Ranks</div><div class="olymp-fact-lbl">Medals &amp; certificates</div></div>
+      </div>
 
-        <!-- ═══ LEFT: LEVEL PROGRESSION PATH ═══ -->
-        <div class="nco-path-wrap">
-          <div class="nco-path-line"><div class="nco-path-fill" id="ncoPathFill"></div></div>
-
-          <!-- Level 1 -->
-          <div class="nco-level" data-nco-level="1" id="ncoLv1">
-            <div class="nco-node-col">
-              <div class="nco-node">🛡️</div>
-            </div>
-            <div class="nco-card">
-              <div class="nco-card-top">
-                <div class="nco-badge">Level 1</div>
-                <div class="nco-card-title">Cyber Awareness Test</div>
-                <div class="nco-card-chevron">›</div>
-              </div>
-              <div class="nco-card-body">
-                <div class="nco-topics">
-                  <span>💡 Digital Literacy</span>
-                  <span>🔐 Password Safety</span>
-                  <span>🌐 Internet Security</span>
-                  <span>🧼 Cyber Hygiene</span>
-                </div>
-                <p class="nco-desc">Foundation knowledge for every student. No prior experience needed — just curiosity.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Connector arrow -->
-          <div class="nco-arrow-step">↓</div>
-
-          <!-- Level 2 -->
-          <div class="nco-level" data-nco-level="2" id="ncoLv2">
-            <div class="nco-node-col">
-              <div class="nco-node">🎯</div>
-            </div>
-            <div class="nco-card">
-              <div class="nco-card-top">
-                <div class="nco-badge">Level 2</div>
-                <div class="nco-card-title">Threat Detection Challenge</div>
-                <div class="nco-card-chevron">›</div>
-              </div>
-              <div class="nco-card-body">
-                <div class="nco-topics">
-                  <span>🎣 Spot Phishing Emails</span>
-                  <span>💬 Suspicious Messages</span>
-                  <span>📋 Malicious Logs</span>
-                  <span>⚠️ Attack Indicators</span>
-                </div>
-                <p class="nco-desc">Think like a threat analyst. Identify what&rsquo;s real and what&rsquo;s a trap before it&rsquo;s too late.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Connector arrow -->
-          <div class="nco-arrow-step">↓</div>
-
-          <!-- Level 3 -->
-          <div class="nco-level" data-nco-level="3" id="ncoLv3">
-            <div class="nco-node-col">
-              <div class="nco-node">🔍</div>
-            </div>
-            <div class="nco-card">
-              <div class="nco-card-top">
-                <div class="nco-badge nco-badge-gold">Level 3</div>
-                <div class="nco-card-title">Cyber Analyst Round</div>
-                <div class="nco-card-chevron">›</div>
-              </div>
-              <div class="nco-card-body">
-                <div class="nco-topics">
-                  <span>📝 Explain Findings</span>
-                  <span>🔬 Analyse Scenarios</span>
-                  <span>🛡️ Recommend Mitigations</span>
-                  <span>⚖️ Justify Decisions</span>
-                </div>
-                <p class="nco-desc">The elite round. Demonstrate real analyst thinking — this is where champions emerge.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="nco-cta-row">
-            <a href="olympiad.html" class="btn-primary">Register for the Olympiad →</a>
+      <div class="olymp-grid">
+        <div class="olymp-panel oly-reveal">
+          <div class="olymp-panel-t">🏁 Three Rounds to the Title</div>
+          <div class="olymp-rounds">
+            <div class="olymp-round"><div class="olymp-round-num">1</div><div class="olymp-round-txt"><strong>Cyber Awareness Test</strong><span>Digital literacy, password safety and cyber hygiene — the foundation every student needs.</span></div></div>
+            <div class="olymp-round"><div class="olymp-round-num">2</div><div class="olymp-round-txt"><strong>Threat Detection Challenge</strong><span>Spot phishing, suspicious messages and attack indicators before it's too late.</span></div></div>
+            <div class="olymp-round"><div class="olymp-round-num">3</div><div class="olymp-round-txt"><strong>Cyber Analyst Round</strong><span>Analyse real scenarios and recommend fixes — the elite round where champions emerge.</span></div></div>
           </div>
         </div>
-
-        <!-- ═══ RIGHT: SHIELD + QUIZ ═══ -->
-        <div class="nco-right-col">
-
-          <!-- Shield -->
-          <div class="nco-shield-wrap">
-            <svg class="nco-shield-svg" viewBox="0 0 200 230" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="shieldGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#007aff"/>
-                  <stop offset="100%" stop-color="#00d2ff"/>
-                </linearGradient>
-                <clipPath id="shieldClip">
-                  <path d="M100 8 L190 40 L190 110 C190 160 140 200 100 220 C60 200 10 160 10 110 L10 40 Z"/>
-                </clipPath>
-              </defs>
-              <!-- Shield outline glow -->
-              <path d="M100 8 L190 40 L190 110 C190 160 140 200 100 220 C60 200 10 160 10 110 L10 40 Z"
-                    stroke="rgba(0,122,255,0.25)" stroke-width="2" fill="rgba(0,122,255,0.04)"/>
-              <!-- Shield fill (animated height) -->
-              <rect id="ncoShieldFill" x="0" y="230" width="200" height="0"
-                    fill="url(#shieldGrad)" opacity="0.18" clip-path="url(#shieldClip)"/>
-              <!-- Shield stroke progress -->
-              <path id="ncoShieldStroke"
-                    d="M100 8 L190 40 L190 110 C190 160 140 200 100 220 C60 200 10 160 10 110 L10 40 Z"
-                    stroke="url(#shieldGrad)" stroke-width="2.5" fill="none"
-                    stroke-dasharray="620" stroke-dashoffset="620"/>
-              <!-- Lock icon -->
-              <g transform="translate(68, 80)">
-                <rect x="9" y="22" width="46" height="36" rx="6" fill="rgba(0,122,255,0.15)" stroke="rgba(0,122,255,0.5)" stroke-width="1.5"/>
-                <path d="M22 22 L22 14 A10 10 0 0 1 42 14 L42 22" stroke="rgba(0,122,255,0.6)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                <circle cx="32" cy="38" r="5" fill="rgba(0,122,255,0.8)"/>
-                <line x1="32" y1="43" x2="32" y2="50" stroke="rgba(0,122,255,0.8)" stroke-width="2.5" stroke-linecap="round"/>
-              </g>
-            </svg>
-            <div class="nco-shield-label">Cyber IQ Score</div>
-            <div class="nco-shield-pct" id="ncoShieldPct">0<span>%</span></div>
+        <div class="olymp-panel oly-reveal">
+          <div class="olymp-panel-t">🏆 What You Compete For</div>
+          <div class="olymp-prizes">
+            <div class="olymp-prize gold"><div class="olymp-prize-medal">🥇</div><div class="olymp-prize-txt"><strong>National Gold</strong><span>Champion's trophy &amp; top rank</span></div></div>
+            <div class="olymp-prize silver"><div class="olymp-prize-medal">🥈</div><div class="olymp-prize-txt"><strong>National Silver</strong><span>Runner-up honours</span></div></div>
+            <div class="olymp-prize bronze"><div class="olymp-prize-medal">🥉</div><div class="olymp-prize-txt"><strong>National Bronze</strong><span>Third-place recognition</span></div></div>
           </div>
-
-          <!-- Quiz -->
-          <div class="nco-quiz-card" id="ncoQuizCard">
-            <div class="nco-quiz-hd">
-              <span class="nco-quiz-title">⚡ Cyber IQ Challenge</span>
-              <span class="nco-quiz-timer" id="ncoTimer">0:30</span>
-            </div>
-            <div class="nco-quiz-progress-bar"><div class="nco-quiz-progress-fill" id="ncoProgressFill"></div></div>
-
-            <div id="ncoQuizBody">
-              <div class="nco-quiz-q" id="ncoQuestion"></div>
-              <div class="nco-quiz-opts" id="ncoOpts"></div>
-            </div>
-            <div class="nco-quiz-result" id="ncoResult" style="display:none"></div>
-
-            <button class="nco-quiz-start-btn" id="ncoStartBtn" onclick="ncoStartQuiz()">Start the Challenge →</button>
-          </div>
+          <div class="olymp-cert">🎖️ Every finalist earns a recognised certificate of achievement</div>
         </div>
+      </div>
 
+      <div class="olymp-footer oly-reveal">
+        <div class="olymp-tagline">🛡️ Represent your school on India's biggest student cyber stage</div>
+        <a href="olympiad.html" class="olymp-cta">Register Now →</a>
       </div>
     </div>
-
     <script>
-    // ── NCO Scroll-lit path ──────────────────────────────────
-    (function() {
-      var levels = document.querySelectorAll('.nco-level');
-      var fill   = document.getElementById('ncoPathFill');
-      var io = new IntersectionObserver(function(entries) {
-        entries.forEach(function(e) {
-          if (e.isIntersecting) {
-            e.target.classList.add('lit');
-            var litCount = document.querySelectorAll('.nco-level.lit').length;
-            var pct = Math.round((litCount / levels.length) * 100);
-            if (fill) fill.style.height = pct + '%';
-            // Also animate shield if quiz not started
-            if (!window._ncoQuizStarted) ncoAnimateShield(pct * 0.6);
-          }
-        });
-      }, { threshold: 0.4 });
-      levels.forEach(function(l) { io.observe(l); });
-    })();
-
-
-    // ── Shield animation ─────────────────────────────────────
-    var _ncoCurrentPct = 0;
-    window.ncoAnimateShield = function(targetPct) {
-      var pctEl   = document.getElementById('ncoShieldPct');
-      var stroke  = document.getElementById('ncoShieldStroke');
-      var fillEl  = document.getElementById('ncoShieldFill');
-      var start   = _ncoCurrentPct;
-      var dur     = 1200;
-      var t0      = null;
-      function step(ts) {
-        if (!t0) t0 = ts;
-        var p = Math.min((ts - t0) / dur, 1);
-        var ease = 1 - Math.pow(1 - p, 3);
-        var cur  = start + (targetPct - start) * ease;
-        _ncoCurrentPct = cur;
-        if (pctEl) pctEl.innerHTML = Math.round(cur) + '<span>%</span>';
-        if (stroke) stroke.setAttribute('stroke-dashoffset', 620 - (620 * cur / 100));
-        if (fillEl) {
-          var h = (cur / 100) * 230;
-          fillEl.setAttribute('y', 230 - h);
-          fillEl.setAttribute('height', h);
-        }
-        if (p < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    };
-
-    // ── Quiz engine ──────────────────────────────────────────
-    var _ncoQs = [
-      {
-        q: "Which password is strongest?",
-        opts: ["fluffy123", "P@$$w0rd!", "kT#9qL!mR2vX", "qwerty"],
-        ans: 2
-      },
-      {
-        q: "An email from 'paypa1-verify.net' asks for your password. You should…",
-        opts: ["Click the link and verify", "Ignore and check PayPal directly", "Reply with your details", "Forward to friends"],
-        ans: 1
-      },
-      {
-        q: "What does 2FA stand for?",
-        opts: ["Two-File Access", "Two-Factor Authentication", "Transfer-Fail Alert", "Twice-Flagged Account"],
-        ans: 1
-      },
-      {
-        q: "Which is a warning sign of malware?",
-        opts: ["Faster internet speed", "New wallpaper appeared", "Sudden pop-ups & slowdown", "Better battery life"],
-        ans: 2
-      },
-      {
-        q: "Phishing is best described as…",
-        opts: ["Catching fish online", "Tricking people into giving sensitive info", "Encrypted file transfer", "A network speed test"],
-        ans: 1
-      }
-    ];
-
-    var _ncoIdx      = 0;
-    var _ncoScore    = 0;
-    var _ncoTimer    = null;
-    var _ncoSecs     = 30;
-    var _ncoAnswered = false;
-    window._ncoQuizStarted = false;
-
-    window.ncoStartQuiz = function() {
-      window._ncoQuizStarted = true;
-      _ncoIdx = 0; _ncoScore = 0; _ncoSecs = 30; _ncoAnswered = false;
-      document.getElementById('ncoStartBtn').style.display = 'none';
-      document.getElementById('ncoResult').style.display   = 'none';
-      document.getElementById('ncoQuizBody').style.display = 'block';
-      ncoShowQuestion();
-      ncoAnimateShield(0);
-      _ncoTimer = setInterval(function() {
-        _ncoSecs--;
-        var m = Math.floor(_ncoSecs / 60);
-        var s = _ncoSecs % 60;
-        var timerEl = document.getElementById('ncoTimer');
-        if (timerEl) timerEl.textContent = m + ':' + (s < 10 ? '0' : '') + s;
-        var fillEl = document.getElementById('ncoProgressFill');
-        if (fillEl) fillEl.style.width = ((_ncoSecs / 30) * 100) + '%';
-        if (_ncoSecs <= 0) ncoEndQuiz();
-      }, 1000);
-    };
-
-    function ncoShowQuestion() {
-      var q = _ncoQs[_ncoIdx];
-      var qEl = document.getElementById('ncoQuestion');
-      var oEl = document.getElementById('ncoOpts');
-      if (!qEl || !oEl) return;
-      qEl.textContent = 'Q' + (_ncoIdx + 1) + ' of ' + _ncoQs.length + ': ' + q.q;
-      oEl.innerHTML = '';
-      q.opts.forEach(function(opt, i) {
-        var btn = document.createElement('button');
-        btn.className = 'nco-opt-btn';
-        btn.textContent = opt;
-        btn.onclick = function() { ncoAnswer(i, btn); };
-        oEl.appendChild(btn);
-      });
-      _ncoAnswered = false;
-    }
-
-    window.ncoAnswer = function(idx, btn) {
-      if (_ncoAnswered) return;
-      _ncoAnswered = true;
-      var correct = (_ncoQs[_ncoIdx].ans === idx);
-      if (correct) { _ncoScore++; btn.classList.add('correct'); }
-      else {
-        btn.classList.add('wrong');
-        var btns = document.querySelectorAll('.nco-opt-btn');
-        if (btns[_ncoQs[_ncoIdx].ans]) btns[_ncoQs[_ncoIdx].ans].classList.add('correct');
-      }
-      setTimeout(function() {
-        _ncoIdx++;
-        if (_ncoIdx < _ncoQs.length) { ncoShowQuestion(); }
-        else { ncoEndQuiz(); }
-      }, 700);
-    };
-
-    function ncoEndQuiz() {
-      clearInterval(_ncoTimer);
-      var pct    = Math.round((_ncoScore / _ncoQs.length) * 100);
-      var rEl    = document.getElementById('ncoResult');
-      var bEl    = document.getElementById('ncoQuizBody');
-      var sBtn   = document.getElementById('ncoStartBtn');
-      if (bEl) bEl.style.display = 'none';
-      ncoAnimateShield(pct);
-      var badge, msg;
-      if (pct >= 80)      { badge = '🛡️ Cyber Guardian';  msg = 'Elite-level instincts. You&rsquo;re ready for Level 3.'; }
-      else if (pct >= 60) { badge = '🎯 Cyber Analyst';   msg = 'Solid foundations. Level 2 is your launchpad.'; }
-      else                { badge = '🌱 Cyber Learner';   msg = 'Everyone starts somewhere. Level 1 will build your core skills.'; }
-      if (rEl) {
-        rEl.innerHTML = '<div class="nco-result-badge">' + badge + '</div>'
-          + '<div class="nco-result-score">' + _ncoScore + ' / ' + _ncoQs.length + ' correct</div>'
-          + '<div class="nco-result-msg">' + msg + '</div>'
-          + '<a href="olympiad.html" class="btn-primary" style="margin-top:16px;display:inline-block">Register Now →</a>';
-        rEl.style.display = 'block';
-      }
-      if (sBtn) { sBtn.textContent = 'Try Again'; sBtn.style.display = 'inline-block'; }
-    }
+      (function(){
+        var els = document.querySelectorAll('#olympiad-quiz .oly-reveal');
+        if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in');}); return; }
+        var io = new IntersectionObserver(function(entries){
+          entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+        }, { threshold: 0.2 });
+        els.forEach(function(e){ io.observe(e); });
+      })();
     </script>
   </section>
 
@@ -1397,7 +1279,7 @@
           <div class="pb-now-bar">
             <div class="pb-now-dot"></div>
             <div class="pb-now-label">Ep 01 — The Lottery Trap: How PHISH Steals Your Dreams</div>
-            <div class="pb-now-tag">Phish &amp; Chip</div>
+            <div class="pb-now-tag">The Phish &amp; Chip Show</div>
           </div>
         </div>
 
@@ -1713,13 +1595,13 @@
             <a href="platform.html">CASK</a>
             <a href="surakshak.html">Surakshak</a>
             <a href="olympiad.html">Olympiad</a>
-            <a href="phishnchip.html">Phish &amp; Chip</a>
+            <a href="phishnchip.html">The Phish &amp; Chip Show</a>
             <a href="slanglish.html">Slanglish</a>
           </div>
           <div class="footer-col">
             <h5>Organisation</h5>
             <a href="#about">About</a>
-            <a href="resources.html">Resources</a>
+            <a href="resources.html">Books</a>
             <a href="partner.html">Partner With Us</a>
             <a href="https://hashtagsuraksha.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
             <a href="https://hashtagsuraksha.com/terms-of-use" target="_blank" rel="noopener">Terms of Use</a>
@@ -2728,7 +2610,7 @@
       nums.forEach(n => obs.observe(n));
     })();
 
-    // Mini play button toggle for Phish & Chip card
+    // Mini play button toggle for The Phish & Chip Show card
     document.querySelectorAll('.mini-play-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();

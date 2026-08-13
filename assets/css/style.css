@@ -174,7 +174,7 @@ img { max-width: 100%; }
 }
 .logo-hash { color: var(--saffron); }
 .logo-text { color: var(--navy); }
-.nav-logo-img { height: 46px; width: auto; display: block; }
+.nav-logo-img { height: clamp(90px, 5vw, 100px); width: auto; display: block; }
 .footer-logo-img { height: 32px; width: auto; filter: brightness(0) invert(1); }
 
 /* partner placeholder badges */
@@ -228,18 +228,24 @@ img { max-width: 100%; }
 
 .hamburger {
   display: none;
-  background: none;
-  border: none;
-  font-size: 22px;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 16px;
+  border: 1px solid #bebebe;
   cursor: pointer;
   color: var(--navy);
   margin-left: auto;
 }
 
+[data-theme="dark"] .nav:not(.scrolled) .hamburger {
+  color: var(--white);
+  border-color: #555;
+}
+
 .mobile-menu {
   display: none;
   flex-direction: column;
-  background: white;
+  background: var(--bg-surface);
   padding: 16px 24px 24px;
   border-top: 1px solid var(--gray-200);
   gap: 4px;

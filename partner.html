@@ -5,53 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Partner With Us — Hashtag Suraksha</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="./assets/css/global.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
   <style>
     /* ═══════════════════════════════════════
        PARTNER · Forest Green + Coral
     ═══════════════════════════════════════ */
     :root {
-      --bg:     #F0FAF6;
-      --surf:   #E4F4ED;
+      --bg:     #EEFCFA;
+      --surf:   #DCF5F0;
       --card:   #FFFFFF;
-      --ink:    #0A1F16;
-      --mut:    #4A6658;
-      --bdr:    #C8E5D8;
-      --pri:    #065F46;
-      --pri2:   #047857;
-      --acc:    #EA5234;
-      --acc-s:  #FFF1EE;
-      --gold:   #B45309;
-      --gold-s: #FFFBEB;
+      --ink:    #0B1F3A;
+      --mut:    #46577A;
+      --bdr:    #CBD9F0;
+      --pri:    #F5860B;
+      --pri2:   #EA580C;
+      --acc:    #F5860B;
+      --acc-s:  #FFF3E6;
+      --lime:   #FB6D5B;
+      --amber:  #F59E0B;
+      --gold:   #D97706;
+      --gold-s: #FFF7ED;
     }
     [data-theme="dark"] {
-      --bg:     #060F0C;
-      --surf:   #0C1812;
-      --card:   #122018;
-      --ink:    #D4EDE0;
-      --mut:    #6A9980;
-      --bdr:    #1C3328;
-      --pri:    #34D399;
-      --pri2:   #6EE7B7;
-      --acc:    #FB7657;
-      --acc-s:  #2A0F08;
+      --bg:     #050B1A;
+      --surf:   #0B1730;
+      --card:   #0F1E3D;
+      --ink:    #E7EDFB;
+      --mut:    #93A4C6;
+      --bdr:    #1D2E52;
+      --pri:    #FBBF24;
+      --pri2:   #FCD34D;
+      --acc:    #FBBF24;
+      --acc-s:  #16213D;
+      --lime:   #FB7C66;
+      --amber:  #FCD34D;
       --gold:   #FCD34D;
-      --gold-s: #2A200A;
+      --gold-s: #1A1206;
     }
-    /* ── NAV ALWAYS WHITE ─────────────────── */
-    .nav,
-    [data-theme="dark"] .nav {
-      background: rgba(255,255,255,0.96) !important;
-      border-bottom: 1px solid #E2E8F0 !important;
-      backdrop-filter: blur(20px) !important;
-    }
-    [data-theme="dark"] .nav .nav-links li a { color: #1A1A2E !important; }
-    [data-theme="dark"] .nav .nav-links li a.active,
-    [data-theme="dark"] .nav .nav-links li a:hover { color: #065F46 !important; }
-    [data-theme="dark"] .nav-logo-img { filter: none !important; }
-    [data-theme="dark"] .theme-toggle-btn { color: #1A1A2E !important; }
-    [data-theme="dark"] .nav-cta { background: #065F46 !important; color: #fff !important; }
+
     /* ── BASE ─────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -544,9 +536,333 @@
       .usi-stat-grid { grid-template-columns: 1fr 1fr; }
       .ph-chips { gap: 8px; }
     }
+  
+    /* ══════════════════════════════════════════════════════════
+       PARTNER REDESIGN — animated gradient bg · glass · bold motion · both themes
+       ══════════════════════════════════════════════════════════ */
+    :root { --pr-glass: rgba(255,255,255,0.74); --pr-glassbd: rgba(10,40,28,0.10); --pr-solid: rgba(247,252,249,0.95); }
+    [data-theme="dark"] { --pr-glass: rgba(12,26,20,0.55); --pr-glassbd: rgba(120,200,160,0.14); --pr-solid: rgba(9,19,14,0.95); }
+
+    /* Bold moving gradient background — visibly different in dark vs light */
+    body { background: transparent !important; }
+    /* DARK: deep teal → ink, bold moving, teal/lime glows */
+    /* Azure Topo Flow shader canvas (forked light/dark palette) */
+    #shader-canvas { position:fixed; inset:0; width:100vw; height:100vh; z-index:-3; display:block; pointer-events:none; }
+    /* Warm veil for depth + text contrast, layered over the shader */
+    .pr-bg { position:fixed; inset:0; z-index:-2; pointer-events:none;
+      background:
+        radial-gradient(ellipse 54% 44% at 84% 0%, rgba(245,134,11,0.10), transparent 60%),
+        radial-gradient(ellipse 50% 44% at 2% 26%, rgba(251,109,91,0.10), transparent 60%),
+        radial-gradient(ellipse 60% 50% at 50% 112%, rgba(245,158,11,0.10), transparent 62%); }
+    [data-theme="dark"] .pr-bg { background:
+        radial-gradient(ellipse 56% 46% at 84% 0%, rgba(251,191,36,0.12), transparent 60%),
+        radial-gradient(ellipse 52% 46% at 2% 26%, rgba(251,124,102,0.12), transparent 60%),
+        radial-gradient(ellipse 62% 52% at 50% 112%, rgba(245,158,11,0.10), transparent 62%),
+        linear-gradient(180deg, rgba(5,11,26,0.32), rgba(5,11,26,0.10) 40%, rgba(5,11,26,0.34)); }
+
+    /* Sections transparent so the gradient shows through */
+    .s-white, [data-theme="dark"] .s-white, .s-bg, .s-surf, .s-dark, [data-theme="dark"] .s-dark,
+    .ph, [data-theme="dark"] .ph, .cta-sec { background: transparent !important; }
+    .ps, .cta-sec, .ph { position:relative; z-index:1; }
+
+    /* Existing cards → glass, both themes */
+    .about-pillar, [data-theme="dark"] .about-pillar,
+    .ben-card, .hw-card, .usi-wrap, [data-theme="dark"] .usi-wrap,
+    .usi-acc-item, .cta-form, .ph-chip, [data-theme="dark"] .ph-chip {
+      background: var(--pr-glass) !important; border:1px solid var(--pr-glassbd) !important;
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    }
+    .ben-card, .hw-card, .about-pillar { transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s, border-color .3s !important; }
+    .ben-card:hover, .about-pillar:hover { transform: translateY(-6px) scale(1.015); box-shadow: 0 22px 48px rgba(0,0,0,.22); border-color: color-mix(in srgb, var(--acc) 45%, transparent) !important; }
+    .ben-card:hover .ben-icon { transform: rotate(-8deg) scale(1.14); }
+    .ben-icon { transition: transform .3s cubic-bezier(.34,1.56,.64,1); display:inline-block; }
+
+    /* How-it-works → bold connected timeline */
+    .hw-grid { position:relative; }
+    .hw-card { position:relative; overflow:hidden; }
+    .hw-card::after { content:''; position:absolute; left:0; top:0; height:100%; width:4px; background:linear-gradient(180deg,var(--acc),transparent); transform:scaleY(0); transform-origin:top; transition:transform .5s cubic-bezier(.22,1,.36,1); }
+    .hw-card:hover { transform: translateY(-6px); box-shadow:0 22px 48px rgba(0,0,0,.22); border-color: color-mix(in srgb,var(--acc) 45%, transparent) !important; }
+    .hw-card:hover::after { transform:scaleY(1); }
+    .hw-num { transition: transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .35s; }
+    .hw-card:hover .hw-num { transform: scale(1.15) rotate(-6deg); box-shadow:0 10px 26px color-mix(in srgb,var(--acc) 40%, transparent); }
+
+    /* Hero gradient headline pop */
+    .ph-h1 em { background: linear-gradient(90deg, var(--acc), #22C55E); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .ph-chip { transition: transform .25s cubic-bezier(.22,1,.36,1), border-color .25s, box-shadow .25s; }
+    .ph-chip:hover { transform: translateY(-3px); border-color: color-mix(in srgb,var(--acc) 50%, transparent) !important; box-shadow:0 8px 22px rgba(0,0,0,.2); }
+
+    /* ── VERTICALS · 3D COVERFLOW ── */
+    .pv-wrap { max-width:1200px; margin:0 auto; }
+    .pv-carousel { position:relative; margin-top:30px; padding:0 52px; }
+    .pv-stage { position:relative; height:clamp(320px,44vh,392px); perspective:1600px; overflow:hidden; }
+    .pv-track { position:absolute; inset:0; transform-style:preserve-3d; }
+    .pv-item { position:absolute; left:50%; top:50%; width:clamp(220px,20vw,272px); aspect-ratio:5/6.4; cursor:pointer;
+      transition: transform .62s cubic-bezier(.22,1,.36,1), opacity .5s, filter .5s; will-change:transform; }
+    .pv-card { position:relative; width:100%; height:100%; border-radius:22px; overflow:hidden; padding:26px 22px;
+      background: var(--pr-solid); border:1.5px solid color-mix(in srgb,var(--ca) 40%, var(--pr-glassbd));
+      backdrop-filter: blur(16px); -webkit-backdrop-filter:blur(16px);
+      box-shadow:0 26px 56px rgba(0,0,0,.42); display:flex; flex-direction:column; align-items:flex-start;
+      transition: box-shadow .5s, border-color .5s; }
+    .pv-item.is-active .pv-card { border-color: color-mix(in srgb,var(--ca) 70%, transparent); box-shadow:0 34px 72px rgba(0,0,0,.5), 0 0 44px color-mix(in srgb,var(--ca) 30%, transparent); animation: pvFloat 5.5s ease-in-out infinite; }
+    @keyframes pvFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    .pv-item:not(.is-active) .pv-card { filter:brightness(.82) saturate(.92); }
+    .pv-card::before { content:''; position:absolute; left:0; right:0; top:0; height:6px; background:linear-gradient(90deg,var(--ca),transparent); }
+    .pv-ico { width:60px; height:60px; border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:28px; margin-bottom:16px;
+      background: color-mix(in srgb,var(--ca) 18%, transparent); border:1px solid color-mix(in srgb,var(--ca) 40%, transparent); box-shadow:0 0 22px color-mix(in srgb,var(--ca) 26%, transparent); }
+    .pv-name { font-family:'Outfit',sans-serif; font-size:20px; font-weight:800; color:var(--ink); line-height:1.15; margin-bottom:9px; }
+    .pv-tag { display:inline-block; font-family:'Outfit',sans-serif; font-size:10.5px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--ca); padding:4px 11px; border-radius:999px; background: color-mix(in srgb,var(--ca) 14%, transparent); border:1px solid color-mix(in srgb,var(--ca) 34%, transparent); margin-bottom:14px; }
+    .pv-desc { font-size:13.5px; color:var(--mut); line-height:1.6; }
+    .pv-arrow { position:absolute; top:44%; transform:translateY(-50%); z-index:20; width:48px; height:48px; border-radius:50%;
+      background:var(--pr-glass); border:1px solid var(--pr-glassbd); color:var(--ink); font-size:22px; cursor:pointer; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(10px);
+      transition: transform .2s, background .2s, border-color .2s, box-shadow .2s; }
+    .pv-arrow:hover { background:var(--acc); border-color:var(--acc); color:#fff; transform:translateY(-50%) scale(1.1); box-shadow:0 8px 24px color-mix(in srgb,var(--acc) 45%, transparent); }
+    .pv-arrow.prev{ left:0 } .pv-arrow.next{ right:0 }
+    .pv-dots { display:flex; gap:8px; justify-content:center; margin-top:22px; }
+    .pv-dot { width:8px; height:8px; border-radius:999px; background:var(--bdr); border:none; cursor:pointer; transition:width .3s, background .3s; padding:0; }
+    .pv-dot.on { width:28px; background:var(--acc); }
+
+    /* ── MODELS · FLIP CARDS ── */
+    .pf-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:34px; }
+    .pf-card { position:relative; aspect-ratio:3/4; perspective:1400px; cursor:pointer; }
+    .pf-inner { position:absolute; inset:0; transform-style:preserve-3d; transition: transform .7s cubic-bezier(.22,1,.36,1); }
+    .pf-card.flip .pf-inner { transform: rotateY(180deg); }
+    .pf-face { position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden; border-radius:22px; overflow:hidden;
+      background: var(--pr-solid); border:1.5px solid color-mix(in srgb,var(--ca) 34%, var(--pr-glassbd)); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+      box-shadow:0 20px 46px rgba(0,0,0,.3); padding:26px 22px; display:flex; flex-direction:column; }
+    .pf-face::before { content:''; position:absolute; left:0; right:0; top:0; height:6px; background:linear-gradient(90deg,var(--ca),transparent); }
+    .pf-card:hover .pf-front { box-shadow:0 28px 60px rgba(0,0,0,.4), 0 0 34px color-mix(in srgb,var(--ca) 26%, transparent); }
+    .pf-front { transition: box-shadow .4s; }
+    .pf-back { transform: rotateY(180deg); }
+    .pf-ico { width:56px; height:56px; border-radius:15px; display:flex; align-items:center; justify-content:center; font-size:26px; margin-bottom:16px;
+      background: color-mix(in srgb,var(--ca) 18%, transparent); border:1px solid color-mix(in srgb,var(--ca) 40%, transparent); }
+    .pf-title { font-family:'Outfit',sans-serif; font-size:19px; font-weight:800; color:var(--ink); line-height:1.18; margin-bottom:10px; }
+    .pf-desc { font-size:13px; color:var(--mut); line-height:1.55; }
+    .pf-hint { margin-top:auto; display:inline-flex; align-items:center; gap:7px; font-family:'Outfit',sans-serif; font-size:12px; font-weight:700; color:var(--ca); padding-top:14px; }
+    .pf-hint .pf-spin { transition: transform .3s; }
+    .pf-card:hover .pf-hint .pf-spin { transform: rotate(180deg); }
+    .pf-back-title { font-family:'Outfit',sans-serif; font-size:15px; font-weight:800; color:var(--ca); margin-bottom:12px; letter-spacing:.02em; }
+    .pf-perks { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px; flex:1; }
+    .pf-perks li { position:relative; padding-left:22px; font-size:12.5px; color:var(--ink); line-height:1.4; }
+    .pf-perks li::before { content:''; position:absolute; left:0; top:5px; width:13px; height:13px; border-radius:4px; background: color-mix(in srgb,var(--ca) 22%, transparent); border:1px solid var(--ca); }
+    .pf-perks li::after { content:'✓'; position:absolute; left:2.5px; top:2px; font-size:9px; font-weight:900; color:var(--ca); }
+    .pf-cta { margin-top:14px; display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:11px 16px; border-radius:12px; font-family:'Outfit',sans-serif; font-size:13px; font-weight:800; text-decoration:none; color:#fff; background:var(--ca); box-shadow:0 10px 24px color-mix(in srgb,var(--ca) 40%, transparent); transition: transform .2s, box-shadow .2s; }
+    .pf-cta:hover { transform:translateY(-2px); box-shadow:0 14px 32px color-mix(in srgb,var(--ca) 55%, transparent); }
+    .pf-flipback { margin-top:9px; background:none; border:none; color:var(--mut); font-size:11.5px; font-weight:700; cursor:pointer; font-family:'Outfit',sans-serif; }
+
+    @media (max-width:1024px){ .pf-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:640px){ .pf-grid{ grid-template-columns:1fr; } .pv-carousel{ padding:0 44px; } }
+    @media (prefers-reduced-motion: reduce){ .pr-bg{ animation:none; } .pv-item.is-active .pv-card{ animation:none; } }
+
+  
+    /* ══════ HERO · kinetic headline + particles ══════ */
+    .ph { position:relative; overflow:hidden; min-height:92vh; display:flex; align-items:center; }
+    .ph-grid, .ph-vline { display:none !important; }
+    .ph-particles { position:absolute; inset:0; z-index:0; pointer-events:none; }
+    .ph-inner2 { position:relative; z-index:1; max-width:1000px; margin:0 auto; text-align:center; padding:110px 24px 70px; }
+    .ph-inner2 .ph-eyebrow { justify-content:center; }
+    .ph-kh { font-family:'Outfit',sans-serif; font-size:clamp(40px,7.4vw,88px); font-weight:900; line-height:1.02; letter-spacing:-0.03em; color:var(--ink); margin:0; }
+    .ph-grad { background:linear-gradient(90deg,var(--acc),var(--lime)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .ph-rot { position:relative; display:inline-block; min-height:1.1em; vertical-align:bottom; }
+    .ph-rot > span { position:absolute; left:50%; transform:translateX(-50%) translateY(70%); opacity:0; white-space:nowrap;
+      background:linear-gradient(90deg,var(--acc),var(--amber)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; font-weight:900;
+      transition:opacity .5s cubic-bezier(.22,1,.36,1), transform .5s cubic-bezier(.22,1,.36,1); }
+    .ph-rot > span.on { position:relative; left:auto; transform:translateX(0) translateY(0); opacity:1; }
+    .ph-lead { max-width:640px; margin:24px auto 30px; font-size:17px; line-height:1.7; color:var(--mut); }
+    .ph-inner2 .ph-actions, .ph-inner2 .ph-chips { justify-content:center; }
+    .ph-chip { transition:transform .25s cubic-bezier(.22,1,.36,1), border-color .25s, box-shadow .25s; }
+    .ph-chip:hover { transform:translateY(-4px) scale(1.04); border-color:color-mix(in srgb,var(--acc) 55%, transparent) !important; box-shadow:0 10px 26px rgba(0,0,0,.2); }
+
+    /* ══════ ABOUT · animated manifesto ══════ */
+    .mf-wrap { position:relative; max-width:760px; margin:36px auto 0; padding-left:34px; }
+    .mf-line { position:absolute; left:9px; top:8px; bottom:8px; width:3px; border-radius:3px; background:var(--bdr); overflow:hidden; }
+    .mf-fill { position:absolute; inset:0 0 auto 0; height:0%; background:linear-gradient(180deg,var(--acc),var(--lime)); border-radius:3px; transition:height 1.1s cubic-bezier(.22,1,.36,1); box-shadow:0 0 14px color-mix(in srgb,var(--acc) 60%, transparent); }
+    .mf-step { position:relative; padding:0 0 30px 26px; opacity:0; transform:translateX(16px); transition:opacity .6s, transform .6s; }
+    .mf-step.in { opacity:1; transform:none; }
+    .mf-step:last-child { padding-bottom:0; }
+    .mf-dot { position:absolute; left:-30px; top:2px; width:22px; height:22px; border-radius:50%; background:var(--card); border:2px solid var(--bdr); display:flex; align-items:center; justify-content:center; font-size:11px; transition:border-color .4s, box-shadow .4s, background .4s; }
+    .mf-step.in .mf-dot { border-color:var(--acc); background:color-mix(in srgb,var(--acc) 18%, var(--card)); box-shadow:0 0 0 4px color-mix(in srgb,var(--acc) 14%, transparent), 0 0 18px color-mix(in srgb,var(--acc) 40%, transparent); }
+    .mf-step h3 { font-family:'Outfit',sans-serif; font-size:19px; font-weight:800; color:var(--ink); margin:0 0 6px; }
+    .mf-step p { font-size:14.5px; line-height:1.65; color:var(--mut); margin:0; }
+    .mf-step .mf-k { color:var(--acc); font-weight:700; }
+
+    /* ══════ USI · patron spotlight band ══════ */
+    .usi2 { position:relative; overflow:hidden; padding:0 !important; }
+    .usi2-band { position:relative; overflow:hidden; border-radius:28px; margin:0 auto; max-width:1200px; padding:56px clamp(28px,5vw,72px) 52px; text-align:center;
+      background:linear-gradient(140deg,#060d20,#0d1c3c 55%,#08132a); border:1px solid rgba(251,191,36,0.22); box-shadow:0 40px 90px rgba(0,0,0,.45); }
+    [data-theme="light"] .usi2-band { background:linear-gradient(140deg,#0b524a,#0d9488 55%,#0a5c52); border-color:rgba(255,255,255,0.25); box-shadow:0 30px 70px rgba(13,90,80,.35); }
+    .usi2-rays { position:absolute; top:-40%; left:50%; width:150%; height:180%; transform:translateX(-50%); pointer-events:none; opacity:.5;
+      background:conic-gradient(from 0deg, transparent 0deg, rgba(251,191,36,0.18) 18deg, transparent 40deg, rgba(251,124,102,0.14) 62deg, transparent 90deg, rgba(251,191,36,0.16) 130deg, transparent 160deg, rgba(251,191,36,0.14) 210deg, transparent 250deg, rgba(251,124,102,0.12) 300deg, transparent 340deg);
+      animation:usiSpin 40s linear infinite; }
+    @keyframes usiSpin { to { transform:translateX(-50%) rotate(360deg); } }
+    .usi2-in { position:relative; z-index:1; color:#fff; }
+    .usi2-badge { display:inline-flex; align-items:center; gap:9px; font-family:'Outfit',sans-serif; font-size:11px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:#FBBF24; padding:7px 16px; border-radius:999px; background:rgba(251,191,36,0.12); border:1px solid rgba(251,191,36,0.4); margin-bottom:22px; }
+    .usi2-badge::before { content:''; width:8px; height:8px; border-radius:50%; background:#FBBF24; box-shadow:0 0 10px #FBBF24; animation:usiPulse 1.5s infinite; }
+    @keyframes usiPulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+    .usi2-crest { width:120px; height:120px; margin:0 auto 20px; border-radius:22px; background:#fff; display:flex; align-items:center; justify-content:center; padding:14px; box-shadow:0 16px 40px rgba(0,0,0,.4); }
+    .usi2-crest img { max-width:100%; max-height:100%; object-fit:contain; }
+    .usi2-h2 { font-family:'Outfit',sans-serif; font-size:clamp(26px,3.6vw,42px); font-weight:900; color:#fff; margin:0 0 8px; letter-spacing:-0.02em; }
+    .usi2-h2 em { font-style:normal; background:linear-gradient(90deg,#FBBF24,#FB7C66); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .usi2-founded { font-size:13px; color:rgba(255,255,255,0.62); font-weight:600; margin-bottom:26px; }
+    .usi2-quote { max-width:680px; margin:0 auto 30px; font-size:clamp(17px,2vw,23px); line-height:1.55; font-weight:600; color:#EAFBF6; font-style:italic; }
+    .usi2-quote cite { display:block; margin-top:12px; font-size:12px; font-style:normal; color:#FBBF24; letter-spacing:.04em; }
+    .usi2-stats { display:flex; flex-wrap:wrap; justify-content:center; gap:14px 40px; margin:0 auto 34px; }
+    .usi2-stat-n { font-family:'Outfit',sans-serif; font-size:clamp(28px,4vw,44px); font-weight:900; background:linear-gradient(90deg,#FBBF24,#FB7C66); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; line-height:1; }
+    .usi2-stat-l { font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,0.55); margin-top:6px; font-weight:700; }
+    .usi2-pillars { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:6px; text-align:left; }
+    .usi2-pill { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14); border-radius:16px; padding:18px; backdrop-filter:blur(8px); transition:transform .3s cubic-bezier(.22,1,.36,1), background .3s, border-color .3s; }
+    .usi2-pill:hover { transform:translateY(-5px); background:rgba(251,191,36,0.1); border-color:rgba(251,191,36,0.4); }
+    .usi2-pill-h { display:flex; align-items:center; gap:9px; font-family:'Outfit',sans-serif; font-size:14px; font-weight:800; color:#fff; margin-bottom:8px; }
+    .usi2-pill-h span { font-size:18px; }
+    .usi2-pill p { font-size:12.5px; line-height:1.55; color:rgba(255,255,255,0.68); margin:0; }
+    @media(max-width:820px){ .usi2-pillars{ grid-template-columns:1fr; } }
+
+    /* ══════ BENEFITS · animated stat counters ══════ */
+    .stat-band { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin:0 auto 40px; max-width:960px; }
+    .stat-card { text-align:center; padding:24px 16px; border-radius:20px; background:var(--pr-solid); border:1px solid var(--pr-glassbd); backdrop-filter:blur(12px); transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s, border-color .3s; }
+    .stat-card:hover { transform:translateY(-6px); border-color:color-mix(in srgb,var(--acc) 50%, transparent); box-shadow:0 20px 44px rgba(0,0,0,.2); }
+    .stat-n { font-family:'Outfit',sans-serif; font-size:clamp(30px,3.6vw,46px); font-weight:900; line-height:1; background:linear-gradient(90deg,var(--acc),var(--lime)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .stat-l { font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--mut); margin-top:8px; }
+    @media(max-width:680px){ .stat-band{ grid-template-columns:repeat(2,1fr); } }
+
+    /* ══════ HOW · progress-ring steps ══════ */
+    .ring-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:34px; }
+    .ring-step { text-align:center; padding:30px 22px; border-radius:22px; background:var(--pr-solid); border:1px solid var(--pr-glassbd); backdrop-filter:blur(12px); transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s, border-color .3s; }
+    .ring-step:hover { transform:translateY(-6px); border-color:color-mix(in srgb,var(--acc) 50%, transparent); box-shadow:0 22px 48px rgba(0,0,0,.22); }
+    .ring-wrap { position:relative; width:96px; height:96px; margin:0 auto 18px; }
+    .ring-wrap svg { width:96px; height:96px; transform:rotate(-90deg); }
+    .ring-track { fill:none; stroke:var(--bdr); stroke-width:7; }
+    .ring-fill { fill:none; stroke:url(#ringGrad); stroke-width:7; stroke-linecap:round; stroke-dasharray:264; stroke-dashoffset:264; transition:stroke-dashoffset 1.2s cubic-bezier(.22,1,.36,1); }
+    .ring-step.in .ring-fill { stroke-dashoffset:0; }
+    .ring-num { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:'Outfit',sans-serif; font-size:32px; font-weight:900; color:var(--acc); }
+    .ring-step h3 { font-family:'Outfit',sans-serif; font-size:18px; font-weight:800; color:var(--ink); margin:0 0 8px; }
+    .ring-step p { font-size:13.5px; line-height:1.6; color:var(--mut); margin:0; }
+    .ring-step:hover .ring-num { animation:ringPop .5s cubic-bezier(.34,1.56,.64,1); }
+    @keyframes ringPop { 0%,100%{transform:scale(1)} 45%{transform:scale(1.18)} }
+    @media(max-width:820px){ .ring-grid{ grid-template-columns:1fr; } .stat-band{ } }
+    @media (prefers-reduced-motion: reduce){ .usi2-rays{ animation:none; } .ph-rot > span{ transition:none; } }
+
+  
+    /* ══════ BOLD MICRO-INTERACTIONS + NEW INTERACTIONS ══════ */
+    /* Click ripple */
+    .btn, .cta-btn-main, .cta-btn-sec, .pf-cta, .cta-form-submit, .pv-arrow, .mstep-btn { position:relative; overflow:hidden; }
+    .pr-ripple { position:absolute; border-radius:50%; transform:translate(-50%,-50%) scale(0); background:rgba(255,255,255,0.45); pointer-events:none; animation:prRip .6s ease-out forwards; }
+    @keyframes prRip { to { transform:translate(-50%,-50%) scale(1); opacity:0; } }
+
+    /* Verticals + models 3D tilt */
+    .pv-item.is-active .pv-card, .pf-inner { transition: transform .4s cubic-bezier(.22,1,.36,1); }
+    .pf-card.tilt .pf-inner { transition: transform .12s ease-out; }
+
+    /* Models: compare view */
+    .pf-toolbar { display:flex; justify-content:center; margin:26px 0 4px; }
+    .pf-compare-btn { display:inline-flex; align-items:center; gap:9px; padding:11px 22px; border-radius:12px; font-family:'Outfit',sans-serif; font-weight:800; font-size:13.5px; cursor:pointer;
+      color:var(--acc); background:var(--pr-solid); border:1px solid color-mix(in srgb,var(--acc) 40%, var(--pr-glassbd)); transition:transform .2s, box-shadow .2s, background .2s; }
+    .pf-compare-btn:hover { transform:translateY(-2px); box-shadow:0 10px 26px color-mix(in srgb,var(--acc) 30%, transparent); }
+    .pf-compare { display:none; margin-top:24px; overflow-x:auto; }
+    .pf-compare.show { display:block; animation:fadeUp .4s ease both; }
+    .pf-ctable { width:100%; border-collapse:separate; border-spacing:0; min-width:640px; background:var(--pr-solid); border:1px solid var(--pr-glassbd); border-radius:18px; overflow:hidden; }
+    .pf-ctable th, .pf-ctable td { padding:14px 16px; text-align:left; font-size:13px; border-bottom:1px solid var(--pr-glassbd); vertical-align:top; }
+    .pf-ctable thead th { font-family:'Outfit',sans-serif; font-weight:800; color:#fff; font-size:13.5px; }
+    .pf-ctable tbody th { font-weight:700; color:var(--mut); white-space:nowrap; }
+    .pf-ctable td { color:var(--ink); }
+    .pf-ctable tr:last-child th, .pf-ctable tr:last-child td { border-bottom:none; }
+
+    /* USI crest shine + tilt */
+    .usi2-crest { position:relative; transition:transform .3s cubic-bezier(.22,1,.36,1); transform-style:preserve-3d; }
+    .usi2-crest::after { content:''; position:absolute; inset:0; border-radius:22px; background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,0.6) 48%,transparent 66%); transform:translateX(-120%); transition:transform .7s; }
+    .usi2-band:hover .usi2-crest::after { transform:translateX(120%); }
+
+    /* Benefits metric toggle */
+    .stat-toggle { display:inline-flex; gap:4px; padding:5px; border-radius:14px; background:var(--pr-solid); border:1px solid var(--pr-glassbd); margin:0 auto 26px; }
+    .stat-tab { padding:9px 18px; border:none; border-radius:10px; background:transparent; color:var(--mut); font-family:'Outfit',sans-serif; font-weight:800; font-size:12.5px; cursor:pointer; transition:background .25s, color .25s; }
+    .stat-tab.on { background:linear-gradient(135deg,var(--acc),var(--lime)); color:#04211d; }
+    .stat-toggle-wrap { text-align:center; }
+
+    /* Multi-step form */
+    .mform-prog { display:flex; align-items:center; gap:8px; margin-bottom:22px; }
+    .mform-prog .mp-seg { flex:1; height:5px; border-radius:5px; background:rgba(255,255,255,0.16); overflow:hidden; }
+    [data-theme="dark"] .mform-prog .mp-seg { background:rgba(255,255,255,0.12); }
+    .mform-prog .mp-seg i { display:block; height:100%; width:0; background:linear-gradient(90deg,#FBBF24,#FB7C66); border-radius:5px; transition:width .45s cubic-bezier(.22,1,.36,1); }
+    .mform-prog .mp-seg.done i, .mform-prog .mp-seg.active i { width:100%; }
+    .mform-prog .mp-seg.active i { width:60%; }
+    .mform-steplbl { text-align:center; font-family:'Outfit',sans-serif; font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:#FBBF24; margin-bottom:16px; }
+    .mstep { display:none; animation:fadeUp .4s ease both; }
+    .mstep.on { display:block; }
+    .mtype-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+    .mtype { display:flex; align-items:center; gap:12px; padding:14px 16px; border-radius:14px; cursor:pointer; background:rgba(255,255,255,0.05); border:1.5px solid rgba(255,255,255,0.14); color:#fff; font-weight:700; font-size:14px; font-family:'Outfit',sans-serif; transition:transform .2s, border-color .2s, background .2s; }
+    [data-theme="dark"] .mtype { background:var(--surf); border-color:var(--bdr); color:var(--ink); }
+    .mtype:hover { transform:translateY(-3px); border-color:#FBBF24; }
+    .mtype.sel { border-color:#FBBF24; background:rgba(251,191,36,0.14); box-shadow:0 0 0 3px rgba(251,191,36,0.16); }
+    .mtype span.mt-i { font-size:22px; }
+    .mform-nav { display:flex; justify-content:space-between; gap:12px; margin-top:20px; }
+    .mstep-btn { padding:12px 26px; border-radius:12px; font-family:'Outfit',sans-serif; font-weight:800; font-size:14px; cursor:pointer; border:none; transition:transform .2s, box-shadow .2s, opacity .2s; }
+    .mstep-btn.next { background:linear-gradient(135deg,#F59E0B,#FB6D4E); color:#04211d; box-shadow:0 10px 26px rgba(245,158,11,.4); margin-left:auto; }
+    .mstep-btn.next:hover { transform:translateY(-2px); }
+    .mstep-btn.back { background:transparent; border:1px solid rgba(255,255,255,0.28); color:#fff; }
+    [data-theme="dark"] .mstep-btn.back { color:var(--ink); border-color:var(--bdr); }
+    .cta-form-input.err, .mtype-grid.err .mtype { border-color:#ff6b6b !important; }
+    .field-err { font-size:11.5px; color:#ff8f8f; margin-top:5px; display:none; }
+    .field-err.show { display:block; }
+    /* Confetti */
+    .pr-confetti { position:fixed; inset:0; pointer-events:none; z-index:9999; }
+    .pr-confetti i { position:absolute; top:-12px; width:9px; height:14px; border-radius:2px; animation:prConf linear forwards; }
+    @keyframes prConf { to { transform:translateY(105vh) rotate(720deg); opacity:.9; } }
+
+  
+    /* ══════ HONEYCOMB BENEFITS ══════ */
+    .hc { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,0.95fr); gap:40px; align-items:center; margin-top:30px; }
+    @media(max-width:860px){ .hc { grid-template-columns:1fr; gap:26px; } }
+    .hc-comb { --hw:152px; --hh:170px; display:flex; flex-direction:column; align-items:center; }
+    .hc-row { display:flex; justify-content:center; gap:14px; }
+    .hc-row + .hc-row { margin-top:calc(var(--hh) * -0.25); }
+    .hc-row.shift { transform:translateX(calc((var(--hw) + 14px) / 2)); }
+    .hc-cellw { width:var(--hw); height:var(--hh); clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);
+      background:var(--pr-glassbd); padding:2px; cursor:pointer; transition:transform .3s cubic-bezier(.22,1,.36,1), background .3s, filter .3s; }
+    .hc-cellw:hover, .hc-cellw.on { background:linear-gradient(135deg,var(--acc),var(--lime));
+      transform:translateY(-7px) scale(1.05); filter:drop-shadow(0 16px 30px color-mix(in srgb,var(--acc) 42%, transparent)); z-index:2; }
+    .hc-cellw.adj { background:color-mix(in srgb, var(--acc) 55%, var(--pr-glassbd)); transform:scale(1.02); }
+    .hc-cell { width:100%; height:100%; clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);
+      background:var(--pr-solid); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:7px; }
+    .hc-cellw:hover .hc-cell, .hc-cellw.on .hc-cell { background:color-mix(in srgb, var(--acc) 14%, var(--pr-solid)); }
+    .hc-ico { font-size:30px; line-height:1; }
+    .hc-t { font-family:'Outfit',sans-serif; font-weight:800; font-size:12px; text-align:center; padding:0 16px; line-height:1.18; color:var(--ink); }
+    .hc-detail { background:var(--pr-glass); border:1px solid var(--pr-glassbd); border-radius:22px; padding:32px 30px; min-height:196px; backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); box-shadow:0 20px 46px rgba(0,0,0,.14); }
+    .hc-d-top { display:flex; align-items:center; gap:14px; }
+    .hc-d-ico { font-size:38px; line-height:1; filter:drop-shadow(0 6px 12px color-mix(in srgb,var(--acc) 40%,transparent)); }
+    .hc-d-num { margin-left:auto; font-family:'Outfit',sans-serif; font-weight:900; font-size:13px; color:var(--acc); letter-spacing:.05em; }
+    .hc-d-t { font-family:'Outfit',sans-serif; font-weight:800; font-size:21px; margin:16px 0 9px; color:var(--ink); }
+    .hc-d-bar { width:52px; height:4px; border-radius:4px; background:linear-gradient(90deg,var(--acc),var(--lime)); margin-bottom:14px; }
+    .hc-d-p { color:var(--mut); font-size:14.5px; line-height:1.62; }
+
+  
+    /* ══════ ZIG-ZAG HOW-IT-WORKS ══════ */
+    .zz { position:relative; max-width:840px; margin:44px auto 0; }
+    .zz-line { position:absolute; left:50%; top:0; transform:translateX(-50%); width:3px; height:100%; background:var(--pr-glassbd); border-radius:3px; overflow:hidden; }
+    .zz-line i { position:absolute; left:0; top:0; width:100%; height:0; background:linear-gradient(180deg,var(--acc),var(--lime)); transition:height 1.6s cubic-bezier(.4,0,.2,1); }
+    .zz.in .zz-line i { height:100%; }
+    .zz-step { position:relative; display:grid; grid-template-columns:1fr 1fr; margin-bottom:34px; min-height:120px; align-items:center; }
+    .zz-step:last-child { margin-bottom:0; }
+    .zz-card { background:var(--pr-glass); border:1px solid var(--pr-glassbd); border-radius:20px; padding:22px 26px; backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); box-shadow:0 16px 40px rgba(0,0,0,.13); opacity:0; transition:opacity .6s ease, transform .6s cubic-bezier(.22,1,.36,1); }
+    .zz-step:nth-child(odd) .zz-card { grid-column:1; margin-right:52px; transform:translateX(-34px); text-align:right; }
+    .zz-step:nth-child(even) .zz-card { grid-column:2; margin-left:52px; transform:translateX(34px); }
+    .zz-step.in .zz-card { opacity:1; transform:none; }
+    .zz-card h3 { font-family:'Outfit',sans-serif; font-weight:800; font-size:18px; margin:0 0 8px; color:var(--ink); }
+    .zz-card p { margin:0; color:var(--mut); font-size:14px; line-height:1.6; }
+    .zz-card .zz-tag { display:inline-block; font-family:'Outfit',sans-serif; font-size:10.5px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--acc); margin-bottom:8px; }
+    .zz-node { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) scale(.6); width:56px; height:56px; border-radius:50%; background:var(--pr-solid); border:2px solid var(--pr-glassbd); display:flex; align-items:center; justify-content:center; font-family:'Outfit',sans-serif; font-weight:900; font-size:19px; color:var(--mut); z-index:3; transition:transform .5s cubic-bezier(.34,1.56,.64,1) .1s, background .5s, color .5s, box-shadow .5s, border-color .5s; }
+    .zz-step.in .zz-node { transform:translate(-50%,-50%) scale(1); background:linear-gradient(135deg,var(--acc),var(--lime)); color:#1a1206; border-color:transparent; box-shadow:0 0 0 8px color-mix(in srgb,var(--acc) 16%, transparent), 0 12px 28px color-mix(in srgb,var(--acc) 40%, transparent); }
+    @media(max-width:720px){
+      .zz-line { left:26px; }
+      .zz-step { grid-template-columns:1fr; }
+      .zz-step:nth-child(odd) .zz-card, .zz-step:nth-child(even) .zz-card { grid-column:1; margin:0 0 0 66px; text-align:left; transform:translateY(24px); }
+      .zz-step.in .zz-card { transform:none; }
+      .zz-node { left:26px; }
+    }
+
   </style>
 </head>
 <body>
+  <canvas id="shader-canvas" aria-hidden="true"></canvas>
+  <div class="pr-bg" aria-hidden="true"></div>
 
   <!-- NAV -->
   <nav class="nav" id="navbar">
@@ -559,9 +875,9 @@
         <li><a href="platform.html">CASK</a></li>
         <li><a href="surakshak.html">Surakshak</a></li>
         <li><a href="olympiad.html">Olympiad</a></li>
-        <li><a href="phishnchip.html">Phish &amp; Chip</a></li>
+        <li><a href="phishnchip.html">The Phish &amp; Chip Show</a></li>
         <li><a href="slanglish.html">Slanglish</a></li>
-        <li><a href="resources.html">Resources</a></li>
+        <li><a href="resources.html">Books</a></li>
         <li><a href="partner.html" class="active">Partner With Us</a></li>
       </ul>
       <div class="nav-right">
@@ -571,33 +887,34 @@
         </button>
         <a href="surakshak.html" class="nav-cta">Join the Movement</a>
       </div>
-      <button class="hamburger" id="hamburger">&#9776;</button>
+      <div class="nav-right-mobile">
+         <button id="themeToggle1" class="themeToggle theme-toggle-btn" aria-label="Toggle theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="hamburger" id="hamburger">&#9776;</button>
+      </div>
     </div>
     <div class="mobile-menu" id="mobileMenu">
       <a href="index.html">Home</a>
       <a href="platform.html">CASK</a>
       <a href="surakshak.html">Surakshak</a>
       <a href="olympiad.html">Olympiad</a>
-      <a href="phishnchip.html">Phish &amp; Chip</a>
+      <a href="phishnchip.html">The Phish &amp; Chip Show</a>
       <a href="slanglish.html">Slanglish</a>
-      <a href="resources.html">Resources</a>
+      <a href="resources.html">Books</a>
       <a href="partner.html">Partner With Us</a>
       <a href="surakshak.html" class="mobile-cta">Join the Movement</a>
     </div>
   </nav>
 
   <!-- ═══ HERO ═══ -->
-  <section class="ph">
-    <div class="ph-grid"></div>
-    <div class="ph-vline"></div>
-    <div class="ph-inner">
+    <section class="ph" id="top">
+    <canvas class="ph-particles" id="phParticles" aria-hidden="true"></canvas>
+    <div class="ph-inner2">
       <div class="ph-eyebrow"><span></span>Schools · Corporates · Governments · NGOs</div>
-      <h1 class="ph-h1">
-        Build a Safer<br/>
-        <em>India —</em>
-        <span class="h1-dim">Together.</span>
-      </h1>
-      <p class="ph-lead">India's most comprehensive youth cyber safety movement. Partner with us to bring cybersecurity awareness to millions of students, families, and communities across the country.</p>
+      <h1 class="ph-kh">Build a Safer <span class="ph-grad">India</span><br/>with <span class="ph-rot" id="phRot"><span class="on">Schools</span><span>Corporates</span><span>Governments</span><span>NGOs</span><span>You</span></span></h1>
+      <p class="ph-lead">India's most comprehensive youth cyber-safety movement. Partner with us to bring cybersecurity awareness to millions of students, families, and communities across the country.</p>
       <div class="ph-actions">
         <a href="#contact" class="btn btn--acc">Become a Partner →</a>
         <a href="#models" class="btn btn--out">Explore Models</a>
@@ -614,44 +931,17 @@
   <!-- ═══ ABOUT #SURAKSHA ═══ -->
   <section class="ps s-white" id="about">
     <div class="pw">
-      <div class="about-grid rev">
-        <div class="about-left">
-          <span class="ey ey--g">What is Hashtag Suraksha?</span>
-          <h2 class="h2">Five verticals.<br/>One mission.</h2>
-          <p class="about-desc">Hashtag Suraksha is India's national youth cyber safety movement — built across five interconnected verticals that address every dimension of the challenge, from AI-powered learning to grassroots ambassadors, national competitions, podcasting, and vernacular content.</p>
-          <p class="about-desc">We reach students entirely for free. Partners make that possible — and in return get genuine reach, credibility, and a measurable stake in India's cyber-safe future.</p>
-          <a href="#verticals" class="btn btn--pri" style="margin-top:8px">See our 5 verticals →</a>
-        </div>
-        <div class="about-right d1">
-          <div class="about-pillars">
-            <div class="about-pillar">
-              <div class="apl-icon apl-icon--edu">🎓</div>
-              <div class="apl-body">
-                <div class="apl-title">Education &amp; Curriculum</div>
-                <div class="apl-desc">Structured cyber safety content delivered to students in Grades VI–XII through CASK AI and Surakshak ambassadors.</div>
-              </div>
-            </div>
-            <div class="about-pillar">
-              <div class="apl-icon apl-icon--tech">🤖</div>
-              <div class="apl-body">
-                <div class="apl-title">Technology at Scale</div>
-                <div class="apl-desc">CASK — our AI cyber safety assistant — gives students real-time threat recognition, reporting tools, and personalised guidance.</div>
-              </div>
-            </div>
-            <div class="about-pillar">
-              <div class="apl-icon apl-icon--com">🌐</div>
-              <div class="apl-body">
-                <div class="apl-title">Community &amp; Culture</div>
-                <div class="apl-desc">Slanglish and Phish &amp; Chip make cyber safety speak the language Gen Z actually uses — campus-native, shareable, and culturally rooted.</div>
-              </div>
-            </div>
-          </div>
-          <div class="ph-chips" style="margin-top:14px;">
-            <span class="ph-chip">✅ Free for all students</span>
-            <span class="ph-chip">🎖️ USI-backed credibility</span>
-            <span class="ph-chip">🌍 Pan-India reach</span>
-          </div>
-        </div>
+      <div class="rev" style="text-align:center;margin-bottom:6px">
+        <span class="ey ey--g">What is Hashtag Suraksha?</span>
+        <h2 class="h2">Five verticals. One mission.</h2>
+        <p class="sub" style="max-width:640px;margin:10px auto 0">India's national youth cyber-safety movement — five interconnected verticals, delivered to students entirely for free.</p>
+      </div>
+      <div class="mf-wrap rev">
+        <div class="mf-line"><div class="mf-fill" id="mfFill"></div></div>
+        <div class="mf-step"><div class="mf-dot">🎓</div><h3>Education &amp; Curriculum</h3><p>Structured cyber-safety content delivered to students in Grades VI–XII through CASK AI and Surakshak ambassadors.</p></div>
+        <div class="mf-step"><div class="mf-dot">🤖</div><h3>Technology at Scale</h3><p>CASK — our AI cyber-safety assistant — gives students real-time threat recognition, reporting tools, and personalised guidance.</p></div>
+        <div class="mf-step"><div class="mf-dot">🌐</div><h3>Community &amp; Culture</h3><p>Slanglish and The Phish &amp; Chip Show make cyber safety speak the language Gen Z actually uses — campus-native and shareable.</p></div>
+        <div class="mf-step"><div class="mf-dot">✅</div><h3>Free, Forever</h3><p>We reach students entirely for <span class="mf-k">free</span>. Partners make that possible — and gain genuine reach, credibility, and a measurable stake in India's cyber-safe future.</p></div>
       </div>
     </div>
   </section>
@@ -664,42 +954,13 @@
         <h2 class="h2">Five verticals. One mission.</h2>
         <p class="sub" style="max-width:580px;margin:0 auto">Each vertical addresses a unique dimension of cyber safety — together they form India's most holistic digital literacy programme.</p>
       </div>
-      <div class="vert-grid rev d1">
-        <!-- CASK -->
-        <div class="vert-card vc--cask">
-          <div class="vc-icon">🤖</div>
-          <div class="vc-name">CASK</div>
-          <div class="vc-tag vc-tag--cask">AI Platform</div>
-          <div class="vc-desc">AI cyber safety assistant for students. Identifies threats, teaches safe behaviours, and enables real-time reporting.</div>
+      <div class="pv-wrap rev d1">
+        <div class="pv-carousel" id="pvCarousel" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Ecosystem verticals">
+          <button class="pv-arrow prev" id="pvPrev" aria-label="Previous vertical">&#8249;</button>
+          <div class="pv-stage"><div class="pv-track" id="pvTrack"></div></div>
+          <button class="pv-arrow next" id="pvNext" aria-label="Next vertical">&#8250;</button>
         </div>
-        <!-- Surakshak -->
-        <div class="vert-card vc--sr">
-          <div class="vc-icon">🛡️</div>
-          <div class="vc-name">Surakshak</div>
-          <div class="vc-tag vc-tag--sr">Ambassadors</div>
-          <div class="vc-desc">1,500+ trained student ambassadors delivering cyber safety awareness on campuses across India.</div>
-        </div>
-        <!-- Olympiad -->
-        <div class="vert-card vc--ol">
-          <div class="vc-icon">🏆</div>
-          <div class="vc-name">National Cyber Olympiad</div>
-          <div class="vc-tag vc-tag--ol">Competition</div>
-          <div class="vc-desc">India's first National Cyber Olympiad for Grades VI–XII. Tests threat recognition and digital decision-making.</div>
-        </div>
-        <!-- Phish & Chip -->
-        <div class="vert-card vc--ph">
-          <div class="vc-icon">🎙️</div>
-          <div class="vc-name">The Phish &amp; Chip Show</div>
-          <div class="vc-tag vc-tag--ph">Podcast</div>
-          <div class="vc-desc">Gen Z cybersecurity podcast. Expert conversations on real threats, made snackable and shareable.</div>
-        </div>
-        <!-- Slanglish -->
-        <div class="vert-card vc--sl">
-          <div class="vc-icon">💬</div>
-          <div class="vc-name">Slanglish</div>
-          <div class="vc-tag vc-tag--sl">Language</div>
-          <div class="vc-desc">Cyber safety in the language India's youth actually speaks — local slang, vernacular, pop culture.</div>
-        </div>
+        <div class="pv-dots" id="pvDots" role="tablist" aria-label="Choose vertical"></div>
       </div>
     </div>
   </section>
@@ -707,92 +968,25 @@
   <!-- ═══ USI ═══ -->
   <section class="ps s-white" id="usi">
     <div class="pw">
-      <div class="usi-wrap rev">
-
-        <!-- Logo + Title row -->
-        <div class="usi-top">
-          <div class="usi-logo-box">
-            <img src="assets/csr.png" alt="United Service Institution of India" style="height:110px;" />
+      <div class="usi2-band rev">
+        <div class="usi2-rays" aria-hidden="true"></div>
+        <div class="usi2-in">
+          <span class="usi2-badge">Institutional Patron &amp; Anchor Partner</span>
+          <div class="usi2-crest"><img src="assets/csr.png" alt="United Service Institution of India" /></div>
+          <h2 class="usi2-h2">United Service Institution of <em>India</em></h2>
+          <div class="usi2-founded">Est. 1870 · New Delhi · India's Premier Tri-Service Defence Think Tank</div>
+          <blockquote class="usi2-quote">"National security begins with an aware citizenry. Cyber literacy is no longer optional — it is foundational."<cite>— United Service Institution of India</cite></blockquote>
+          <div class="usi2-stats">
+            <div><div class="usi2-stat-n" data-to="154">0</div><div class="usi2-stat-l">Years of Legacy</div></div>
+            <div><div class="usi2-stat-n" data-to="1870">0</div><div class="usi2-stat-l">Established</div></div>
+            <div><div class="usi2-stat-n" data-to="3">0</div><div class="usi2-stat-l">Armed Services</div></div>
           </div>
-          <div class="usi-top-right">
-            <div class="usi-badge">
-              <div class="usi-badge-dot"></div>
-              <div class="usi-badge-text">Institutional Patron &amp; Anchor Partner</div>
-            </div>
-            <h2 class="usi-h2">United Service Institution of <em>India</em></h2>
-            <div class="usi-founded">Est. 1870 · New Delhi · India's Premier Tri-Service Defence Think Tank</div>
-          </div>
-        </div>
-
-        <!-- Full-width description + quote above two-column grid -->
-        <p class="usi-desc">The USI is India's oldest defence think tank — advising on national security, emerging technology, and cyber policy at the highest levels of government and the armed forces for over 154 years. As Hashtag Suraksha's institutional patron, USI lends that legacy directly to the mission of protecting India's youth online.</p>
-        <div class="usi-quote-strip" style="margin-bottom:28px;">
-          "National security begins with an aware citizenry. Cyber literacy is no longer optional — it is foundational."
-          <cite>— United Service Institution of India</cite>
-        </div>
-
-        <!-- Body: accordion left | aligned stat blocks right -->
-        <div class="usi-inner">
-          <div class="usi-left">
-            <div class="usi-acc" id="usiAcc">
-              <div class="usi-acc-item open">
-                <div class="usi-acc-hd" onclick="toggleAcc(this)">
-                  <span class="usi-acc-icon">🏛️</span>
-                  <span class="usi-acc-title">CETANB — Cyber &amp; AI Policy Centre</span>
-                  <span class="usi-acc-arr">›</span>
-                </div>
-                <div class="usi-acc-body">USI's Centre for Emerging Technology &amp; Atma Nirbhar Bharat drives research on cyber, AI, and strategic technology policy. Hashtag Suraksha's content and programmes are aligned with CETANB's findings and recommendations.</div>
-              </div>
-              <div class="usi-acc-item">
-                <div class="usi-acc-hd" onclick="toggleAcc(this)">
-                  <span class="usi-acc-icon">🔐</span>
-                  <span class="usi-acc-title">CCoE — Cyber Centre of Excellence</span>
-                  <span class="usi-acc-arr">›</span>
-                </div>
-                <div class="usi-acc-body">USI's Cyber Centre of Excellence operates nationwide awareness, capability-building, and first-responder programmes. Hashtag Suraksha's Surakshak and Olympiad verticals draw directly on CCoE's expertise and network.</div>
-              </div>
-              <div class="usi-acc-item">
-                <div class="usi-acc-hd" onclick="toggleAcc(this)">
-                  <span class="usi-acc-icon">🤝</span>
-                  <span class="usi-acc-title">Institutional Network &amp; Credibility</span>
-                  <span class="usi-acc-arr">›</span>
-                </div>
-                <div class="usi-acc-body">USI partners include CyberPeace Foundation, the NCC Cyber First Responder Programme, and India's leading defence and security institutions — giving Hashtag Suraksha unmatched institutional credibility.</div>
-              </div>
-              <div class="usi-acc-item">
-                <div class="usi-acc-hd" onclick="toggleAcc(this)">
-                  <span class="usi-acc-icon">📜</span>
-                  <span class="usi-acc-title">154 Years of National Service</span>
-                  <span class="usi-acc-arr">›</span>
-                </div>
-                <div class="usi-acc-body">Founded in 1870, USI has served India's national security interests across three services — Army, Navy, and Air Force — for over a century and a half. Partnering with Hashtag Suraksha connects your organisation to this legacy.</div>
-              </div>
-            </div>
-            <a href="https://usiofindia.org" target="_blank" rel="noopener" class="usi-link" style="margin-top:16px;display:inline-flex;">Visit usiofindia.org ↗</a>
-          </div>
-
-          <div class="usi-right d1">
-            <div class="usi-stat-grid">
-              <div class="usi-sg usi-sg--gold">
-                <div class="usi-sg-n">CETANB</div>
-                <div class="usi-sg-l">Cyber &amp; AI Policy Centre</div>
-              </div>
-              <div class="usi-sg usi-sg--gold">
-                <div class="usi-sg-n">CCoE</div>
-                <div class="usi-sg-l">Cyber Centre of Excellence</div>
-              </div>
-              <div class="usi-sg">
-                <div class="usi-sg-n">35+</div>
-                <div class="usi-sg-l">Institutional Partners &amp; Allies</div>
-              </div>
-              <div class="usi-sg">
-                <div class="usi-sg-n">154</div>
-                <div class="usi-sg-l">Years of National Service</div>
-              </div>
-            </div>
+          <div class="usi2-pillars">
+            <div class="usi2-pill"><div class="usi2-pill-h"><span>🏛️</span>CETANB</div><p>USI's Centre for Emerging Technology &amp; Atma Nirbhar Bharat drives cyber, AI and strategic-tech policy — and aligns our content and programmes.</p></div>
+            <div class="usi2-pill"><div class="usi2-pill-h"><span>🔐</span>CCoE</div><p>USI's Cyber Centre of Excellence runs nationwide awareness and first-responder programmes powering Surakshak and the Olympiad.</p></div>
+            <div class="usi2-pill"><div class="usi2-pill-h"><span>🤝</span>Network</div><p>USI's partners — CyberPeace Foundation, the NCC Cyber First Responder Programme, and India's leading defence institutions.</p></div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -805,62 +999,9 @@
         <h2 class="h2">Find your partnership model</h2>
         <p class="sub" style="max-width:580px">Every type of organisation can play a meaningful role in India's cyber safety movement.</p>
       </div>
-      <div class="pm-grid rev d1">
-        <!-- Schools & Colleges -->
-        <div class="pm-card pm--school">
-          <div class="pm-icon">🏫</div>
-          <div class="pm-title">Schools &amp; Colleges</div>
-          <div class="pm-desc">Bring structured cyber safety education to your campus. We provide Surakshak ambassadors, CASK AI access, curriculum resources, and Olympiad participation — at zero cost.</div>
-          <div class="pm-perks">
-            <div class="pm-perk">Access to CASK AI platform for students</div>
-            <div class="pm-perk">Dedicated Surakshak ambassadors on campus</div>
-            <div class="pm-perk">Olympiad registration for all eligible students</div>
-            <div class="pm-perk">Free workshop delivery by trained experts</div>
-            <div class="pm-perk">USI-backed certification for participating students</div>
-          </div>
-          <a href="#contact" class="pm-cta">Partner as a School →</a>
-        </div>
-        <!-- Corporate -->
-        <div class="pm-card pm--corp">
-          <div class="pm-icon">🏢</div>
-          <div class="pm-title">Corporates &amp; Industry</div>
-          <div class="pm-desc">Support India's cyber-safe generation as a CSR partner or sponsor. Get brand visibility, co-branding opportunities, and direct access to an engaged youth audience.</div>
-          <div class="pm-perks">
-            <div class="pm-perk">CSR programme integration &amp; reporting</div>
-            <div class="pm-perk">Co-branding across all Hashtag Suraksha verticals</div>
-            <div class="pm-perk">Employee volunteer &amp; mentorship opportunities</div>
-            <div class="pm-perk">Olympiad category sponsorship</div>
-            <div class="pm-perk">Impact measurement &amp; annual impact report</div>
-          </div>
-          <a href="#contact" class="pm-cta">Partner as a Corporate →</a>
-        </div>
-        <!-- Government -->
-        <div class="pm-card pm--gov">
-          <div class="pm-icon">🏛️</div>
-          <div class="pm-title">Government &amp; Public Bodies</div>
-          <div class="pm-desc">Co-design and amplify cyber safety initiatives at a district, state, or national level. Leverage Hashtag Suraksha's on-ground network and USI's institutional credibility.</div>
-          <div class="pm-perks">
-            <div class="pm-perk">District/state-level programme rollout</div>
-            <div class="pm-perk">Policy research collaboration via USI CETANB</div>
-            <div class="pm-perk">Integration with existing digital literacy schemes</div>
-            <div class="pm-perk">Joint awareness campaigns &amp; press initiatives</div>
-          </div>
-          <a href="#contact" class="pm-cta">Partner as a Government Body →</a>
-        </div>
-        <!-- NGOs & Media -->
-        <div class="pm-card pm--ngo">
-          <div class="pm-icon">🌐</div>
-          <div class="pm-title">NGOs &amp; Media</div>
-          <div class="pm-desc">Amplify the mission through content, outreach, and advocacy. Partner with us as a media house, digital platform, or development organisation committed to youth empowerment.</div>
-          <div class="pm-perks">
-            <div class="pm-perk">Content partnership for Phish &amp; Chip podcast</div>
-            <div class="pm-perk">Slanglish content co-creation &amp; distribution</div>
-            <div class="pm-perk">Community outreach via shared networks</div>
-            <div class="pm-perk">Co-authorship of research and awareness reports</div>
-          </div>
-          <a href="#contact" class="pm-cta">Partner as an NGO / Media →</a>
-        </div>
-      </div>
+      <div class="pf-grid rev d1" id="pfGrid"></div>
+      <div class="pf-toolbar rev"><button type="button" class="pf-compare-btn" id="pfCompareBtn" onclick="togglePfCompare()">⇄ Compare all models</button></div>
+      <div class="pf-compare" id="pfCompare"></div>
     </div>
   </section>
 
@@ -871,13 +1012,42 @@
         <span class="ey">Why Partner</span>
         <h2 class="h2">What partners gain</h2>
       </div>
-      <div class="ben-grid rev d1">
-        <div class="ben-card"><div class="ben-icon">🎖️</div><div class="ben-body"><div class="ben-title">USI-Backed Credibility</div><div class="ben-desc">Align your organisation with India's premier defence think tank and its 154-year legacy.</div></div></div>
-        <div class="ben-card"><div class="ben-icon">📣</div><div class="ben-body"><div class="ben-title">National Brand Visibility</div><div class="ben-desc">Co-branding across events, digital content, and communications reaching students in 28 states.</div></div></div>
-        <div class="ben-card"><div class="ben-icon">📊</div><div class="ben-body"><div class="ben-title">Measurable CSR Impact</div><div class="ben-desc">Detailed impact reporting and outcome data for compliance, reporting, and stakeholder communications.</div></div></div>
-        <div class="ben-card"><div class="ben-icon">🎓</div><div class="ben-body"><div class="ben-title">Talent Pipeline Access</div><div class="ben-desc">Direct access to India's most cyber-aware student community through Olympiad and Surakshak networks.</div></div></div>
-        <div class="ben-card"><div class="ben-icon">🤝</div><div class="ben-body"><div class="ben-title">Cross-Sector Network</div><div class="ben-desc">Join a growing coalition of schools, corporates, government bodies, and civil society organisations.</div></div></div>
-        <div class="ben-card"><div class="ben-icon">🛡️</div><div class="ben-body"><div class="ben-title">Mission-Driven Legacy</div><div class="ben-desc">Be part of building a generation of cyber-safe Indians — a legacy with generational impact.</div></div></div>
+      <div class="stat-toggle-wrap rev"><div class="stat-toggle" id="statToggle">
+        <button type="button" class="stat-tab on" data-view="reach">Reach</button>
+        <button type="button" class="stat-tab" data-view="impact">Impact</button>
+        <button type="button" class="stat-tab" data-view="cred">Credibility</button>
+      </div></div>
+      <div class="stat-band rev" id="statBand">
+        <div class="stat-card"><div class="stat-n" data-to="28">0</div><div class="stat-l">States &amp; UTs reached</div></div>
+        <div class="stat-card"><div class="stat-n" data-to="1500" data-suf="+">0</div><div class="stat-l">Student ambassadors</div></div>
+        <div class="stat-card"><div class="stat-n" data-to="5">0</div><div class="stat-l">Ecosystem verticals</div></div>
+        <div class="stat-card"><div class="stat-n" data-to="154">0</div><div class="stat-l">Years of USI legacy</div></div>
+      </div>
+      <div class="hc rev d1" id="hcBenefits">
+        <div class="hc-comb">
+          <div class="hc-row">
+            <div class="hc-cellw" data-i="0" data-adj="1,3" data-ico="🎖️" data-title="USI-Backed Credibility" data-desc="Align your organisation with India's premier defence think tank and its 154-year legacy — instant institutional trust.">
+              <div class="hc-cell"><span class="hc-ico">🎖️</span><span class="hc-t">USI-Backed Credibility</span></div></div>
+            <div class="hc-cellw" data-i="1" data-adj="0,2,3,4" data-ico="📣" data-title="National Brand Visibility" data-desc="Co-branding across events, digital content, and communications reaching students in 28 states &amp; UTs.">
+              <div class="hc-cell"><span class="hc-ico">📣</span><span class="hc-t">National Visibility</span></div></div>
+            <div class="hc-cellw" data-i="2" data-adj="1,4,5" data-ico="📊" data-title="Measurable CSR Impact" data-desc="Detailed impact reporting and outcome data for compliance, CSR mandates, and stakeholder communications.">
+              <div class="hc-cell"><span class="hc-ico">📊</span><span class="hc-t">Measurable CSR</span></div></div>
+          </div>
+          <div class="hc-row shift">
+            <div class="hc-cellw" data-i="3" data-adj="0,1,4" data-ico="🎓" data-title="Talent Pipeline Access" data-desc="Direct access to India's most cyber-aware student community through the Olympiad and Surakshak networks.">
+              <div class="hc-cell"><span class="hc-ico">🎓</span><span class="hc-t">Talent Pipeline</span></div></div>
+            <div class="hc-cellw" data-i="4" data-adj="1,2,3,5" data-ico="🤝" data-title="Cross-Sector Network" data-desc="Join a growing coalition of schools, corporates, government bodies, and civil society organisations.">
+              <div class="hc-cell"><span class="hc-ico">🤝</span><span class="hc-t">Cross-Sector Network</span></div></div>
+            <div class="hc-cellw" data-i="5" data-adj="2,4" data-ico="🛡️" data-title="Mission-Driven Legacy" data-desc="Be part of building a generation of cyber-safe Indians — a legacy with generational impact.">
+              <div class="hc-cell"><span class="hc-ico">🛡️</span><span class="hc-t">Mission Legacy</span></div></div>
+          </div>
+        </div>
+        <div class="hc-detail" id="hcDetail">
+          <div class="hc-d-top"><span class="hc-d-ico">🎖️</span><span class="hc-d-num">01 / 06</span></div>
+          <div class="hc-d-t">USI-Backed Credibility</div>
+          <div class="hc-d-bar"></div>
+          <p class="hc-d-p">Align your organisation with India's premier defence think tank and its 154-year legacy — instant institutional trust.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -889,21 +1059,19 @@
         <span class="ey">The Process</span>
         <h2 class="h2">How partnering works</h2>
       </div>
-      <div class="hw-grid rev d1">
-        <div class="hw-card">
-          <div class="hw-num">1</div>
-          <div class="hw-title">Start the Conversation</div>
-          <div class="hw-desc">Reach out via the form below or email us directly. Tell us about your organisation and what you'd like to achieve. We'll respond within 48 hours.</div>
+      <div class="zz rev d1" id="zzHow">
+        <div class="zz-line" aria-hidden="true"><i></i></div>
+        <div class="zz-step">
+          <div class="zz-card"><span class="zz-tag">Step One</span><h3>Start the Conversation</h3><p>Reach out via the form below or email us. Tell us about your organisation and goals — we respond within 48 hours.</p></div>
+          <div class="zz-node">1</div>
         </div>
-        <div class="hw-card d1">
-          <div class="hw-num">2</div>
-          <div class="hw-title">Co-Design the Partnership</div>
-          <div class="hw-desc">We'll work together to identify the right verticals, programmes, and impact goals. Every partnership is tailored — not templated.</div>
+        <div class="zz-step">
+          <div class="zz-card"><span class="zz-tag">Step Two</span><h3>Co-Design the Partnership</h3><p>Together we identify the right verticals, programmes and impact goals. Every partnership is tailored — not templated.</p></div>
+          <div class="zz-node">2</div>
         </div>
-        <div class="hw-card d2">
-          <div class="hw-num">3</div>
-          <div class="hw-title">Launch &amp; Measure</div>
-          <div class="hw-desc">We deploy, you track. Every partner gets a dedicated point of contact, an impact dashboard, and regular progress updates.</div>
+        <div class="zz-step">
+          <div class="zz-card"><span class="zz-tag">Step Three</span><h3>Launch &amp; Measure</h3><p>We deploy, you track. Every partner gets a dedicated point of contact, an impact dashboard, and regular updates.</p></div>
+          <div class="zz-node">3</div>
         </div>
       </div>
     </div>
@@ -921,39 +1089,68 @@
         </div>
         <div class="cta-form-wrap">
           <div class="cta-form" id="ctaForm">
-            <div class="cta-form-row">
-              <div class="cta-form-group">
-                <label class="cta-form-label">Your Name</label>
-                <input type="text" class="cta-form-input" placeholder="Full name" id="cf-name" />
+            <div class="mform-prog" id="mProg">
+              <div class="mp-seg active"><i></i></div>
+              <div class="mp-seg"><i></i></div>
+              <div class="mp-seg"><i></i></div>
+            </div>
+            <div class="mform-steplbl" id="mStepLbl">Step 1 of 3 · Who are you partnering as?</div>
+            <input type="hidden" id="cf-type" value="" />
+
+            <!-- Step 1: partner type -->
+            <div class="mstep on" data-step="1">
+              <div class="mtype-grid" id="mTypeGrid">
+                <button type="button" class="mtype" data-val="School or College"><span class="mt-i">🏫</span> School / College</button>
+                <button type="button" class="mtype" data-val="Corporate / Industry"><span class="mt-i">🏢</span> Corporate / Industry</button>
+                <button type="button" class="mtype" data-val="Government Body"><span class="mt-i">🏛️</span> Government Body</button>
+                <button type="button" class="mtype" data-val="NGO or Media"><span class="mt-i">📣</span> NGO / Media</button>
               </div>
-              <div class="cta-form-group">
-                <label class="cta-form-label">Email Address</label>
-                <input type="email" class="cta-form-input" placeholder="you@organisation.com" id="cf-email" />
+              <div class="field-err" id="err-type">Please pick one to continue.</div>
+              <div class="mform-nav">
+                <button type="button" class="mstep-btn next" onclick="mNext(1)">Continue →</button>
               </div>
             </div>
-            <div class="cta-form-row">
-              <div class="cta-form-group">
-                <label class="cta-form-label">Organisation</label>
-                <input type="text" class="cta-form-input" placeholder="School / Company / NGO..." id="cf-org" />
+
+            <!-- Step 2: contact -->
+            <div class="mstep" data-step="2">
+              <div class="cta-form-row">
+                <div class="cta-form-group">
+                  <label class="cta-form-label">Your Name</label>
+                  <input type="text" class="cta-form-input" placeholder="Full name" id="cf-name" />
+                  <div class="field-err" id="err-name">Please enter your name.</div>
+                </div>
+                <div class="cta-form-group">
+                  <label class="cta-form-label">Email Address</label>
+                  <input type="email" class="cta-form-input" placeholder="you@organisation.com" id="cf-email" />
+                  <div class="field-err" id="err-email">Please enter a valid email.</div>
+                </div>
               </div>
-              <div class="cta-form-group">
-                <label class="cta-form-label">Partner As</label>
-                <select class="cta-form-select" id="cf-type">
-                  <option value="">Select type...</option>
-                  <option>School or College</option>
-                  <option>Corporate / Industry</option>
-                  <option>Government Body</option>
-                  <option>NGO or Media</option>
-                </select>
+              <div class="cta-form-row">
+                <div class="cta-form-group cta-form-full">
+                  <label class="cta-form-label">Organisation</label>
+                  <input type="text" class="cta-form-input" placeholder="School / Company / NGO..." id="cf-org" />
+                  <div class="field-err" id="err-org">Please enter your organisation.</div>
+                </div>
+              </div>
+              <div class="mform-nav">
+                <button type="button" class="mstep-btn back" onclick="mBack(2)">← Back</button>
+                <button type="button" class="mstep-btn next" onclick="mNext(2)">Continue →</button>
               </div>
             </div>
-            <div class="cta-form-row">
-              <div class="cta-form-group cta-form-full">
-                <label class="cta-form-label">Tell us more (optional)</label>
-                <input type="text" class="cta-form-input" placeholder="Your goal, programme, or any context..." id="cf-msg" />
+
+            <!-- Step 3: message + review -->
+            <div class="mstep" data-step="3">
+              <div class="cta-form-row">
+                <div class="cta-form-group cta-form-full">
+                  <label class="cta-form-label">Tell us more (optional)</label>
+                  <input type="text" class="cta-form-input" placeholder="Your goal, programme, or any context..." id="cf-msg" />
+                </div>
+              </div>
+              <div class="mform-nav">
+                <button type="button" class="mstep-btn back" onclick="mBack(3)">← Back</button>
+                <button type="button" class="mstep-btn next" onclick="submitCtaForm()">Send Details →</button>
               </div>
             </div>
-            <button class="cta-form-submit" onclick="submitCtaForm()">Send Details →</button>
           </div>
           <div class="cta-thanks" id="ctaThanks">
             <div class="cta-thanks-icon">🎉</div>
@@ -967,7 +1164,7 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="pw" style="padding-top:56px;">
+    <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="footer-logo-circle-link">
@@ -990,14 +1187,14 @@
             <h5>Ecosystem</h5>
             <a href="platform.html">CASK</a>
             <a href="surakshak.html">Surakshak</a>
-            <a href="olympiad.html">National Cyber Olympiad</a>
+            <a href="olympiad.html">Olympiad</a>
             <a href="phishnchip.html">The Phish &amp; Chip Show</a>
             <a href="slanglish.html">Slanglish</a>
           </div>
           <div class="footer-col">
             <h5>Organisation</h5>
-            <a href="index.html#about">About</a>
-            <a href="resources.html">Resources</a>
+            <a href="#about">About</a>
+            <a href="resources.html">Books</a>
             <a href="partner.html">Partner With Us</a>
             <a href="https://hashtagsuraksha.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
             <a href="https://hashtagsuraksha.com/terms-of-use" target="_blank" rel="noopener">Terms of Use</a>
@@ -1026,10 +1223,62 @@
     var io=new IntersectionObserver(function(e){ e.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); }}); },{threshold:.08});
     document.querySelectorAll('.rev').forEach(function(el){ io.observe(el); });
     /* Theme toggle */
-    document.getElementById('themeToggle').addEventListener('click',function(){
-      var h=document.documentElement;
-      h.setAttribute('data-theme', h.getAttribute('data-theme')==='dark'?'light':'dark');
+    
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // ─── THEME SYSTEM ──────────────────────────────────────────────
+      const htmlEl       = document.documentElement;
+      const chooser      = document.getElementById('themeChooser');
+      const themeToggle  = document.getElementById('themeToggle');
+      const themeToggles = document.querySelectorAll('.themeToggle');
+      const THEME_KEY    = 'hs-theme';
+
+      function applyTheme(theme) {
+        htmlEl.setAttribute('data-theme', theme);
+        localStorage.setItem(THEME_KEY, theme);
+      }
+
+      function dismissChooser(theme) {
+        applyTheme(theme);
+        if (!chooser) return;
+        chooser.classList.add('fade-out');
+        setTimeout(() => chooser.classList.add('hidden'), 500);
+      }
+
+      // On load: check saved preference
+      const savedTheme = localStorage.getItem(THEME_KEY);
+      if (savedTheme) {
+        applyTheme(savedTheme);
+        if (chooser) chooser.classList.add('hidden');
+      } else {
+        // Show chooser — apply dark by default behind it
+        applyTheme('dark');
+        if (chooser) {
+          chooser.querySelectorAll('.theme-option').forEach(btn => {
+            btn.addEventListener('click', () => dismissChooser(btn.dataset.theme));
+          });
+        }
+      }
+
+      // Toggle button in nav
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          const current = htmlEl.getAttribute('data-theme');
+          applyTheme(current === 'dark' ? 'light' : 'dark');
+        });
+      }
+
+      if (themeToggle) {
+          themeToggles.forEach((themeToggle) => {
+              themeToggle.addEventListener('click', () => {
+                  const current = htmlEl.getAttribute('data-theme');
+                  applyTheme(current === 'dark' ? 'light' : 'dark');
+              });
+          });
+        }
     });
+
+
     /* USI accordion */
     function toggleAcc(hd) {
       var item = hd.parentElement;
@@ -1043,20 +1292,329 @@
       var isOpen = f.classList.toggle('open');
       btn.textContent = isOpen ? '✕ Close Form' : '✍️ Give Your Details';
     }
-    /* CTA form submit */
+    /* ── Multi-step CTA form ── */
+    var mCur = 1, mLabels = {
+      1:'Step 1 of 3 · Who are you partnering as?',
+      2:'Step 2 of 3 · How do we reach you?',
+      3:'Step 3 of 3 · Anything else we should know?'
+    };
+    (function(){
+      var grid=document.getElementById('mTypeGrid'); if(!grid) return;
+      grid.querySelectorAll('.mtype').forEach(function(b){
+        b.addEventListener('click',function(){
+          grid.querySelectorAll('.mtype').forEach(function(x){x.classList.remove('sel');});
+          b.classList.add('sel');
+          document.getElementById('cf-type').value=b.dataset.val;
+          grid.classList.remove('err'); document.getElementById('err-type').classList.remove('show');
+        });
+      });
+    })();
+    function mShow(n){
+      mCur=n;
+      document.querySelectorAll('#ctaForm .mstep').forEach(function(s){ s.classList.toggle('on', +s.dataset.step===n); });
+      var segs=document.querySelectorAll('#mProg .mp-seg');
+      segs.forEach(function(s,i){ s.classList.remove('active','done'); if(i<n-1) s.classList.add('done'); else if(i===n-1) s.classList.add('active'); });
+      document.getElementById('mStepLbl').textContent=mLabels[n];
+    }
+    function mErr(id,cond){ var e=document.getElementById(id); var inp=document.getElementById(id.replace('err-','cf-')); if(cond){ e.classList.add('show'); if(inp)inp.classList.add('err'); } else { e.classList.remove('show'); if(inp)inp.classList.remove('err'); } return cond; }
+    function mNext(step){
+      if(step===1){ if(!document.getElementById('cf-type').value){ document.getElementById('mTypeGrid').classList.add('err'); document.getElementById('err-type').classList.add('show'); return; } mShow(2); return; }
+      if(step===2){
+        var bad=false;
+        bad=mErr('err-name', !document.getElementById('cf-name').value.trim())||bad;
+        var em=document.getElementById('cf-email').value.trim();
+        bad=mErr('err-email', !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em))||bad;
+        bad=mErr('err-org', !document.getElementById('cf-org').value.trim())||bad;
+        if(bad) return; mShow(3);
+      }
+    }
+    function mBack(step){ mShow(step-1); }
     function submitCtaForm() {
       var name = document.getElementById('cf-name').value.trim();
       var email = document.getElementById('cf-email').value.trim();
       var org = document.getElementById('cf-org').value.trim();
       var type = document.getElementById('cf-type').value;
       var msg = document.getElementById('cf-msg').value.trim();
-      if (!name || !email || !org) { alert('Please fill in your name, email, and organisation.'); return; }
       var subject = 'Partnership Enquiry — ' + org;
       var body = 'Name: ' + name + '\nEmail: ' + email + '\nOrganisation: ' + org + '\nPartner Type: ' + (type || 'Not specified') + '\nMessage: ' + (msg || '—');
       window.location.href = 'mailto:partner@suraksha.in?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      fireConfetti();
       document.getElementById('ctaForm').classList.remove('open');
       document.getElementById('ctaThanks').classList.add('show');
     }
+    /* Confetti burst */
+    function fireConfetti(){
+      var cols=['#F59E0B','#FBBF24','#FB7C66','#FBBF24','#FB6D4E'];
+      var wrap=document.createElement('div'); wrap.className='pr-confetti';
+      for(var i=0;i<90;i++){ var p=document.createElement('i');
+        p.style.left=Math.random()*100+'vw'; p.style.background=cols[i%cols.length];
+        p.style.animationDuration=(1.6+Math.random()*1.4)+'s'; p.style.animationDelay=(Math.random()*.35)+'s';
+        p.style.transform='rotate('+(Math.random()*360)+'deg)'; wrap.appendChild(p); }
+      document.body.appendChild(wrap); setTimeout(function(){ wrap.remove(); },3400);
+    }
+    /* Click ripple on buttons */
+    document.addEventListener('click',function(e){
+      var b=e.target.closest('.btn,.cta-btn-main,.cta-btn-sec,.pf-cta,.pv-arrow,.mstep-btn,.pf-compare-btn'); if(!b) return;
+      var r=b.getBoundingClientRect(), rp=document.createElement('span'); rp.className='pr-ripple';
+      var d=Math.max(r.width,r.height); rp.style.width=rp.style.height=d+'px';
+      rp.style.left=(e.clientX-r.left)+'px'; rp.style.top=(e.clientY-r.top)+'px';
+      b.appendChild(rp); setTimeout(function(){ rp.remove(); },650);
+    });
   </script>
+  <script>
+  /* ── Partner: Verticals 3D coverflow ── */
+  (function(){
+    var track=document.getElementById('pvTrack'); if(!track) return;
+    var dotsW=document.getElementById('pvDots');
+    var V=[
+      {ico:'🤖',name:'CASK',tag:'AI Platform',ca:'#3AA0FF',desc:'AI cyber-safety assistant for students. Identifies threats, teaches safe behaviours, and enables real-time reporting.'},
+      {ico:'🛡️',name:'Surakshak',tag:'Ambassadors',ca:'#22C55E',desc:'1,500+ trained student ambassadors delivering cyber-safety awareness on campuses across India.'},
+      {ico:'🏆',name:'National Cyber Olympiad',tag:'Competition',ca:'#F5A623',desc:'India’s first National Cyber Olympiad for Grades VI–XII. Tests threat recognition and digital decision-making.'},
+      {ico:'🎙️',name:'The Phish & Chip Show',tag:'Podcast',ca:'#FB7657',desc:'Gen Z cybersecurity podcast. Expert conversations on real threats, made snackable and shareable.'},
+      {ico:'💬',name:'Slanglish',tag:'Language',ca:'#A855F7',desc:'Cyber safety in the language India’s youth actually speaks — local slang, vernacular, and pop culture.'}
+    ];
+    var n=V.length, active=0, timer=null, els=[];
+    V.forEach(function(v,i){
+      var d=document.createElement('div'); d.className='pv-item'; d.setAttribute('role','group'); d.setAttribute('aria-label',v.name+' · '+v.tag);
+      d.style.setProperty('--ca',v.ca);
+      d.innerHTML='<div class="pv-card"><div class="pv-ico">'+v.ico+'</div><div class="pv-name">'+v.name+'</div><span class="pv-tag">'+v.tag+'</span><div class="pv-desc">'+v.desc+'</div></div>';
+      d.addEventListener('click',function(){ if(i!==active){ active=i; layout(); restart(); } });
+      track.appendChild(d); els.push(d);
+      var dot=document.createElement('button'); dot.className='pv-dot'; dot.setAttribute('role','tab'); dot.setAttribute('aria-label',v.name);
+      dot.addEventListener('click',function(){ active=i; layout(); restart(); });
+      dotsW.appendChild(dot);
+    });
+    var dots=dotsW.querySelectorAll('.pv-dot');
+    function layout(){
+      els.forEach(function(el,i){
+        var off=i-active; if(off>n/2) off-=n; if(off<-n/2) off+=n;
+        var a=Math.abs(off);
+        var tx=off*146, tz=-a*160, ry=-off*42, sc= off===0?1:(a===1?0.84:0.68), op= a>2?0:(off===0?1:(a===1?0.82:0.42));
+        el.style.transform='translate(-50%,-50%) translateX('+tx+'px) translateZ('+tz+'px) rotateY('+ry+'deg) scale('+sc+')';
+        el.style.opacity=op; el.style.zIndex=100-a; el.style.pointerEvents= a<=2?'auto':'none';
+        el.classList.toggle('is-active', off===0);
+      });
+      dots.forEach(function(dt,i){ dt.classList.toggle('on',i===active); });
+    }
+    function next(){ active=(active+1)%n; layout(); }
+    function prev(){ active=(active-1+n)%n; layout(); }
+    function start(){ timer=setInterval(next,5000); } function stop(){ clearInterval(timer); } function restart(){ stop(); start(); }
+    document.getElementById('pvNext').addEventListener('click',function(){ next(); restart(); });
+    document.getElementById('pvPrev').addEventListener('click',function(){ prev(); restart(); });
+    var car=document.getElementById('pvCarousel');
+    car.addEventListener('mouseenter',stop); car.addEventListener('mouseleave',start);
+    car.addEventListener('keydown',function(e){ if(e.key==='ArrowRight'){next();restart();e.preventDefault();} else if(e.key==='ArrowLeft'){prev();restart();e.preventDefault();} });
+    var sx=0,sw=false, stage=car.querySelector('.pv-stage');
+    stage.addEventListener('touchstart',function(e){ sx=e.touches[0].clientX; sw=true; stop(); },{passive:true});
+    stage.addEventListener('touchend',function(e){ if(!sw)return; sw=false; var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>40){ dx<0?next():prev(); } start(); },{passive:true});
+    layout(); start();
+  })();
+
+  /* ── Partner: Models flip cards ── */
+  (function(){
+    var grid=document.getElementById('pfGrid'); if(!grid) return;
+    var M=[
+      {ico:'🏫',title:'Schools & Colleges',ca:'#3AA0FF',desc:'Bring structured cyber-safety education to your campus — ambassadors, CASK AI, curriculum, and Olympiad, at zero cost.',
+        perks:['CASK AI platform for students','Dedicated Surakshak ambassadors','Olympiad registration for all students','Free expert-led workshops','USI-backed student certification'],cta:'Partner as a School'},
+      {ico:'🏢',title:'Corporates & Industry',ca:'#F5A623',desc:'Support India’s cyber-safe generation as a CSR partner or sponsor — brand visibility, co-branding, and youth reach.',
+        perks:['CSR integration & reporting','Co-branding across all verticals','Employee volunteer & mentorship','Olympiad category sponsorship','Annual impact report'],cta:'Partner as a Corporate'},
+      {ico:'🏛️',title:'Government & Public Bodies',ca:'#22C55E',desc:'Co-design and amplify cyber-safety at district, state, or national level with USI’s institutional credibility.',
+        perks:['District/state programme rollout','Policy research via USI CETANB','Integration with literacy schemes','Joint awareness campaigns & press'],cta:'Partner as a Government Body'},
+      {ico:'🌐',title:'NGOs & Media',ca:'#A855F7',desc:'Amplify the mission through content, outreach, and advocacy as a media house, platform, or development organisation.',
+        perks:['Content partnership for the podcast','Slanglish content co-creation','Community outreach networks','Co-authorship of research & reports'],cta:'Partner as an NGO / Media'}
+    ];
+    M.forEach(function(m){
+      var perks=m.perks.map(function(p){ return '<li>'+p+'</li>'; }).join('');
+      var c=document.createElement('div'); c.className='pf-card'; c.style.setProperty('--ca',m.ca);
+      c.innerHTML=
+        '<div class="pf-inner">'+
+          '<div class="pf-face pf-front"><div class="pf-ico">'+m.ico+'</div><div class="pf-title">'+m.title+'</div><div class="pf-desc">'+m.desc+'</div>'+
+            '<span class="pf-hint">See partner benefits <span class="pf-spin">↻</span></span></div>'+
+          '<div class="pf-face pf-back"><div class="pf-back-title">'+m.title+'</div><ul class="pf-perks">'+perks+'</ul>'+
+            '<a class="pf-cta" href="#contact">'+m.cta+' →</a><button class="pf-flipback" type="button">← Back</button></div>'+
+        '</div>';
+      var flip=function(e){
+        if(e.target.closest('.pf-cta')) return;
+        if(e.target.closest('.pf-flipback')){ c.classList.remove('flip'); e.stopPropagation(); return; }
+        c.classList.toggle('flip');
+      };
+      c.addEventListener('click',flip);
+      /* 3D tilt + magnetic (only when not flipped) */
+      var inner=c.querySelector('.pf-inner');
+      c.addEventListener('mousemove',function(e){ if(c.classList.contains('flip'))return; var r=c.getBoundingClientRect(); var px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5; c.classList.add('tilt'); inner.style.transform='rotateY('+(px*10)+'deg) rotateX('+(-py*10)+'deg) translateZ(6px)'; });
+      c.addEventListener('mouseleave',function(){ c.classList.remove('tilt'); if(!c.classList.contains('flip')) inner.style.transform=''; });
+      grid.appendChild(c);
+    });
+    /* Compare all models table */
+    window.togglePfCompare=function(){
+      var box=document.getElementById('pfCompare'), btn=document.getElementById('pfCompareBtn');
+      if(box.classList.contains('show')){ box.classList.remove('show'); btn.innerHTML='⇄ Compare all models'; return; }
+      if(!box.dataset.built){
+        var rows=[['Best for','Format','Cost','Headline benefit']];
+        var data=[
+          {t:'Schools',bf:'K-12 & higher ed',fmt:'On-campus programme',cost:'Free',hb:'CASK AI + ambassadors + Olympiad'},
+          {t:'Corporates',bf:'CSR & sponsors',fmt:'Sponsorship / CSR',cost:'Sponsored',hb:'Co-branding + annual impact report'},
+          {t:'Government',bf:'Public bodies',fmt:'District/state rollout',cost:'Collaborative',hb:'Policy research via USI CETANB'},
+          {t:'NGOs / Media',bf:'Advocacy & content',fmt:'Content partnership',cost:'Collaborative',hb:'Podcast + Slanglish co-creation'}
+        ];
+        var h='<table class="pf-ctable"><thead><tr><th>Model</th><th>Best for</th><th>Format</th><th>Cost</th><th>Headline benefit</th></tr></thead><tbody>';
+        data.forEach(function(d){ h+='<tr><th>'+d.t+'</th><td>'+d.bf+'</td><td>'+d.fmt+'</td><td>'+d.cost+'</td><td>'+d.hb+'</td></tr>'; });
+        h+='</tbody></table>'; box.innerHTML=h; box.dataset.built='1';
+      }
+      box.classList.add('show'); btn.innerHTML='✕ Hide comparison';
+      box.scrollIntoView({behavior:'smooth',block:'nearest'});
+    };
+  })();
+  </script>
+
+  <script>
+  /* Hero particle field */
+  (function(){
+    var c=document.getElementById('phParticles'); if(!c||!c.getContext) return;
+    var ctx=c.getContext('2d'), P=[], W=0,H=0;
+    function size(){ W=c.width=c.offsetWidth; H=c.height=c.offsetHeight; }
+    size(); window.addEventListener('resize',size);
+    function light(){ return document.documentElement.getAttribute('data-theme')==='light'; }
+    var mouse={x:-999,y:-999,on:false};
+    c.addEventListener('mousemove',function(e){ var r=c.getBoundingClientRect(); mouse.x=e.clientX-r.left; mouse.y=e.clientY-r.top; mouse.on=true; });
+    c.addEventListener('mouseleave',function(){ mouse.on=false; mouse.x=mouse.y=-999; });
+    for(var i=0;i<58;i++){ P.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2+0.6,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,o:Math.random()*.5+.2}); }
+    function loop(){
+      ctx.clearRect(0,0,W,H);
+      var col= light()?'245,158,11':'251,191,36';
+      for(var i=0;i<P.length;i++){ var p=P[i]; p.x+=p.vx; p.y+=p.vy;
+        /* cursor repulsion */
+        if(mouse.on){ var mx=p.x-mouse.x,my=p.y-mouse.y,md=mx*mx+my*my; if(md<14400&&md>0.1){ var f=(1-md/14400)*1.6,dd=Math.sqrt(md); p.x+=mx/dd*f; p.y+=my/dd*f; } }
+        if(p.x<0)p.x=W; if(p.x>W)p.x=0; if(p.y<0)p.y=H; if(p.y>H)p.y=0;
+        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283); ctx.fillStyle='rgba('+col+','+p.o+')'; ctx.fill(); }
+      for(var i=0;i<P.length;i++){ for(var j=i+1;j<P.length;j++){ var dx=P[i].x-P[j].x,dy=P[i].y-P[j].y,d=dx*dx+dy*dy; if(d<9000){ ctx.beginPath(); ctx.moveTo(P[i].x,P[i].y); ctx.lineTo(P[j].x,P[j].y); ctx.strokeStyle='rgba('+col+','+(0.12*(1-d/9000)).toFixed(3)+')'; ctx.lineWidth=1; ctx.stroke(); } } }
+      /* lines to cursor */
+      if(mouse.on){ for(var i=0;i<P.length;i++){ var dx=P[i].x-mouse.x,dy=P[i].y-mouse.y,d=dx*dx+dy*dy; if(d<20000){ ctx.beginPath(); ctx.moveTo(P[i].x,P[i].y); ctx.lineTo(mouse.x,mouse.y); ctx.strokeStyle='rgba('+col+','+(0.28*(1-d/20000)).toFixed(3)+')'; ctx.lineWidth=1; ctx.stroke(); } } }
+      requestAnimationFrame(loop);
+    }
+    loop();
+  })();
+  /* USI crest tilt + cursor-reactive rays */
+  (function(){ var band=document.querySelector('.usi2-band'); if(!band) return;
+    var crest=band.querySelector('.usi2-crest'), rays=band.querySelector('.usi2-rays');
+    band.addEventListener('mousemove',function(e){ var r=band.getBoundingClientRect(); var px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5;
+      if(crest) crest.style.transform='perspective(700px) rotateY('+(px*14)+'deg) rotateX('+(-py*14)+'deg)';
+      if(rays){ rays.style.opacity=(0.7+Math.abs(px)*0.5).toFixed(2); rays.style.transform='translate('+(px*22)+'px,'+(py*22)+'px) scale(1.08)'; } });
+    band.addEventListener('mouseleave',function(){ if(crest)crest.style.transform=''; if(rays){ rays.style.opacity=''; rays.style.transform=''; } });
+  })();
+  /* Benefits metric toggle */
+  (function(){ var tg=document.getElementById('statToggle'); if(!tg) return;
+    var VIEWS={
+      reach:[['28','','States & UTs reached'],['1500','+','Student ambassadors'],['5','','Ecosystem verticals'],['154','','Years of USI legacy']],
+      impact:[['12','+','Live programmes'],['50','k+','Students engaged'],['300','+','Campus sessions'],['4','','National initiatives']],
+      cred:[['154','','Years of USI legacy'],['1','','CERT-In collaboration'],['3','','Institutional pillars'],['100','%','Mission-driven']]
+    };
+    var band=document.getElementById('statBand'), cards=band.querySelectorAll('.stat-card');
+    function run(el){ var to=+el.dataset.to||0, suf=el.dataset.suf||'', st=null, dur=1100;
+      function step(t){ if(!st)st=t; var pr=Math.min((t-st)/dur,1), e=1-Math.pow(1-pr,3), v=Math.round(e*to);
+        var isYear=(to>=1800&&to<=2100); el.textContent=(!isYear&&to>=1000?v.toLocaleString('en-IN'):v)+suf; if(pr<1) requestAnimationFrame(step); }
+      requestAnimationFrame(step); }
+    function apply(view){ var d=VIEWS[view]; cards.forEach(function(c,i){ var n=c.querySelector('.stat-n'), l=c.querySelector('.stat-l');
+      n.dataset.to=d[i][0]; n.dataset.suf=d[i][1]; l.textContent=d[i][2]; n.textContent='0'; run(n); }); }
+    tg.querySelectorAll('.stat-tab').forEach(function(b){ b.addEventListener('click',function(){ tg.querySelectorAll('.stat-tab').forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); apply(b.dataset.view); }); });
+  })();
+  /* ── Zig-zag how-it-works ── */
+  (function(){ var zz=document.getElementById('zzHow'); if(!zz) return;
+    var steps=zz.querySelectorAll('.zz-step');
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ zz.classList.add('in');
+      steps.forEach(function(s,i){ setTimeout(function(){ s.classList.add('in'); }, 260*i+180); }); io.disconnect(); } }); },{threshold:.35});
+    io.observe(zz);
+  })();
+  /* ── Honeycomb benefits ── */
+  (function(){ var wrap=document.getElementById('hcBenefits'); if(!wrap) return;
+    var cells=wrap.querySelectorAll('.hc-cellw'), detail=document.getElementById('hcDetail');
+    function select(cell){
+      cells.forEach(function(c){ c.classList.remove('on','adj'); });
+      cell.classList.add('on');
+      (cell.dataset.adj||'').split(',').forEach(function(i){ var a=wrap.querySelector('.hc-cellw[data-i="'+i.trim()+'"]'); if(a)a.classList.add('adj'); });
+      var n=(+cell.dataset.i+1); var num=(n<10?'0'+n:n)+' / 06';
+      detail.innerHTML='<div class="hc-d-top"><span class="hc-d-ico">'+cell.dataset.ico+'</span><span class="hc-d-num">'+num+'</span></div>'+
+        '<div class="hc-d-t">'+cell.dataset.title+'</div><div class="hc-d-bar"></div><p class="hc-d-p">'+cell.dataset.desc+'</p>';
+    }
+    cells.forEach(function(c){
+      c.setAttribute('tabindex','0');
+      c.addEventListener('mouseenter',function(){ select(c); });
+      c.addEventListener('focus',function(){ select(c); });
+      c.addEventListener('click',function(){ select(c); });
+    });
+  })();
+  /* ── Azure Topo Flow shader (forked light/dark palette) ── */
+  (function(){
+    var canvas=document.getElementById('shader-canvas'); if(!canvas) return;
+    var gl=canvas.getContext('webgl')||canvas.getContext('experimental-webgl'); if(!gl){ canvas.style.display='none'; return; }
+    function syncSize(){ var dpr=Math.min(window.devicePixelRatio||1,1.5); var w=Math.floor(window.innerWidth*dpr), h=Math.floor(window.innerHeight*dpr); if(canvas.width!==w||canvas.height!==h){ canvas.width=w; canvas.height=h; } }
+    window.addEventListener('resize',syncSize); syncSize();
+    var vs='attribute vec2 a_position;varying vec2 v_texCoord;void main(){v_texCoord=a_position*0.5+0.5;gl_Position=vec4(a_position,0.0,1.0);}';
+    var fs=[
+      'precision highp float;',
+      'uniform float u_time; uniform float u_dark; varying vec2 v_texCoord;',
+      'vec3 mod289(vec3 x){return x-floor(x*(1.0/289.0))*289.0;}',
+      'vec2 mod289(vec2 x){return x-floor(x*(1.0/289.0))*289.0;}',
+      'vec3 permute(vec3 x){return mod289(((x*34.0)+1.0)*x);}',
+      'float snoise(vec2 v){const vec4 C=vec4(0.211324865405187,0.366025403784439,-0.577350269189626,0.024390243902439);',
+      ' vec2 i=floor(v+dot(v,C.yy)); vec2 x0=v-i+dot(i,C.xx); vec2 i1; i1=(x0.x>x0.y)?vec2(1.0,0.0):vec2(0.0,1.0);',
+      ' vec4 x12=x0.xyxy+C.xxzz; x12.xy-=i1; i=mod289(i);',
+      ' vec3 p=permute(permute(i.y+vec3(0.0,i1.y,1.0))+i.x+vec3(0.0,i1.x,1.0));',
+      ' vec3 m=max(0.5-vec3(dot(x0,x0),dot(x12.xy,x12.xy),dot(x12.zw,x12.zw)),0.0); m=m*m; m=m*m;',
+      ' vec3 x=2.0*fract(p*C.www)-1.0; vec3 h=abs(x)-0.5; vec3 ox=floor(x+0.5); vec3 a0=x-ox;',
+      ' m*=1.79284291400159-0.85373472095314*(a0*a0+h*h); vec3 g;',
+      ' g.x=a0.x*x0.x+h.x*x0.y; g.yz=a0.yz*x12.xz+h.yz*x12.yw; return 130.0*dot(m,g);}',
+      'void main(){ vec2 uv=v_texCoord; float t=u_time*0.12;',
+      ' float n1=snoise(uv*1.2+vec2(t*0.4,t*0.2));',
+      ' float n2=snoise(uv*2.5-vec2(t*0.3,t*0.4));',
+      ' float flow=(n1*0.6+n2*0.4)*0.5+0.5;',
+      ' float lines=sin(flow*18.0)*0.5+0.5; float topo=smoothstep(0.45,0.55,lines);',
+      ' // light (ice-blue) palette',
+      ' vec3 bgL=vec3(0.96,0.98,1.0); vec3 accL=vec3(0.10,0.40,0.80); vec3 deepL=vec3(0.02,0.05,0.20);',
+      ' vec3 cL=mix(bgL,accL,flow*0.30); cL=mix(cL,deepL,topo*0.08);',
+      ' cL+=(1.0-smoothstep(0.0,0.8,flow))*0.05*vec3(0.8,0.9,1.0);',
+      ' // dark (midnight-indigo) palette',
+      ' vec3 bgD=vec3(0.020,0.030,0.086); vec3 accD=vec3(0.10,0.28,0.60); vec3 deepD=vec3(0.004,0.010,0.035); vec3 lineD=vec3(0.35,0.55,0.95);',
+      ' vec3 cD=mix(bgD,accD,flow*0.55); cD=mix(cD,deepD,(1.0-flow)*0.35); cD=mix(cD,lineD,topo*0.10);',
+      ' cD+=(1.0-smoothstep(0.0,0.8,flow))*0.06*vec3(0.15,0.30,0.65);',
+      ' vec3 color=mix(cL,cD,u_dark);',
+      ' gl_FragColor=vec4(color,1.0);}'
+    ].join('\n');
+    function sh(type,src){ var s=gl.createShader(type); gl.shaderSource(s,src); gl.compileShader(s); if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){ console.error(gl.getShaderInfoLog(s)); return null; } return s; }
+    var prog=gl.createProgram(); gl.attachShader(prog,sh(gl.VERTEX_SHADER,vs)); gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,fs)); gl.linkProgram(prog); gl.useProgram(prog);
+    var buf=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,buf); gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+    var pl=gl.getAttribLocation(prog,'a_position'); gl.enableVertexAttribArray(pl); gl.vertexAttribPointer(pl,2,gl.FLOAT,false,0,0);
+    var uT=gl.getUniformLocation(prog,'u_time'), uD=gl.getUniformLocation(prog,'u_dark');
+    function render(now){ gl.viewport(0,0,canvas.width,canvas.height); gl.uniform1f(uT,now*0.001);
+      gl.uniform1f(uD, document.documentElement.getAttribute('data-theme')==='light'?0.0:1.0);
+      gl.drawArrays(gl.TRIANGLE_STRIP,0,4); requestAnimationFrame(render); }
+    requestAnimationFrame(render);
+  })();
+  /* Verticals active-card 3D tilt */
+  (function(){ var stage=document.querySelector('.pv-stage'); if(!stage) return;
+    stage.addEventListener('mousemove',function(e){ var card=stage.querySelector('.pv-item.is-active .pv-card'); if(!card)return; var r=stage.getBoundingClientRect(); var px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5; card.style.transform='rotateY('+(px*12)+'deg) rotateX('+(-py*12)+'deg)'; });
+    stage.addEventListener('mouseleave',function(){ var card=stage.querySelector('.pv-item.is-active .pv-card'); if(card)card.style.transform=''; });
+  })();
+  /* Hero rotating word */
+  (function(){ var r=document.getElementById('phRot'); if(!r) return; var sp=r.querySelectorAll('span'), i=0;
+    setInterval(function(){ sp[i].classList.remove('on'); i=(i+1)%sp.length; sp[i].classList.add('on'); }, 2100); })();
+  /* Manifesto reveal + progress fill */
+  (function(){ var steps=document.querySelectorAll('.mf-step'); var fill=document.getElementById('mfFill'); if(!steps.length) return;
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); var lit=document.querySelectorAll('.mf-step.in').length; if(fill) fill.style.height=Math.round(lit/steps.length*100)+'%'; io.unobserve(e.target); } }); },{threshold:.5});
+    steps.forEach(function(s){ io.observe(s); }); })();
+  /* Counters */
+  (function(){
+    function run(el){ var to=+el.dataset.to||0, suf=el.dataset.suf||'', st=null, dur=1500;
+      function step(t){ if(!st)st=t; var pr=Math.min((t-st)/dur,1), e=1-Math.pow(1-pr,3), v=Math.round(e*to);
+        var isYear=(to>=1800&&to<=2100); el.textContent=(!isYear&&to>=1000?v.toLocaleString('en-IN'):v)+suf; if(pr<1) requestAnimationFrame(step); }
+      requestAnimationFrame(step); }
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ run(e.target); io.unobserve(e.target); } }); },{threshold:.6});
+    document.querySelectorAll('.stat-n,.usi2-stat-n').forEach(function(el){ io.observe(el); }); })();
+  /* Progress rings */
+  (function(){ var rs=document.querySelectorAll('.ring-step'); if(!rs.length) return;
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); },{threshold:.5});
+    rs.forEach(function(s){ io.observe(s); }); })();
+  </script>
+
 </body>
 </html>

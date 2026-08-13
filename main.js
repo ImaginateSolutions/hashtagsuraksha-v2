@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const htmlEl       = document.documentElement;
   const chooser      = document.getElementById('themeChooser');
   const themeToggle  = document.getElementById('themeToggle');
+  const themeToggles = document.querySelectorAll('.themeToggle');
   const THEME_KEY    = 'hs-theme';
 
   function applyTheme(theme) {
@@ -31,6 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
     applyTheme(savedTheme);
     if (chooser) chooser.classList.add('hidden');
   } else {
+    chooser.classList.remove('hidden');
+    console.log('No saved theme preference found. Showing chooser...');
     // Show chooser — apply dark by default behind it
     applyTheme('dark');
     if (chooser) {
@@ -46,6 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const current = htmlEl.getAttribute('data-theme');
       applyTheme(current === 'dark' ? 'light' : 'dark');
     });
+  }
+
+  if (themeToggle) {
+      themeToggles.forEach((themeToggle) => {
+          themeToggle.addEventListener('click', () => {
+              const current = htmlEl.getAttribute('data-theme');
+              applyTheme(current === 'dark' ? 'light' : 'dark');
+          });
+      });
   }
 
   // ─── CURSOR GLOW ───────────────────────────────────────────────
