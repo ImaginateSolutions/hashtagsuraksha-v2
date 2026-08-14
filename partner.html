@@ -420,9 +420,9 @@
     .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
     .cta-btn-main { background: var(--acc); color: #fff; padding: 16px 34px; border-radius: 12px; font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; transition: opacity .2s, transform .2s; }
     .cta-btn-main:hover { opacity: .88; transform: translateY(-2px); }
-    .cta-btn-sec { background: transparent; color: var(--pri); padding: 16px 34px; border-radius: 12px; font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 700; border: 2px solid var(--pri); display: inline-flex; align-items: center; gap: 8px; transition: background .2s; }
+    .cta-btn-sec { background: transparent; color: var(--pri); padding: 16px 34px; border-radius: 12px; font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 700; border: 2px solid var(--pri); display: inline-flex; align-items: center; gap: 8px; transition: background .2s; cursor: pointer; transition: opacity .2s, transform .2s; }
     [data-theme="dark"] .cta-btn-sec { background: var(--card); border-color: var(--bdr); color: var(--ink); }
-    .cta-btn-sec:hover { background: rgba(255,255,255,.2); }
+    .cta-btn-sec:hover { background: var(--pri); color: #fff; opacity: .88; transform: translateY(-2px);}
     [data-theme="dark"] .cta-btn-sec:hover { background: var(--surf); }
     /* ── CTA FORM ─────────────────────────── */
     .cta-form-wrap { margin-top: 28px; }
@@ -809,7 +809,7 @@
 
   
     /* ══════ HONEYCOMB BENEFITS ══════ */
-    .hc { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,0.95fr); gap:40px; align-items:center; margin-top:30px; }
+    .hc { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,0.95fr); gap:110px; align-items:center; margin-top:30px; }
     @media(max-width:860px){ .hc { grid-template-columns:1fr; gap:26px; } }
     .hc-comb { --hw:152px; --hh:170px; display:flex; flex-direction:column; align-items:center; }
     .hc-row { display:flex; justify-content:center; gap:14px; }
