@@ -255,6 +255,10 @@
   border-radius: 8px;
 }
 
+.mobile-menu a.mobile-cta:hover {
+  color: #fff !important;
+}
+
 .mobile-menu.open { display: flex; }
 
 /* ── SHOW MORE / COLLAPSE ─────────────────────────────────────── */
@@ -1447,6 +1451,10 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 25px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,122,255,0.05);
+}
+
+@media (max-width: 1024px) {
+  .hero-map-card { width: min(370px, 35vw); }
 }
 
 .bracket-tl, .bracket-tr, .bracket-bl, .bracket-br {
@@ -6094,6 +6102,12 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 }
 
 /* ── RESPONSIVE ───────────────────────────────────────────────── */
+@media (max-width: 1070px) {
+  .hero-inner {
+    gap:24px !important;
+  }
+}
+
 @media (max-width: 1024px) {
   .vertical-card { width: calc(50% - 10px); }
   .movement-grid { grid-template-columns: 1fr; gap: 28px; }
@@ -6124,7 +6138,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   .cm-content-grid.cm-compact { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 950px) {
   .hero-inner {
     grid-template-columns: 1fr;
     text-align: center;

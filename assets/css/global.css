@@ -301,6 +301,10 @@ img { max-width: 100%; }
   border: none !important;
 }
 
+.mobile-menu a.mobile-cta:hover {
+  color: #fff !important;
+}
+
 /* ── FOOTER ──────────────────────────────────────────────────── */
 .footer {
   background: var(--bg) !important;

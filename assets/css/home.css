@@ -197,6 +197,10 @@
   border-radius: 8px;
 }
 
+.mobile-menu a.mobile-cta:hover {
+  color: #fff !important;
+}
+
 .mobile-menu.open { display: flex; }
 
 /* ── SHOW MORE / COLLAPSE ─────────────────────────────────────── */
@@ -1394,6 +1398,10 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 25px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,122,255,0.05);
+}
+
+@media (max-width: 1024px) {
+  .hero-map-card { width: min(400px, 39vw); }
 }
 
 .bracket-tl, .bracket-tr, .bracket-bl, .bracket-br {
@@ -3756,6 +3764,24 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
    FEATURED EPISODE CARD (left)
 ══════════════════════════════════════════ */
 .pb-feature-col { display: flex; flex-direction: column; gap: 12px; }
+
+@media (max-width: 440px) {
+.slang-sp-header-left, .slang-stage, .slang-chips { width: 80%  !important; margin-left: 1rem; }
+  .slang-stage {padding: 40px 0px 28px !important;}
+  .slang-left-col{
+    align-items: start !important;
+  }
+  .slang-chips{padding: 4px 0px 20px !important; margin-left: 0px !important;}
+}
+
+@media (max-width: 390px) {
+  .slang-sp-header-left, .slang-stage, .slang-chips { width: 75%  !important; margin-left: 0.5rem; }
+}
+
+@media (max-width: 360px) {
+  .slang-sp-header-left, .slang-stage, .slang-chips { width: 70%  !important; }
+}
+
 .pb-feat-badge {
   display: inline-flex; align-items: center; gap: 6px;
   background: rgba(255,80,0,0.12); border: 1px solid rgba(255,80,0,0.28);
@@ -5472,6 +5498,13 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   flex: 0 0 auto;            /* shrink-wraps to portrait width */
   width: 260px;
 }
+
+@media (max-width: 390px){
+  .slang-car-stage {
+    width: 140px;
+  }
+}
+
 /* Portrait image — no box, character floats freely */
 .slang-car-portrait {
   width: 260px;
@@ -6035,6 +6068,12 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 }
 
 /* ── RESPONSIVE ───────────────────────────────────────────────── */
+@media (max-width: 1070px) {
+  .hero-inner {
+    gap:24px !important;
+  }
+}
+
 @media (max-width: 1024px) {
   .vertical-card { width: calc(50% - 10px); }
   .movement-grid { grid-template-columns: 1fr; gap: 28px; }
@@ -6064,7 +6103,14 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   .cm-content-grid.cm-compact { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 900px) {
+/* @media (max-width: 950px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+} */
+
+@media (max-width: 950px) {
   .hero-inner {
     grid-template-columns: 1fr;
     text-align: center;
@@ -6079,6 +6125,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   }
   .hero-map-card {
     width: min(390px, 90vw);
+    margin: 0 auto;
   }
 }
 
