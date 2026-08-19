@@ -5344,7 +5344,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
     background-size: 80px 80px;
     background-repeat: repeat;
 
-    opacity: 0.04;
+    opacity: 0.06;
     pointer-events: none;
 }
 
