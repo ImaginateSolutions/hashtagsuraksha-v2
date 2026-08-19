@@ -4,6 +4,9 @@
    ═══════════════════════════════════════════════════════════════ */
 
 /* ── SHARED UTILITIES ─────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
 .center { text-align: center; }
 
 .section-tag {
@@ -5327,7 +5330,30 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   background: #080808;
   overflow: hidden;
   padding: 40px 0 48px;
+  position: relative;
 }
+
+
+/* Background */
+.slanglish-spotlight-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='10' y='35' font-size='24'%3E😀%3C/text%3E%3C/svg%3E");
+    background-size: 80px 80px;
+    background-repeat: repeat;
+
+    opacity: 0.04;
+    pointer-events: none;
+}
+
+/* Content stays fully opaque */
+.slanglish-spotlight-section > * {
+    position: relative;
+    z-index: 1;
+}
+
 
 [data-theme="light"] .slanglish-spotlight-section {
   background: #fff !important;
@@ -5824,14 +5850,17 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 .slang-word-giant {
   font-size: clamp(72px, 12vw, 140px);
   font-weight: 900;
-  letter-spacing: -0.04em;
+  /* letter-spacing: -0.04em; */
   line-height: 1;
   color: #fff;
   text-transform: uppercase;
-  font-family: var(--font-ui);
+  /* font-family: var(--font-ui); */
   transition: opacity 0.1s;
   user-select: none;
   margin-bottom: 18px;
+  font-family: "Bangers", system-ui !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
 }
 
 [data-theme="light"] .slang-word-giant { color: #0f0520 !important; }
