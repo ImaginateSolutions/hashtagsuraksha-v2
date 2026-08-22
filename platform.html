@@ -5904,7 +5904,7 @@
       height: calc(100vh - 64px);
       display: grid;
       grid-template-columns: 5fr 7fr;
-      padding: 32px 68px 0;
+      padding: 88px 68px 0;
       gap: 0;
       box-sizing: border-box;
     }
@@ -6044,7 +6044,7 @@
       flex-direction: column;
       gap: 0;
       overflow-y: auto;
-      padding-bottom: 12px;
+      /* padding-bottom: 12px; */
       scrollbar-width: none;
       justify-content: center;
     }
@@ -6632,6 +6632,10 @@
       .fyt-prog-bar {
         padding: 0 28px 16px;
       }
+    }
+
+    @media (max-width: 768px){
+      .fyt-bottom-row{padding-top: 2px;}
     }
 
     /* Mobile: disable sticky, render as normal stacked sections */
