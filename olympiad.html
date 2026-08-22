@@ -220,8 +220,23 @@
     /* ══════════════════════════════════════════
        AT A GLANCE
     ══════════════════════════════════════════ */
-    .glance-sec { background: rgba(255,255,255,.38); }
+    .glance-sec {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      background: rgba(255,255,255,.38);
+    }
+    .glance-sec::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: rgba(0,0,0,.26);
+    }
+    .glance-sec > .sw { position: relative; z-index: 1; }
     [data-theme="dark"] .glance-sec { background: rgba(255,255,255,.025); }
+    [data-theme="dark"] .glance-sec::before { background: rgba(0,0,0,.18); }
     .glance-grid {
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 64px; align-items: center;
