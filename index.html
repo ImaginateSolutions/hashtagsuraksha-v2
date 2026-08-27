@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./assets/css/global.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
   <link rel="stylesheet" href="./assets/css/home.css" />
+  <script src="./assets/js/nav-dropdown.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <style>
     .nav.scrolled {
@@ -65,14 +66,27 @@
         <li><a href="olympiad.html">Olympiad</a></li>
         <!-- <li><a href="phishnchip.html">The Phish &amp; Chip Show</a></li> -->
         <li><a href="https://slanglish.cyberbuddhas.com/" target="_blank">Slanglish</a></li>
-        <li><a href="resources.html">Books</a></li>
-        <li><a href="partner.html">Partner With Us</a></li>
+        <li><a href="resources.html">Library</a></li>
+        <li class="nav-dropdown">
+          <a href="partner.html" class="nav-dropdown-link">Corporates <span class="nav-dropdown-arrow" aria-hidden="true">&#9662;</span></a>
+          <div class="nav-dropdown-menu" aria-label="Collaborate With Us options">
+            <a href="sponsor.html">For Corporates</a>
+            <a href="schools-registration.html">For Schools</a>
+          </div>
+        </li>
       </ul>
       <div class="nav-right">
         <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
+        <div class="nav-dropdown nav-signup-dropdown">
+          <button type="button" class="nav-signup-btn">Sign Up <span class="nav-dropdown-arrow" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-dropdown-menu nav-signup-menu" aria-label="Sign Up options">
+            <a href="olympiad.html#register">Student Signup</a>
+            <a href="schools-registration.html">School Signup</a>
+          </div>
+        </div>
         <a href="surakshak.html" class="nav-cta">Join the Movement</a>
       </div>
       <div class="nav-right-mobile">
@@ -90,8 +104,26 @@
       <a href="olympiad.html">Olympiad</a>
       <!-- <a href="phishnchip.html">The Phish &amp; Chip Show</a> -->
       <a href="https://slanglish.cyberbuddhas.com/" target="_blank">Slanglish</a>
-      <a href="resources.html">Books</a>
-      <a href="partner.html">Partner With Us</a>
+      <a href="resources.html">Library</a>
+      <div class="mobile-nav-dropdown" data-mobile-dropdown>
+        <div class="mobile-nav-dropdown-head">
+          <a href="partner.html">Corporates</a>
+          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Collaborate With Us options"><span aria-hidden="true">&#9662;</span></button>
+        </div>
+        <div class="mobile-nav-dropdown-menu">
+          <a href="sponsor.html">For Corporates</a>
+          <a href="schools-registration.html">For Schools</a>
+        </div>
+      </div>
+      <div class="mobile-nav-dropdown mobile-signup-dropdown" data-mobile-dropdown>
+        <div class="mobile-nav-dropdown-head">
+          <button type="button" class="mobile-signup-trigger" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Sign Up options">Sign Up <span aria-hidden="true">&#9662;</span></button>
+        </div>
+        <div class="mobile-nav-dropdown-menu">
+          <a href="olympiad.html#register">Student Signup</a>
+          <a href="schools-registration.html">School Signup</a>
+        </div>
+      </div>
       <a href="surakshak.html" class="mobile-cta">Join the Movement</a>
     </div>
   </nav>
@@ -275,200 +307,231 @@
                 <circle class="cp-1"  cx="344.9" cy="319.3" r="10" fill="none" stroke="#007aff" stroke-width="1.8" opacity="0.9"/>
                 <circle cx="344.9" cy="319.3" r="6" fill="#007aff"/>
                 <circle cx="344.9" cy="319.3" r="3" fill="rgba(255,255,255,0.9)"/>
-                <text x="362" y="317" fill="rgba(0,122,255,0.85)" font-size="13" font-weight="700" letter-spacing="0.06em" font-family="system-ui">NEW DELHI</text>
-                <text x="362" y="331" fill="rgba(0,122,255,0.45)" font-size="10.5" letter-spacing="0.04em" font-family="system-ui">NATIONAL CAPITAL</text>
+                <text x="362" y="317" fill="rgba(0,122,255,0.85)" font-size="18" font-weight="700" letter-spacing="0.06em" font-family="system-ui">NEW DELHI</text>
+                <text x="362" y="331" fill="rgba(0,122,255,0.45)" font-size="13" letter-spacing="0.04em" font-family="system-ui">NATIONAL CAPITAL</text>
               </g>
 
               <!-- MUMBAI -->
-              <g filter="url(#cityGlow)">
+              <!-- <g filter="url(#cityGlow)">
                 <circle class="cp2-2" cx="225.7" cy="604.4" r="10" fill="none" stroke="#007aff" stroke-width="0.8" opacity="0.5"/>
                 <circle class="cp-2"  cx="225.7" cy="604.4" r="10" fill="none" stroke="#007aff" stroke-width="1.8" opacity="0.9"/>
                 <circle cx="225.7" cy="604.4" r="6" fill="#007aff"/>
                 <circle cx="225.7" cy="604.4" r="3" fill="rgba(255,255,255,0.9)"/>
-                <text x="150" y="598" fill="rgba(0,122,255,0.85)" font-size="13" font-weight="700" letter-spacing="0.06em" font-family="system-ui" text-anchor="end">MUMBAI</text>
+                <text x="250" y="630" fill="rgba(0,122,255,0.85)" font-size="13" font-weight="700" letter-spacing="0.06em" font-family="system-ui" text-anchor="end">MAHARASHTRA</text>
                 <text x="150" y="614" fill="rgba(0,122,255,0.45)" font-size="10.5" letter-spacing="0.04em" font-family="system-ui" text-anchor="end">FINANCIAL HUB</text>
-              </g>
+              </g> -->
 
               <!-- KOLKATA -->
-              <g filter="url(#cityGlow)">
+              <!-- <g filter="url(#cityGlow)">
                 <circle class="cp2-3" cx="648.2" cy="497.8" r="10" fill="none" stroke="#007aff" stroke-width="0.8" opacity="0.5"/>
                 <circle class="cp-3"  cx="648.2" cy="497.8" r="10" fill="none" stroke="#007aff" stroke-width="1.8" opacity="0.9"/>
                 <circle cx="648.2" cy="497.8" r="6" fill="#007aff"/>
                 <circle cx="648.2" cy="497.8" r="3" fill="rgba(255,255,255,0.9)"/>
-                <text x="665" y="495" fill="rgba(0,122,255,0.85)" font-size="13" font-weight="700" letter-spacing="0.06em" font-family="system-ui">KOLKATA</text>
+                <text x="665" y="495" fill="rgba(0,122,255,0.85)" font-size="13" font-weight="700" letter-spacing="0.06em" font-family="system-ui">WEST BENGAL</text>
                 <text x="665" y="510" fill="rgba(0,122,255,0.45)" font-size="10.5" letter-spacing="0.04em" font-family="system-ui">EAST HUB</text>
-              </g>
+              </g> -->
 
               <!-- BANGALORE -->
-              <g filter="url(#cityGlow)">
+              <!-- <g filter="url(#cityGlow)">
                 <circle class="cp2-4" cx="355.3" cy="781.4" r="9" fill="none" stroke="#007aff" stroke-width="0.8" opacity="0.5"/>
                 <circle class="cp-4"  cx="355.3" cy="781.4" r="9" fill="none" stroke="#007aff" stroke-width="1.8" opacity="0.9"/>
                 <circle cx="355.3" cy="781.4" r="5.5" fill="#007aff"/>
                 <circle cx="355.3" cy="781.4" r="2.8" fill="rgba(255,255,255,0.9)"/>
-                <text x="278" y="775" fill="rgba(0,122,255,0.85)" font-size="13" font-weight="700" letter-spacing="0.06em" font-family="system-ui" text-anchor="end">BANGALORE</text>
+                <text x="278" y="775" fill="rgba(0,122,255,0.85)" font-size="13" font-weight="700" letter-spacing="0.06em" font-family="system-ui" text-anchor="end">KARNATAKA</text>
                 <text x="278" y="790" fill="rgba(0,122,255,0.45)" font-size="10.5" letter-spacing="0.04em" font-family="system-ui" text-anchor="end">TECH CAPITAL</text>
-              </g>
+              </g> -->
 
               <!-- HYDERABAD -->
-              <g filter="url(#cityGlow)">
+              <!-- <g filter="url(#cityGlow)">
                 <circle class="cp2-5" cx="379.2" cy="650.8" r="9" fill="none" stroke="#007aff" stroke-width="0.8" opacity="0.5"/>
                 <circle class="cp-5"  cx="379.2" cy="650.8" r="9" fill="none" stroke="#007aff" stroke-width="1.8" opacity="0.9"/>
                 <circle cx="379.2" cy="650.8" r="5.5" fill="#007aff"/>
                 <circle cx="379.2" cy="650.8" r="2.8" fill="rgba(255,255,255,0.9)"/>
-                <text x="397" y="648" fill="rgba(0,122,255,0.85)" font-size="13" font-weight="700" letter-spacing="0.06em" font-family="system-ui">HYDERABAD</text>
+                <text x="397" y="648" fill="rgba(0,122,255,0.85)" font-size="13" font-weight="700" letter-spacing="0.06em" font-family="system-ui">TELANGANA</text>
                 <text x="397" y="663" fill="rgba(0,122,255,0.45)" font-size="10.5" letter-spacing="0.04em" font-family="system-ui">CYBER CITY</text>
-              </g>
+              </g> -->
 
               <!-- CHENNAI -->
-              <g filter="url(#cityGlow)">
+              <!-- <g filter="url(#cityGlow)">
                 <circle class="cp2-6" cx="428.1" cy="778.1" r="9" fill="none" stroke="#007aff" stroke-width="0.8" opacity="0.5"/>
                 <circle class="cp-6"  cx="428.1" cy="778.1" r="9" fill="none" stroke="#007aff" stroke-width="1.8" opacity="0.9"/>
                 <circle cx="428.1" cy="778.1" r="5.5" fill="#007aff"/>
                 <circle cx="428.1" cy="778.1" r="2.8" fill="rgba(255,255,255,0.9)"/>
-                <text x="446" y="776" fill="rgba(0,122,255,0.85)" font-size="13" font-weight="700" letter-spacing="0.06em" font-family="system-ui">CHENNAI</text>
+                <text x="446" y="776" fill="rgba(0,122,255,0.85)" font-size="13" font-weight="700" letter-spacing="0.06em" font-family="system-ui">TAMIL NADU</text>
                 <text x="446" y="790" fill="rgba(0,122,255,0.45)" font-size="10.5" letter-spacing="0.04em" font-family="system-ui">GATEWAY SOUTH</text>
-              </g>
+              </g> -->
 
               <!-- State Capitals — labeled dots -->
               <g filter="url(#cityGlow)" opacity="0.85">
 
+                <!-- MUMBAI -->
+                <circle cx="225.7" cy="604.4" r="4" fill="#007aff"/>
+                <circle cx="225.7" cy="604.4" r="1.8" fill="rgba(255,255,255,0.85)"/>
+                <text x="233" y="603" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em">MAHARASHTRA</text>
+
+                <!-- KOLKATA -->
+                <circle cx="648.2" cy="497.8" r="4" fill="#007aff"/>
+                <circle cx="648.2" cy="497.8" r="1.8" fill="rgba(255,255,255,0.85)"/>
+                <text x="655" y="500" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em">WEST BENGAL</text>
+
+                <!-- BANGALORE -->
+                <circle cx="355.3" cy="781.4" r="4" fill="#007aff"/>
+                <circle cx="355.3" cy="781.4" r="1.8" fill="rgba(255,255,255,0.85)"/>
+                <text x="278" y="775" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em">KARNATAKA</text>
+
+                <!-- TELANGANA -->
+                <circle cx="379.2" cy="650.8" r="4" fill="#007aff"/>
+                <circle cx="379.2" cy="650.8" r="1.8" fill="rgba(255,255,255,0.85)"/>
+                <text x="397" y="648" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em">TELANGANA</text>
+
+                <!-- TAMIL NADU -->
+                <circle cx="428.1" cy="778.1" r="4" fill="#007aff"/>
+                <circle cx="428.1" cy="778.1" r="1.8" fill="rgba(255,255,255,0.85)"/>
+                <text x="446" y="795" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em">TAMIL NADU</text>
+
                 <!-- Srinagar (J&K) — right -->
                 <circle cx="279.5" cy="157.4" r="4" fill="#007aff"/>
                 <circle cx="279.5" cy="157.4" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="287" y="156" fill="rgba(255,255,255,0.82)" font-size="7.5" font-weight="600" font-family="system-ui" letter-spacing="0.04em">SRINAGAR</text>
-                <text x="287" y="165" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em">NORTH GATE</text>
+                <text x="287" y="156" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em">JAMMU & KASHMIR</text>
+                <!-- <text x="287" y="165" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em">NORTH GATE</text> -->
 
                 <!-- Shimla (HP) — right -->
                 <circle cx="343.9" cy="245.8" r="4" fill="#007aff"/>
                 <circle cx="343.9" cy="245.8" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="351" y="244" fill="rgba(255,255,255,0.82)" font-size="7.5" font-weight="600" font-family="system-ui" letter-spacing="0.04em">SHIMLA</text>
-                <text x="351" y="253" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em">HILL CAPITAL</text>
+                <text x="351" y="224" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em">HIMACHAL PRADESH</text>
+                <!-- <text x="351" y="253" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em">HILL CAPITAL</text> -->
 
                 <!-- Chandigarh (PB/HR) — left of Shimla -->
                 <circle cx="333.5" cy="256.4" r="4" fill="#007aff"/>
                 <circle cx="333.5" cy="256.4" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="327" y="255" fill="rgba(255,255,255,0.82)" font-size="7.5" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">CHANDIGARH</text>
-                <text x="327" y="264" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em" text-anchor="end">CITY BEAUTIFUL</text>
+                <text x="320" y="255" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">PUNJAB</text>
+                <!-- <text x="327" y="264" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em" text-anchor="end">CITY BEAUTIFUL</text> -->
+
+                <!-- Chandigarh (PB/HR) — left of Shimla -->
+                <circle cx="333.5" cy="256.4" r="4" fill="#007aff"/>
+                <circle cx="333.5" cy="256.4" r="1.8" fill="rgba(255,255,255,0.85)"/>
+                <text x="340" y="310" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">HARYANA</text>
+                <!-- <text x="327" y="264" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em" text-anchor="end">CITY BEAUTIFUL</text> -->
 
                 <!-- Dehradun (UK) — right -->
                 <circle cx="367.2" cy="268.8" r="4" fill="#007aff"/>
                 <circle cx="367.2" cy="268.8" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="375" y="267" fill="rgba(255,255,255,0.82)" font-size="7.5" font-weight="600" font-family="system-ui" letter-spacing="0.04em">DEHRADUN</text>
-                <text x="375" y="276" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em">GREEN VALLEY</text>
+                <text x="375" y="267" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em">UTTARAKHAND</text>
+                <!-- <text x="375" y="276" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em">GREEN VALLEY</text> -->
 
                 <!-- Jaipur (RJ) — left -->
                 <circle cx="306.4" cy="369.6" r="4" fill="#007aff"/>
                 <circle cx="306.4" cy="369.6" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="299" y="368" fill="rgba(255,255,255,0.82)" font-size="7.5" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">JAIPUR</text>
-                <text x="299" y="377" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em" text-anchor="end">PINK CITY</text>
+                <text x="299" y="368" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">RAJASTHAN</text>
+                <!-- <text x="299" y="377" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em" text-anchor="end">PINK CITY</text> -->
 
                 <!-- Lucknow (UP) — right -->
                 <circle cx="446.6" cy="371.3" r="4" fill="#007aff"/>
                 <circle cx="446.6" cy="371.3" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="454" y="370" fill="rgba(255,255,255,0.82)" font-size="7.5" font-weight="600" font-family="system-ui" letter-spacing="0.04em">LUCKNOW</text>
-                <text x="454" y="379" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em">NAWABS CITY</text>
+                <text x="400" y="390" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em">UTTAR PRADESH</text>
+                <!-- <text x="454" y="379" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em">NAWABS CITY</text> -->
 
                 <!-- Patna (BR) — right -->
                 <circle cx="560.4" cy="408.6" r="4" fill="#007aff"/>
                 <circle cx="560.4" cy="408.6" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="568" y="407" fill="rgba(255,255,255,0.82)" font-size="7.5" font-weight="600" font-family="system-ui" letter-spacing="0.04em">PATNA</text>
-                <text x="568" y="416" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em">ANCIENT CAPITAL</text>
+                <text x="568" y="407" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em">BIHAR</text>
+                <!-- <text x="568" y="416" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em">ANCIENT CAPITAL</text> -->
 
                 <!-- Gangtok (SK) — left -->
                 <circle cx="654.7" cy="357.1" r="4" fill="#007aff"/>
                 <circle cx="654.7" cy="357.1" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="648" y="356" fill="rgba(255,255,255,0.82)" font-size="7" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">GANGTOK</text>
-                <text x="648" y="364" fill="rgba(0,195,255,0.65)" font-size="5.5" font-family="system-ui" letter-spacing="0.05em" text-anchor="end">HIMALAYAN</text>
+                <text x="648" y="356" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">SIKKIM</text>
+                <!-- <text x="648" y="364" fill="rgba(0,195,255,0.65)" font-size="5.5" font-family="system-ui" letter-spacing="0.05em" text-anchor="end">HIMALAYAN</text> -->
 
                 <!-- Itanagar (AR) — left -->
                 <circle cx="790.8" cy="363.9" r="4" fill="#007aff"/>
                 <circle cx="790.8" cy="363.9" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="784" y="363" fill="rgba(255,255,255,0.82)" font-size="7" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">ITANAGAR</text>
-                <text x="784" y="371" fill="rgba(0,195,255,0.65)" font-size="5.5" font-family="system-ui" letter-spacing="0.05em" text-anchor="end">FRONTIER</text>
+                <text x="854" y="323" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">ARUNACHAL PRADESH</text>
+                <!-- <text x="784" y="371" fill="rgba(0,195,255,0.65)" font-size="5.5" font-family="system-ui" letter-spacing="0.05em" text-anchor="end">FRONTIER</text> -->
 
                 <!-- Dispur (AS) — left -->
                 <circle cx="740.0" cy="392.3" r="4" fill="#007aff"/>
                 <circle cx="740.0" cy="392.3" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="734" y="391" fill="rgba(255,255,255,0.82)" font-size="7" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">DISPUR</text>
-                <text x="734" y="399" fill="rgba(0,195,255,0.65)" font-size="5.5" font-family="system-ui" letter-spacing="0.05em" text-anchor="end">ASSAM CAP.</text>
+                <text x="734" y="391" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">ASSAM</text>
+                <!-- <text x="734" y="399" fill="rgba(0,195,255,0.65)" font-size="5.5" font-family="system-ui" letter-spacing="0.05em" text-anchor="end">ASSAM CAP.</text> -->
 
                 <!-- Kohima (NL) — left -->
                 <circle cx="804.1" cy="406.2" r="4" fill="#007aff"/>
                 <circle cx="804.1" cy="406.2" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="798" y="405" fill="rgba(255,255,255,0.82)" font-size="7" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">KOHIMA</text>
-                <text x="798" y="413" fill="rgba(0,195,255,0.65)" font-size="5.5" font-family="system-ui" letter-spacing="0.05em" text-anchor="end">HIGHLAND</text>
+                <text x="900" y="405" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">NAGALAND</text>
+                <!-- <text x="798" y="413" fill="rgba(0,195,255,0.65)" font-size="5.5" font-family="system-ui" letter-spacing="0.05em" text-anchor="end">HIGHLAND</text> -->
 
                 <!-- Shillong (ML) — left -->
                 <circle cx="743.5" cy="409.1" r="4" fill="#007aff"/>
                 <circle cx="743.5" cy="409.1" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="737" y="408" fill="rgba(255,255,255,0.82)" font-size="7" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">SHILLONG</text>
-                <text x="737" y="416" fill="rgba(0,195,255,0.65)" font-size="5.5" font-family="system-ui" letter-spacing="0.05em" text-anchor="end">E. SCOTLAND</text>
+                <text x="737" y="420" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">MEGHALAYA</text>
+                <!-- <text x="737" y="416" fill="rgba(0,195,255,0.65)" font-size="5.5" font-family="system-ui" letter-spacing="0.05em" text-anchor="end">E. SCOTLAND</text> -->
 
                 <!-- Imphal (MN) — left -->
                 <circle cx="799.5" cy="431.3" r="4" fill="#007aff"/>
                 <circle cx="799.5" cy="431.3" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="793" y="430" fill="rgba(255,255,255,0.82)" font-size="7" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">IMPHAL</text>
-                <text x="793" y="438" fill="rgba(0,195,255,0.65)" font-size="5.5" font-family="system-ui" letter-spacing="0.05em" text-anchor="end">POLO CITY</text>
+                <text x="890" y="440" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">MANIPUR</text>
+                <!-- <text x="793" y="438" fill="rgba(0,195,255,0.65)" font-size="5.5" font-family="system-ui" letter-spacing="0.05em" text-anchor="end">POLO CITY</text> -->
 
                 <!-- Agartala (TR) — left -->
                 <circle cx="727.2" cy="460.5" r="4" fill="#007aff"/>
                 <circle cx="727.2" cy="460.5" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="721" y="459" fill="rgba(255,255,255,0.82)" font-size="7" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">AGARTALA</text>
-                <text x="721" y="467" fill="rgba(0,195,255,0.65)" font-size="5.5" font-family="system-ui" letter-spacing="0.05em" text-anchor="end">ROYAL CAP.</text>
+                <text x="740" y="455" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">TRIPURA</text>
+                <!-- <text x="721" y="467" fill="rgba(0,195,255,0.65)" font-size="5.5" font-family="system-ui" letter-spacing="0.05em" text-anchor="end">ROYAL CAP.</text> -->
 
                 <!-- Aizawl (MZ) — left -->
                 <circle cx="766.3" cy="463.5" r="4" fill="#007aff"/>
                 <circle cx="766.3" cy="463.5" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="760" y="462" fill="rgba(255,255,255,0.82)" font-size="7" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">AIZAWL</text>
-                <text x="760" y="470" fill="rgba(0,195,255,0.65)" font-size="5.5" font-family="system-ui" letter-spacing="0.05em" text-anchor="end">BLUE MTN.</text>
+                <text x="870" y="490" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">MIZORAM</text>
+                <!-- <text x="760" y="470" fill="rgba(0,195,255,0.65)" font-size="5.5" font-family="system-ui" letter-spacing="0.05em" text-anchor="end">BLUE MTN.</text> -->
 
                 <!-- Ranchi (JH) — right -->
                 <circle cx="565.0" cy="475.0" r="4" fill="#007aff"/>
                 <circle cx="565.0" cy="475.0" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="573" y="474" fill="rgba(255,255,255,0.82)" font-size="7.5" font-weight="600" font-family="system-ui" letter-spacing="0.04em">RANCHI</text>
-                <text x="573" y="483" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em">FALLS CITY</text>
+                <text x="573" y="474" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em">JHARKHAND</text>
+                <!-- <text x="573" y="483" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em">FALLS CITY</text> -->
 
                 <!-- Bhopal (MP) — left -->
                 <circle cx="350.4" cy="477.4" r="4" fill="#007aff"/>
                 <circle cx="350.4" cy="477.4" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="344" y="476" fill="rgba(255,255,255,0.82)" font-size="7.5" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">BHOPAL</text>
-                <text x="344" y="485" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em" text-anchor="end">LAKE CITY</text>
+                <text x="450" y="500" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">MADHYA PRADESH</text>
+                <!-- <text x="344" y="485" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em" text-anchor="end">LAKE CITY</text> -->
 
                 <!-- Gandhinagar (GJ) — left -->
                 <circle cx="220.8" cy="478.6" r="4" fill="#007aff"/>
                 <circle cx="220.8" cy="478.6" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="214" y="477" fill="rgba(255,255,255,0.82)" font-size="7.5" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">GANDHINAGAR</text>
-                <text x="214" y="486" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em" text-anchor="end">GARDEN CITY</text>
+                <text x="214" y="477" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">GUJARAT</text>
+                <!-- <text x="214" y="486" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em" text-anchor="end">GARDEN CITY</text> -->
 
                 <!-- Raipur (CG) — right -->
                 <circle cx="465.0" cy="536.8" r="4" fill="#007aff"/>
                 <circle cx="465.0" cy="536.8" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="473" y="535" fill="rgba(255,255,255,0.82)" font-size="7.5" font-weight="600" font-family="system-ui" letter-spacing="0.04em">RAIPUR</text>
-                <text x="473" y="544" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em">RICE BOWL</text>
+                <text x="473" y="535" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em">CHHATTISGARH</text>
+                <!-- <text x="473" y="544" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em">RICE BOWL</text> -->
 
                 <!-- Bhubaneswar (OD) — right -->
                 <circle cx="578.9" cy="564.8" r="4" fill="#007aff"/>
                 <circle cx="578.9" cy="564.8" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="586" y="563" fill="rgba(255,255,255,0.82)" font-size="7.5" font-weight="600" font-family="system-ui" letter-spacing="0.04em">BHUBANESWAR</text>
-                <text x="586" y="572" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em">TEMPLE CITY</text>
+                <text x="506" y="583" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em">ODISHA</text>
+                <!-- <text x="586" y="572" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em">TEMPLE CITY</text> -->
 
                 <!-- Amaravati (AP) — left -->
                 <circle cx="434.9" cy="676.8" r="4" fill="#007aff"/>
                 <circle cx="434.9" cy="676.8" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="428" y="676" fill="rgba(255,255,255,0.82)" font-size="7.5" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">AMARAVATI</text>
-                <text x="428" y="685" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em" text-anchor="end">NEW CAPITAL</text>
+                <text x="550" y="720" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">ANDHRA PRADESH</text>
+                <!-- <text x="428" y="685" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em" text-anchor="end">NEW CAPITAL</text> -->
 
                 <!-- Panaji (GA) — left -->
                 <circle cx="253.1" cy="706.6" r="4" fill="#007aff"/>
                 <circle cx="253.1" cy="706.6" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="247" y="705" fill="rgba(255,255,255,0.82)" font-size="7.5" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">PANAJI</text>
-                <text x="247" y="714" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em" text-anchor="end">SUNSHINE</text>
+                <text x="247" y="705" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em" text-anchor="end">GOA</text>
+                <!-- <text x="247" y="714" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em" text-anchor="end">SUNSHINE</text> -->
 
                 <!-- Thiruvananthapuram (KL) — right -->
                 <circle cx="337.6" cy="912.9" r="4" fill="#007aff"/>
                 <circle cx="337.6" cy="912.9" r="1.8" fill="rgba(255,255,255,0.85)"/>
-                <text x="345" y="912" fill="rgba(255,255,255,0.82)" font-size="7.5" font-weight="600" font-family="system-ui" letter-spacing="0.04em">TRIVANDRUM</text>
-                <text x="345" y="921" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em">TECH CAP. KL</text>
+                <text x="330" y="930" fill="rgba(255,255,255,0.82)" font-size="16" font-weight="600" font-family="system-ui" letter-spacing="0.04em">KERALA</text>
+                <!-- <text x="345" y="921" fill="rgba(0,195,255,0.65)" font-size="6" font-family="system-ui" letter-spacing="0.06em">TECH CAP. KL</text> -->
 
               </g>
 
@@ -737,9 +800,9 @@
       <div class="cask-grid">
         <div class="cask-text">
           <div class="cask-logo-label-row">
-            <img src="assets/1.png" alt="CASK" class="cask-section-logo logo-dark" />
-            <img src="assets/2.png" alt="CASK" class="cask-section-logo logo-light" />
-            <span class="cask-logo-label-text">CASK Platform</span>
+            <img src="assets/1-cask.png" alt="CASK" class="cask-section-logo logo-dark" />
+            <img src="assets/2-cask.png" alt="CASK" class="cask-section-logo logo-light" />
+            <!-- <span class="cask-logo-label-text">CASK Platform</span> -->
           </div>
           <h2>India's First AI-Powered Cyber Safety Learning Platform</h2>
           <p>CASK (Cyber Abhyas Sakriya Kshamta) delivers structured cyber safety education through free learning resources and an intelligent AI tutor, built in collaboration with CERT-In, MeitY, Cyber Buddha, and Summer Art of Living.</p>
@@ -1196,7 +1259,7 @@
       <span class="olymp-spark" style="left:85%; animation-delay:2.4s"></span>
     </div>
     <div class="olymp-inner">
-      <div class="olymp-ribbon"><span><span class="odot"></span>National Cyber Olympiad · 2025 Season</span></div>
+      <div class="olymp-ribbon"><span><span class="odot"></span>National Cyber Olympiad · 2026 Season</span></div>
 
       <div class="olymp-head">
         <span class="olymp-eyebrow">🇮🇳 India's Student Cyber Championship</span>
@@ -1205,7 +1268,7 @@
       </div>
 
       <div class="olymp-facts">
-        <div class="olymp-fact oly-reveal"><div class="olymp-fact-ico">🎓</div><div class="olymp-fact-val">Ages 12–19</div><div class="olymp-fact-lbl">Grades VI–XII</div></div>
+        <div class="olymp-fact oly-reveal"><div class="olymp-fact-ico">🎓</div><div class="olymp-fact-val">Ages 12–19</div><div class="olymp-fact-lbl">Grades VII–XII</div></div>
         <div class="olymp-fact oly-reveal"><div class="olymp-fact-ico">🗺️</div><div class="olymp-fact-val">All India</div><div class="olymp-fact-lbl">Every State &amp; UT</div></div>
         <div class="olymp-fact oly-reveal"><div class="olymp-fact-ico">🧩</div><div class="olymp-fact-val">3 Rounds</div><div class="olymp-fact-lbl">Progressive difficulty</div></div>
         <div class="olymp-fact oly-reveal"><div class="olymp-fact-ico">🏅</div><div class="olymp-fact-val">National Ranks</div><div class="olymp-fact-lbl">Medals &amp; certificates</div></div>
@@ -1249,7 +1312,7 @@
   </section>
 
   <!-- PHISH & CHIP — PHISH BOWL GAME -->
-  <section class="pnc-section" id="podcast">
+  <!-- <section class="pnc-section" id="podcast">
     <canvas id="pbShaderCanvas" aria-hidden="true"></canvas>
     <div class="container pb-container">
 
@@ -1261,7 +1324,6 @@
 
       <div class="pb-layout">
 
-        <!-- ── LEFT: FEATURED EPISODE THUMBNAIL CARD ── -->
         <div class="pb-feature-col">
           <a href="https://www.youtube.com/@hashtag_suraksha" target="_blank" rel="noopener" class="pb-feat-card">
             <div class="pb-feat-thumb">
@@ -1275,7 +1337,6 @@
               <div class="pb-feat-dur">23 min</div>
             </div>
           </a>
-          <!-- Now-bar below the card — matches phishnchip.html style -->
           <div class="pb-now-bar">
             <div class="pb-now-dot"></div>
             <div class="pb-now-label">Ep 01 — The Lottery Trap: How PHISH Steals Your Dreams</div>
@@ -1283,7 +1344,6 @@
           </div>
         </div>
 
-        <!-- ── RIGHT: CARNIVAL ROLLING EPISODE STRIP ── -->
         <div class="pb-carnival">
           <div class="pb-carnival-hd">
             <span class="pb-carnival-hd-t">🎬 All Episodes</span>
@@ -1365,7 +1425,6 @@
                 </div>
                 <div class="pb-creel-play">▶</div>
               </a>
-              <!-- duplicate for seamless loop -->
               <a href="https://www.youtube.com/@hashtag_suraksha" target="_blank" rel="noopener" class="pb-creel-card pb-cc1">
                 <div class="pb-creel-ep">EP 01</div><div class="pb-creel-art">🎣</div>
                 <div class="pb-creel-body"><div class="pb-creel-title">The Lottery Trap</div><div class="pb-creel-dur">23 min</div></div>
@@ -1410,10 +1469,10 @@
           </div>
         </div>
 
-      </div><!-- end pb-layout -->
+      </div>
 
     </div>
-  </section>
+  </section> -->
 
 
     <!-- SLANGLISH — WORD SPOTLIGHT -->
@@ -1428,14 +1487,14 @@
             <div class="slang-logo-title-row">
               <img src="assets/Slanglish logos_transparent background/1.png" alt="Slanglish" class="slang-section-logo logo-dark" />
               <img src="assets/Slanglish logos_transparent background/2.png" alt="Slanglish" class="slang-section-logo logo-light" />
-              <h2 class="slang-logo-title">Slanglish</h2>
+              <!-- <h2 class="slang-logo-title">Slanglish</h2> -->
             </div>
             <p class="slang-usp-line">The language teens speak — decoded for parents, with the cyber safety angle every family needs.</p>
           </div>
           <div class="slang-aud-tags">
-            <span class="slang-aud-pill slang-aud-teen">For Teens 🤙</span>
+            <a href="https://slanglish.cyberbuddhas.com/#about" target="_blank"><span class="slang-aud-pill slang-aud-teen">For Teens 🤙</span></a>
             <span class="slang-aud-divider">·</span>
-            <span class="slang-aud-pill slang-aud-parent">For Parents 👨‍👩‍👧</span>
+            <a href="https://slanglish.cyberbuddhas.com/#about" target="_blank"><span class="slang-aud-pill slang-aud-parent">For Parents 👨‍👩‍👧</span></a>
           </div>
         </div>
         <!-- Giant word stage -->
@@ -1537,7 +1596,7 @@
   <section class="partner-wheel-section" id="partner">
     <div class="container">
       <div class="center" style="margin-bottom:48px">
-        <span class="section-tag">Partner With Us</span>
+        <span class="section-tag">Collaborate With Us</span>
         <h2 style="margin-top:12px">The Hashtag Suraksha Ecosystem</h2>
         <p class="section-sub">Hover over each partner type to see what we build together.</p>
       </div>
@@ -1607,8 +1666,8 @@
           <div class="footer-col">
             <h5>Organisation</h5>
             <a href="#about">About</a>
-            <a href="resources.html">Books</a>
-            <a href="partner.html">Partner With Us</a>
+            <a href="resources.html">Library</a>
+            <a href="partner.html">Corporates</a>
             <a href="https://hashtagsuraksha.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
             <a href="https://hashtagsuraksha.com/terms-of-use" target="_blank" rel="noopener">Terms of Use</a>
           </div>
@@ -1616,7 +1675,7 @@
             <h5>Contact</h5>
             <a href="mailto:info@hashtagsuraksha.com">info@hashtagsuraksha.com</a>
             <a href="partner.html" class="footer-cta-link">Become a Partner</a>
-            <a href="surakshak.html" class="footer-cta-link">Join Surakshak</a>
+            <!-- <a href="surakshak.html" class="footer-cta-link">Join Surakshak</a> -->
           </div>
         </div>
       </div>

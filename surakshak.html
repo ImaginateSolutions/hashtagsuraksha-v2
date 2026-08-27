@@ -257,8 +257,8 @@
         <li><a href="olympiad.html">Olympiad</a></li>
         <!-- <li><a href="phishnchip.html">The Phish &amp; Chip Show</a></li> -->
         <li><a href="https://slanglish.cyberbuddhas.com/" target="_blank">Slanglish</a></li>
-        <li><a href="resources.html">Books</a></li>
-        <li><a href="partner.html">Partner With Us</a></li>
+        <li><a href="resources.html">Library</a></li>
+        <li><a href="partner.html">Collaborate With Us</a></li>
       </ul>
       <div class="nav-right">
         <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
@@ -282,8 +282,8 @@
       <a href="olympiad.html">Olympiad</a>
       <!-- <a href="phishnchip.html">The Phish &amp; Chip Show</a> -->
       <a href="https://slanglish.cyberbuddhas.com/" target="_blank">Slanglish</a>
-      <a href="resources.html">Books</a>
-      <a href="partner.html">Partner With Us</a>
+      <a href="resources.html">Library</a>
+      <a href="partner.html">Collaborate With Us</a>
       <a href="surakshak.html" class="mobile-cta">Join the Movement</a>
     </div>
   </nav>
@@ -556,8 +556,8 @@
           <div class="footer-col">
             <h5>Organisation</h5>
             <a href="#about">About</a>
-            <a href="resources.html">Books</a>
-            <a href="partner.html">Partner With Us</a>
+            <a href="resources.html">Library</a>
+            <a href="partner.html">Collaborate With Us</a>
             <a href="https://hashtagsuraksha.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
             <a href="https://hashtagsuraksha.com/terms-of-use" target="_blank" rel="noopener">Terms of Use</a>
           </div>
@@ -565,7 +565,7 @@
             <h5>Contact</h5>
             <a href="mailto:info@hashtagsuraksha.com">info@hashtagsuraksha.com</a>
             <a href="partner.html" class="footer-cta-link">Become a Partner</a>
-            <a href="surakshak.html" class="footer-cta-link">Join Surakshak</a>
+            <!-- <a href="surakshak.html" class="footer-cta-link">Join Surakshak</a> -->
           </div>
         </div>
       </div>
@@ -575,18 +575,177 @@
     </div>
   </footer>
   <style>
-   .footer-socials a {
-        padding: 8px;
-        width: 42px;
-        height: 42px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid var(--border);
-        border-radius: 25px;
+    .footer {
+      background: var(--bg) !important;
+      border-top: 1px solid var(--border) !important;
     }
-    [data-theme="light"] .footer-socials a svg path {
-        fill: #000;
+    .footer .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .footer-grid {
+      display: grid !important;
+      grid-template-columns: minmax(260px, 0.95fr) minmax(0, 1.65fr) !important;
+      gap: clamp(36px, 6vw, 76px) !important;
+      align-items: start !important;
+      padding-bottom: clamp(36px, 5vw, 56px) !important;
+    }
+    .footer-brand { max-width: 380px !important; }
+    .footer-logo-circle-link { display: inline-block !important; margin-bottom: 16px !important; }
+    .footer-logo-circle {
+      width: 72px !important;
+      height: 72px !important;
+      background: #fff !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 10px !important;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18) !important;
+    }
+    .footer-logo-img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;
+      display: block !important;
+      filter: none !important;
+    }
+    .footer-brand > p {
+      font-size: 14px !important;
+      color: var(--text-secondary) !important;
+      line-height: 1.7 !important;
+      max-width: 340px !important;
+      margin: 0 0 20px !important;
+    }
+    .footer-partner-logos {
+      display: flex !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      gap: 16px !important;
+      margin-bottom: 20px !important;
+    }
+    .footer-certin-logo {
+      height: 46px !important;
+      width: auto !important;
+      max-width: 200px !important;
+      object-fit: contain !important;
+      background: #fff !important;
+      border-radius: 6px !important;
+      padding: 4px 8px !important;
+    }
+    .footer-socials {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 12px !important;
+    }
+    .footer-socials a {
+      width: 42px !important;
+      height: 42px !important;
+      padding: 8px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex: 0 0 42px !important;
+      color: var(--text-secondary) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 999px !important;
+      background: rgba(255,255,255,0.025) !important;
+      text-decoration: none !important;
+      transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s !important;
+    }
+    .footer-socials a:hover {
+      color: var(--primary) !important;
+      border-color: var(--text-primary) !important;
+      background: rgba(0,122,255,0.08) !important;
+      transform: translateY(-2px) !important;
+    }
+    .footer-socials a:focus-visible {
+      outline: 2px solid var(--primary) !important;
+      outline-offset: 3px !important;
+    }
+    .footer-socials svg {
+      display: block !important;
+      width: 20px !important;
+      height: 20px !important;
+    }
+    [data-theme="light"] .footer-socials a svg path { fill: #111827 !important; }
+    .footer-links-group {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: clamp(24px, 4vw, 42px) !important;
+      align-items: start !important;
+    }
+    .footer-col { min-width: 0 !important; }
+    .footer-col h5 {
+      font-family: var(--font-ui) !important;
+      font-size: 12px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      color: var(--text-secondary) !important;
+      margin: 0 0 16px !important;
+    }
+    .footer-col a {
+      display: block !important;
+      font-family: var(--font-ui) !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      line-height: 1.5 !important;
+      color: var(--text-secondary) !important;
+      text-decoration: none !important;
+      margin-bottom: 10px !important;
+      overflow-wrap: anywhere !important;
+      transition: color 0.2s !important;
+    }
+    /* .footer-col a:hover { color: var(--primary) !important; } */
+    .footer-cta-link {
+      color: var(--primary) !important;
+      font-weight: 500 !important;
+    }
+    .footer-bottom {
+      border-top: 1px solid var(--border) !important;
+      padding: 22px 0 !important;
+      text-align: center !important;
+    }
+    .footer-bottom p {
+      font-family: var(--font-ui) !important;
+      font-size: 12px !important;
+      line-height: 1.6 !important;
+      color: var(--text-secondary) !important;
+      max-width: 880px !important;
+      margin: 0 auto !important;
+    }
+    @media (max-width: 1100px) {
+      .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 36px !important;
+      }
+      .footer-brand { max-width: 680px !important; }
+      .footer-brand > p { max-width: 620px !important; }
+    }
+    @media (max-width: 560px) {
+      .footer { padding-top: 44px !important; }
+      .footer-grid,
+      .footer-brand { text-align: center !important; }
+      .footer-brand > p {
+        margin: 0 auto 20px !important;
+        max-width: none !important;
+      }
+      .footer-bottom p {
+        margin: 0 auto !important;
+        max-width: none !important;
+      }
+      .footer-partner-logos,
+      .footer-socials { justify-content: center !important; }
+      .footer-links-group {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+      .footer-col a {
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
     }
   </style>
 

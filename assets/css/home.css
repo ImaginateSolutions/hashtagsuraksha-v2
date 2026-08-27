@@ -2412,7 +2412,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 
 .footer-socials a:hover {
   color: var(--primary);
-  border-color: var(--primary);
+  border-color: var(--text-primary);
   background: rgba(0,122,255,0.08);
   transform: translateY(-2px);
 }
@@ -2466,7 +2466,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   transition: color 0.2s;
 }
 
-.footer-col a:hover { color: var(--primary); }
+/* .footer-col a:hover { color: var(--primary); } */
 
 .footer-cta-link {
   color: var(--primary) !important;
@@ -2816,8 +2816,8 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 .cask-card-logo-col,
 .slang-card-logo-col {
   flex-shrink: 0;
-  width: 44px;
-  height: 44px;
+  width: auto;
+  height: 30px;
   border-radius: 9px;
   overflow: hidden;
   display: flex;
@@ -2861,10 +2861,10 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   margin-bottom: 18px;
 }
 .cask-section-logo {
-  width: 72px;
-  height: 72px;
+  width: auto;
+  height: 32px;
   object-fit: cover;
-  border-radius: 14px;
+  /* border-radius: 14px; */
   box-shadow: 0 4px 16px rgba(0,0,0,0.18);
   flex-shrink: 0;
 }
@@ -2886,8 +2886,8 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   margin-bottom: 12px;
 }
 .slang-section-logo {
-  width: 72px;
-  height: 72px;
+  width: 115px;
+  height: 80px;
   object-fit: contain;
   border-radius: 12px;
   flex-shrink: 0;

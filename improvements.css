@@ -629,7 +629,7 @@ html, body {
 [data-theme="light"] .footer-brand > p { color: rgba(26,10,40,0.55) !important; }
 [data-theme="light"] .footer-col h5    { color: rgba(26,10,40,0.45) !important; }
 [data-theme="light"] .footer-col a     { color: rgba(26,10,40,0.52) !important; }
-[data-theme="light"] .footer-col a:hover { color: #0055ff !important; }
+/* [data-theme="light"] .footer-col a:hover { color: #0055ff !important; } */
 [data-theme="light"] .footer-bottom { border-top-color: rgba(26,10,40,0.08) !important; }
 [data-theme="light"] .footer-bottom p { color: rgba(26,10,40,0.40) !important; }
 [data-theme="light"] .footer-socials a { color: rgba(26,10,40,0.52) !important; }

@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/global.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
+  <script src="./assets/js/nav-dropdown.js" defer></script>
   <style>
     /* ════════════════════════════════════════════════════════
        BOOKS · premium digital cyber library
@@ -101,18 +102,19 @@
     .bk-carousel { position:relative; margin-top:6px; padding:0 44px; }
     .bk-stage { position:relative; height:clamp(300px,40vh,376px); perspective:1500px; overflow:hidden; }
     .bk-track { position:absolute; inset:0; transform-style:preserve-3d; }
-    .bk-item { position:absolute; left:50%; top:50%; width:clamp(164px,13vw,204px); aspect-ratio:11/16; cursor:pointer;
+    .bk-item { position:absolute; left:50%; top:50%; width:clamp(164px,11vw,204px); aspect-ratio:5/8; cursor:pointer;
       transition:transform .62s cubic-bezier(.22,1,.36,1), opacity .5s, filter .5s; will-change:transform; }
     .bk-item.is-active { cursor:default; }
     .bk-cover { position:relative; width:100%; height:100%; border-radius:6px 12px 12px 6px; overflow:hidden;
-      background:linear-gradient(150deg,var(--c1),var(--c2)); box-shadow:0 24px 50px rgba(0,0,0,.5), 0 4px 12px rgba(0,0,0,.4);
+      background:transparent; box-shadow:0 24px 50px rgba(0,0,0,.5), 0 4px 12px rgba(0,0,0,.4);
       border:1px solid rgba(255,255,255,0.12); transition:box-shadow .5s, transform .5s; }
     .bk-item.is-active .bk-cover { animation:bkFloat 5.5s ease-in-out infinite; box-shadow:0 34px 70px rgba(0,0,0,.6), 0 0 40px var(--glow); }
     @keyframes bkFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
     .bk-item:not(.is-active) .bk-cover { filter:brightness(.62) saturate(.9); }
     .bk-cover::before { content:''; position:absolute; left:0; top:0; bottom:0; width:11px; background:linear-gradient(90deg,rgba(0,0,0,.38),rgba(255,255,255,.12) 60%,rgba(0,0,0,.14)); }
     .bk-cover::after { content:''; position:absolute; inset:0; background:linear-gradient(125deg,rgba(255,255,255,.22),transparent 42%); pointer-events:none; }
-    .bk-cover-in { position:absolute; inset:0; padding:20px 16px 16px 22px; display:flex; flex-direction:column; }
+    .bk-cover-in { position:absolute; inset:0; padding:0; display:flex; }
+    .bk-cover-img { width:100%; height:100%; object-fit:cover; display:block; }
     .bk-cover-mark { font-family:var(--fh); font-size:8.5px; font-weight:800; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,.75); }
     .bk-cover-emblem { margin:auto; width:56px; height:56px; opacity:.9; }
     .bk-cover-ttl { font-family:var(--fh); font-size:15px; font-weight:800; line-height:1.15; color:#fff; text-shadow:0 2px 8px rgba(0,0,0,.4); }
@@ -222,7 +224,7 @@
     .footer-links-group { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
     .footer-col h5 { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 16px; }
     .footer-col a { display: block; font-size: 13px; font-weight: 400; color: var(--text-secondary); margin-bottom: 10px; transition: color .2s; }
-    .footer-col a:hover { color: var(--primary); }
+    /* .footer-col a:hover { color: var(--primary); } */
     .footer-cta-link { color: var(--primary) !important; font-weight: 500 !important; }
     @media(max-width:768px){ .footer-grid { grid-template-columns: 1fr; gap: 40px; } .footer-links-group { grid-template-columns: repeat(2,1fr); } }
     @media(max-width:480px){ .footer-links-group { grid-template-columns: 1fr; } }
@@ -247,14 +249,27 @@
         <li><a href="olympiad.html">Olympiad</a></li>
         <!-- <li><a href="phishnchip.html">The Phish &amp; Chip Show</a></li> -->
         <li><a href="https://slanglish.cyberbuddhas.com/" target="_blank">Slanglish</a></li>
-        <li><a href="resources.html" class="active">Books</a></li>
-        <li><a href="partner.html">Partner With Us</a></li>
+        <li><a href="resources.html" class="active">Library</a></li>
+        <li class="nav-dropdown">
+          <a href="partner.html" class="nav-dropdown-link">Corporates <span class="nav-dropdown-arrow" aria-hidden="true">&#9662;</span></a>
+          <div class="nav-dropdown-menu" aria-label="Collaborate With Us options">
+            <a href="sponsor.html">For Corporates</a>
+            <a href="schools-registration.html">For Schools</a>
+          </div>
+        </li>
       </ul>
       <div class="nav-right">
         <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
+        <div class="nav-dropdown nav-signup-dropdown">
+          <button type="button" class="nav-signup-btn">Sign Up <span class="nav-dropdown-arrow" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-dropdown-menu nav-signup-menu" aria-label="Sign Up options">
+            <a href="olympiad.html#register">Student Signup</a>
+            <a href="schools-registration.html">School Signup</a>
+          </div>
+        </div>
         <a href="surakshak.html" class="nav-cta">Join the Movement</a>
       </div>
       <div class="nav-right-mobile">
@@ -272,8 +287,26 @@
       <a href="olympiad.html">Olympiad</a>
       <!-- <a href="phishnchip.html">The Phish &amp; Chip Show</a> -->
       <a href="https://slanglish.cyberbuddhas.com/" target="_blank">Slanglish</a>
-      <a href="resources.html">Books</a>
-      <a href="partner.html">Partner With Us</a>
+      <a href="resources.html">Library</a>
+      <div class="mobile-nav-dropdown" data-mobile-dropdown>
+        <div class="mobile-nav-dropdown-head">
+          <a href="partner.html">Corporates</a>
+          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Collaborate With Us options"><span aria-hidden="true">&#9662;</span></button>
+        </div>
+        <div class="mobile-nav-dropdown-menu">
+          <a href="sponsor.html">For Corporates</a>
+          <a href="schools-registration.html">For Schools</a>
+        </div>
+      </div>
+      <div class="mobile-nav-dropdown mobile-signup-dropdown" data-mobile-dropdown>
+        <div class="mobile-nav-dropdown-head">
+          <button type="button" class="mobile-signup-trigger" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Sign Up options">Sign Up <span aria-hidden="true">&#9662;</span></button>
+        </div>
+        <div class="mobile-nav-dropdown-menu">
+          <a href="olympiad.html#register">Student Signup</a>
+          <a href="schools-registration.html">School Signup</a>
+        </div>
+      </div>
       <a href="surakshak.html" class="mobile-cta">Join the Movement</a>
     </div>
   </nav>
@@ -317,12 +350,11 @@
   <div class="bk-divider rev2" aria-hidden="true"><i></i></div>
 
   <!-- ═══ TEXTBOOKS ═══ -->
-  <section class="ps bk-wrap bk-textbooks rev2" id="textbooks" aria-label="Curriculum textbooks">
+  <!-- <section class="ps bk-wrap bk-textbooks rev2" id="textbooks" aria-label="Curriculum textbooks">
     <div class="bk-feat-head">
       <div class="bk-sec-h">
         <div class="bk-sec-ico">🎓</div>
         <div class="bk-sec-tt">
-          <!-- <span class="bk-sec-over">Section 02 · Curriculum</span> -->
           <h2>Textbooks</h2><p>NEP-aligned cyber-safety curriculum for Classes 6 to 10.</p></div>
       </div>
       <a href="#" class="bk-viewall" id="bkClassViewAll">View All for Class 6 →</a>
@@ -332,7 +364,7 @@
       <div class="bk-classes" id="bkClasses" role="tablist" aria-label="Select class"></div>
       <div class="bk-books" id="bkBooks"></div>
     </div>
-  </section>
+  </section> -->
 
   <div class="bk-divider rev2" aria-hidden="true"><i></i></div>
 
@@ -366,7 +398,7 @@
     </div>
   </section>
 
-  <!-- ═══ FOOTER (unchanged) ═══ -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -404,8 +436,8 @@
           <div class="footer-col">
             <h5>Organisation</h5>
             <a href="#about">About</a>
-            <a href="resources.html">Books</a>
-            <a href="partner.html">Partner With Us</a>
+            <a href="resources.html">Library</a>
+            <a href="partner.html">Corporates</a>
             <a href="https://hashtagsuraksha.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
             <a href="https://hashtagsuraksha.com/terms-of-use" target="_blank" rel="noopener">Terms of Use</a>
           </div>
@@ -413,7 +445,7 @@
             <h5>Contact</h5>
             <a href="mailto:info@hashtagsuraksha.com">info@hashtagsuraksha.com</a>
             <a href="partner.html" class="footer-cta-link">Become a Partner</a>
-            <a href="surakshak.html" class="footer-cta-link">Join Surakshak</a>
+            <!-- <a href="surakshak.html" class="footer-cta-link">Join Surakshak</a> -->
           </div>
         </div>
       </div>
@@ -423,18 +455,177 @@
     </div>
   </footer>
   <style>
-   .footer-socials a {
-        padding: 8px;
-        width: 42px;
-        height: 42px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid var(--border);
-        border-radius: 25px;
+    .footer {
+      background: var(--bg) !important;
+      border-top: 1px solid var(--border) !important;
     }
-    [data-theme="light"] .footer-socials a svg path {
-        fill: #000;
+    .footer .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .footer-grid {
+      display: grid !important;
+      grid-template-columns: minmax(260px, 0.95fr) minmax(0, 1.65fr) !important;
+      gap: clamp(36px, 6vw, 76px) !important;
+      align-items: start !important;
+      padding-bottom: clamp(36px, 5vw, 56px) !important;
+    }
+    .footer-brand { max-width: 380px !important; }
+    .footer-logo-circle-link { display: inline-block !important; margin-bottom: 16px !important; }
+    .footer-logo-circle {
+      width: 72px !important;
+      height: 72px !important;
+      background: #fff !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 10px !important;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18) !important;
+    }
+    .footer-logo-img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;
+      display: block !important;
+      filter: none !important;
+    }
+    .footer-brand > p {
+      font-size: 14px !important;
+      color: var(--text-secondary) !important;
+      line-height: 1.7 !important;
+      max-width: 340px !important;
+      margin: 0 0 20px !important;
+    }
+    .footer-partner-logos {
+      display: flex !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      gap: 16px !important;
+      margin-bottom: 20px !important;
+    }
+    .footer-certin-logo {
+      height: 46px !important;
+      width: auto !important;
+      max-width: 200px !important;
+      object-fit: contain !important;
+      background: #fff !important;
+      border-radius: 6px !important;
+      padding: 4px 8px !important;
+    }
+    .footer-socials {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 12px !important;
+    }
+    .footer-socials a {
+      width: 42px !important;
+      height: 42px !important;
+      padding: 8px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex: 0 0 42px !important;
+      color: var(--text-secondary) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 999px !important;
+      background: rgba(255,255,255,0.025) !important;
+      text-decoration: none !important;
+      transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s !important;
+    }
+    .footer-socials a:hover {
+      color: var(--primary) !important;
+      border-color: var(--text-primary) !important;
+      background: rgba(0,122,255,0.08) !important;
+      transform: translateY(-2px) !important;
+    }
+    .footer-socials a:focus-visible {
+      outline: 2px solid var(--primary) !important;
+      outline-offset: 3px !important;
+    }
+    .footer-socials svg {
+      display: block !important;
+      width: 20px !important;
+      height: 20px !important;
+    }
+    [data-theme="light"] .footer-socials a svg path { fill: #111827 !important; }
+    .footer-links-group {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: clamp(24px, 4vw, 42px) !important;
+      align-items: start !important;
+    }
+    .footer-col { min-width: 0 !important; }
+    .footer-col h5 {
+      font-family: var(--font-ui) !important;
+      font-size: 12px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      color: var(--text-secondary) !important;
+      margin: 0 0 16px !important;
+    }
+    .footer-col a {
+      display: block !important;
+      font-family: var(--font-ui) !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      line-height: 1.5 !important;
+      color: var(--text-secondary) !important;
+      text-decoration: none !important;
+      margin-bottom: 10px !important;
+      overflow-wrap: anywhere !important;
+      transition: color 0.2s !important;
+    }
+    /* .footer-col a:hover { color: var(--primary) !important; } */
+    .footer-cta-link {
+      color: var(--primary) !important;
+      font-weight: 500 !important;
+    }
+    .footer-bottom {
+      border-top: 1px solid var(--border) !important;
+      padding: 22px 0 !important;
+      text-align: center !important;
+    }
+    .footer-bottom p {
+      font-family: var(--font-ui) !important;
+      font-size: 12px !important;
+      line-height: 1.6 !important;
+      color: var(--text-secondary) !important;
+      max-width: 880px !important;
+      margin: 0 auto !important;
+    }
+    @media (max-width: 1100px) {
+      .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 36px !important;
+      }
+      .footer-brand { max-width: 680px !important; }
+      .footer-brand > p { max-width: 620px !important; }
+    }
+    @media (max-width: 560px) {
+      .footer { padding-top: 44px !important; }
+      .footer-grid,
+      .footer-brand { text-align: center !important; }
+      .footer-brand > p {
+        margin: 0 auto 20px !important;
+        max-width: none !important;
+      }
+      .footer-bottom p {
+        margin: 0 auto !important;
+        max-width: none !important;
+      }
+      .footer-partner-logos,
+      .footer-socials { justify-content: center !important; }
+      .footer-links-group {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+      .footer-col a {
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
     }
   </style>
 
@@ -504,13 +695,10 @@
     document.querySelectorAll('.rev2').forEach(function(el){ io.observe(el); });
 
     /* ════════ DATA ════════ */
-    var SHIELD='<svg class="bk-cover-emblem" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V5z"/><path d="M9 12l2 2 4-4"/></svg>';
     var FEATURED = [
-      { title:"Think You're Secure? Think Again", availability:"Free e-book",  c1:"#1B4D8C", c2:"#0A2547", glow:"rgba(45,140,255,.4)",  read:"#", download:"#", buy:null },
-      { title:"Why Smart People Get Hacked?",     availability:"Free e-book",  c1:"#3B2A7A", c2:"#1A1240", glow:"rgba(140,110,255,.4)", read:"#", download:"#", buy:null },
-      { title:"The Good, The Bad & The Cyber Buddha", availability:"Paperback", c1:"#0E5C52", c2:"#062E2A", glow:"rgba(34,211,178,.4)",  read:null, download:null, buy:"#" },
-      { title:"Slanglish 101",                    availability:"Free Download", c1:"#A02765", c2:"#4A0E33", glow:"rgba(255,90,170,.4)",  read:"#", download:"#", buy:null },
-      { title:"Slanglish Crossword",              availability:"Free Download", c1:"#0C6E8C", c2:"#053646", glow:"rgba(74,184,255,.4)",  read:null, download:"#", buy:"#" }
+      { title:"Think You're Secure? Think Again", availability:"Paperback + Download", c1:"#1B4D8C", c2:"#0A2547", glow:"rgba(45,140,255,.4)", cover:"assets/books/Think You're Secure, Think Again._cover.png", read:null, download:"/assets/pdfs/Think_You_Are_Secure_Think_Again.pdf", buy:"https://amzn.in/d/biE4XTq"},
+      { title:"Why Smart People Get Hacked?", availability:"Paperback", c1:"#3B2A7A", c2:"#1A1240", glow:"rgba(140,110,255,.4)", cover:"assets/books/Why Smart People Get Hacked.jpg", read:null, download:null, buy:"https://amzn.in/d/2JyJ13K"},
+      { title:"The Good The Bad The Cyber Buddha", availability:"Paperback + Download", c1:"#0E5C52", c2:"#062E2A", glow:"rgba(34,211,178,.4)", cover:"assets/books/The Good The Bad The Cyber Buddha.jpg", read:null, download:"/assets/pdfs/The_Good_The_Bad_The_Cyber_Buddha.pdf", buy:"https://amzn.in/d/1jNsieN"}
     ];
     var CLASSES = [
       { id:6,  label:"Class 6",  sub:"Foundation",   accent:"#2D8CFF" },
@@ -537,8 +725,7 @@
         var d=document.createElement('div'); d.className='bk-item'; d.setAttribute('role','group');
         d.setAttribute('aria-label',bk.title+' · '+bk.availability);
         d.style.setProperty('--c1',bk.c1); d.style.setProperty('--c2',bk.c2); d.style.setProperty('--glow',bk.glow);
-        d.innerHTML='<div class="bk-cover"><div class="bk-cover-in"><span class="bk-cover-mark">#Suraksha</span>'+SHIELD+
-          '<div class="bk-cover-ttl">'+bk.title+'</div><div class="bk-cover-rule"></div></div></div>';
+        d.innerHTML='<div class="bk-cover"><div class="bk-cover-in"><img class="bk-cover-img" src="'+bk.cover+'" alt="'+bk.title+' cover" loading="eager"></div></div>';
         d.addEventListener('click',function(){ if(i!==active){ active=i; layout(); restart(); } });
         track.appendChild(d); els.push(d);
         var dot=document.createElement('button'); dot.className='bk-dot'; dot.setAttribute('role','tab');
@@ -563,9 +750,9 @@
       }
       function actionBtns(bk){
         var h='';
+        if(bk.buy)      h+='<a class="bk-btn bk-btn-buy" href="'+bk.buy+'" target="_blank" aria-label="Buy paperback of '+bk.title+'">🛒 Buy Paperback</a>';
+        if(bk.download) h+='<a class="bk-btn bk-btn-ghost" href="'+bk.download+'" target="_blank" aria-label="Download '+bk.title+'">⤓ Download</a>';
         if(bk.read)     h+='<a class="bk-btn bk-btn-primary" href="'+bk.read+'" aria-label="Read '+bk.title+'">📖 Read</a>';
-        if(bk.download) h+='<a class="bk-btn bk-btn-ghost" href="'+bk.download+'" aria-label="Download '+bk.title+'">⤓ Download</a>';
-        if(bk.buy)      h+='<a class="bk-btn bk-btn-buy" href="'+bk.buy+'" aria-label="Buy paperback of '+bk.title+'">🛒 Buy Paperback</a>';
         return h;
       }
       function badgeClass(av){ av=av.toLowerCase(); if(av.indexOf('paper')>-1) return 'paper'; if(av.indexOf('download')>-1) return 'download'; return 'free'; }
