@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Partner With Us — Hashtag Suraksha</title>
+  <title>Corporates — Hashtag Suraksha</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/global.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
+  <script src="./assets/js/nav-dropdown.js" defer></script>
   <style>
     /* ═══════════════════════════════════════
        PARTNER · Forest Green + Coral
@@ -500,7 +501,7 @@
       display: block; font-size: 13px; font-weight: 400;
       color: var(--text-secondary); margin-bottom: 10px; transition: color .2s;
     }
-    .footer-col a:hover { color: var(--primary); }
+    /* .footer-col a:hover { color: var(--primary); } */
     .footer-cta-link { color: var(--primary) !important; font-weight: 500 !important; }
     @media(max-width:768px){
       .footer-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -622,7 +623,9 @@
     .pv-dot.on { width:28px; background:var(--acc); }
 
     /* ── MODELS · FLIP CARDS ── */
-    .pf-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:34px; }
+    #models .pw { display:flex; flex-direction:column; align-items:center; }
+    #models .pw > .rev { width:100%; text-align:center !important; }
+    .pf-grid { width:min(100%, 666px); display:grid; grid-template-columns:repeat(2, minmax(260px, 320px)); justify-content:center; gap:26px; margin:34px auto 0; }
     .pf-card { position:relative; aspect-ratio:3/4; perspective:1400px; cursor:pointer; }
     .pf-inner { position:absolute; inset:0; transform-style:preserve-3d; transition: transform .7s cubic-bezier(.22,1,.36,1); }
     .pf-card.flip .pf-inner { transform: rotateY(180deg); }
@@ -649,8 +652,8 @@
     .pf-cta:hover { transform:translateY(-2px); box-shadow:0 14px 32px color-mix(in srgb,var(--ca) 55%, transparent); }
     .pf-flipback { margin-top:9px; background:none; border:none; color:var(--mut); font-size:11.5px; font-weight:700; cursor:pointer; font-family:'Outfit',sans-serif; }
 
-    @media (max-width:1024px){ .pf-grid{ grid-template-columns:repeat(2,1fr); } }
-    @media (max-width:640px){ .pf-grid{ grid-template-columns:1fr; } .pv-carousel{ padding:0 44px; } }
+    @media (max-width:1024px){ .pf-grid{ width:min(100%, 666px); grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:640px){ .pf-grid{ width:min(100%, 320px); grid-template-columns:1fr; } .pv-carousel{ padding:0 44px; } }
     @media (prefers-reduced-motion: reduce){ .pr-bg{ animation:none; } .pv-item.is-active .pv-card{ animation:none; } }
     @media (max-width:440px){ .pv-carousel{ padding:0; } }
 
@@ -900,14 +903,27 @@
         <li><a href="olympiad.html">Olympiad</a></li>
         <!-- <li><a href="phishnchip.html">The Phish &amp; Chip Show</a></li> -->
         <li><a href="https://slanglish.cyberbuddhas.com/" target="_blank">Slanglish</a></li>
-        <li><a href="resources.html">Books</a></li>
-        <li><a href="partner.html" class="active">Partner With Us</a></li>
+        <li><a href="resources.html">Library</a></li>
+        <li class="nav-dropdown">
+          <a href="partner.html" class="nav-dropdown-link active">Corporates <span class="nav-dropdown-arrow" aria-hidden="true">&#9662;</span></a>
+          <div class="nav-dropdown-menu" aria-label="Collaborate With Us options">
+            <a href="sponsor.html">For Corporates</a>
+            <a href="schools-registration.html">For Schools</a>
+          </div>
+        </li>
       </ul>
       <div class="nav-right">
         <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
+        <div class="nav-dropdown nav-signup-dropdown">
+          <button type="button" class="nav-signup-btn">Sign Up <span class="nav-dropdown-arrow" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-dropdown-menu nav-signup-menu" aria-label="Sign Up options">
+            <a href="olympiad.html#register">Student Signup</a>
+            <a href="schools-registration.html">School Signup</a>
+          </div>
+        </div>
         <a href="surakshak.html" class="nav-cta">Join the Movement</a>
       </div>
       <div class="nav-right-mobile">
@@ -925,8 +941,27 @@
       <a href="olympiad.html">Olympiad</a>
       <!-- <a href="phishnchip.html">The Phish &amp; Chip Show</a> -->
       <a href="https://slanglish.cyberbuddhas.com/" target="_blank">Slanglish</a>
-      <a href="resources.html">Books</a>
-      <a href="partner.html">Partner With Us</a>
+      <a href="resources.html">Library</a>
+      <div class="mobile-nav-dropdown" data-mobile-dropdown>
+        <div class="mobile-nav-dropdown-head">
+          <a href="partner.html">Corporates</a>
+          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Collaborate With Us options"><span aria-hidden="true">&#9662;</span></button>
+        </div>
+        <div class="mobile-nav-dropdown-menu">
+          <a href="sponsor.html">For Corporates</a>
+          <a href="schools-registration.html">For Schools</a>
+        </div>
+      </div>
+      <div class="mobile-nav-dropdown mobile-signup-dropdown" data-mobile-dropdown>
+        <div class="mobile-nav-dropdown-head">
+          <a href="olympiad.html#register">Sign Up</a>
+          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Sign Up options"><span aria-hidden="true">&#9662;</span></button>
+        </div>
+        <div class="mobile-nav-dropdown-menu">
+          <a href="olympiad.html#register">Student Signup</a>
+          <a href="schools-registration.html">School Signup</a>
+        </div>
+      </div>
       <a href="surakshak.html" class="mobile-cta">Join the Movement</a>
     </div>
   </nav>
@@ -935,8 +970,10 @@
     <section class="ph" id="top">
     <canvas class="ph-particles" id="phParticles" aria-hidden="true"></canvas>
     <div class="ph-inner2">
-      <div class="ph-eyebrow"><span></span>Schools · Corporates · Governments · NGOs</div>
-      <h1 class="ph-kh">Build a Safer <span class="ph-grad">India</span><br/>with <span class="ph-rot" id="phRot"><span class="on">Schools</span><span>Corporates</span><span>Governments</span><span>NGOs</span><span>You</span></span></h1>
+      <div class="ph-eyebrow"><span></span>Schools · Corporates</div>
+      <h1 class="ph-kh">Build a Safer <span class="ph-grad">India</span><br/>with <span class="ph-rot" id="phRot"><span class="on">Schools</span><span>Corporates</span>
+        <!-- <span>Governments</span><span>NGOs</span> -->
+        <span>You</span></span></h1>
       <p class="ph-lead">India's most comprehensive youth cyber-safety movement. Partner with us to bring cybersecurity awareness to millions of students, families, and communities across the country.</p>
       <div class="ph-actions">
         <a href="#contact" class="btn btn--acc">Become a Partner →</a>
@@ -945,8 +982,8 @@
       <div class="ph-chips">
         <span class="ph-chip">🏫 Schools &amp; Colleges</span>
         <span class="ph-chip">🏢 Corporates &amp; Industry</span>
-        <span class="ph-chip">🏛️ Government Bodies</span>
-        <span class="ph-chip">🌐 NGOs &amp; Media</span>
+        <!-- <span class="ph-chip">🏛️ Government Bodies</span>
+        <span class="ph-chip">🌐 NGOs &amp; Media</span> -->
       </div>
     </div>
   </section>
@@ -961,7 +998,7 @@
       </div>
       <div class="mf-wrap rev">
         <div class="mf-line"><div class="mf-fill" id="mfFill"></div></div>
-        <div class="mf-step"><div class="mf-dot">🎓</div><h3>Education &amp; Curriculum</h3><p>Structured cyber-safety content delivered to students in Grades VI–XII through CASK AI and Surakshak ambassadors.</p></div>
+        <div class="mf-step"><div class="mf-dot">🎓</div><h3>Education &amp; Curriculum</h3><p>Structured cyber-safety content delivered to students in Grades VII–XII through CASK AI and Surakshak ambassadors.</p></div>
         <div class="mf-step"><div class="mf-dot">🤖</div><h3>Technology at Scale</h3><p>CASK — our AI cyber-safety assistant — gives students real-time threat recognition, reporting tools, and personalised guidance.</p></div>
         <div class="mf-step"><div class="mf-dot">🌐</div><h3>Community &amp; Culture</h3><p>Slanglish and The Phish &amp; Chip Show make cyber safety speak the language Gen Z actually uses — campus-native and shareable.</p></div>
         <div class="mf-step"><div class="mf-dot">✅</div><h3>Free, Forever</h3><p>We reach students entirely for <span class="mf-k">free</span>. Partners make that possible — and gain genuine reach, credibility, and a measurable stake in India's cyber-safe future.</p></div>
@@ -1017,10 +1054,9 @@
   <!-- ═══ PARTNERSHIP MODELS ═══ -->
   <section class="ps s-white" id="models">
     <div class="pw">
-      <div class="rev" style="margin-bottom:40px">
-        <span class="ey">Partner Pathways</span>
+      <div class="rev" style="text-align:center;margin-bottom:40px"><span class="ey">Partner Pathways</span>
         <h2 class="h2">Find your partnership model</h2>
-        <p class="sub" style="max-width:580px">Every type of organisation can play a meaningful role in India's cyber safety movement.</p>
+        <p class="sub" style="max-width:580px;margin-left:auto;margin-right:auto">Every type of organisation can play a meaningful role in India's cyber safety movement.</p>
       </div>
       <div class="pf-grid rev d1" id="pfGrid"></div>
       <!-- <div class="pf-toolbar rev"><button type="button" class="pf-compare-btn" id="pfCompareBtn" onclick="togglePfCompare()">⇄ Compare all models</button></div> -->
@@ -1223,8 +1259,8 @@
           <div class="footer-col">
             <h5>Organisation</h5>
             <a href="#about">About</a>
-            <a href="resources.html">Books</a>
-            <a href="partner.html">Partner With Us</a>
+            <a href="resources.html">Library</a>
+            <a href="partner.html">Corporates</a>
             <a href="https://hashtagsuraksha.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
             <a href="https://hashtagsuraksha.com/terms-of-use" target="_blank" rel="noopener">Terms of Use</a>
           </div>
@@ -1232,7 +1268,7 @@
             <h5>Contact</h5>
             <a href="mailto:info@hashtagsuraksha.com">info@hashtagsuraksha.com</a>
             <a href="partner.html" class="footer-cta-link">Become a Partner</a>
-            <a href="surakshak.html" class="footer-cta-link">Join Surakshak</a>
+            <!-- <a href="surakshak.html" class="footer-cta-link">Join Surakshak</a> -->
           </div>
         </div>
       </div>
@@ -1242,18 +1278,177 @@
     </div>
   </footer>
   <style>
-   .footer-socials a {
-        padding: 8px;
-        width: 42px;
-        height: 42px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid var(--border);
-        border-radius: 25px;
+    .footer {
+      background: var(--bg) !important;
+      border-top: 1px solid var(--border) !important;
     }
-    [data-theme="light"] .footer-socials a svg path {
-        fill: #000;
+    .footer .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .footer-grid {
+      display: grid !important;
+      grid-template-columns: minmax(260px, 0.95fr) minmax(0, 1.65fr) !important;
+      gap: clamp(36px, 6vw, 76px) !important;
+      align-items: start !important;
+      padding-bottom: clamp(36px, 5vw, 56px) !important;
+    }
+    .footer-brand { max-width: 380px !important; }
+    .footer-logo-circle-link { display: inline-block !important; margin-bottom: 16px !important; }
+    .footer-logo-circle {
+      width: 72px !important;
+      height: 72px !important;
+      background: #fff !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 10px !important;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18) !important;
+    }
+    .footer-logo-img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;
+      display: block !important;
+      filter: none !important;
+    }
+    .footer-brand > p {
+      font-size: 14px !important;
+      color: var(--text-secondary) !important;
+      line-height: 1.7 !important;
+      max-width: 340px !important;
+      margin: 0 0 20px !important;
+    }
+    .footer-partner-logos {
+      display: flex !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      gap: 16px !important;
+      margin-bottom: 20px !important;
+    }
+    .footer-certin-logo {
+      height: 46px !important;
+      width: auto !important;
+      max-width: 200px !important;
+      object-fit: contain !important;
+      background: #fff !important;
+      border-radius: 6px !important;
+      padding: 4px 8px !important;
+    }
+    .footer-socials {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 12px !important;
+    }
+    .footer-socials a {
+      width: 42px !important;
+      height: 42px !important;
+      padding: 8px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex: 0 0 42px !important;
+      color: var(--text-secondary) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 999px !important;
+      background: rgba(255,255,255,0.025) !important;
+      text-decoration: none !important;
+      transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s !important;
+    }
+    .footer-socials a:hover {
+      color: var(--primary) !important;
+      border-color: var(--text-primary) !important;
+      background: rgba(0,122,255,0.08) !important;
+      transform: translateY(-2px) !important;
+    }
+    .footer-socials a:focus-visible {
+      outline: 2px solid var(--primary) !important;
+      outline-offset: 3px !important;
+    }
+    .footer-socials svg {
+      display: block !important;
+      width: 20px !important;
+      height: 20px !important;
+    }
+    [data-theme="light"] .footer-socials a svg path { fill: #111827 !important; }
+    .footer-links-group {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: clamp(24px, 4vw, 42px) !important;
+      align-items: start !important;
+    }
+    .footer-col { min-width: 0 !important; }
+    .footer-col h5 {
+      font-family: var(--font-ui) !important;
+      font-size: 12px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      color: var(--text-secondary) !important;
+      margin: 0 0 16px !important;
+    }
+    .footer-col a {
+      display: block !important;
+      font-family: var(--font-ui) !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      line-height: 1.5 !important;
+      color: var(--text-secondary) !important;
+      text-decoration: none !important;
+      margin-bottom: 10px !important;
+      overflow-wrap: anywhere !important;
+      transition: color 0.2s !important;
+    }
+    /* .footer-col a:hover { color: var(--primary) !important; } */
+    .footer-cta-link {
+      color: var(--primary) !important;
+      font-weight: 500 !important;
+    }
+    .footer-bottom {
+      border-top: 1px solid var(--border) !important;
+      padding: 22px 0 !important;
+      text-align: center !important;
+    }
+    .footer-bottom p {
+      font-family: var(--font-ui) !important;
+      font-size: 12px !important;
+      line-height: 1.6 !important;
+      color: var(--text-secondary) !important;
+      max-width: 880px !important;
+      margin: 0 auto !important;
+    }
+    @media (max-width: 1100px) {
+      .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 36px !important;
+      }
+      .footer-brand { max-width: 680px !important; }
+      .footer-brand > p { max-width: 620px !important; }
+    }
+    @media (max-width: 560px) {
+      .footer { padding-top: 44px !important; }
+      .footer-grid,
+      .footer-brand { text-align: center !important; }
+      .footer-brand > p {
+        margin: 0 auto 20px !important;
+        max-width: none !important;
+      }
+      .footer-bottom p {
+        margin: 0 auto !important;
+        max-width: none !important;
+      }
+      .footer-partner-logos,
+      .footer-socials { justify-content: center !important; }
+      .footer-links-group {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+      .footer-col a {
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
     }
   </style>
 
@@ -1413,7 +1608,7 @@
     var V=[
       {ico:'🤖',name:'CASK',tag:'AI Platform',ca:'#3AA0FF',desc:'AI cyber-safety assistant for students. Identifies threats, teaches safe behaviours, and enables real-time reporting.'},
       // {ico:'🛡️',name:'Surakshak',tag:'Ambassadors',ca:'#22C55E',desc:'1,500+ trained student ambassadors delivering cyber-safety awareness on campuses across India.'},
-      {ico:'🏆',name:'National Cyber Olympiad',tag:'Competition',ca:'#F5A623',desc:'India’s first National Cyber Olympiad for Grades VI–XII. Tests threat recognition and digital decision-making.'},
+      {ico:'🏆',name:'National Cyber Olympiad',tag:'Competition',ca:'#F5A623',desc:'India’s first National Cyber Olympiad for Grades VII–XII. Tests threat recognition and digital decision-making.'},
       // {ico:'🎙️',name:'The Phish & Chip Show',tag:'Podcast',ca:'#FB7657',desc:'Gen Z cybersecurity podcast. Expert conversations on real threats, made snackable and shareable.'},
       {ico:'💬',name:'Slanglish',tag:'Language',ca:'#A855F7',desc:'Cyber safety in the language India’s youth actually speaks — local slang, vernacular, and pop culture.'}
     ];
@@ -1462,10 +1657,10 @@
         perks:['CASK AI platform for students','Dedicated Surakshak ambassadors','Olympiad registration for all students','Free expert-led workshops','USI-backed student certification'],cta:'Partner as a School'},
       {ico:'🏢',title:'Corporates & Industry',ca:'#F5A623',desc:'Support India’s cyber-safe generation as a CSR partner or sponsor — brand visibility, co-branding, and youth reach.',
         perks:['CSR integration & reporting','Co-branding across all verticals','Employee volunteer & mentorship','Olympiad category sponsorship','Annual impact report'],cta:'Partner as a Corporate'},
-      {ico:'🏛️',title:'Government & Public Bodies',ca:'#22C55E',desc:'Co-design and amplify cyber-safety at district, state, or national level with USI’s institutional credibility.',
-        perks:['District/state programme rollout','Policy research via USI CETANB','Integration with literacy schemes','Joint awareness campaigns & press'],cta:'Partner as a Government Body'},
-      {ico:'🌐',title:'NGOs & Media',ca:'#A855F7',desc:'Amplify the mission through content, outreach, and advocacy as a media house, platform, or development organisation.',
-        perks:['Content partnership for the podcast','Slanglish content co-creation','Community outreach networks','Co-authorship of research & reports'],cta:'Partner as an NGO / Media'}
+      // {ico:'🏛️',title:'Government & Public Bodies',ca:'#22C55E',desc:'Co-design and amplify cyber-safety at district, state, or national level with USI’s institutional credibility.',
+      //   perks:['District/state programme rollout','Policy research via USI CETANB','Integration with literacy schemes','Joint awareness campaigns & press'],cta:'Partner as a Government Body'},
+      // {ico:'🌐',title:'NGOs & Media',ca:'#A855F7',desc:'Amplify the mission through content, outreach, and advocacy as a media house, platform, or development organisation.',
+      //   perks:['Content partnership for the podcast','Slanglish content co-creation','Community outreach networks','Co-authorship of research & reports'],cta:'Partner as an NGO / Media'}
     ];
     M.forEach(function(m){
       var perks=m.perks.map(function(p){ return '<li>'+p+'</li>'; }).join('');

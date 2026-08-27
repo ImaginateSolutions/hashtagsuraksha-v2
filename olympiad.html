@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/global.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
+  <script src="./assets/js/nav-dropdown.js" defer></script>
   
   <style>
     /* ═══════════════════════════════════════════
@@ -220,8 +221,23 @@
     /* ══════════════════════════════════════════
        AT A GLANCE
     ══════════════════════════════════════════ */
-    .glance-sec { background: rgba(255,255,255,.38); }
+    .glance-sec {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      background: rgba(255,255,255,.38);
+    }
+    .glance-sec::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: rgba(0,0,0,.26);
+    }
+    .glance-sec > .sw { position: relative; z-index: 1; }
     [data-theme="dark"] .glance-sec { background: rgba(255,255,255,.025); }
+    [data-theme="dark"] .glance-sec::before { background: rgba(0,0,0,.18); }
     .glance-grid {
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 64px; align-items: center;
@@ -497,7 +513,7 @@
     .footer-links-group { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
     .footer-col h5 { font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; margin-bottom:16px; font-family:'Manrope',sans-serif; }
     .footer-col a { display:block; font-size:13px; font-weight:400; color:rgba(255,255,255,.5); margin-bottom:10px; transition:color .2s; font-family:'Manrope',sans-serif; }
-    .footer-col a:hover { color:var(--acc,#0891B2); }
+    /* .footer-col a:hover { color:var(--acc,#0891B2); } */
     .footer-cta-link { color:var(--acc,#0891B2)!important; font-weight:500!important; }
     .footer-bottom { border-top:1px solid rgba(255,255,255,.08); padding-top:24px; padding-bottom:24px; }
     .footer-bottom p { font-size:12px; color:rgba(255,255,255,.3); font-family:'Manrope',sans-serif; }
@@ -831,14 +847,27 @@
         <li><a href="olympiad.html" class="active">Olympiad</a></li>
         <!-- <li><a href="phishnchip.html">The Phish &amp; Chip Show</a></li> -->
         <li><a href="https://slanglish.cyberbuddhas.com/" target="_blank">Slanglish</a></li>
-        <li><a href="resources.html">Books</a></li>
-        <li><a href="partner.html">Partner With Us</a></li>
+        <li><a href="resources.html">Library</a></li>
+        <li class="nav-dropdown">
+          <a href="partner.html" class="nav-dropdown-link">Corporates <span class="nav-dropdown-arrow" aria-hidden="true">&#9662;</span></a>
+          <div class="nav-dropdown-menu" aria-label="Collaborate With Us options">
+            <a href="sponsor.html">For Corporates</a>
+            <a href="schools-registration.html">For Schools</a>
+          </div>
+        </li>
       </ul>
       <div class="nav-right">
         <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
+        <div class="nav-dropdown nav-signup-dropdown">
+          <button type="button" class="nav-signup-btn">Sign Up <span class="nav-dropdown-arrow" aria-hidden="true">&#9662;</span></button>
+          <div class="nav-dropdown-menu nav-signup-menu" aria-label="Sign Up options">
+            <a href="olympiad.html#register">Student Signup</a>
+            <a href="schools-registration.html">School Signup</a>
+          </div>
+        </div>
         <a href="surakshak.html" class="nav-cta">Join the Movement</a>
       </div>
      <div class="nav-right-mobile">
@@ -856,8 +885,27 @@
       <a href="olympiad.html">Olympiad</a>
       <!-- <a href="phishnchip.html">The Phish &amp; Chip Show</a> -->
       <a href="https://slanglish.cyberbuddhas.com/" target="_blank">Slanglish</a>
-      <a href="resources.html">Books</a>
-      <a href="partner.html">Partner With Us</a>
+      <a href="resources.html">Library</a>
+      <div class="mobile-nav-dropdown" data-mobile-dropdown>
+        <div class="mobile-nav-dropdown-head">
+          <a href="partner.html">Corporates</a>
+          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Collaborate With Us options"><span aria-hidden="true">&#9662;</span></button>
+        </div>
+        <div class="mobile-nav-dropdown-menu">
+          <a href="sponsor.html">For Corporates</a>
+          <a href="schools-registration.html">For Schools</a>
+        </div>
+      </div>
+      <div class="mobile-nav-dropdown mobile-signup-dropdown" data-mobile-dropdown>
+        <div class="mobile-nav-dropdown-head">
+          <a href="olympiad.html#register">Sign Up</a>
+          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Sign Up options"><span aria-hidden="true">&#9662;</span></button>
+        </div>
+        <div class="mobile-nav-dropdown-menu">
+          <a href="olympiad.html#register">Student Signup</a>
+          <a href="schools-registration.html">School Signup</a>
+        </div>
+      </div>
       <a href="surakshak.html" class="mobile-cta">Join the Movement</a>
     </div>
   </nav>
@@ -1147,7 +1195,7 @@
     </div>
   </section>
 
-  <!-- ═══════ FOOTER ═══════ -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -1185,8 +1233,8 @@
           <div class="footer-col">
             <h5>Organisation</h5>
             <a href="#about">About</a>
-            <a href="resources.html">Books</a>
-            <a href="partner.html">Partner With Us</a>
+            <a href="resources.html">Library</a>
+            <a href="partner.html">Corporates</a>
             <a href="https://hashtagsuraksha.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
             <a href="https://hashtagsuraksha.com/terms-of-use" target="_blank" rel="noopener">Terms of Use</a>
           </div>
@@ -1194,7 +1242,7 @@
             <h5>Contact</h5>
             <a href="mailto:info@hashtagsuraksha.com">info@hashtagsuraksha.com</a>
             <a href="partner.html" class="footer-cta-link">Become a Partner</a>
-            <a href="surakshak.html" class="footer-cta-link">Join Surakshak</a>
+            <!-- <a href="surakshak.html" class="footer-cta-link">Join Surakshak</a> -->
           </div>
         </div>
       </div>
@@ -1204,18 +1252,177 @@
     </div>
   </footer>
   <style>
-   .footer-socials a {
-        padding: 8px;
-        width: 42px;
-        height: 42px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid var(--border);
-        border-radius: 25px;
+    .footer {
+      background: var(--bg) !important;
+      border-top: 1px solid var(--border) !important;
     }
-    [data-theme="light"] .footer-socials a svg path {
-        fill: #000;
+    .footer .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .footer-grid {
+      display: grid !important;
+      grid-template-columns: minmax(260px, 0.95fr) minmax(0, 1.65fr) !important;
+      gap: clamp(36px, 6vw, 76px) !important;
+      align-items: start !important;
+      padding-bottom: clamp(36px, 5vw, 56px) !important;
+    }
+    .footer-brand { max-width: 380px !important; }
+    .footer-logo-circle-link { display: inline-block !important; margin-bottom: 16px !important; }
+    .footer-logo-circle {
+      width: 72px !important;
+      height: 72px !important;
+      background: #fff !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 10px !important;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18) !important;
+    }
+    .footer-logo-img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;
+      display: block !important;
+      filter: none !important;
+    }
+    .footer-brand > p {
+      font-size: 14px !important;
+      color: var(--text-secondary) !important;
+      line-height: 1.7 !important;
+      max-width: 340px !important;
+      margin: 0 0 20px !important;
+    }
+    .footer-partner-logos {
+      display: flex !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      gap: 16px !important;
+      margin-bottom: 20px !important;
+    }
+    .footer-certin-logo {
+      height: 46px !important;
+      width: auto !important;
+      max-width: 200px !important;
+      object-fit: contain !important;
+      background: #fff !important;
+      border-radius: 6px !important;
+      padding: 4px 8px !important;
+    }
+    .footer-socials {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 12px !important;
+    }
+    .footer-socials a {
+      width: 42px !important;
+      height: 42px !important;
+      padding: 8px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex: 0 0 42px !important;
+      color: var(--text-secondary) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 999px !important;
+      background: rgba(255,255,255,0.025) !important;
+      text-decoration: none !important;
+      transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s !important;
+    }
+    .footer-socials a:hover {
+      color: var(--primary) !important;
+      border-color: var(--text-primary) !important;
+      background: rgba(0,122,255,0.08) !important;
+      transform: translateY(-2px) !important;
+    }
+    .footer-socials a:focus-visible {
+      outline: 2px solid var(--primary) !important;
+      outline-offset: 3px !important;
+    }
+    .footer-socials svg {
+      display: block !important;
+      width: 20px !important;
+      height: 20px !important;
+    }
+    [data-theme="light"] .footer-socials a svg path { fill: #111827 !important; }
+    .footer-links-group {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: clamp(24px, 4vw, 42px) !important;
+      align-items: start !important;
+    }
+    .footer-col { min-width: 0 !important; }
+    .footer-col h5 {
+      font-family: var(--font-ui) !important;
+      font-size: 12px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      color: var(--text-secondary) !important;
+      margin: 0 0 16px !important;
+    }
+    .footer-col a {
+      display: block !important;
+      font-family: var(--font-ui) !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      line-height: 1.5 !important;
+      color: var(--text-secondary) !important;
+      text-decoration: none !important;
+      margin-bottom: 10px !important;
+      overflow-wrap: anywhere !important;
+      transition: color 0.2s !important;
+    }
+    /* .footer-col a:hover { color: var(--primary) !important; } */
+    .footer-cta-link {
+      color: var(--primary) !important;
+      font-weight: 500 !important;
+    }
+    .footer-bottom {
+      border-top: 1px solid var(--border) !important;
+      padding: 22px 0 !important;
+      text-align: center !important;
+    }
+    .footer-bottom p {
+      font-family: var(--font-ui) !important;
+      font-size: 12px !important;
+      line-height: 1.6 !important;
+      color: var(--text-secondary) !important;
+      max-width: 880px !important;
+      margin: 0 auto !important;
+    }
+    @media (max-width: 1100px) {
+      .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 36px !important;
+      }
+      .footer-brand { max-width: 680px !important; }
+      .footer-brand > p { max-width: 620px !important; }
+    }
+    @media (max-width: 560px) {
+      .footer { padding-top: 44px !important; }
+      .footer-grid,
+      .footer-brand { text-align: center !important; }
+      .footer-brand > p {
+        margin: 0 auto 20px !important;
+        max-width: none !important;
+      }
+      .footer-bottom p {
+        margin: 0 auto !important;
+        max-width: none !important;
+      }
+      .footer-partner-logos,
+      .footer-socials { justify-content: center !important; }
+      .footer-links-group {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+      .footer-col a {
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
     }
   </style>
 
