@@ -70,6 +70,7 @@
     .sc-wrap { width:min(1160px, calc(100% - 40px)); margin:0 auto; }
     .sc-ey { display:inline-flex; align-items:center; gap:10px; color:var(--sc-saffron); font-family:var(--font-ui); font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
     .sc-ey::before { content:''; width:28px; height:3px; border-radius:3px; background:var(--sc-saffron); }
+    .sc-activities::before{ background:white; }
     .sc-h1, .sc-h2, .sc-h3 { font-family:var(--font-heading); margin:0; letter-spacing:0; color:var(--sc-ink); }
     .sc-h1 { margin-top:20px; font-size:clamp(36px,5vw,62px); line-height:1.06; font-weight:800; max-width:760px; }
     .sc-h1 span, .sc-grad { background:linear-gradient(90deg,var(--sc-saffron),var(--sc-saffron-deep),var(--sc-green)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
@@ -79,12 +80,14 @@
     .sc-btn-main { background:linear-gradient(135deg,var(--sc-saffron),var(--sc-saffron-deep)); color:#fff; box-shadow:0 14px 34px rgba(255,153,51,.26); }
     .sc-btn-soft { background:var(--sc-card); color:var(--sc-ink); border-color:var(--sc-line); }
 
-    .sc-hero { min-height:calc(100vh - 94px); display:grid; grid-template-columns:minmax(0,1.05fr) minmax(320px,.78fr); gap:44px; align-items:center; padding:48px 0 66px; }
+    .sc-hero { min-height:calc(100vh - 94px); display:grid; grid-template-columns:minmax(0,1.05fr) minmax(320px,.78fr); gap:44px; align-items:start; padding:32px 0 66px; }
     .sc-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:30px; }
     .sc-initiative { display:flex; flex-wrap:wrap; align-items:center; gap:14px; margin:22px 0 0; }
     .sc-initiative span { color:var(--sc-muted); font-family:var(--font-ui); font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
-    .sc-logo-pill { display:flex; align-items:center; gap:12px; padding:10px 14px; border:1px solid var(--sc-line); border-radius:6px; background:var(--sc-logo-bg); box-shadow:0 8px 22px rgba(11,31,58,.08); }
-    .sc-logo-pill img { max-height:34px; max-width:132px; object-fit:contain; }
+    .cert-govt-bar { display:inline-flex; align-items:center; gap:12px; max-width:100%; background:#ffffff; border-radius:8px; padding:8px 18px; margin:22px 0 0; box-shadow:0 2px 12px rgba(0,0,0,0.18); }
+    .cert-govt-logo { height:38px; width:auto; max-width:120px; flex-shrink:0; object-fit:contain; }
+    .cert-govt-divider { width:1px; height:36px; background:rgba(0,0,0,0.18); flex-shrink:0; }
+    .cert-govt-text { font-family:var(--font-ui); font-size:11.5px; font-weight:600; color:#1a2233; white-space:nowrap; letter-spacing:0.01em; }
     .sc-hero-card { position:relative; padding:24px; border:1px solid var(--sc-line); border-radius:26px; background:var(--sc-card); box-shadow:var(--sc-shadow); overflow:hidden; }
     .sc-hero-card::before { content:''; position:absolute; inset:auto -20% -30% 16%; height:180px; background:radial-gradient(circle, rgba(255,153,51,.18), transparent 70%); }
     .sc-badge-grid { position:relative; display:grid; gap:14px; }
@@ -95,7 +98,10 @@
 
     .sc-section { padding:72px 0; }
     .sc-section.alt { background:var(--sc-soft); border-block:1px solid var(--sc-line); }
-    .sc-sec-head { max-width:760px; margin-bottom:32px; }
+    .sc-sec-head { max-width:760px; display: flex;
+      flex-direction: column;
+    align-items: center;
+  margin: 0 auto 32px; text-align:center; }
     .sc-h2 { margin-top:12px; font-size:clamp(28px,4vw,46px); line-height:1.12; font-weight:800; }
     .sc-h3 { font-size:20px; font-weight:800; }
     .sc-sec-head p { margin:16px 0 0; color:var(--sc-muted); line-height:1.75; font-size:16px; }
@@ -110,7 +116,7 @@
     .sc-mission { position:sticky; top:112px; padding:30px; border-radius:24px; background:linear-gradient(135deg,var(--sc-saffron),var(--sc-saffron-deep)); color:#fff; box-shadow:0 24px 64px rgba(255,153,51,.24); overflow:hidden; }
     .sc-mission::before { content:''; position:absolute; right:-74px; top:-76px; width:196px; height:196px; border-radius:50%; background:rgba(255,255,255,.22); }
     .sc-mission > * { position:relative; z-index:1; }
-    .sc-mission h2 { color:#fff; font-size:clamp(28px,4vw,44px); }
+    .sc-mission h2 { color:#fff; }
     .sc-mission p { color:rgba(255,255,255,.88); line-height:1.75; margin:18px 0 0; }
     .sc-track-list { display:grid; gap:18px; }
     .sc-track-card { padding:28px; border-radius:24px; background:var(--sc-card-solid); border:1px solid var(--sc-line); box-shadow:0 14px 44px rgba(11,31,58,.08); }
@@ -139,7 +145,7 @@
 
     .sc-impact { display:grid; grid-template-columns:1fr auto; gap:24px; align-items:center; padding:34px; border-radius:28px; background:linear-gradient(135deg, color-mix(in srgb, var(--sc-blue) 14%, var(--sc-card-solid)), color-mix(in srgb, var(--sc-green) 13%, var(--sc-card-solid))); border:1px solid color-mix(in srgb,var(--sc-blue) 30%, var(--sc-line)); box-shadow:0 18px 54px rgba(11,31,58,.08); }
     [data-theme="dark"] .sc-impact { background:var(--sc-panel-dark); border-color:rgba(255,255,255,.12); }
-    .sc-impact h2 { font-size:clamp(26px,3.6vw,42px); }
+    /* .sc-impact h2 { font-size:clamp(26px,3.6vw,42px); } */
     [data-theme="dark"] .sc-impact h2 { color:#fff; }
     .sc-impact p { color:var(--sc-muted); margin:10px 0 0; line-height:1.7; }
     [data-theme="dark"] .sc-impact p { color:rgba(255,255,255,.78); }
@@ -151,31 +157,120 @@
     .sc-circular-image { display:block; width:100%; height:auto; max-height:calc(100dvh - 130px); object-fit:contain; margin:12px auto 0; border-radius:16px; }
 
     .sc-about-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
-    .sc-logo-row { display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:18px; }
-    .sc-logo-chip { min-height:72px; display:flex; align-items:center; justify-content:center; padding:14px 18px; border-radius:18px; background:var(--sc-logo-bg); border:1px solid var(--sc-line); }
-    .sc-logo-chip img { max-height:46px; max-width:170px; object-fit:contain; }
     .sc-about-card { padding:28px; border-radius:24px; background:var(--sc-card-solid); border:1px solid var(--sc-line); box-shadow:0 14px 44px rgba(11,31,58,.08); }
+    .sc-about-card .pc-header-band { margin:-28px -28px 22px; background:#ffffff !important; padding:18px 24px; display:flex; align-items:center; justify-content:center; min-height:90px; border-radius:24px 24px 0 0; border-bottom:1px solid var(--sc-line); }
+    .sc-about-card .certin-header-img { height:52px; width:auto; max-width:260px; object-fit:contain; display:block; filter:none !important; }
+    .sc-about-card .cyberbuddha-header-img { height:60px; width:auto; max-width:320px; object-fit:contain; display:block; filter:none !important; }
     .sc-about-card h3 { font-family:var(--font-heading); font-size:20px; font-weight:800; margin:0 0 12px; color:var(--sc-ink); }
     .sc-about-card p { color:var(--sc-muted); line-height:1.75; margin:0 0 14px; }
 
-    .sc-partners { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-    .sc-partner { min-height:184px; padding:16px; border-radius:20px; background:var(--sc-card-solid); border:1px solid var(--sc-line); display:flex; flex-direction:column; gap:16px; box-shadow:0 12px 36px rgba(11,31,58,.07); }
-    .sc-partner span { color:var(--sc-muted); font-family:var(--font-ui); font-weight:700; font-size:11px; letter-spacing:.06em; text-transform:uppercase; }
-    .sc-partner-logo { flex:1; min-height:116px; display:flex; align-items:center; justify-content:center; padding:14px; border-radius:16px; background:var(--sc-logo-bg); border:1px solid rgba(203,217,240,.72); }
-    .sc-partner img { max-height:86px; max-width:260px; width:auto; object-fit:contain; }
-    .sc-partner img[src$=".png"] { max-height:92px; }
+    .partner-logo-marquee-wrap { width:100%; max-width:860px; margin:0 auto; overflow:hidden; -webkit-mask-image:linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%); mask-image:linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%); }
+    .partner-logo-marquee-track { display:flex; align-items:center; gap:28px; width:max-content; animation:partnerScroll 22s linear infinite; }
+    .partner-logo-marquee-track:hover { animation-play-state:paused; }
+    @keyframes partnerScroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+    .partner-logo-chip { background:#fff; border-radius:12px; padding:10px 18px; display:flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow:0 2px 12px rgba(0,0,0,0.12); }
+    .partner-logo-chip img { height:72px; width:auto; max-width:160px; object-fit:contain; display:block; filter:none !important; }
+
+    .sc-page { color:var(--text-primary) !important; font-family:var(--font-body) !important; }
+    .sc-ey {  font-family:var(--font-ui) !important; font-size:11px; font-weight:700; letter-spacing:.08em; }
+    .sc-h1, .sc-h2, .sc-h3, .sc-about-card h3, .sc-why-card h3, .sc-track-card h3, .sc-form-panel h2 { color:var(--text-primary) !important; font-family:var(--font-heading) !important; font-weight:700; line-height:1.2; }
+    .sc-h1 { font-family:var(--font-display) !important; font-size:clamp(36px,5vw,62px); font-weight:800 !important; line-height:1.08; letter-spacing:-.02em; }
+    .sc-h1 span, .sc-grad { background:linear-gradient(90deg,#FF9933 0%,#FF9933 28%,#FFFFFF 50%,#138808 72%,#138808 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    [data-theme="light"] .sc-h1 span, [data-theme="light"] .sc-grad { background:linear-gradient(90deg,#FF9933 0%,#FF9933 28%,#897c7c 50%,#138808 72%,#138808 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .sc-h2 { font-size:36px; font-weight:700; line-height:1.2; }
+    .sc-h3, .sc-about-card h3, .sc-why-card h3, .sc-track-card h3 { font-size:18px; font-weight:700; line-height:1.25; }
+    .sc-lead, .sc-sec-head p, .sc-impact p { color:var(--text-secondary) !important; font-family:var(--font-body) !important; font-size:17px; line-height:1.7; }
+    .sc-why-card p, .sc-track-card p, .sc-mission p, .sc-form-panel p, .sc-about-card p, .sc-check, .sc-otp-note { color:var(--text-secondary) !important; font-family:var(--font-body) !important; font-size:14.5px; line-height:1.75; }
+    .sc-mission h2, [data-theme="dark"] .sc-impact h2 { color:#fff !important; }
+    .sc-mission p, [data-theme="dark"] .sc-impact p { color:rgba(255,255,255,.78) !important; }
+    .sc-badge strong { color:var(--text-primary) !important; font-family:var(--font-display) !important; font-size:36px; font-weight:800 !important; line-height:1.2; }
+    .sc-badge span, .sc-age strong, .sc-field label { color:var(--text-secondary) !important; font-family:var(--font-ui) !important; font-size:11px; font-weight:600; }
+    .sc-card-note { color:#fff !important; font-family:var(--font-body) !important; font-size:14.5px; line-height:1.65; }
+    .sc-btn { font-family:var(--font-ui) !important; font-size:14px; font-weight:700; }
+    .sc-btn-soft { color:var(--text-primary) !important; }
+    .sc-field input { color:var(--text-primary); font-family:var(--font-body); font-size:15px; }
+    .sc-field input::placeholder { color:var(--text-secondary); opacity:.72; }
+
+    .registration-partners{ display: flex;
+      flex-direction: column;
+    align-items: center;
+    }
+
+    /* .registration-partners .sc-sec-head{
+
+    } */
+
+    #why { position:relative; overflow:hidden; }
+    #why .sc-wrap { position:relative; }
+    #why .sc-sec-head { max-width:760px; margin-bottom:44px; }
+    #why .sc-why-grid { position:relative; display:grid; grid-template-columns:minmax(0,1fr) 64px minmax(0,1fr); gap:34px 24px; align-items:start; }
+    #why .sc-why-grid::before { content:''; position:absolute; top:22px; bottom:22px; left:50%; width:2px; border-radius:999px; background:linear-gradient(180deg,var(--sc-saffron),var(--sc-green),var(--sc-blue)); transform:translateX(-50%); opacity:.72; }
+    #why .sc-why-card { --why-offset:0px; position:relative; width:auto; max-width:none; min-height:auto; padding:20px; border-radius:20px; background:color-mix(in srgb,var(--sc-card-solid) 92%, transparent); border-color:color-mix(in srgb,var(--sc-line) 86%, var(--sc-blue)); box-shadow:0 14px 42px rgba(11,31,58,.08); display:grid; grid-template-columns:auto minmax(0,1fr); column-gap:14px; row-gap:8px; align-content:start; opacity:0; transform:translateY(calc(var(--why-offset) + 22px)); transition:opacity .55s ease, transform .55s ease, box-shadow .25s ease, border-color .25s ease; }
+    [data-theme="dark"] #why .sc-why-card { background:color-mix(in srgb,var(--sc-card-solid) 88%, transparent); box-shadow:0 16px 42px rgba(0,0,0,.24); }
+    #why .sc-why-card.is-visible { opacity:1; transform:translateY(var(--why-offset)); }
+    #why .sc-why-card:nth-child(odd) { grid-column:1; }
+    #why .sc-why-card:nth-child(even) { --why-offset:34px; grid-column:3; }
+    #why .sc-why-card:nth-child(1), #why .sc-why-card:nth-child(2) { grid-row:1; }
+    #why .sc-why-card:nth-child(3), #why .sc-why-card:nth-child(4) { grid-row:2; }
+    #why .sc-why-card:nth-child(5), #why .sc-why-card:nth-child(6) { grid-row:3; }
+    #why .sc-why-card:nth-child(1) { transition-delay:.02s; }
+    #why .sc-why-card:nth-child(2) { transition-delay:.10s; }
+    #why .sc-why-card:nth-child(3) { transition-delay:.18s; }
+    #why .sc-why-card:nth-child(4) { transition-delay:.26s; }
+    #why .sc-why-card:nth-child(5) { transition-delay:.34s; }
+    #why .sc-why-card:nth-child(6) { transition-delay:.42s; }
+    #why .sc-why-card::after { content:''; position:absolute; top:50%; width:56px; height:2px; border-radius:999px; background:linear-gradient(90deg,var(--sc-saffron),var(--sc-blue)); opacity:.86; transform:translateY(-50%); }
+    #why .sc-why-card:nth-child(odd)::after { left:100%; }
+    #why .sc-why-card:nth-child(even)::after { right:100%; transform:translateY(-50%) rotate(180deg); }
+    #why .sc-why-card b { grid-row:1 / 3; width:38px; height:38px; margin:0; border-radius:12px; background:linear-gradient(135deg,color-mix(in srgb,var(--sc-saffron) 20%, transparent),color-mix(in srgb,var(--sc-blue) 14%, transparent)); color:var(--sc-saffron); font-family:var(--font-ui); font-size:11px; font-weight:800; line-height:1; }
+    #why .sc-why-card h3 { margin:0; color:var(--text-primary) !important; font-size:18px; font-weight:700; line-height:1.25; text-wrap:balance; }
+    #why .sc-why-card p { grid-column:2; margin:0; color:var(--text-secondary) !important; font-size:14.5px; line-height:1.62; }
+    @media (prefers-reduced-motion: reduce) {
+      #why .sc-why-card { opacity:1; transform:none; transition:none; }
+    }
+
+    #signup { position:relative; overflow:hidden; }
+    #signup .sc-form-grid { position:relative; grid-template-columns:minmax(280px,.82fr) minmax(0,1.18fr); gap:22px; align-items:stretch; padding:20px; border:1px solid color-mix(in srgb,var(--sc-line) 88%, transparent); border-radius:30px; background:color-mix(in srgb,var(--sc-card-solid) 82%, transparent); box-shadow:var(--sc-shadow); overflow:hidden; }
+    #signup .sc-form-grid::before { content:''; position:absolute; inset:0 0 auto; height:4px; background:linear-gradient(90deg,var(--sc-saffron),var(--sc-green),var(--sc-blue)); z-index:2; }
+    #signup .sc-form-panel { position:relative; align-self:stretch; padding:34px; border-radius:24px; background:radial-gradient(620px circle at 0% 0%, rgba(255,153,51,.28), rgba(255,153,51,.13) 24%, transparent 58%),radial-gradient(620px circle at 100% 100%, rgba(19,136,8,.24), rgba(19,136,8,.11) 26%, transparent 60%),linear-gradient(145deg,color-mix(in srgb,var(--sc-panel-dark) 96%, var(--sc-blue)),var(--sc-panel-dark)); box-shadow:none; display:flex; flex-direction:column; justify-content:center; overflow:hidden; }
+    #signup .sc-form-panel > * { position:relative; z-index:1; }
+    #signup .sc-form-panel .sc-ey { color:#fff !important; opacity:.92; }
+    #signup .sc-form-panel .sc-ey::before { background:#fff; opacity:.9; }
+    #signup .sc-form-panel h2 { color:#fff !important; max-width:420px; margin-top:12px; font-size:clamp(28px,3.2vw,38px); line-height:1.14; }
+    #signup .sc-form-panel p { color:rgba(255,255,255,.78) !important; max-width:440px; margin:12px 0 0; font-size:14.5px; line-height:1.68; }
+    #signup .sc-form-card { padding:30px; border:1px solid color-mix(in srgb,var(--sc-line) 78%, transparent); border-radius:24px; background:color-mix(in srgb,var(--sc-card-solid) 94%, transparent); box-shadow:none; }
+    [data-theme="dark"] #signup .sc-form-card { background:color-mix(in srgb,var(--sc-card-solid) 90%, transparent); }
+    #signup .sc-form { grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    #signup .sc-field label { margin-bottom:9px; color:var(--text-secondary) !important; font-weight:700; letter-spacing:.08em; }
+    #signup .sc-field input { min-height:52px; border-radius:16px; border-color:color-mix(in srgb,var(--sc-line) 88%, var(--sc-blue)); background:color-mix(in srgb,var(--sc-input) 88%, var(--sc-card-solid)); box-shadow:inset 0 1px 0 rgba(255,255,255,.04); transition:border-color .2s ease, box-shadow .2s ease, background .2s ease; }
+    #signup .sc-field input:hover { border-color:color-mix(in srgb,var(--sc-blue) 38%, var(--sc-line)); }
+    #signup .sc-field input:focus { border-color:var(--sc-saffron); box-shadow:0 0 0 4px color-mix(in srgb,var(--sc-saffron) 18%, transparent); }
+    #signup .sc-consent { gap:10px; margin-top:4px; }
+    #signup .sc-check { padding:14px 16px; border:1px solid color-mix(in srgb,var(--sc-line) 84%, transparent); border-radius:16px; background:color-mix(in srgb,var(--sc-card-solid) 88%, transparent); color:var(--text-secondary) !important; line-height:1.55; }
+    #signup .sc-check input { width:16px; height:16px; margin-top:3px; }
+    #signup .sc-form-actions { display:grid; gap:10px; margin-top:2px; }
+    #signup .sc-submit { min-height:52px; margin-top:0; box-shadow:0 16px 36px rgba(255,153,51,.24); }
+    #signup .sc-otp-note { margin:0; color:var(--text-secondary) !important; }
 
     @media (max-width: 1024px) {
       .sc-hero, .sc-tracks, .sc-form-grid, .sc-about-grid { grid-template-columns:1fr; }
-      .sc-why-grid, .sc-partners { grid-template-columns:repeat(2,1fr); }
+      .sc-why-grid { grid-template-columns:repeat(2,1fr); }
       .sc-hero { min-height:auto; padding-top:44px; }
       .sc-mission { position:relative; top:auto; }
+      #why .sc-sec-head { margin-bottom:32px; }
+      #why .sc-why-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+      #why .sc-why-grid::before, #why .sc-why-card::after { display:none; }
+      #why .sc-why-card { width:auto; max-width:none; }
+      #why .sc-why-card:nth-child(n) { --why-offset:0px; grid-column:auto; grid-row:auto; align-self:stretch; transition-delay:0s; }
+      #signup .sc-form-grid { grid-template-columns:1fr; }
+      #signup .sc-form-panel { padding:30px; }
+      #signup .sc-form-panel h2, #signup .sc-form-panel p { max-width:680px; }
     }
     @media (max-width: 760px) {
       .sc-page { padding-top:82px; }
       .sc-wrap { width:min(100% - 28px, 1160px); }
       .sc-section { padding:64px 0; }
-      .sc-why-grid, .sc-partners, .sc-age-list, .sc-form { grid-template-columns:1fr; }
+      .sc-why-grid, .sc-age-list, .sc-form { grid-template-columns:1fr; }
       .sc-field.full, .sc-consent, .sc-form-actions { grid-column:auto; }
       .sc-form-card, .sc-about-card, .sc-track-card, .sc-form-panel, .sc-impact { padding:24px; border-radius:24px; }
       .sc-impact { grid-template-columns:1fr; }
@@ -183,7 +278,20 @@
       .sc-circular-dialog { padding:12px; border-radius:20px; }
       .sc-circular-image { max-height:calc(100dvh - 104px); border-radius:14px; }
       .sc-lead { font-size:16px; }
-      .sc-logo-pill { width:100%; justify-content:center; border-radius:18px; }
+      .sc-h2 { font-size:28px; }
+      .sc-badge strong { font-size:28px; }
+      .cert-govt-bar { flex-wrap:wrap; width:100%; justify-content:center; padding:10px 14px; }
+      .cert-govt-text { white-space:normal; text-align:center; }
+      #why .sc-sec-head { margin-bottom:24px; }
+      #why .sc-why-grid { grid-template-columns:1fr; gap:16px; }
+      #why .sc-why-card { grid-template-columns:1fr; padding:20px; border-radius:18px; }
+      #why .sc-why-card b { width:38px; height:38px; margin-bottom:2px; }
+      #why .sc-why-card p { grid-column:auto; }
+      #signup .sc-form-grid { gap:16px; padding:14px; border-radius:24px; }
+      #signup .sc-form-panel, #signup .sc-form-card { padding:24px; }
+      #signup .sc-form { grid-template-columns:1fr; gap:15px; }
+      #signup .sc-field.full, #signup .sc-consent, #signup .sc-form-actions { grid-column:auto; }
+      #signup .sc-check { padding:13px 14px; }
     }
   </style>
 </head>
@@ -200,7 +308,7 @@
         <li><a href="https://slanglish.cyberbuddhas.com/" target="_blank">Slanglish</a></li>
         <li><a href="resources.html">Library</a></li>
         <li class="nav-dropdown">
-          <a href="partner.html" class="nav-dropdown-link active">Corporates <span class="nav-dropdown-arrow" aria-hidden="true">&#9662;</span></a>
+          <a href="sponsor.html" class="nav-dropdown-link active">Collaborate With Us <span class="nav-dropdown-arrow" aria-hidden="true">&#9662;</span></a>
           <div class="nav-dropdown-menu" aria-label="Collaborate With Us options">
             <a href="sponsor.html">For Corporates</a>
             <a href="schools-registration.html" class="active">For Schools</a>
@@ -215,8 +323,8 @@
         <div class="nav-dropdown nav-signup-dropdown">
           <button type="button" class="nav-signup-btn">Sign Up <span class="nav-dropdown-arrow" aria-hidden="true">&#9662;</span></button>
           <div class="nav-dropdown-menu nav-signup-menu" aria-label="Sign Up options">
-            <a href="olympiad.html#register">Student Signup</a>
-            <a href="schools-registration.html">School Signup</a>
+            <a href="https://cask.ai.in/auth/signup" target="_blank">Student Signup</a>
+            <a href="https://cask.ai.in/auth/signup?as=staff" target="_blank">School Signup</a>
           </div>
         </div>
         <a href="surakshak.html" class="nav-cta">Join the Movement</a>
@@ -237,7 +345,7 @@
       <a href="resources.html">Library</a>
       <div class="mobile-nav-dropdown" data-mobile-dropdown>
         <div class="mobile-nav-dropdown-head">
-          <a href="partner.html">Corporates</a>
+          <a href="sponsor.html">Collaborate With Us</a>
           <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Collaborate With Us options"><span aria-hidden="true">&#9662;</span></button>
         </div>
         <div class="mobile-nav-dropdown-menu">
@@ -251,8 +359,8 @@
           <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Sign Up options"><span aria-hidden="true">&#9662;</span></button>
         </div>
         <div class="mobile-nav-dropdown-menu">
-          <a href="olympiad.html#register">Student Signup</a>
-          <a href="schools-registration.html">School Signup</a>
+          <a href="https://cask.ai.in/auth/signup" target="_blank">Student Signup</a>
+          <a href="https://cask.ai.in/auth/signup?as=staff" target="_blank">School Signup</a>
         </div>
       </div>
       <a href="surakshak.html" class="mobile-cta">Join the Movement</a>
@@ -267,9 +375,11 @@
         <p class="sc-lead">Empower your students to become India's next generation of Cyber Champions.</p>
         <p class="sc-lead">Children today are digital natives, yet structured education on cyber safety is still not a mainstream priority. They can instinctively navigate apps and platforms, but awareness of online risks, scams, and digital hygiene remains worryingly low.</p>
         <p class="sc-lead">#Hashtag Suraksha, India's first National Cyber Safety Olympiad, launched by CERT-In (MeitY), bridges this gap by making cyber safety an aspirational pursuit. Through competition and creativity, it transforms cyber awareness from a lesson into a life skill.</p>
-        <div class="sc-initiative">
-          <span>An Initiative of</span>
-          <div class="sc-logo-pill"><img src="assets/cert-in-logo.png" alt="CERT-In" /><img src="assets/logo-cyberbuddha.png" alt="Cyber Buddha" /></div>
+        <div class="cert-govt-bar">
+          <img src="assets/meity.svg" alt="Ministry of Electronics and Information Technology" class="cert-govt-logo" />
+          <div class="cert-govt-divider"></div>
+          <img src="assets/cert-in-logo.png" alt="CERT-In" class="cert-govt-logo" />
+          <!-- <span class="cert-govt-text">An initiative of CERT-In under the aegis of MeitY</span> -->
         </div>
         <div class="sc-actions">
           <a href="#signup" class="sc-btn sc-btn-main">Enroll Now</a>
@@ -306,7 +416,7 @@
     <section class="sc-section" id="tracks">
       <div class="sc-wrap sc-tracks">
         <aside class="sc-mission">
-          <span class="sc-ey" style="color:#fff">Activities</span>
+          <span class="sc-ey sc-activities" style="color:#fff">Activities</span>
           <h2 class="sc-h2">Two tracks. One national mission.</h2>
           <p>#Suraksha combines knowledge and creativity to make cyber safety engaging for every student. By tackling quizzes that sharpen your skills and creating reels that inspire others, students get the chance to learn, compete, and lead India's digital future.</p>
         </aside>
@@ -338,7 +448,7 @@
     <section class="sc-section alt" id="signup">
       <div class="sc-wrap sc-form-grid">
         <div class="sc-form-panel">
-          <span class="sc-ey" style="color:#fff">School signup</span>
+          <span class="sc-ey">School signup</span>
           <h2 class="sc-h2">Enroll now and lead the change</h2>
           <p>Your school can be among the pioneers shaping India's cyber-secure generation.</p>
           <p>Join a movement that celebrates innovation, awareness, and national pride, where your students don't just compete, they champion India's digital future.</p>
@@ -393,9 +503,8 @@
         </div>
         <div class="sc-about-grid">
           <article class="sc-about-card">
-            <div class="sc-logo-row">
-              <div class="sc-logo-chip"><img src="assets/cert-in-logo.png" alt="CERT-In" /></div>
-              <div class="sc-logo-chip"><img src="assets/meity.svg" alt="MeitY" /></div>
+            <div class="pc-header-band">
+              <img src="assets/logo-certin.png" alt="MeitY &amp; CERT-In" class="certin-header-img" />
             </div>
             <h3>About CERT-In</h3>
             <p>The Indian Computer Emergency Response Team (CERT-In) under the Ministry of Electronics and Information Technology, Government of India has been designated to serve as National agency for incident response under Section 70B of the Information Technology Act, 2000. CERT-In operates 24x7 incident response Help Desk for providing timely response to reported cyber security incidences. CERT-In provides Incident Prevention and Response services as well as Security Quality Management Services.</p>
@@ -403,8 +512,8 @@
             <p>We are pleased to announce the launch of #Suraksha, a national initiative by Indian Computer Emergency Response Team (CERT-In) in collaboration with the Cyber Buddha, aimed at enhancing cybersecurity talent and awareness among students.</p>
           </article>
           <article class="sc-about-card">
-            <div class="sc-logo-row">
-              <div class="sc-logo-chip"><img src="assets/logo-cyberbuddha.png" alt="Cyber Buddha" /></div>
+            <div class="pc-header-band">
+              <img src="assets/cyber buddha elongated logo.png" alt="Cyber Buddha" class="cyberbuddha-header-img" />
             </div>
             <h3>About Cyber Buddha</h3>
             <p>Cyber Buddha is a premier organisation at the intersection of Cyber Safety, Integrated Security and Data Privacy. Combining deep expertise in technology and law, Cyber Buddha designs and delivers impactful programmes that empower citizens, institutions and businesses to thrive securely in the digital age. Our work extends beyond consultancy into national-scale awareness campaigns, educational initiatives and public-private partnerships.</p>
@@ -416,18 +525,26 @@
     </section>
 
     <section class="sc-section">
-      <div class="sc-wrap">
+      <div class="sc-wrap registration-partners">
         <div class="sc-sec-head">
           <span class="sc-ey">Our partners</span>
           <h2 class="sc-h2">A shared mission</h2>
         </div>
-        <div class="sc-partners">
-          <div class="sc-partner"><span>CSR Partner</span><div class="sc-partner-logo"><img src="assets/csr.png" alt="CSR Partner" /></div></div>
-          <div class="sc-partner"><span>Platform Partner</span><div class="sc-partner-logo"><img src="assets/mygov.png" alt="Platform Partner" /></div></div>
-          <div class="sc-partner"><span>Social Media Partner</span><div class="sc-partner-logo"><img src="assets/alo.png" alt="Social Media Partner" /></div></div>
-          <div class="sc-partner"><span>Event Management Partner</span><div class="sc-partner-logo"><img src="assets/ebm.png" alt="Event Management Partner" /></div></div>
-          <div class="sc-partner"><span>Website Partner</span><div class="sc-partner-logo"><img src="assets/Imaginate-Logo.png" alt="Website Partner" /></div></div>
-          <div class="sc-partner"><span>Knowledge Partner - Digital Assets</span><div class="sc-partner-logo"><img src="assets/zelar.png" alt="Knowledge Partner" /></div></div>
+        <div class="partner-logo-marquee-wrap">
+          <div class="partner-logo-marquee-track">
+            <div class="partner-logo-chip"><img src="assets/mygov.png" alt="MyGov" /></div>
+            <div class="partner-logo-chip"><img src="assets/alo.png" alt="Aló" /></div>
+            <div class="partner-logo-chip"><img src="assets/ebm.png" alt="EBM" /></div>
+            <div class="partner-logo-chip"><img src="assets/csr.png" alt="CSR" /></div>
+            <div class="partner-logo-chip"><img src="assets/Imaginate-Logo.png" alt="Imaginate Solutions" /></div>
+            <div class="partner-logo-chip"><img src="assets/zelar.png" alt="Zelar" /></div>
+            <div class="partner-logo-chip"><img src="assets/mygov.png" alt="MyGov" /></div>
+            <div class="partner-logo-chip"><img src="assets/alo.png" alt="Aló" /></div>
+            <div class="partner-logo-chip"><img src="assets/ebm.png" alt="EBM" /></div>
+            <div class="partner-logo-chip"><img src="assets/csr.png" alt="CSR" /></div>
+            <div class="partner-logo-chip"><img src="assets/Imaginate-Logo.png" alt="Imaginate Solutions" /></div>
+            <div class="partner-logo-chip"><img src="assets/zelar.png" alt="Zelar" /></div>
+          </div>
         </div>
       </div>
     </section>
@@ -469,14 +586,14 @@
             <h5>Organisation</h5>
             <a href="#about">About</a>
             <a href="resources.html">Library</a>
-            <a href="partner.html">Corporates</a>
+            <a href="sponsor.html">Collaborate With Us</a>
             <a href="https://hashtagsuraksha.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
             <a href="https://hashtagsuraksha.com/terms-of-use" target="_blank" rel="noopener">Terms of Use</a>
           </div>
           <div class="footer-col">
             <h5>Contact</h5>
             <a href="mailto:info@hashtagsuraksha.com">info@hashtagsuraksha.com</a>
-            <a href="partner.html" class="footer-cta-link">Become a Partner</a>
+            <!-- <a href="partner.html" class="footer-cta-link">Become a Partner</a> -->
           </div>
         </div>
       </div>
@@ -584,6 +701,31 @@
           if (event.key === 'Escape') closeCircular();
         });
       }
+    })();
+  </script>
+  <script>
+    (function () {
+      var whyCards = document.querySelectorAll('#why .sc-why-card');
+      if (!whyCards.length) return;
+
+      if (!('IntersectionObserver' in window)) {
+        whyCards.forEach(function (card) {
+          card.classList.add('is-visible');
+        });
+        return;
+      }
+
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        });
+      }, { threshold: 0.22, rootMargin: '0px 0px -8% 0px' });
+
+      whyCards.forEach(function (card) {
+        revealObserver.observe(card);
+      });
     })();
   </script>
 </body>

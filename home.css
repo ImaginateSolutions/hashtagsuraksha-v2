@@ -2769,19 +2769,25 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 .cask-card-split .mini-chat-wrap { flex: 1; min-width: 0; }
 
 /* CASK + Slanglish top-row logo cols */
-.cask-card-logo-col,
-.slang-card-logo-col {
+.cask-card-logo-col, .slang-card-logo-col {
   flex-shrink: 0;
-  width: auto;
-  height: 30px;
   border-radius: 9px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.cask-card-logo-col{
+  width: auto;
+  height: 30px;
+}
+
+.slang-card-logo-col{
+  width: auto;
+  height: 40px;
+}
 .cask-vcard-logo {
-  width: 100%;
+  width: auto;
   height: 100%;
   object-fit: cover;
   border-radius: 9px;
