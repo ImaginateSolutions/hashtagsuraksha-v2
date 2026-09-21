@@ -1,64 +1,19 @@
 // ═══════════════════════════════════════════════════
 //  HASHTAG SURAKSHA — MAIN JAVASCRIPT
-//  Features: Theme Chooser · Cursor Glow · Magnetic Buttons
+//  Features: Cursor Glow · Magnetic Buttons
 //  3D Card Tilt · Horizontal Scroll · Typewriter · Counters
 //  Chat Demo · Activity Feed · Scroll Reveal
 // ═══════════════════════════════════════════════════
 
 document.addEventListener('DOMContentLoaded', () => {
-
   // ─── THEME SYSTEM ──────────────────────────────────────────────
-  const htmlEl       = document.documentElement;
-  const chooser      = document.getElementById('themeChooser');
-  const themeToggle  = document.getElementById('themeToggle');
-  const themeToggles = document.querySelectorAll('.themeToggle');
-  const THEME_KEY    = 'hs-theme';
-
-  function applyTheme(theme) {
-    htmlEl.setAttribute('data-theme', theme);
-    localStorage.setItem(THEME_KEY, theme);
-  }
-
-  function dismissChooser(theme) {
-    applyTheme(theme);
-    if (!chooser) return;
-    chooser.classList.add('fade-out');
-    setTimeout(() => chooser.classList.add('hidden'), 500);
-  }
-
-  // On load: check saved preference
-  const savedTheme = localStorage.getItem(THEME_KEY);
-  if (savedTheme) {
-    applyTheme(savedTheme);
-    if (chooser) chooser.classList.add('hidden');
-  } else {
-    chooser.classList.remove('hidden');
-    console.log('No saved theme preference found. Showing chooser...');
-    // Show chooser — apply dark by default behind it
-    applyTheme('dark');
-    if (chooser) {
-      chooser.querySelectorAll('.theme-option').forEach(btn => {
-        btn.addEventListener('click', () => dismissChooser(btn.dataset.theme));
-      });
-    }
-  }
-
-  // Toggle button in nav
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const current = htmlEl.getAttribute('data-theme');
-      applyTheme(current === 'dark' ? 'light' : 'dark');
-    });
-  }
-
-  if (themeToggle) {
-      themeToggles.forEach((themeToggle) => {
-          themeToggle.addEventListener('click', () => {
-              const current = htmlEl.getAttribute('data-theme');
-              applyTheme(current === 'dark' ? 'light' : 'dark');
-          });
-      });
-  }
+  const htmlEl = document.documentElement;
+  const THEME_KEY = 'hs-theme';
+  htmlEl.setAttribute('data-theme', 'dark');
+  try {
+    localStorage.setItem(THEME_KEY, 'dark');
+    localStorage.removeItem('suraksha-theme');
+  } catch (e) {}
 
   // ─── CURSOR GLOW ───────────────────────────────────────────────
   const cursorGlow = document.getElementById('cursorGlow');

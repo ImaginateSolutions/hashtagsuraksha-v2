@@ -3,6 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark" />
+  <script>
+    document.documentElement.setAttribute('data-theme', 'dark');
+    try {
+      localStorage.setItem('hs-theme', 'dark');
+      localStorage.removeItem('suraksha-theme');
+    } catch (e) {}
+  </script>
+  <style id="darkThemePrepaint">
+    html { background: #101415; color-scheme: dark; }
+    body { background: #101415; color: #F8FAFC; }
+  </style>
   <title>Books — #Suraksha Cyber Library</title>
   <meta name="description" content="A premium digital cyber library from Hashtag Suraksha — handpicked books and NEP-aligned curriculum textbooks for Classes 7–12." />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -30,8 +42,8 @@
       --card-a:rgba(255,255,255,0.72); --surf-a:rgba(233,240,247,0.66);
       background:transparent;
     }
-    .ps { padding: 80px 48px; max-width: 1200px; margin: 0 auto; }
-    .pw { max-width: 1200px; margin: 0 auto; width: 100%; }
+    .ps { width:100%; max-width:1140px; margin:0 auto; padding-left:24px; padding-right:24px; }
+    .pw { max-width:1140px; margin:0 auto; width:100%; padding-left:24px; padding-right:24px; }
     /* Animated moving gradient background (base) + subtle silk shader overlay */
     .bk-scrim { position:fixed; inset:0; z-index:-2; pointer-events:none;
       background: linear-gradient(125deg, #060d1c 0%, #0a1a38 22%, #0f2a54 45%, #0b1c3c 68%, #071023 100%);
@@ -54,7 +66,7 @@
     #shader-canvas { position:fixed; inset:0; width:100%; height:100%; z-index:-1; display:block; opacity:0.34; mix-blend-mode:screen; pointer-events:none; }
     [data-theme="light"] #shader-canvas { opacity:0.22; mix-blend-mode:multiply; }
     .books *, .books *::before, .books *::after { box-sizing:border-box; }
-    .bk-wrap { max-width:1200px; margin:0 auto;  }
+    .bk-wrap { max-width:1140px; margin:0 auto; width:100%; padding-left:24px; padding-right:24px; }
     .books h1,.books h2,.books h3 { font-family:var(--fh); margin:0; }
     /* Glass surfaces over the animated silk */
     .bk-badge-pill, .bk-sec-ico, .bk-viewall, .bk-arrow, .bk-class, .bk-card,
@@ -67,12 +79,12 @@
 
     /* Section definition */
     .bk-sec-over { display:block; font-family:var(--fh); font-size:11px; font-weight:800; letter-spacing:.24em; text-transform:uppercase; color:var(--acc); margin-bottom:5px; }
-    .bk-divider { max-width:1440px; margin:0 auto; padding:0 clamp(20px,4vw,64px); }
+    .bk-divider { max-width:1140px; margin:0 auto; padding:0 24px; }
     .bk-divider i { display:block; height:1px; background:linear-gradient(90deg, transparent, var(--bdr) 10%, color-mix(in srgb,var(--acc) 35%, var(--bdr)) 50%, var(--bdr) 90%, transparent); }
 
     /* ── HERO + FEATURED ── */
     .bk-hero { display:grid; grid-template-columns:minmax(0,35fr) minmax(0,65fr); gap:48px; align-items:start;
-      align-content:center; min-height:100vh; padding: 92px 0 40px; }
+      align-content:center; min-height:0; padding:108px 24px 56px; }
     .bk-hero-left { align-self:start; }
     /* Featured header: centred over the carousel, top-aligned with the BOOKS wordmark */
     .bk-hero-right { padding-top:46px; }
@@ -80,7 +92,7 @@
     .bk-hero-right .bk-sec-h { justify-content:center; }
     .bk-hero-right .bk-viewall { align-self:center; }
     .bk-h-eyebrow { display:inline-flex; align-items:center; gap:8px; font-family:var(--fh); font-size:12px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--acc); padding:6px 14px; border-radius:999px; background:rgba(74,184,255,0.10); border:1px solid rgba(74,184,255,0.28); margin-bottom:22px; }
-    .bk-h-title { font-size:clamp(56px,8vw,104px); font-weight:900; line-height:0.94; letter-spacing:-0.03em;
+    .bk-h-title { display:block; max-width:100%; overflow:visible; font-size:clamp(56px,7.4vw,96px); font-weight:900; line-height:1.08; letter-spacing:-0.03em;
       background:linear-gradient(180deg,var(--txt),color-mix(in srgb,var(--txt) 55%, var(--acc))); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
     .bk-h-sub { font-family:var(--fh); font-size:clamp(17px,1.6vw,20px); font-weight:600; color:var(--acc); margin:14px 0 14px; }
     .bk-h-desc { font-size:15.5px; line-height:1.7; color:var(--txt2); max-width:420px; }
@@ -150,7 +162,7 @@
     .bk-dot.on { width:26px; background:var(--acc); }
 
     /* ── TEXTBOOKS ── */
-    .bk-textbooks { min-height:100vh; padding:84px 0 40px; display:flex; flex-direction:column; justify-content:center; }
+    .bk-textbooks { min-height:0; padding:72px 24px 64px; display:flex; flex-direction:column; justify-content:center; }
     .bk-tb-grid { display:grid; grid-template-columns:236px 1fr; gap:22px; margin-top:20px; align-items:start; }
     .bk-classes { display:flex; flex-direction:column; gap:10px; }
     .bk-class { position:relative; display:flex; align-items:center; gap:14px; padding:15px 18px; border-radius:15px; background:transparent; border:1px solid var(--bdr); color:var(--txt2); font-family:var(--fh); font-weight:700; font-size:15px; cursor:pointer; text-align:left; overflow:hidden; transition:transform .25s, border-color .25s, color .25s, background .25s; }
@@ -186,7 +198,7 @@
     .bk-mini-icon.saved { color:var(--ca); border-color:var(--ca); background:color-mix(in srgb,var(--ca) 14%, transparent); }
 
     /* ── TRUST ── */
-    .bk-trust { padding:20px 0 90px; }
+    .bk-trust { padding:64px 24px 84px; }
     .bk-trust-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:26px; }
     .bk-trust-card { padding:28px 22px; border-radius:20px; background:var(--card); border:1px solid var(--bdr); text-align:center; transition:transform .3s cubic-bezier(.22,1,.36,1), border-color .3s, box-shadow .3s; }
     .bk-trust-card:hover { transform:translateY(-6px); border-color:rgba(74,184,255,.4); box-shadow:0 22px 50px rgba(0,0,0,.32); }
@@ -196,16 +208,24 @@
 
     /* ── Responsive ── */
     @media (max-width:1024px){
-      .bk-hero { grid-template-columns:1fr; gap:32px; padding-top:96px; }
+      .bk-hero { grid-template-columns:1fr; gap:30px; padding:96px 24px 54px; }
+      .bk-hero-left { text-align:center; }
+      .bk-hero-left .bk-h-desc { margin-left:auto; margin-right:auto; }
+      .bk-hero-left .bk-badges { align-items:center; }
       .bk-tb-grid { grid-template-columns:1fr; }
       .bk-classes { position:static; flex-direction:row; overflow-x:auto; padding-bottom:6px; }
       .bk-class { flex:0 0 auto; }
       .bk-trust-grid { grid-template-columns:repeat(2,1fr); }
     }
- @media (max-width:1020px){
-    .ps { padding: 90px 24px; }
- }
+    @media (max-width:860px){
+      .bk-hero { padding:88px 24px 48px; }
+      .bk-textbooks { padding:56px 24px 52px; }
+      .bk-trust { padding:52px 24px 68px; }
+    }
     @media (max-width:640px){
+      .bk-hero { padding:78px 24px 42px; }
+      .bk-textbooks { padding:48px 24px 44px; }
+      .bk-trust { padding:44px 24px 58px; }
       .bk-card { grid-template-columns:70px 1fr; grid-template-areas:'cover info' 'actions actions'; }
       .bk-card-cover { grid-area:cover; } .bk-card-info { grid-area:info; } .bk-card-actions { grid-area:actions; margin-top:6px; }
       .bk-trust-grid { grid-template-columns:1fr; }
@@ -259,10 +279,6 @@
         </li>
       </ul>
       <div class="nav-right">
-        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
-          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
         <div class="nav-dropdown nav-signup-dropdown">
           <button type="button" class="nav-signup-btn">Sign Up <span class="nav-dropdown-arrow" aria-hidden="true">&#9662;</span></button>
           <div class="nav-dropdown-menu nav-signup-menu" aria-label="Sign Up options">
@@ -273,11 +289,10 @@
         <a href="surakshak.html" class="nav-cta">Join the Movement</a>
       </div>
       <div class="nav-right-mobile">
-         <button id="themeToggle1" class="themeToggle theme-toggle-btn" aria-label="Toggle theme">
-            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <button class="hamburger" id="hamburger" type="button" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobileMenu">
+            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+            <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
           </button>
-          <button class="hamburger" id="hamburger">&#9776;</button>
       </div>
     </div>
     <div class="mobile-menu" id="mobileMenu">
@@ -291,7 +306,10 @@
       <div class="mobile-nav-dropdown" data-mobile-dropdown>
         <div class="mobile-nav-dropdown-head">
           <a href="sponsor.html">Collaborate With Us</a>
-          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Collaborate With Us options"><span aria-hidden="true">&#9662;</span></button>
+          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Collaborate With Us options">
+            <svg class="mobile-arrow mobile-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="mobile-arrow mobile-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+          </button>
         </div>
         <div class="mobile-nav-dropdown-menu">
           <a href="sponsor.html">For Corporates</a>
@@ -301,7 +319,10 @@
       <div class="mobile-nav-dropdown mobile-signup-dropdown" data-mobile-dropdown>
         <div class="mobile-nav-dropdown-head">
           <a href="olympiad.html#register">Sign Up</a>
-          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Sign Up options"><span aria-hidden="true">&#9662;</span></button>
+          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Sign Up options">
+            <svg class="mobile-arrow mobile-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="mobile-arrow mobile-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+          </button>
         </div>
         <div class="mobile-nav-dropdown-menu">
           <a href="https://cask.ai.in/auth/signup" target="_blank">Student Signup</a>
@@ -356,7 +377,9 @@
       <div class="bk-sec-h">
         <div class="bk-sec-ico">🎓</div>
         <div class="bk-sec-tt">
-          <h2>Textbooks</h2><p>NEP-aligned cyber-safety curriculum for Classes 7 to 12.</p></div>
+          <h2>Textbooks</h2>
+          <!-- <p>NEP-aligned cyber-safety curriculum for Classes 7 to 12.</p> -->
+        </div>
       </div>
       <a href="#" class="bk-viewall" id="bkClassViewAll">View All for Classes 7-9 →</a>
     </div>
@@ -635,62 +658,16 @@
     var nav=document.getElementById('navbar');
     window.addEventListener('scroll',function(){ nav.classList.toggle('scrolled',window.scrollY>40); });
     document.getElementById('hamburger').addEventListener('click',function(){ document.getElementById('mobileMenu').classList.toggle('open'); });
-    
-    document.addEventListener('DOMContentLoaded', () => {
-
-      // ─── THEME SYSTEM ──────────────────────────────────────────────
-      const htmlEl       = document.documentElement;
-      const chooser      = document.getElementById('themeChooser');
-      const themeToggle  = document.getElementById('themeToggle');
-      const themeToggles = document.querySelectorAll('.themeToggle');
-      const THEME_KEY    = 'hs-theme';
-
-      function applyTheme(theme) {
-        htmlEl.setAttribute('data-theme', theme);
-        localStorage.setItem(THEME_KEY, theme);
-      }
-
-      function dismissChooser(theme) {
-        applyTheme(theme);
-        if (!chooser) return;
-        chooser.classList.add('fade-out');
-        setTimeout(() => chooser.classList.add('hidden'), 500);
-      }
-
-      // On load: check saved preference
-      const savedTheme = localStorage.getItem(THEME_KEY);
-      if (savedTheme) {
-        applyTheme(savedTheme);
-        if (chooser) chooser.classList.add('hidden');
-      } else {
-        // Show chooser — apply dark by default behind it
-        applyTheme('dark');
-        if (chooser) {
-          chooser.querySelectorAll('.theme-option').forEach(btn => {
-            btn.addEventListener('click', () => dismissChooser(btn.dataset.theme));
-          });
-        }
-      }
-
-      // Toggle button in nav
-      if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-          const current = htmlEl.getAttribute('data-theme');
-          applyTheme(current === 'dark' ? 'light' : 'dark');
-        });
-      }
-
-      if (themeToggle) {
-          themeToggles.forEach((themeToggle) => {
-              themeToggle.addEventListener('click', () => {
-                  const current = htmlEl.getAttribute('data-theme');
-                  applyTheme(current === 'dark' ? 'light' : 'dark');
-              });
-          });
-      }
-
-    });
-
+    /* Dark theme only */
+    (function () {
+      var htmlEl = document.documentElement;
+      var THEME_KEY = 'hs-theme';
+      htmlEl.setAttribute('data-theme', 'dark');
+      try {
+        localStorage.setItem(THEME_KEY, 'dark');
+        localStorage.removeItem('suraksha-theme');
+      } catch (e) {}
+    })();
     /* Reveal on scroll */
     var io=new IntersectionObserver(function(e){ e.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); }}); },{threshold:.12});
     document.querySelectorAll('.rev2').forEach(function(el){ io.observe(el); });

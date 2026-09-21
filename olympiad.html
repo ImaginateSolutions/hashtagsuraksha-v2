@@ -1,8 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark" />
+  <script>
+    document.documentElement.setAttribute('data-theme', 'dark');
+    try {
+      localStorage.setItem('hs-theme', 'dark');
+      localStorage.removeItem('suraksha-theme');
+    } catch (e) {}
+  </script>
+  <style id="darkThemePrepaint">
+    html { background: #101415; color-scheme: dark; }
+    body { background: #101415; color: #F8FAFC; }
+  </style>
   <title>National Cyber Olympiad 2026 — #Suraksha</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/global.css" />
@@ -242,6 +254,11 @@
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 64px; align-items: center;
     }
+    .glance-copy { text-align:left; }
+    .glance-copy .sec-h2 { margin-bottom:18px; }
+    .glance-copy .sec-lead { margin:0; }
+    .glance-copy .sec-lead + .sec-lead { margin-top:16px; }
+    .glance-orbit { text-align:center; }
     .gl-desc { font-size: 15px; color: var(--ink2); line-height: 1.85; margin-bottom: 22px; }
     .gl-acc {
       display: inline-flex; align-items: center; gap: 8px;
@@ -530,9 +547,13 @@
     /* ══════════════════════════════════════════
        RESPONSIVE
     ══════════════════════════════════════════ */
+    @media(max-width: 1150px){
+      .glance-grid     { grid-template-columns: 1fr; gap:42px; }
+    }
+
     @media(max-width:1000px){
       .stages-grid     { grid-template-columns: 1fr; }
-      .glance-grid     { grid-template-columns: 1fr; }
+      .glance-copy     { max-width:720px; margin:0 auto; }
       .awards-grid     { grid-template-columns: 1fr; align-items: unset; }
       .prep-inner      { grid-template-columns: 1fr; gap: 36px; }
       .sec, .reg-sec   { padding: 64px 24px; }
@@ -587,7 +608,7 @@
     .nh-eyebrow { font-family:'Outfit',sans-serif; font-weight:800; font-size:12px; letter-spacing:.28em; text-transform:uppercase; color:#5AA9FF; margin-bottom:18px; }
     .nh-title { font-family:'Outfit',sans-serif; font-weight:900; font-size:clamp(34px,5vw,68px); line-height:0.98; letter-spacing:-.01em; color:#fff; text-shadow:0 4px 30px rgba(30,90,200,.4); }
     .nh-year { background:linear-gradient(180deg,#7FE3FF,#38A2E8); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-    .nh-sub { margin:22px 0 26px; color:#C6D4EE; font-size:clamp(14px,1.5vw,17px); line-height:1.5; font-weight:500; }
+    .nh-sub { display:block; max-width:420px; margin:22px auto 26px; color:#C6D4EE; font-size:clamp(14px,1.5vw,17px); line-height:1.5; font-weight:500; text-align:center; text-wrap:balance; }
     .nh-ctas { display:flex; flex-direction:column; align-items:center; gap:14px; }
     .nh-btn-main { display:inline-flex; align-items:center; justify-content:center; min-width:230px; padding:15px 30px; border-radius:999px; font-family:'Outfit',sans-serif; font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:linear-gradient(135deg,#3B82F6,#2563EB); box-shadow:0 12px 34px rgba(37,99,235,.5); transition:transform .2s, box-shadow .2s; }
     .nh-btn-main:hover { transform:translateY(-2px); box-shadow:0 18px 44px rgba(37,99,235,.62); }
@@ -603,6 +624,7 @@
       .nh { grid-template-columns:1fr; }
       .nh-panel { min-height:230px; }
       .nh-mid { min-height:auto; padding:54px 24px 80px; }
+      .nh-sub { max-width:360px; }
       .nh-cap { font-size:24px; top:24px; left:26px; }
       .nh-cap-r { right:26px; left:auto; }
       .nh-seam { display:none; }
@@ -625,6 +647,19 @@
     .orb-node-l { font-family:'Outfit',sans-serif; font-weight:700; font-size:12px; color:var(--ink); text-align:center; line-height:1.2; opacity:.9; }
     .orb-node:hover .orb-node-ico, .orb-node.active .orb-node-ico { transform:scale(1.14); border-color:var(--acc); box-shadow:0 14px 30px rgba(249,115,22,.32); }
     @media(max-width:520px){ .orb-node { width:92px; margin-left:-46px; } .orb-node-ico{ width:46px; height:46px; font-size:20px; } .orb-node-l{ font-size:9.5px; } }
+    @media(max-width:375px){
+      .orb { width:min(330px,88vw); height:min(350px,94vw); margin-top:14px; }
+      .orb-hub { width:48%; padding:10px; }
+      .orb-hub-k { font-size:clamp(22px,7vw,28px); }
+      .orb-hub-t { font-size:10px; line-height:1.12; margin-top:5px; min-height:auto; }
+      .orb-hub-d { font-size:8.5px; line-height:1.25; margin-top:4px; }
+      .orb-ringline { inset:12%; border-width:2px; }
+      .orb-ringline.two { inset:28%; border-width:1.5px; }
+      .orb-node { width:62px; margin:-24px 0 0 -31px; gap:2px; }
+      .orb-node-ico { width:34px; height:34px; border-radius:11px; font-size:17px; }
+      .orb-node-l { display:block; font-size:7.8px; line-height:1.08; max-width:62px; }
+      .orb-node:hover .orb-node-ico, .orb-node.active .orb-node-ico { transform:scale(1.08); }
+    }
 
     /* ══════════════ STAGES — 3D STACK ══════════════ */
     .st3 { position:relative; max-width:720px; margin:34px auto 0; height:340px; perspective:1400px; }
@@ -680,6 +715,9 @@
     .ztl-date { font-family:'Outfit',sans-serif; font-weight:800; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--acc); margin-bottom:5px; }
     .ztl-title { font-family:'Outfit',sans-serif; font-weight:800; font-size:16px; color:var(--ink); margin-bottom:5px; }
     .ztl-desc { color:var(--ink2); font-size:13px; line-height:1.55; }
+    #ztlStages .ztl-desc-gap { display:block; margin-top:10px; }
+    #ztlStages .ztl-item:nth-child(3) .ztl-card { text-align:left; }
+    #ztlStages .ztl-item:nth-child(3) .ztl-tags { justify-content:flex-start; }
     .ztl-node { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) scale(.5); width:50px; height:50px; border-radius:50%; background:var(--card-s); border:2px solid var(--bdr); display:flex; align-items:center; justify-content:center; font-family:'Outfit',sans-serif; font-weight:900; font-size:12px; color:var(--ink2); z-index:3; text-align:center; line-height:1; transition:transform .5s cubic-bezier(.34,1.56,.64,1) .1s, background .5s, color .5s, box-shadow .5s, border-color .5s; }
     .ztl-item.in .ztl-node { transform:translate(-50%,-50%) scale(1); background:linear-gradient(135deg,#EA580C,#F97316); color:#fff; border-color:transparent; box-shadow:0 0 0 7px rgba(249,115,22,.14), 0 10px 24px rgba(37,99,235,.4); }
     @media(max-width:720px){
@@ -724,11 +762,14 @@
     .ba-li { display:flex; align-items:flex-start; gap:10px; font-size:13.5px; line-height:1.4; margin-bottom:10px; max-width:360px; }
     .ba-li span { flex-shrink:0; font-size:15px; }
     .ba-after .ba-li { color:#d7e6ff; }
+    .ba-cask-logo { display:block; width:min(198px,60%); height:auto; margin:0 0 22px; filter:drop-shadow(0 12px 24px rgba(0,0,0,.24)) drop-shadow(0 0 18px rgba(94,234,212,.12)); }
+    .ba-cask-line { position:relative; max-width:min(100%,560px); margin:0 0 24px; padding-left:18px; font-family:'Outfit',sans-serif; font-size:clamp(22px,2.5vw,29px); line-height:1.16; font-weight:700; letter-spacing:-.01em; color:rgba(255,255,255,.94); text-wrap:balance; text-shadow:0 8px 24px rgba(0,0,0,.28); }
+    .ba-cask-line::before { content:''; position:absolute; left:0; top:.12em; bottom:.12em; width:4px; border-radius:999px; background:linear-gradient(180deg,#5eead4,#F97316); box-shadow:0 0 18px rgba(94,234,212,.38); }
     .ba-cta { align-self:flex-start; margin-top:8px; padding:11px 22px; border-radius:999px; font-family:'Outfit',sans-serif; font-weight:800; font-size:13px; color:#fff; background:linear-gradient(135deg,#F97316,#EA580C); }
     .ba-divider { position:absolute; top:0; bottom:0; left:50%; width:3px; margin-left:-1.5px; background:rgba(255,255,255,.85); box-shadow:0 0 18px 3px rgba(120,180,255,.6); z-index:5; transition:left .12s ease-out; }
     .ba-knob { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:44px; height:44px; border-radius:50%; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,.35); display:flex; align-items:center; justify-content:center; color:#2563EB; font-size:16px; font-weight:900; z-index:6; transition:left .12s ease-out; }
     .ba-hint { position:absolute; bottom:14px; left:50%; transform:translateX(-50%); z-index:6; font-family:'Outfit',sans-serif; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.6); pointer-events:none; }
-    @media(max-width:640px){ .ba{height:440px} .ba-layer{padding:30px} .ba-li{font-size:12px} }
+    @media(max-width:640px){ .ba{height:440px} .ba-layer{padding:30px} .ba-li{font-size:12px} .ba-cask-logo{width:min(156px,72%); margin-bottom:20px;} .ba-cask-line{font-size:clamp(20px,7vw,27px); margin-bottom:20px; padding-left:15px;} }
 
   
     /* ══════════════ FAQ TYPING + REGISTER PULSE ══════════════ */
@@ -746,10 +787,22 @@
     @keyframes regPulse { 0%,100%{ opacity:.55; transform:scale(.96); } 50%{ opacity:1; transform:scale(1.05); } }
     .reg-badge { animation:regBadge 2.4s ease-in-out infinite; }
     @keyframes regBadge { 0%,100%{ box-shadow:0 0 0 0 rgba(249,115,22,0); } 50%{ box-shadow:0 0 0 6px rgba(249,115,22,.14); } }
-    .countdown .cd-unit { padding:14px 10px; border-radius:16px; background:var(--card-s); border:1px solid var(--bdr); backdrop-filter:blur(10px); min-width:78px; box-shadow:0 12px 30px rgba(0,0,0,.1); }
+    .countdown .cd-unit { padding:14px 10px; border-radius:16px; background:var(--card-s); border:1px solid var(--bdr); backdrop-filter:blur(10px); min-width:90px; box-shadow:0 12px 30px rgba(0,0,0,.1); }
     .cd-n { transition:transform .2s; }
     .cd-n.tick { animation:cdTick .3s ease; }
     @keyframes cdTick { 0%{ transform:translateY(-4px); opacity:.5; } 100%{ transform:none; opacity:1; } }
+    @media(max-width:500px) and (min-width:361px){
+      #register .countdown { gap:clamp(4px,1.4vw,8px); }
+      #register .countdown .cd-unit { min-width:clamp(60px,16vw,72px); padding:12px 6px; }
+      #register .cd-n { font-size:clamp(32px,8vw,38px); }
+      #register .cd-l { font-size:9px; letter-spacing:.08em; }
+      #register .cd-sep { font-size:clamp(24px,6vw,30px); margin-top:-4px; }
+    }
+    @media(max-width:360px){
+      #register .countdown { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; inline-size:min(100%,236px); margin-left:auto; margin-right:auto; }
+      #register .countdown .cd-unit { min-width:0; }
+      #register .cd-sep { display:none; }
+    }
 
   
     /* ══════ STAGES ZIG-ZAG extras ══════ */
@@ -758,19 +811,21 @@
     .ztl-item:nth-child(odd) .ztl-tags { justify-content:flex-end; }
     @media(max-width:720px){ .ztl-item:nth-child(odd) .ztl-tags { justify-content:flex-start; } }
 
-    /* ══════════════ ELIGIBILITY — STAIRCASE ══════════════ */
-    .stair-panel { text-align:center; max-width:520px; margin:0 auto 6px; min-height:88px; }
-    .stair-cat { display:inline-block; font-family:'Outfit',sans-serif; font-weight:800; font-size:11px; letter-spacing:.14em; text-transform:uppercase; padding:5px 14px; border-radius:999px; background:var(--acc-s); color:var(--acc); margin-bottom:10px; }
-    .stair-note { color:var(--ink2); font-size:14px; line-height:1.5; }
-    .stair { display:flex; align-items:flex-end; justify-content:center; gap:12px; max-width:720px; margin:22px auto 0; min-height:250px; }
-    .stair-step { flex:1; max-width:126px; display:flex; flex-direction:column; align-items:center; cursor:pointer; }
-    .stair-block { width:100%; border-radius:14px 14px 0 0; background:linear-gradient(180deg,#F97316,#EA580C); display:flex; align-items:flex-start; justify-content:center; padding-top:12px; color:#fff; font-family:'Outfit',sans-serif; font-weight:900; font-size:17px; letter-spacing:.02em; opacity:0; transform:translateY(34px); transition:opacity .55s ease, transform .55s cubic-bezier(.22,1,.36,1), filter .25s, box-shadow .25s; box-shadow:0 -4px 20px rgba(249,115,22,.24); }
-    .stair.in .stair-block { opacity:1; transform:none; }
-    .stair-step:hover .stair-block, .stair-step.active .stair-block { filter:brightness(1.08); transform:translateY(-8px); box-shadow:0 -6px 30px rgba(249,115,22,.5); }
-    .stair-step.senior .stair-block { background:linear-gradient(180deg,#FB923C,#C2410C); }
-    .stair-cap { font-family:'Outfit',sans-serif; font-weight:800; font-size:12px; color:var(--ink); margin-top:9px; }
-    .stair-sub { font-size:10.5px; color:var(--ink3); }
-    @media(max-width:560px){ .stair { gap:6px; min-height:200px; } .stair-block { font-size:13px; } .stair-cap { font-size:10px; } }
+    /* ══════════════ ELIGIBILITY — BADGE TIERS ══════════════ */
+    .stair { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; max-width:920px; margin:34px auto 0; }
+    .stair-award-card { position:relative; isolation:isolate; overflow:hidden; min-height:282px; padding:28px 24px 26px; border-radius:20px; background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(249,115,22,.055)),var(--card-s); border:1px solid var(--bdr); box-shadow:0 18px 46px rgba(0,0,0,.14); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; opacity:0; transform:translateY(24px); transition:opacity .58s ease, transform .58s cubic-bezier(.22,1,.36,1), border-color .25s ease, box-shadow .25s ease; }
+    .stair-award-card::before { content:''; position:absolute; inset:-40% -30% auto auto; width:170px; height:170px; border-radius:50%; background:radial-gradient(circle,rgba(249,115,22,.22),transparent 68%); pointer-events:none; z-index:0; }
+    .stair.in .stair-award-card { opacity:1; transform:none; }
+    .stair-award-card:hover { border-color:rgba(249,115,22,.38); box-shadow:0 24px 58px rgba(249,115,22,.16); transform:translateY(-4px); }
+    .stair-award-title { position:relative; z-index:1; font-family:'Outfit',sans-serif; font-weight:900; font-size:clamp(18px,2vw,23px); line-height:1.1; color:var(--ink); margin:0 0 34px; }
+    .stair-badge-photo { position:relative; z-index:1; display:flex; align-items:center; justify-content:center; width:92px; aspect-ratio:1; margin:0 auto 24px; border-radius:50%; background:radial-gradient(circle at 34% 28%,#fff7ca 0,#facc15 32%,#f97316 72%,#9a3412 100%); box-shadow:0 16px 34px rgba(249,115,22,.26), inset 0 2px 0 rgba(255,255,255,.58), inset 0 -8px 16px rgba(124,45,18,.24); }
+    .stair-badge-photo::before { content:''; position:absolute; top:-20px; width:52px; height:38px; background:linear-gradient(135deg,#1d4ed8 0 43%,#f8fafc 43% 50%,#ea580c 50% 100%); clip-path:polygon(8% 0,42% 0,50% 54%,58% 0,92% 0,70% 100%,30% 100%); z-index:-1; filter:drop-shadow(0 8px 10px rgba(0,0,0,.24)); }
+    .stair-badge-photo::after { content:''; position:absolute; inset:12px; border-radius:50%; border:1px solid rgba(255,255,255,.42); box-shadow:inset 0 0 0 1px rgba(124,45,18,.16); }
+    .stair-badge-photo span { position:relative; font-family:'Outfit',sans-serif; font-weight:900; font-size:30px; color:#7c2d12; text-shadow:0 1px 0 rgba(255,255,255,.42); }
+    .stair-award-text { position:relative; z-index:1; max-width:250px; margin:0 auto; color:var(--ink); font-size:clamp(15px,1.45vw,17px); line-height:1.45; font-weight:700; }
+    .stair-award-card:nth-child(2) .stair-award-text, .stair-award-card:nth-child(3) .stair-award-text { font-weight:500; color:var(--ink2); }
+    @media(max-width:820px){ .stair { grid-template-columns:1fr; max-width:560px; gap:16px; } .stair-award-card { min-height:0; padding:28px 24px 25px; } .stair-award-title { margin-bottom:32px; } .stair-badge-photo { width:84px; margin-bottom:22px; } .stair-award-text { max-width:360px; } }
+    @media(max-width:480px){ .stair-award-card { padding:27px 20px 24px; } .stair-award-title { margin-bottom:31px; } .stair-badge-photo { width:82px; margin-bottom:21px; } }
 
     /* ══════════════ TIMELINE — HORIZONTAL TRACK ══════════════ */
     .htl-scroll { overflow-x:auto; overflow-y:hidden; padding:8px 0 6px; margin-top:30px; }
@@ -794,36 +849,33 @@
     .htl-desc { font-size:11.5px; color:var(--ink2); line-height:1.45; }
 
     /* ══════════════ AWARDS — VAULT UNLOCK ══════════════ */
-    .vault { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:900px; margin:44px auto 0; }
-    @media(max-width:760px){ .vault { grid-template-columns:1fr; max-width:420px; } }
-    .vault-card { position:relative; border-radius:20px; padding:28px 20px; background:var(--card-s); border:1px solid var(--bdr); overflow:hidden; text-align:center; backdrop-filter:blur(12px); box-shadow:0 16px 44px rgba(0,0,0,.14); }
-    .vault-card.gold { border-color:rgba(234,88,12,.5); box-shadow:0 0 0 1px rgba(249,115,22,.4),0 16px 50px rgba(249,115,22,.28); }
+    .vault { display:grid; grid-template-columns:minmax(190px,230px) minmax(0,1fr); grid-template-rows:1fr 1fr; gap:18px; max-width:930px; margin:44px auto 0; align-items:stretch; }
+    @media(max-width:760px){ .vault { grid-template-columns:1fr; grid-template-rows:auto; max-width:520px; } }
+    .vault-card { position:relative; border-radius:20px; padding:24px 22px; background:var(--card-s); border:1px solid var(--bdr); overflow:hidden; backdrop-filter:blur(12px); box-shadow:0 16px 44px rgba(0,0,0,.14); }
+    .vault-card:not(.gold) { aspect-ratio:1; display:flex; align-items:center; }
+    .vault-card.gold { grid-row:1 / span 2; grid-column:2; display:flex; align-items:center; border-color:rgba(234,88,12,.32); box-shadow:0 0 0 1px rgba(249,115,22,.18),0 18px 52px rgba(249,115,22,.18); }
     .vault-card::after { content:''; position:absolute; inset:0; background:linear-gradient(120deg,transparent 32%,rgba(255,255,255,.55) 48%,transparent 64%); transform:translateX(-130%); pointer-events:none; }
     .vault-card.unlocked::after { animation:vaultShine 1.1s ease .1s; }
     @keyframes vaultShine { to { transform:translateX(130%); } }
     .vault-inner { filter:blur(7px); opacity:.35; transform:scale(.97); transition:filter .7s ease, opacity .7s ease, transform .7s cubic-bezier(.22,1,.36,1); }
     .vault-card.unlocked .vault-inner { filter:none; opacity:1; transform:none; }
-    .vault-lock { position:absolute; top:14px; right:16px; font-size:16px; opacity:.6; transition:opacity .4s; }
+    .vault-lock { position:absolute; top:14px; right:16px; font-size:16px; opacity:.45; transition:opacity .4s; }
     .vault-card.unlocked .vault-lock { opacity:0; }
-    .vault-medal { font-size:46px; line-height:1; }
-    .vault-rank { font-family:'Outfit',sans-serif; font-weight:800; font-size:14px; color:var(--ink); margin-top:8px; }
-    .vault-prize { font-family:'Outfit',sans-serif; font-weight:900; font-size:26px; margin:4px 0 12px; background:linear-gradient(135deg,#EA580C,#F97316); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-    .vault-items { display:flex; flex-direction:column; gap:6px; }
-    .vault-it { font-size:11.5px; color:var(--ink2); line-height:1.35; }
+    .vault-kicker { display:inline-flex; align-items:center; gap:6px; font-family:'Outfit',sans-serif; font-size:10px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--acc); margin-bottom:10px; }
+    .vault-title { font-family:'Outfit',sans-serif; font-weight:900; font-size:clamp(24px,3vw,38px); line-height:1; color:var(--ink); margin-bottom:8px; }
+    .vault-copy { color:var(--ink2); font-size:clamp(14px,1.45vw,17px); line-height:1.45; margin:0; }
+    .vault-card.gold .vault-inner { width:100%; }
+    .vault-card.gold .vault-title { font-size:clamp(25px,2.8vw,36px); line-height:1.08; margin-bottom:18px; }
+    .vault-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:0 0 20px; }
+    .vault-it { position:relative; padding:12px 13px 12px 32px; border-radius:14px; background:rgba(249,115,22,.07); border:1px solid rgba(249,115,22,.14); color:var(--ink2); font-size:clamp(13px,1.25vw,15px); line-height:1.35; }
+    .vault-it::before { content:'✓'; position:absolute; left:13px; top:12px; color:var(--acc); font-weight:900; }
+    .vault-note { margin:0; color:var(--ink); font-size:clamp(15px,1.5vw,18px); line-height:1.55; font-weight:700; text-wrap:balance; }
+    @media(max-width:760px){ .vault-card:not(.gold) { aspect-ratio:auto; min-height:180px; } .vault-card.gold { grid-row:auto; grid-column:auto; } .vault-list { grid-template-columns:1fr; } }
+    @media(max-width:480px){ .vault { gap:14px; } .vault-card { padding:22px 20px; } }
 
     /* ══════ PREPARE auto-sweep smoothing ══════ */
     .ba-after { transition:clip-path 1.5s cubic-bezier(.4,0,.2,1); }
     .ba-divider, .ba-knob { transition:left 1.5s cubic-bezier(.4,0,.2,1); }
-
-    @media screen and (max-width: 425px) {
-        .countdown{
-            flex-direction: column;
-            gap: 12px;
-        }
-        .countdown .cd-unit{
-          width: 60%;
-        }
-    }
 
   </style>
 </head>
@@ -857,10 +909,6 @@
         </li>
       </ul>
       <div class="nav-right">
-        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
-          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
         <div class="nav-dropdown nav-signup-dropdown">
           <button type="button" class="nav-signup-btn">Sign Up <span class="nav-dropdown-arrow" aria-hidden="true">&#9662;</span></button>
           <div class="nav-dropdown-menu nav-signup-menu" aria-label="Sign Up options">
@@ -871,11 +919,10 @@
         <a href="surakshak.html" class="nav-cta">Join the Movement</a>
       </div>
      <div class="nav-right-mobile">
-         <button id="themeToggle1" class="themeToggle theme-toggle-btn" aria-label="Toggle theme">
-            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <button class="hamburger" id="hamburger" type="button" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobileMenu">
+            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+            <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
           </button>
-          <button class="hamburger" id="hamburger">&#9776;</button>
       </div>
     </div>
     <div class="mobile-menu" id="mobileMenu">
@@ -889,7 +936,10 @@
       <div class="mobile-nav-dropdown" data-mobile-dropdown>
         <div class="mobile-nav-dropdown-head">
           <a href="sponsor.html">Collaborate With Us</a>
-          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Collaborate With Us options"><span aria-hidden="true">&#9662;</span></button>
+          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Collaborate With Us options">
+            <svg class="mobile-arrow mobile-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="mobile-arrow mobile-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+          </button>
         </div>
         <div class="mobile-nav-dropdown-menu">
           <a href="sponsor.html">For Corporates</a>
@@ -899,7 +949,10 @@
       <div class="mobile-nav-dropdown mobile-signup-dropdown" data-mobile-dropdown>
         <div class="mobile-nav-dropdown-head">
           <a href="olympiad.html#register">Sign Up</a>
-          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Sign Up options"><span aria-hidden="true">&#9662;</span></button>
+          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Sign Up options">
+            <svg class="mobile-arrow mobile-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="mobile-arrow mobile-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+          </button>
         </div>
         <div class="mobile-nav-dropdown-menu">
           <a href="https://cask.ai.in/auth/signup" target="_blank">Student Signup</a>
@@ -914,15 +967,15 @@
   <section class="nh" id="home">
     <div class="nh-panel nh-left">
       <img class="nh-img" src="assets/ncoheroleft.png" alt="A curious student learning at a laptop" />
-      <div class="nh-cap"><span>Today,</span><span>A <em>Curious</em></span><span>Student.</span></div>
+      <div class="nh-cap"><span>Today,</span><span>A <em>Curious</em></span><span>Cadet.</span></div>
     </div>
     <div class="nh-panel nh-mid">
       <div class="nh-seam nh-seam-l" aria-hidden="true"></div>
       <canvas class="nh-canvas" id="nhCanvas" aria-hidden="true"></canvas>
       <div class="nh-inner2">
-        <div class="nh-eyebrow">Bridge to Tomorrow</div>
+        <!-- <div class="nh-eyebrow">Bridge to Tomorrow</div> -->
         <h1 class="nh-title">National<br/>Cyber<br/>Olympiad<br/><span class="nh-year">2026</span></h1>
-        <p class="nh-sub">Learn. Compete. Protect.<br/>Build India's Cyber Future.</p>
+        <p class="nh-sub">Three Progressive Stages . One Mission . Cyber Saksham Bharat.</p>
         <div class="nh-ctas">
           <a href="#register" class="nh-btn-main">Join the Mission</a>
           <a href="#stages" class="nh-btn-ghost">Explore Journey ›</a>
@@ -932,33 +985,38 @@
     </div>
     <div class="nh-panel nh-right">
       <img class="nh-img" src="assets/ncoheroright.png" alt="A confident young cyber leader" />
-      <div class="nh-cap nh-cap-r"><span>Tomorrow,</span><span>A <em>Cyber</em></span><span>Leader.</span></div>
+      <div class="nh-cap nh-cap-r"><span>Tomorrow,</span><span>A <em>Cybernaut</em></span></div>
     </div>
-    <div class="nh-chips">
+    <!-- <div class="nh-chips">
       <span class="nh-chip">🔷 <b>National Level</b></span>
       <span class="nh-chip">📘 <b>Grades VII – XII</b></span>
       <span class="nh-chip">🪜 <b>Three Progressive Stages</b></span>
       <span class="nh-chip">🎯 <b>One Mission</b></span>
       <span class="nh-chip">🛡 <b>Cyber-Aware Bharat</b></span>
-    </div>
+    </div> -->
   </section>
 
   <!-- ═══════ AT A GLANCE ═══════ -->
   <section class="sec glance-sec" id="about">
     <div class="sw">
-      <div class="rev" style="text-align:center;max-width:640px;margin:0 auto">
-        <span class="sec-ey">About the Olympiad</span>
-        <h2 class="sec-h2">What is NCO?</h2>
-        <p class="sec-lead" style="margin:0 auto">India's first and only national-level cybersecurity competition built exclusively for school students — testing not just knowledge, but the ability to think, respond, and act in real cyber scenarios. Hover a node to explore.</p>
-      </div>
-      <div class="orb-wrap rev d1">
-        <div class="orb" id="orbGlance">
-          <div class="orb-ringline" aria-hidden="true"></div>
-          <div class="orb-ringline two" aria-hidden="true"></div>
-          <div class="orb-hub" id="orbHub">
-            <div class="orb-hub-k">NCO</div>
-            <div class="orb-hub-t">India's national cyber olympiad</div>
-            <div class="orb-hub-d">🎖 Backed by USI · Est. 1870</div>
+      <div class="glance-grid">
+        <div class="glance-copy rev">
+          <span class="sec-ey">About the Olympiad</span>
+          <h2 class="sec-h2">What is NCO?</h2>
+          <p class="sec-lead">Cybersecurity is one of the most important skills of our age. Think about it. Almost every part of our lives is moving online, and that means knowing how to navigate and protect the digital world is going to matter, no matter what your child eventually chooses to do.</p>
+          <p class="sec-lead">Your child may become a tech person or may choose a completely different path. It really does not matter. Whether they go into the private sector, public sector, entrepreneurship, employment or defence, they will be part of a digital world where cyber threats are simply a reality.</p>
+          <p class="sec-lead">So why not give them a head start? The National Cyber Olympiad gives your child the chance to put their cybersecurity skills to the test, compete with students across the country and be recognised for what they know, on a national platform.</p>
+          <p class="sec-lead">And the best part? It is grade-wise and multilingual, so they can compete in their own language and stand a chance to take home Cyber Badges, trophies, medals, cash prizes, certificates, official merchandise and access to exclusive courses and training.</p>
+        </div>
+        <div class="glance-orbit orb-wrap rev d1">
+          <div class="orb" id="orbGlance">
+            <div class="orb-ringline" aria-hidden="true"></div>
+            <div class="orb-ringline two" aria-hidden="true"></div>
+            <div class="orb-hub" id="orbHub">
+              <div class="orb-hub-k">NCO</div>
+              <div class="orb-hub-t">Rewards and recognition</div>
+              <div class="orb-hub-d">Hover a reward to explore what students can earn.</div>
+            </div>
           </div>
         </div>
       </div>
@@ -971,20 +1029,26 @@
       <div class="rev" style="max-width:600px">
         <span class="sec-ey">Three Stages</span>
         <h2 class="sec-h2">How the Olympiad works</h2>
-        <p class="sec-lead">Each stage is progressively more challenging — from online school-level screening to an in-person national final in New Delhi.</p>
+        <p class="sec-lead">So, how does the journey unfold? It starts with the Qualifiers, gets progressively more challenging as they move on to the Defenders, and ultimately leads to the Nationals for those who make it all the way through.</p>
       </div>
       <div class="ztl rev d1" id="ztlStages">
         <div class="ztl-line" aria-hidden="true"><i></i></div>
         <div class="ztl-item">
-          <div class="ztl-card"><div class="ztl-step">Stage One · School Level</div><div class="ztl-title">The Online Screening</div><div class="ztl-desc">Open to all registered students. A 60-minute online test covering cyber threat awareness, phishing identification, password security, and digital privacy basics. Top scorers from each school advance.</div><div class="ztl-tags"><span class="st3-tag">60 min</span><span class="st3-tag">Online</span><span class="st3-tag">MCQ format</span><span class="st3-tag">September</span></div></div>
+          <div class="ztl-card">
+            <!-- <div class="ztl-step">Stage One · School Level</div> -->
+          <div class="ztl-title">Qualifier Level</div><div class="ztl-desc">Once your child has completed their learning journey on CASK, they can register for the Olympiad under their own grade and take on the Qualifier Round of NCO. <br/><span class="ztl-desc-gap">And this is where the competition really begins! The top 150 students from each grade, making it 900 students across all zones, will earn the title of Cyber Cadet. They will then represent their respective zones: North Zone, South Zone, East Zone, West Zone, Central Zone and North-East Zone, and move forward to the Defender Round.</span></div><div class="ztl-tags"><span class="st3-tag">60 min</span><span class="st3-tag">Online</span><span class="st3-tag">MCQ format</span><span class="st3-tag">September</span></div></div>
           <div class="ztl-node">I</div>
         </div>
         <div class="ztl-item">
-          <div class="ztl-card"><div class="ztl-step">Stage Two · State Level</div><div class="ztl-title">The State Round</div><div class="ztl-desc">Top performers from Stage I compete at the state level — scenario-based case studies, practical threat analysis, and real-world decision-making. Top 5 per state advance to the National Final.</div><div class="ztl-tags"><span class="st3-tag">90 min</span><span class="st3-tag">Hybrid</span><span class="st3-tag">Case studies</span><span class="st3-tag">October</span></div></div>
+          <div class="ztl-card">
+            <!-- <div class="ztl-step">Stage Two · State Level</div> -->
+            <div class="ztl-title">Zonal Round</div><div class="ztl-desc">Now the competition gets even more intense! Ten students from each grade in each zone will compete for the title of Cyber Defender and a place in the Nationals Round.<br/><span class="ztl-desc-gap">And there is more! The first winner from each grade in their respective zone will take home a cash prize of Rs. 10,000, along with the gold medal. The second and third-place winners will receive silver and bronze medals, while the top 10 will receive Cyber Defender badges.</span></div><div class="ztl-tags"><span class="st3-tag">60 min</span><span class="st3-tag">Online</span><span class="st3-tag">MCQ format</span><span class="st3-tag">September</span></div></div>
           <div class="ztl-node">II</div>
         </div>
         <div class="ztl-item">
-          <div class="ztl-card"><div class="ztl-step">Stage Three · National Final</div><div class="ztl-title">The National Final</div><div class="ztl-desc">India's best young cyber minds compete in New Delhi. Live scenario challenges, expert panel evaluation, and felicitation. Winners receive national recognition, cash prizes, and mentorship.</div><div class="ztl-tags"><span class="st3-tag">In-person</span><span class="st3-tag">New Delhi</span><span class="st3-tag">Live challenges</span><span class="st3-tag">November</span></div></div>
+          <div class="ztl-card">
+            <!-- <div class="ztl-step">Stage Three · National Final</div> -->
+            <div class="ztl-title">Nationals</div><div class="ztl-desc">And now, it all comes down to this! The final round brings the students neck and neck as they compete for first place and the title of The Cybernaut, along with a cash prize of Rs. 25,000 for the grade winner within their respective zone.<br /><span class="ztl-desc-gap">The second and third-place winners will receive their respective position medals, while the top 10 will receive recognition certificates and official Cybernaut badges.</span></div><div class="ztl-tags"><span class="st3-tag">60 min</span><span class="st3-tag">Online</span><span class="st3-tag">MCQ format</span><span class="st3-tag">September</span></div></div>
           <div class="ztl-node">III</div>
         </div>
       </div>
@@ -997,30 +1061,30 @@
       <div class="rev" style="text-align:center">
         <span class="sec-ey">Who Can Participate</span>
         <h2 class="sec-h2">Eligibility</h2>
-        <p class="sec-lead" style="max-width:520px;margin:0 auto">Open to all students enrolled in any recognised Indian school. No prior cybersecurity knowledge required.</p>
+        <p class="sec-lead" style="max-width:520px;margin:0 auto">So, who gets to be part of the NCO? If your child is studying in Grade 7 to Grade 12 at any recognised or private school in India, they are eligible to participate.</p>
       </div>
-      <div class="stair-panel rev d1">
+      <!-- <div class="stair-panel rev d1">
         <div class="stair-cat" id="stairCat">Junior Category</div>
         <div class="stair-note" id="stairNote">Every grade from VII to XII is eligible and free to enter — hover a step to see the details.</div>
-      </div>
+      </div> -->
       <div class="stair rev d1" id="stair">
-        <!-- <div class="stair-step" data-cat="Junior Category" data-note="Grade Six · Junior category. Eligible &amp; free — competes across all three stages.">
-          <div class="stair-block" style="height:96px">VI</div><div class="stair-cap">VI<span class="stair-sub"> · Junior</span></div>
-        </div> -->
-        <div class="stair-step" data-cat="Junior Category" data-note="Grade Seven · Junior category. Eligible &amp; free — competes across all three stages.">
-          <div class="stair-block" style="height:124px">VII</div><div class="stair-cap">VII<span class="stair-sub"> · Junior</span></div>
+        <div class="stair-award-card">
+          <div class="stair-award-title">Cyber Qualifier</div>
+          <div class="stair-badge-photo" role="img" aria-label="Medal placeholder"><span>1</span></div>
+          <p class="stair-award-text">900 students across 6 grades per 6 zones.</p>
         </div>
-        <div class="stair-step" data-cat="Junior Category" data-note="Grade Eight · Junior category. Eligible &amp; free — competes across all three stages.">
-          <div class="stair-block" style="height:152px">VIII</div><div class="stair-cap">VIII<span class="stair-sub"> · Junior</span></div>
+        <div class="stair-award-card">
+          <div class="stair-award-title">Cyber Defender</div>
+          <div class="stair-badge-photo" role="img" aria-label="Medal placeholder"><span>2</span></div>
+          <p class="stair-award-text">360 students across 6 grades. 10 per grade per zone.</p>
         </div>
-        <div class="stair-step senior" data-cat="Senior Category" data-note="Grades 9–10 · Senior category. Deeper scenario challenges and case studies.">
-          <div class="stair-block" style="height:186px">IX–X</div><div class="stair-cap">IX–X<span class="stair-sub"> · Senior</span></div>
-        </div>
-        <div class="stair-step senior" data-cat="Senior Category" data-note="Grades 11–12 · Senior category — the toughest tier and a direct pathway to internships.">
-          <div class="stair-block" style="height:220px">XI–XII</div><div class="stair-cap">XI–XII<span class="stair-sub"> · Senior</span></div>
+        <div class="stair-award-card">
+          <div class="stair-award-title">Cybernaut</div>
+          <div class="stair-badge-photo" role="img" aria-label="Medal placeholder"><span>3</span></div>
+          <p class="stair-award-text">Top 10 per grade per zone.</p>
         </div>
       </div>
-      <p style="text-align:center;font-size:13px;color:var(--ink3);margin-top:22px">Students from both government and private schools are equally eligible — schools may register as a group.</p>
+      <!-- <p style="text-align:center;font-size:13px;color:var(--ink3);margin-top:22px">Students from both government and private schools are equally eligible — schools may register as a group.</p> -->
     </div>
   </section>
 
@@ -1036,23 +1100,33 @@
         <div class="htl-track"><div class="htl-fill"></div></div>
         <div class="htl-marker" aria-hidden="true"></div>
         <div class="htl-node up" style="left:0%">
-          <div class="htl-card"><div class="htl-date">Jun 01</div><div class="htl-title">Registrations Open</div><div class="htl-desc">Individual &amp; school-group registrations open at zero cost.</div></div>
+          <div class="htl-card"><div class="htl-date">Oct 15</div>
+          <!-- <div class="htl-title">Registrations Open</div> -->
+          <div class="htl-desc">Launch and Registration for CASK and NCO.</div></div>
           <div class="htl-dot"></div>
         </div>
         <div class="htl-node down" style="left:25%">
-          <div class="htl-card"><div class="htl-date">Aug 15</div><div class="htl-title">Registration Deadline</div><div class="htl-desc">Final date to register. Late entries not accepted.</div></div>
+          <div class="htl-card"><div class="htl-date">Nov 30</div>
+          <!-- <div class="htl-title">Registration Deadline</div> -->
+          <div class="htl-desc">Registrations for CASK premium free of cost closes. (paid access begins)</div></div>
           <div class="htl-dot"></div>
         </div>
         <div class="htl-node up" style="left:50%">
-          <div class="htl-card"><div class="htl-date">Sep 01</div><div class="htl-title">Stage I · School</div><div class="htl-desc">Online MCQ test. Results in 7 days; top students advance.</div></div>
+          <div class="htl-card"><div class="htl-date">Dec 05</div>
+          <!-- <div class="htl-title">Stage I · School</div> -->
+          <div class="htl-desc">NCO Qualifier round (round 1)</div></div>
           <div class="htl-dot"></div>
         </div>
         <div class="htl-node down" style="left:75%">
-          <div class="htl-card"><div class="htl-date">Oct 10</div><div class="htl-title">Stage II · State</div><div class="htl-desc">Case studies &amp; scenarios. Top 5 per state advance.</div></div>
+          <div class="htl-card"><div class="htl-date">Dec 12</div>
+          <!-- <div class="htl-title">Stage II · State</div> -->
+          <div class="htl-desc">NCO Zonals round (round 2)</div></div>
           <div class="htl-dot"></div>
         </div>
         <div class="htl-node up" style="left:100%">
-          <div class="htl-card"><div class="htl-date">Nov 22</div><div class="htl-title">National Final · Delhi</div><div class="htl-desc">Live challenges, judging &amp; felicitation at USI.</div></div>
+          <div class="htl-card"><div class="htl-date">Dec 19</div>
+          <!-- <div class="htl-title">National Final · Delhi</div> -->
+          <div class="htl-desc">NCO National round (round 3)</div></div>
           <div class="htl-dot"></div>
         </div>
        </div>
@@ -1067,34 +1141,37 @@
       <div class="rev" style="text-align:center">
         <span class="sec-ey">Recognition &amp; Prizes</span>
         <h2 class="sec-h2">Awards</h2>
-        <p class="sec-lead" style="max-width:500px;margin:0 auto">Top performers at every stage receive recognition. National Final winners receive prizes, mentorship, and opportunities to represent India internationally.</p>
+        <p class="sec-lead" style="max-width:500px;margin:0 auto">And what’s in it for your child? Plenty! With recognition at multiple stages of the Olympiad, they get the chance to earn cash prizes, certificates, trophies, badges and so much more along the way.</p>
       </div>
       <div class="vault rev d1" id="vault">
         <div class="vault-card">
           <span class="vault-lock">🔒</span>
           <div class="vault-inner">
-            <div class="vault-medal">🥈</div>
-            <div class="vault-rank">National Runner-Up</div>
-            <div class="vault-prize">₹15,000</div>
-            <div class="vault-items"><div class="vault-it">National certificate</div><div class="vault-it">USI recognition trophy</div><div class="vault-it">CASK Pro — 1 year</div></div>
+            <div class="vault-kicker">National Golds</div>
+            <div class="vault-title">6</div>
+            <p class="vault-copy">National Golds and cash prize of Rs. 25k to each of the 6.</p>
           </div>
         </div>
         <div class="vault-card gold">
           <span class="vault-lock">🔒</span>
           <div class="vault-inner">
-            <div class="vault-medal">🥇</div>
-            <div class="vault-rank">National Champion</div>
-            <div class="vault-prize">₹50,000</div>
-            <div class="vault-items"><div class="vault-it">National champion trophy</div><div class="vault-it">USI felicitation certificate</div><div class="vault-it">Cybersecurity internship</div><div class="vault-it">CASK Pro — Lifetime</div></div>
+            <div class="vault-kicker">Recognition &amp; rewards</div>
+            <div class="vault-title">More ways to win</div>
+            <div class="vault-list">
+              <div class="vault-it">6 silver at Nationals</div>
+              <div class="vault-it">6 bronze at nationals</div>
+              <div class="vault-it">36 silver at zonals</div>
+              <div class="vault-it">36 bronze at zonals.</div>
+            </div>
+            <p class="vault-note">Cyber badge, trophies and medals, cash prizes, certificates, official merchandise, access to exclusive courses and trainings.</p>
           </div>
         </div>
         <div class="vault-card">
           <span class="vault-lock">🔒</span>
           <div class="vault-inner">
-            <div class="vault-medal">🥉</div>
-            <div class="vault-rank">Third Place</div>
-            <div class="vault-prize">₹10,000</div>
-            <div class="vault-items"><div class="vault-it">National certificate</div><div class="vault-it">Recognition trophy</div><div class="vault-it">CASK Pro — 6 months</div></div>
+            <div class="vault-kicker">Zonal Golds</div>
+            <div class="vault-title">36</div>
+            <p class="vault-copy">Zonal Golds and cash prize of Rs. 10k to each of the 36.</p>
           </div>
         </div>
       </div>
@@ -1107,25 +1184,21 @@
     <div class="sw">
       <div class="rev" style="text-align:center;max-width:560px;margin:0 auto 6px">
         <div class="prep-ey" style="justify-content:center">Powered by CASK AI</div>
-        <h2 class="sec-h2">Prepare smarter. Win bigger.</h2>
-        <p class="sec-lead" style="margin:0 auto">Hover across to see the difference CASK makes — every registered student gets it free.</p>
+        <h2 class="sec-h2">Winners Don’t Guess. They Prepare.</h2>
+        <p class="sec-lead" style="margin:0 auto">The stakes are high, and so is the competition. That means the preparation needs to be just as serious. <br /> High stakes demand high demand commitment </p>
       </div>
       <div class="ba rev d1" id="ba">
         <div class="ba-layer ba-before">
           <span class="ba-tag">Preparing Alone</span>
           <div class="ba-h">Guesswork &amp; nerves</div>
-          <div class="ba-li"><span>✕</span> No idea what the real exam format looks like</div>
-          <div class="ba-li"><span>✕</span> Random articles, no structured practice</div>
-          <div class="ba-li"><span>✕</span> Can't tell strong prep from weak spots</div>
-          <div class="ba-li"><span>✕</span> English-only resources</div>
+          <div class="ba-li"><span>✕</span>	Don’t know where to start? </div>
+          <div class="ba-li"><span>✕</span>	No idea what the Olympiad format looks like?</div>
+          <div class="ba-li"><span>✕</span>	Don’t know how to prepare for the questions?</div>
+          <div class="ba-li"><span>✕</span>	No reliable resources to rely on</div>
         </div>
         <div class="ba-layer ba-after" id="baAfter">
-          <span class="ba-tag">CASK-Ready</span>
-          <div class="ba-h">Confident &amp; sharp</div>
-          <div class="ba-li"><span>✓</span> Timed mock tests matching the real Stage I format</div>
-          <div class="ba-li"><span>✓</span> Real phishing drills — spot fake emails, URLs &amp; scams</div>
-          <div class="ba-li"><span>✓</span> Progress dashboard across every NCO topic</div>
-          <div class="ba-li"><span>✓</span> Prepare in 12 Indian languages</div>
+          <img class="ba-cask-logo" src="assets/1-cask.png" alt="CASK" />
+          <div class="ba-cask-line">One platform. Every solution.</div>
           <a href="platform.html" class="ba-cta">Explore CASK AI ↗</a>
         </div>
         <div class="ba-divider" id="baDivider"></div>
@@ -1434,63 +1507,16 @@
     document.getElementById('hamburger').addEventListener('click', function() {
       document.getElementById('mobileMenu').classList.toggle('open');
     });
-
-    /* ── THEME TOGGLE ── */
-   document.addEventListener('DOMContentLoaded', () => {
-
-      // ─── THEME SYSTEM ──────────────────────────────────────────────
-      const htmlEl       = document.documentElement;
-      const chooser      = document.getElementById('themeChooser');
-      const themeToggle  = document.getElementById('themeToggle');
-      const themeToggles = document.querySelectorAll('.themeToggle');
-      const THEME_KEY    = 'hs-theme';
-
-      function applyTheme(theme) {
-        htmlEl.setAttribute('data-theme', theme);
-        localStorage.setItem(THEME_KEY, theme);
-      }
-
-      function dismissChooser(theme) {
-        applyTheme(theme);
-        if (!chooser) return;
-        chooser.classList.add('fade-out');
-        setTimeout(() => chooser.classList.add('hidden'), 500);
-      }
-
-      // On load: check saved preference
-      const savedTheme = localStorage.getItem(THEME_KEY);
-      if (savedTheme) {
-        applyTheme(savedTheme);
-        if (chooser) chooser.classList.add('hidden');
-      } else {
-        // Show chooser — apply dark by default behind it
-        applyTheme('dark');
-        if (chooser) {
-          chooser.querySelectorAll('.theme-option').forEach(btn => {
-            btn.addEventListener('click', () => dismissChooser(btn.dataset.theme));
-          });
-        }
-      }
-
-      // Toggle button in nav
-      if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-          const current = htmlEl.getAttribute('data-theme');
-          applyTheme(current === 'dark' ? 'light' : 'dark');
-        });
-      }
-
-      if (themeToggle) {
-          themeToggles.forEach((themeToggle) => {
-              themeToggle.addEventListener('click', () => {
-                  const current = htmlEl.getAttribute('data-theme');
-                  applyTheme(current === 'dark' ? 'light' : 'dark');
-              });
-          });
-      }
-
-    });
-
+    /* Dark theme only */
+    (function () {
+      var htmlEl = document.documentElement;
+      var THEME_KEY = 'hs-theme';
+      htmlEl.setAttribute('data-theme', 'dark');
+      try {
+        localStorage.setItem(THEME_KEY, 'dark');
+        localStorage.removeItem('suraksha-theme');
+      } catch (e) {}
+    })();
     /* ── BACKGROUND GEOMETRIC PATTERN ── */
     function drawPattern() {
       var svg = document.getElementById('nco-bg');
@@ -1589,12 +1615,13 @@
       var orb=document.getElementById('orbGlance'); if(!orb) return;
       var hub=document.getElementById('orbHub'), hubDefault=hub.innerHTML;
       var FACTS=[
-        {ico:'🏆',l:'First of its kind',t:'First of its kind',d:"India's only national cybersecurity olympiad for school students."},
-        {ico:'🗺',l:'Pan-India reach',t:'Pan-India reach',d:'Open to all 28 states and 8 Union Territories.'},
-        {ico:'🤖',l:'CASK AI powered',t:'CASK AI powered',d:'Adaptive preparation platform, included free with registration.'},
-        {ico:'🆓',l:'Zero cost',t:'Zero cost to students',d:'Free registration. No exam fee. Always.'},
-        {ico:'📜',l:'USI certified',t:'USI certification',d:'Nationally recognised certificates for all participants.'},
-        {ico:'🎯',l:'Real scenarios',t:'Real-world scenarios',d:'Tests practical judgement, not rote memory.'}
+        {ico:'🛡',l:'Cyber Badges',t:'Cyber Badges',d:'Cyber Cadet, Cyber Defender and Cybernaut badges awarded at each qualifying stage.'},
+        {ico:'🏆',l:'Trophies',t:'Trophies',d:'Awarded to the Top 3 National winners.'},
+        {ico:'🥇',l:'Medals',t:'Medals',d:'Gold, silver and bronze medals for the Top 3 winners at each round.'},
+        {ico:'₹',l:'Cash Prizes',t:'Cash Prizes',d:'₹25,000 for the National winner and ₹10,000 for the Zonal winner.'},
+        {ico:'📜',l:'Certificates',t:'Certificates',d:'Participation, Merit and Winner certificates awarded across the competition.'},
+        {ico:'🎁',l:'Official Merchandise',t:'Official Merchandise',d:'Exclusive #Suraksha merchandise including T-shirts, mugs, magnets and more.'},
+        {ico:'🎓',l:'Exclusive Courses',t:'Exclusive Courses & Training',d:'Free access to reputed cybersecurity courses from leading Indian institutes.'}
       ];
       var nodes=[], base=[], n=FACTS.length, angle=0, paused=false;
       FACTS.forEach(function(f,i){
@@ -1672,17 +1699,12 @@
       io.observe(z);
     })();
 
-    /* ── Eligibility: staircase ── */
+    /* ── Eligibility: badge tiers ── */
     (function(){ var stair=document.getElementById('stair'); if(!stair) return;
-      var steps=stair.querySelectorAll('.stair-step'), cat=document.getElementById('stairCat'), note=document.getElementById('stairNote');
-      var defCat=cat.textContent, defNote=note.innerHTML;
+      var cards=stair.querySelectorAll('.stair-award-card');
       var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ stair.classList.add('in');
-        steps.forEach(function(s,i){ var b=s.querySelector('.stair-block'); b.style.transitionDelay=(90*i)+'ms'; }); io.disconnect(); } }); },{threshold:.3});
+        cards.forEach(function(c,i){ c.style.transitionDelay=(90*i)+'ms'; }); io.disconnect(); } }); },{threshold:.3});
       io.observe(stair);
-      steps.forEach(function(s){
-        s.addEventListener('mouseenter',function(){ steps.forEach(function(x){x.classList.remove('active');}); s.classList.add('active'); cat.textContent=s.dataset.cat; note.innerHTML=s.dataset.note; });
-        s.addEventListener('mouseleave',function(){ s.classList.remove('active'); cat.textContent=defCat; note.innerHTML=defNote; });
-      });
     })();
 
     /* ── Timeline: horizontal track ── */
@@ -1709,7 +1731,7 @@
       setP(88); /* start showing "before" */
       var played=false;
       var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting && !played){ played=true;
-        setTimeout(function(){ setP(8); if(hint) hint.textContent='CASK-Ready'; }, 700); io.disconnect(); } }); },{threshold:.4});
+        setTimeout(function(){ setP(8); if(hint) hint.textContent=''; }, 700); io.disconnect(); } }); },{threshold:.4});
       io.observe(ba);
     })();
 

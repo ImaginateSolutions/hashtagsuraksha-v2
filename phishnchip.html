@@ -3,6 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark" />
+  <script>
+    document.documentElement.setAttribute('data-theme', 'dark');
+    try {
+      localStorage.setItem('hs-theme', 'dark');
+      localStorage.removeItem('suraksha-theme');
+    } catch (e) {}
+  </script>
+  <style id="darkThemePrepaint">
+    html { background: #101415; color-scheme: dark; }
+    body { background: #101415; color: #F8FAFC; }
+  </style>
   <title>The Phish &amp; Chip Show | #Suraksha</title>
   <meta name="description" content="One Scam. One Detective. One Decision. The interactive cybersecurity show for students — spot scams, earn badges, outsmart Phish." />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Bangers&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet" />
@@ -21,8 +33,7 @@
       backdrop-filter: blur(20px) !important;
     }
     [data-theme="dark"] .nav-logo-img { filter: none !important; }
-    [data-theme="dark"] .theme-toggle-btn { color: #1A1A2E !important; }
-    [data-theme="dark"] .nav-cta {
+[data-theme="dark"] .nav-cta {
       background: #1E1B4B !important; color: #fff !important;
     }
 
@@ -1591,17 +1602,9 @@
         <li><a href="sponsor.html">Collaborate With Us</a></li>
       </ul>
       <div class="nav-right">
-        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
-          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
         <a href="surakshak.html" class="nav-cta">Join the Movement</a>
       </div>
       <div class="nav-right-mobile">
-         <button id="themeToggle1" class="themeToggle theme-toggle-btn" aria-label="Toggle theme">
-            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          </button>
           <button class="hamburger" id="hamburger">&#9776;</button>
       </div>
     </div>
