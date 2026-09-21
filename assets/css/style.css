@@ -206,9 +206,15 @@ img { max-width: 100%; }
   transition: all 0.2s;
   white-space: nowrap;
 }
-.nav-links a:hover, .nav-links a.active {
+.nav-links a:hover {
   color: var(--navy);
   background: var(--gray-100);
+  font-weight: 600;
+}
+
+.nav-links a.active {
+  color: var(--navy);
+  background: rgb(255 107 26 / 35%) !important;
   font-weight: 600;
 }
 
@@ -229,17 +235,29 @@ img { max-width: 100%; }
 .hamburger {
   display: none;
   border-radius: 6px;
-  padding: 6px 10px;
+  padding: 0;
+  box-sizing: border-box;
   font-size: 16px;
-  border: 1px solid #bebebe;
+  border: 1px solid rgba(255,255,255,0.24);
   cursor: pointer;
-  color: var(--navy);
+  color: rgba(255,255,255,0.86);
   margin-left: auto;
 }
 
 [data-theme="dark"] .nav:not(.scrolled) .hamburger {
-  color: var(--white);
-  border-color: #555;
+  color: rgba(255,255,255,0.86);
+  border-color: rgba(255,255,255,0.24);
+}
+
+.hamburger:hover,
+.hamburger:focus-visible,
+.hamburger.is-open,
+[data-theme="dark"] .nav:not(.scrolled) .hamburger:hover,
+[data-theme="dark"] .nav:not(.scrolled) .hamburger:focus-visible,
+[data-theme="dark"] .nav:not(.scrolled) .hamburger.is-open {
+  color: #fff;
+  border-color: rgba(255,255,255,0.42);
+  background: rgba(255,255,255,0.08);
 }
 
 .mobile-menu {
@@ -253,8 +271,8 @@ img { max-width: 100%; }
 .mobile-menu a {
   padding: 10px 0;
   font-size: 15px;
-  color: var(--gray-700);
-  border-bottom: 1px solid var(--gray-100);
+  color: rgba(255,255,255,0.84);
+  border-bottom: 1px solid rgba(255,255,255,0.10);
   font-weight: 500;
 }
 .mobile-menu .mobile-cta {

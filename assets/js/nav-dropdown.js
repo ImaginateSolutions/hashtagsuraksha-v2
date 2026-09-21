@@ -1,4 +1,41 @@
 (function () {
+  function initMobileMenu() {
+    var hamburger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobileMenu');
+    if (!hamburger || !mobileMenu || hamburger.dataset.mobileMenuReady === 'true') return;
+
+    hamburger.dataset.mobileMenuReady = 'true';
+    hamburger.setAttribute('aria-controls', 'mobileMenu');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Open mobile menu');
+
+    function setMenuOpen(isOpen) {
+      mobileMenu.classList.toggle('open', isOpen);
+      hamburger.classList.toggle('is-open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      hamburger.setAttribute('aria-label', isOpen ? 'Close mobile menu' : 'Open mobile menu');
+      document.body.classList.toggle('mobile-menu-open', isOpen);
+    }
+
+    hamburger.addEventListener('click', function (event) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      setMenuOpen(!mobileMenu.classList.contains('open'));
+    }, true);
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        setMenuOpen(false);
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 999 && mobileMenu.classList.contains('open')) {
+        setMenuOpen(false);
+      }
+    });
+  }
+
   function initMobileDropdowns() {
     document.querySelectorAll('[data-mobile-dropdown]').forEach(function (dropdown) {
       var toggle = dropdown.querySelector('[data-mobile-dropdown-toggle]');
@@ -12,9 +49,14 @@
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initMobileDropdowns);
-  } else {
+  function initNav() {
+    initMobileMenu();
     initMobileDropdowns();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNav);
+  } else {
+    initNav();
   }
 })();
