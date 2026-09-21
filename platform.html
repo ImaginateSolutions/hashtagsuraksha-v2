@@ -10,11 +10,18 @@
     try {
       localStorage.setItem('hs-theme', 'dark');
       localStorage.removeItem('suraksha-theme');
-    } catch (e) {}
+    } catch (e) { }
   </script>
   <style id="darkThemePrepaint">
-    html { background: #101415; color-scheme: dark; }
-    body { background: #101415; color: #F8FAFC; }
+    html {
+      background: #101415;
+      color-scheme: dark;
+    }
+
+    body {
+      background: #101415;
+      color: #F8FAFC;
+    }
   </style>
   <title>CASK — AI-Powered Cyber Safety Curriculum | Hashtag Suraksha</title>
   <meta name="description"
@@ -402,6 +409,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
+
       .cask-logo-container,
       .cask-logo-stage,
       .cask-logo-stage::before,
@@ -962,7 +970,7 @@
     }
 
     .cask-video-more.is-open {
-      max-height: 420px;
+      max-height: 720px;
       opacity: 1;
       margin-top: 4px;
     }
@@ -980,7 +988,7 @@
       align-items: center;
       justify-content: center;
       width: fit-content;
-      margin: 2px 0 16px;
+      margin: 10px 0 16px;
       padding: 0;
       border: none;
       background: none;
@@ -6683,11 +6691,11 @@
       box-sizing: border-box;
     }
 
-    .fyt-standard-detail .fyt-content {
+    .fyt-panel .fyt-content {
       display: block;
     }
 
-    .fyt-standard-detail .fyt-left {
+    .fyt-panel .fyt-left {
       display: none;
     }
 
@@ -7526,6 +7534,72 @@
         transform: translateY(-2px);
       }
 
+      /* Mobile accordion: each standard expands units beneath it */
+      .fyt-standard-layout.is-accordion {
+        gap: 0;
+      }
+
+      .fyt-standard-layout.is-accordion .fyt-standard-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        border-bottom: none;
+        padding: 0;
+      }
+
+      .fyt-standard-layout.is-accordion .fyt-standard-detail {
+        display: none;
+      }
+
+      .fyt-standard-layout.is-accordion .fyt-standard-btn {
+        transform: none;
+      }
+
+      .fyt-standard-layout.is-accordion .fyt-standard-btn:hover,
+      .fyt-standard-layout.is-accordion .fyt-standard-btn.fyt-standard-active {
+        transform: none;
+      }
+
+      .fyt-standard-layout.is-accordion .fyt-standard-btn.fyt-standard-active {
+        border-radius: 16px 16px 0 0;
+        border-bottom-color: transparent;
+      }
+
+      .fyt-standard-layout.is-accordion .fyt-std-arrow {
+        transform: rotate(90deg);
+        transition: transform 0.24s ease, opacity 0.24s ease;
+      }
+
+      .fyt-standard-layout.is-accordion .fyt-standard-btn.fyt-standard-active .fyt-std-arrow {
+        transform: rotate(-90deg);
+      }
+
+      .fyt-standard-layout.is-accordion .fyt-standard-list>.fyt-panel {
+        display: none;
+        min-height: 0;
+        margin: -12px 0 0;
+        padding: 8px 12px 16px;
+        border: 1px solid rgba(var(--fyt-rgb), 0.28);
+        border-top: none;
+        border-radius: 0 0 16px 16px;
+        background:
+          linear-gradient(180deg, rgba(var(--fyt-rgb), 0.06), rgba(8, 13, 30, 0.92) 28%),
+          rgba(8, 13, 30, 0.96);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+      }
+
+      .fyt-standard-layout.is-accordion .fyt-standard-list>.fyt-panel.fyt-panel-active {
+        display: block;
+      }
+
+      .fyt-standard-layout.is-accordion .fyt-watermark {
+        display: none;
+      }
+
+      .fyt-standard-layout.is-accordion .fyt-orbit {
+        display: none;
+      }
+
       .fyt-content {
         padding: 0;
         overflow: visible;
@@ -7628,9 +7702,17 @@
         gap: 14px;
       }
 
+      .fyt-standard-layout.is-accordion .fyt-standard-list {
+        gap: 12px;
+      }
+
       .fyt-standard-btn {
         min-height: 58px;
         border-width: 3px;
+      }
+
+      .fyt-standard-layout.is-accordion .fyt-standard-list>.fyt-panel {
+        padding: 6px 8px 14px;
       }
 
       .fyt-bottom-row {
@@ -8494,7 +8576,7 @@
       display: none;
     }
 
-    @media (max-width: 1024px){
+    @media (max-width: 1024px) {
       .cask-sub {
         max-width: none;
       }
@@ -8540,10 +8622,20 @@
         <a href="surakshak.html" class="nav-cta">Join the Movement</a>
       </div>
       <div class="nav-right-mobile">
-        <button class="hamburger" id="hamburger" type="button" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobileMenu">
-            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
-            <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-          </button>
+        <button class="hamburger" id="hamburger" type="button" aria-label="Open mobile menu" aria-expanded="false"
+          aria-controls="mobileMenu">
+          <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 6h16" />
+            <path d="M4 12h16" />
+            <path d="M4 18h16" />
+          </svg>
+          <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </button>
       </div>
     </div>
     <div class="mobile-menu" id="mobileMenu">
@@ -8557,9 +8649,16 @@
       <div class="mobile-nav-dropdown" data-mobile-dropdown>
         <div class="mobile-nav-dropdown-head">
           <a href="sponsor.html">Collaborate With Us</a>
-          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Collaborate With Us options">
-            <svg class="mobile-arrow mobile-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-            <svg class="mobile-arrow mobile-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false"
+            aria-label="Open Collaborate With Us options">
+            <svg class="mobile-arrow mobile-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+            <svg class="mobile-arrow mobile-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m18 15-6-6-6 6" />
+            </svg>
           </button>
         </div>
         <div class="mobile-nav-dropdown-menu">
@@ -8570,9 +8669,16 @@
       <div class="mobile-nav-dropdown mobile-signup-dropdown" data-mobile-dropdown>
         <div class="mobile-nav-dropdown-head">
           <a href="olympiad.html#register">Sign Up</a>
-          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Sign Up options">
-            <svg class="mobile-arrow mobile-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-            <svg class="mobile-arrow mobile-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false"
+            aria-label="Open Sign Up options">
+            <svg class="mobile-arrow mobile-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+            <svg class="mobile-arrow mobile-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m18 15-6-6-6 6" />
+            </svg>
           </button>
         </div>
         <div class="mobile-nav-dropdown-menu">
@@ -9016,12 +9122,17 @@
         <!-- <span class="cert-govt-text">An initiative of CERT-In under the aegis of MeitY</span> -->
       </div>
       <!-- CASK Logo — dark/light mode -->
-      <div class="cask-logo-container" tabindex="0" aria-label="CASK, Cyber Abhyas Sakriya Kshamta" style="display:flex;justify-content:center;margin-top:0;margin-bottom:4px;">
+      <div class="cask-logo-container" tabindex="0" aria-label="CASK, Cyber Abhyas Sakriya Kshamta"
+        style="display:flex;justify-content:center;margin-top:0;margin-bottom:4px;">
         <span class="cask-logo-stage">
-          <span class="cask-logo-tile"><span class="cask-logo-initial">C</span><span class="cask-logo-rest">YBER</span></span>
-          <span class="cask-logo-tile"><span class="cask-logo-initial">A</span><span class="cask-logo-rest">BHYAS</span></span>
-          <span class="cask-logo-tile"><span class="cask-logo-initial">S</span><span class="cask-logo-rest">AKRIYA</span></span>
-          <span class="cask-logo-tile"><span class="cask-logo-initial">K</span><span class="cask-logo-rest">SHAMTA</span></span>
+          <span class="cask-logo-tile"><span class="cask-logo-initial">C</span><span
+              class="cask-logo-rest">YBER</span></span>
+          <span class="cask-logo-tile"><span class="cask-logo-initial">A</span><span
+              class="cask-logo-rest">BHYAS</span></span>
+          <span class="cask-logo-tile"><span class="cask-logo-initial">S</span><span
+              class="cask-logo-rest">AKRIYA</span></span>
+          <span class="cask-logo-tile"><span class="cask-logo-initial">K</span><span
+              class="cask-logo-rest">SHAMTA</span></span>
         </span>
       </div>
       <!-- <div class="cask-hero-tag">NEP Aligned Cyber Learning Platform</div> -->
@@ -9154,18 +9265,19 @@
           leadership, forensics, and career pathways in Grade X.</p> -->
         <p class="cask-sub">Your child is already spending so much time in the digital world. They are watching videos,
           chatting with friends, playing games, learning new things and exploring. But when something goes wrong, would
-          they know what to do?</p><br/>
-
-        <p class="cask-sub">This is where we need to do more. Online grooming, cyberbullying, non-consensual image
-          sharing and digital fraud are very real threats, and children are often unable to recognise them simply
-          because nobody has taught them how to. Schools need structured cyber safety education, teachers need the right
-          training, and parents need the right language to have these conversations with their children. Cyber safety is
-          not something only a technology expert understands. It is something every child growing up online needs to
-          know.</p><br/>
+          they know what to do?</p>
 
         <a href="#" class="cask-video-read-more" data-cask-video-toggle="open" aria-expanded="false"
           aria-controls="caskVideoMore">Read more</a>
         <div class="cask-video-more" id="caskVideoMore" aria-hidden="true">
+          <p class="cask-sub">This is where we need to do more. Online grooming, cyberbullying, non-consensual image
+            sharing and digital fraud are very real threats, and children are often unable to recognise them simply
+            because nobody has taught them how to. Schools need structured cyber safety education, teachers need the
+            right
+            training, and parents need the right language to have these conversations with their children. Cyber safety
+            is
+            not something only a technology expert understands. It is something every child growing up online needs to
+            know.</p>
           <p class="cask-sub">And this is where CASK comes in.</p>
           <p class="cask-sub">CASK is an exclusive environment developed by a national agency, bringing together the
             knowledge, experience and expertise of cyber experts to empower our young netizens to understand the digital
@@ -9226,7 +9338,9 @@
           <span class="cs2-gt-line">Everything</span>
           <span class="cs2-gt-line">Connected.</span>
         </div>
-        <p class="cs2-desc">Personalised AI Super tutor but that’s not all… <br/> <span class="cs2-desc-line">The system is built on a system of 12+ unique features and capabilities in 22 indian languages along with parental access.</span></p>
+        <p class="cs2-desc">Personalised AI Super tutor but that’s not all… <br /> <span class="cs2-desc-line">The
+            system is built on a system of 12+ unique features and capabilities in 22 indian languages along with
+            parental access.</span></p>
         <!-- <div class="cs2-hint">
           <span class="cs2-hint-ico">🔍</span>
           <div><strong>Hover on any node</strong><span> for more information.</span></div>
@@ -9293,7 +9407,8 @@
         <div class="cs2-node" data-idx="6" data-icon="🎮" data-label="Simulation" data-tag="Interactive Practice"
           data-desc="Why just learn about it when your child can experience it? Simulations bring learning to life.">
         </div>
-        <div class="cs2-node" data-idx="7" data-icon="📝" data-label="Whiteboard learning" data-tag="Step-by-step Learning"
+        <div class="cs2-node" data-idx="7" data-icon="📝" data-label="Whiteboard learning"
+          data-tag="Step-by-step Learning"
           data-desc="Sometimes, the best way to understand something is to see it unfold clearly, step by step, right before you.">
         </div>
         <div class="cs2-node" data-idx="8" data-icon="🗂️" data-label="Diagram Glossary" data-tag="Visual Glossary"
@@ -9302,7 +9417,8 @@
         <div class="cs2-node" data-idx="9" data-icon="📋" data-label="Activity Recap" data-tag="Progress Recap"
           data-desc="A quick recap is all it takes to refresh what they have learned and keep those brilliant young minds on track.">
         </div>
-        <div class="cs2-node" data-idx="10" data-icon="🗓️" data-label="AI Generated Personalized study plan" data-tag="Personalized Plan"
+        <div class="cs2-node" data-idx="10" data-icon="🗓️" data-label="AI Generated Personalized study plan"
+          data-tag="Personalized Plan"
           data-desc="Your child gets a study plan built around them, so they can learn smarter, stay organised and study like a prodigy, powered by AI.">
         </div>
         <div class="cs2-node" data-idx="11" data-icon="🤝" data-label="Counselling" data-tag="Safe Support"
@@ -9337,7 +9453,10 @@
         <h2 class="safety-design-title" id="safetyDesignTitle">Safety As A Design</h2>
       </div>
       <div class="safety-design-copy-wrap">
-        <p class="safety-design-copy">It is a small language model, therefore it is child safe as no explicit or age-inappropriate content will ever be shown. The AI has been programmed to function on strict rules, including maintaining a careful language standard and avoiding any exchange that could compromise your child's safety.</p>
+        <p class="safety-design-copy">It is a small language model, therefore it is child safe as no explicit or
+          age-inappropriate content will ever be shown. The AI has been programmed to function on strict rules,
+          including maintaining a careful language standard and avoiding any exchange that could compromise your child's
+          safety.</p>
       </div>
     </div>
   </section>
@@ -11054,15 +11173,16 @@
     <div class="cask-container">
       <span class="cask-tag">Learn the Way You Think.</span>
       <h2 class="cask-h2">Cyber safety in your language.</h2>
-      <p class="cask-sub" style="margin:0 auto">CASK speaks to your child in the way they think and understand, with content that is not just translated, but culturally contextualised, so cyber safety concepts actually stick.</p>
+      <p class="cask-sub" style="margin:0 auto">CASK speaks to your child in the way they think and understand, with
+        content that is not just translated, but culturally contextualised, so cyber safety concepts actually stick.</p>
       <div class="cask-lang-cloud" aria-label="CASK speaks English and all 22 scheduled languages of India">
         <div class="clb-wrap" data-lang="as"><span class="cask-lang-bubble clb-sm"><span
               class="clb-greet">অসমীয়া</span><span class="clb-lang">Assamese</span></span></div>
         <div class="clb-wrap" data-lang="bn"><span class="cask-lang-bubble clb-sm"><span
               class="clb-greet">&#2476;&#2494;&#2434;&#2482;&#2494;</span><span class="clb-lang">Bengali</span></span>
         </div>
-        <div class="clb-wrap" data-lang="brx"><span class="cask-lang-bubble"><span
-              class="clb-greet">बड़ो</span><span class="clb-lang">Bodo</span></span></div>
+        <div class="clb-wrap" data-lang="brx"><span class="cask-lang-bubble"><span class="clb-greet">बड़ो</span><span
+              class="clb-lang">Bodo</span></span></div>
         <div class="clb-wrap" data-lang="doi"><span class="cask-lang-bubble clb-sm"><span
               class="clb-greet">डोगरी</span><span class="clb-lang">Dogri</span></span></div>
         <div class="clb-wrap" data-lang="gu"><span class="cask-lang-bubble clb-sm"><span
@@ -11076,12 +11196,12 @@
         <div class="clb-wrap" data-lang="kn"><span class="cask-lang-bubble"><span
               class="clb-greet">&#3221;&#3240;&#3277;&#3240;&#3233;</span><span class="clb-lang">Kannada</span></span>
         </div>
-        <div class="clb-wrap" data-lang="ks"><span class="cask-lang-bubble"><span
-              class="clb-greet">کٲشُر</span><span class="clb-lang">Kashmiri</span></span></div>
+        <div class="clb-wrap" data-lang="ks"><span class="cask-lang-bubble"><span class="clb-greet">کٲشُر</span><span
+              class="clb-lang">Kashmiri</span></span></div>
         <div class="clb-wrap" data-lang="kok"><span class="cask-lang-bubble clb-sm"><span
               class="clb-greet">कोंकणी</span><span class="clb-lang">Konkani</span></span></div>
-        <div class="clb-wrap" data-lang="mai"><span class="cask-lang-bubble"><span
-              class="clb-greet">मैथिली</span><span class="clb-lang">Maithili</span></span></div>
+        <div class="clb-wrap" data-lang="mai"><span class="cask-lang-bubble"><span class="clb-greet">मैथिली</span><span
+              class="clb-lang">Maithili</span></span></div>
         <div class="clb-wrap" data-lang="ml"><span class="cask-lang-bubble clb-sm"><span
               class="clb-greet">&#3374;&#3378;&#3375;&#3390;&#3379;&#3330;</span><span
               class="clb-lang">Malayalam</span></span></div>
@@ -11090,26 +11210,26 @@
         <div class="clb-wrap" data-lang="mr"><span class="cask-lang-bubble clb-accent clb-lg"><span
               class="clb-greet">&#2350;&#2352;&#2366;&#2336;&#2368;</span><span class="clb-lang">Marathi</span></span>
         </div>
-        <div class="clb-wrap" data-lang="ne"><span class="cask-lang-bubble"><span
-              class="clb-greet">नेपाली</span><span class="clb-lang">Nepali</span></span></div>
+        <div class="clb-wrap" data-lang="ne"><span class="cask-lang-bubble"><span class="clb-greet">नेपाली</span><span
+              class="clb-lang">Nepali</span></span></div>
         <div class="clb-wrap" data-lang="or"><span class="cask-lang-bubble clb-sm"><span
               class="clb-greet">ଓଡ଼ିଆ</span><span class="clb-lang">Odia</span></span></div>
-        <div class="clb-wrap" data-lang="pa"><span class="cask-lang-bubble"><span
-              class="clb-greet">ਪੰਜਾਬੀ</span><span class="clb-lang">Punjabi</span></span></div>
+        <div class="clb-wrap" data-lang="pa"><span class="cask-lang-bubble"><span class="clb-greet">ਪੰਜਾਬੀ</span><span
+              class="clb-lang">Punjabi</span></span></div>
         <div class="clb-wrap" data-lang="sa"><span class="cask-lang-bubble clb-sm"><span
               class="clb-greet">संस्कृतम्</span><span class="clb-lang">Sanskrit</span></span></div>
-        <div class="clb-wrap" data-lang="sat"><span class="cask-lang-bubble"><span
-              class="clb-greet">ᱥᱟᱱᱛᱟᱲᱤ</span><span class="clb-lang">Santali</span></span></div>
-        <div class="clb-wrap" data-lang="sd"><span class="cask-lang-bubble"><span
-              class="clb-greet">سنڌي</span><span class="clb-lang">Sindhi</span></span></div>
+        <div class="clb-wrap" data-lang="sat"><span class="cask-lang-bubble"><span class="clb-greet">ᱥᱟᱱᱛᱟᱲᱤ</span><span
+              class="clb-lang">Santali</span></span></div>
+        <div class="clb-wrap" data-lang="sd"><span class="cask-lang-bubble"><span class="clb-greet">سنڌي</span><span
+              class="clb-lang">Sindhi</span></span></div>
         <div class="clb-wrap" data-lang="ta"><span class="cask-lang-bubble clb-accent"><span
               class="clb-greet">&#2980;&#2990;&#3007;&#2996;&#3021;</span><span class="clb-lang">Tamil</span></span>
         </div>
         <div class="clb-wrap" data-lang="te"><span class="cask-lang-bubble clb-accent"><span
               class="clb-greet">&#3108;&#3142;&#3122;&#3137;&#3095;&#3137;</span><span
               class="clb-lang">Telugu</span></span></div>
-        <div class="clb-wrap" data-lang="ur"><span class="cask-lang-bubble"><span
-              class="clb-greet">اُردُو</span><span class="clb-lang">Urdu</span></span></div>
+        <div class="clb-wrap" data-lang="ur"><span class="cask-lang-bubble"><span class="clb-greet">اُردُو</span><span
+              class="clb-lang">Urdu</span></span></div>
       </div>
       <div class="cask-chat-preview">
         <div class="cask-chat-head">
@@ -13529,26 +13649,98 @@
       var scene = document.getElementById('fytScene');
       if (!scene) return;
 
+      var layout = scene.querySelector('.fyt-standard-layout');
+      var list = scene.querySelector('.fyt-standard-list');
+      var detail = scene.querySelector('.fyt-standard-detail');
       var panels = Array.from(scene.querySelectorAll('.fyt-panel'));
       var standardBtns = Array.from(scene.querySelectorAll('.fyt-standard-btn'));
+      var accordionMq = window.matchMedia('(max-width: 860px)');
+      var isAccordion = false;
 
-      function activatePanel(panelId) {
+      function activatePanel(panelId, opts) {
+        opts = opts || {};
+        var closing = !!(opts.close || !panelId);
+
         panels.forEach(function (panel) {
-          var on = panel.id === panelId;
+          var on = !closing && panel.id === panelId;
           panel.classList.toggle('fyt-panel-active', on);
           panel.setAttribute('aria-hidden', on ? 'false' : 'true');
         });
 
         standardBtns.forEach(function (btn) {
-          var on = btn.getAttribute('data-panel') === panelId;
+          var on = !closing && btn.getAttribute('data-panel') === panelId;
           btn.classList.toggle('fyt-standard-active', on);
           btn.setAttribute('aria-selected', on ? 'true' : 'false');
+          if (isAccordion) {
+            btn.setAttribute('aria-expanded', on ? 'true' : 'false');
+          }
         });
+
+        if (isAccordion && opts.scroll && !closing) {
+          var openBtn = standardBtns.find(function (btn) {
+            return btn.getAttribute('data-panel') === panelId;
+          });
+          if (openBtn) {
+            openBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        }
       }
+
+      function setAccordionMode(on) {
+        if (!layout || !list || !detail) return;
+        if (on === isAccordion) return;
+        isAccordion = on;
+        layout.classList.toggle('is-accordion', on);
+
+        if (on) {
+          list.removeAttribute('role');
+          standardBtns.forEach(function (btn) {
+            var panel = document.getElementById(btn.getAttribute('data-panel'));
+            if (panel) btn.insertAdjacentElement('afterend', panel);
+            btn.setAttribute('role', 'button');
+            btn.setAttribute(
+              'aria-expanded',
+              btn.classList.contains('fyt-standard-active') ? 'true' : 'false'
+            );
+          });
+        } else {
+          list.setAttribute('role', 'tablist');
+          panels.forEach(function (panel) {
+            detail.appendChild(panel);
+          });
+          standardBtns.forEach(function (btn) {
+            btn.setAttribute('role', 'tab');
+            btn.removeAttribute('aria-expanded');
+          });
+          var stillOpen = panels.some(function (panel) {
+            return panel.classList.contains('fyt-panel-active');
+          });
+          if (!stillOpen && standardBtns[0]) {
+            activatePanel(standardBtns[0].getAttribute('data-panel'));
+          }
+        }
+      }
+
+      function syncAccordionMode() {
+        setAccordionMode(accordionMq.matches);
+      }
+
+      if (accordionMq.addEventListener) {
+        accordionMq.addEventListener('change', syncAccordionMode);
+      } else if (accordionMq.addListener) {
+        accordionMq.addListener(syncAccordionMode);
+      }
+
+      syncAccordionMode();
 
       standardBtns.forEach(function (btn) {
         btn.addEventListener('click', function () {
-          activatePanel(btn.getAttribute('data-panel'));
+          var panelId = btn.getAttribute('data-panel');
+          if (isAccordion && btn.classList.contains('fyt-standard-active')) {
+            activatePanel(panelId, { close: true });
+            return;
+          }
+          activatePanel(panelId, { scroll: true });
         });
 
         btn.addEventListener('keydown', function (e) {
@@ -13557,11 +13749,15 @@
           var dir = (e.key === 'ArrowDown' || e.key === 'ArrowRight') ? 1 : -1;
           var next = (standardBtns.indexOf(btn) + dir + standardBtns.length) % standardBtns.length;
           standardBtns[next].focus();
-          activatePanel(standardBtns[next].getAttribute('data-panel'));
+          activatePanel(standardBtns[next].getAttribute('data-panel'), { scroll: true });
         });
       });
 
-      activatePanel(standardBtns[0] && standardBtns[0].getAttribute('data-panel'));
+      if (isAccordion) {
+        activatePanel(null, { close: true });
+      } else {
+        activatePanel(standardBtns[0] && standardBtns[0].getAttribute('data-panel'));
+      }
 
       /* ── Unit row hover → expand inline detail content ── */
       panels.forEach(function (panel) {
