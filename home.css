@@ -101,12 +101,12 @@
   color: var(--text-primary) !important;
 }
 
-/* ── NAV — ALWAYS WHITE ───────────────────────────────────────── */
+/* ── NAV — TRANSLUCENT DARK ───────────────────────────────────── */
 .nav,
 [data-theme="dark"] .nav,
 [data-theme="light"] .nav {
-  background: rgba(255, 255, 255, 0.97) !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  background: rgba(16, 20, 21, 0.88) !important;
+  border-bottom: 1px solid rgba(51,65,85,0.6) !important;
   backdrop-filter: blur(20px) !important;
 }
 
@@ -139,7 +139,7 @@
   font-family: var(--font-ui);
   font-size: 13px;
   font-weight: 500;
-  color: #475569 !important;
+  color: rgba(255,255,255,0.82) !important;
   padding: 7px 11px;
   border-radius: 6px;
   transition: all 0.2s ease;
@@ -152,7 +152,16 @@
 [data-theme="dark"] .nav-links a:hover,
 [data-theme="dark"] .nav-links a.active {
   color: #1D4ED8 !important;
+}
+
+.nav-links a:hover,
+[data-theme="dark"] .nav-links a:hover {
   background: rgba(29, 78, 216, 0.07);
+}
+
+.nav-links a.active,
+[data-theme="dark"] .nav-links a.active {
+  background: rgb(255 107 26 / 35%) !important;
 }
 
 .nav-right {
@@ -178,36 +187,6 @@
 }
 
 .nav-cta:hover { opacity: 0.85; }
-
-.theme-toggle-btn,
-[data-theme="dark"] .theme-toggle-btn {
-  background: rgba(0, 0, 0, 0.06) !important;
-  border: 1.5px solid rgba(0, 0, 0, 0.15) !important;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: #555 !important;
-  transition: all 0.25s;
-  flex-shrink: 0;
-}
-
-.theme-toggle-btn:hover,
-[data-theme="dark"] .theme-toggle-btn:hover {
-  border-color: #1D4ED8 !important;
-  color: #1D4ED8 !important;
-  background: rgba(29, 78, 216, 0.08) !important;
-}
-
-.theme-toggle-btn svg { width: 15px; height: 15px; }
-
-[data-theme="dark"]  .icon-sun  { display: block; }
-[data-theme="dark"]  .icon-moon { display: none; }
-[data-theme="light"] .icon-sun  { display: none; }
-[data-theme="light"] .icon-moon { display: block; }
 
 .hamburger {
   display: none;
@@ -305,86 +284,6 @@
   opacity: 1;
   transform: none;
 }
-
-/* ── THEME CHOOSER ────────────────────────────────────────────── */
-.theme-chooser {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(8px);
-  z-index: 99999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.theme-chooser.hidden { display: none; }
-
-.theme-chooser-inner {
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 40px;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-}
-
-.theme-chooser-logo img {
-  height: 48px;
-  margin-bottom: 20px;
-}
-
-.theme-chooser-title {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 8px;
-}
-
-.theme-chooser-sub {
-  font-size: 14px;
-  color: var(--text-secondary);
-  margin-bottom: 28px;
-}
-
-.theme-options {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-}
-
-.theme-option {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  padding: 16px 24px;
-  border: 1.5px solid var(--border);
-  border-radius: 12px;
-  background: var(--bg-card);
-  cursor: pointer;
-  font-family: var(--font-ui);
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-primary);
-  transition: all 0.2s;
-  flex: 1;
-}
-
-.theme-option:hover {
-  border-color: var(--primary);
-  color: var(--primary);
-}
-
-.theme-preview {
-  width: 80px;
-  height: 50px;
-  border-radius: 8px;
-}
-
-.dark-preview { background: #101415; border: 1px solid #2c3338; }
-.light-preview { background: #F8FAFC; border: 1px solid #E2E8F0; }
 
 /* ── FONT OVERRIDE ────────────────────────────────────────────── */
 body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
@@ -2769,19 +2668,25 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 .cask-card-split .mini-chat-wrap { flex: 1; min-width: 0; }
 
 /* CASK + Slanglish top-row logo cols */
-.cask-card-logo-col,
-.slang-card-logo-col {
+.cask-card-logo-col, .slang-card-logo-col {
   flex-shrink: 0;
-  width: auto;
-  height: 30px;
   border-radius: 9px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.cask-card-logo-col{
+  width: auto;
+  height: 30px;
+}
+
+.slang-card-logo-col{
+  width: auto;
+  height: 40px;
+}
 .cask-vcard-logo {
-  width: 100%;
+  width: auto;
   height: 100%;
   object-fit: cover;
   border-radius: 9px;
@@ -3731,7 +3636,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 /* Section shell */
 .pnc-section {
   background: var(--pb-bg);
-  padding: 48px 0 52px;
+  padding: 100px 0 60px;
   position: relative;
   overflow: hidden;
   box-sizing: border-box;

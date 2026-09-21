@@ -3,6 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark" />
+  <script>
+    document.documentElement.setAttribute('data-theme', 'dark');
+    try {
+      localStorage.setItem('hs-theme', 'dark');
+      localStorage.removeItem('suraksha-theme');
+    } catch (e) {}
+  </script>
+  <style id="darkThemePrepaint">
+    html { background: #101415; color-scheme: dark; }
+    body { background: #101415; color: #F8FAFC; }
+  </style>
   <title>For Corporates | Hashtag Suraksha</title>
   <meta name="description" content="Partner with Hashtag Suraksha to place your brand at the center of India's digital safety future." />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -80,7 +92,7 @@
     .sp-btn-main { background:linear-gradient(135deg,var(--sp-orange),var(--sp-coral)); color:#fff; box-shadow:0 14px 34px rgba(255,153,51,.26); }
     .sp-btn-soft { background:var(--sp-card); color:var(--sp-ink); border-color:var(--sp-line); }
 
-    .sp-hero { min-height:calc(100vh - 94px); display:grid; grid-template-columns:minmax(0,1.05fr) minmax(320px,.78fr); gap:44px; align-items:center; padding:48px 0 66px; }
+    .sp-hero { min-height:calc(100vh - 94px); display:grid; grid-template-columns:minmax(0,1.05fr) minmax(320px,.78fr); gap:44px; align-items:start; padding:32px 0 66px; }
     .sp-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:30px; }
     .sp-hero-card { position:relative; padding:24px; border:1px solid var(--sp-line); border-radius:26px; background:var(--sp-card); box-shadow:var(--sp-shadow); overflow:hidden; }
     .sp-hero-card::before { content:''; position:absolute; inset:auto -20% -30% 16%; height:180px; background:radial-gradient(circle, rgba(255,153,51,.18), transparent 70%); }
@@ -92,9 +104,9 @@
 
     .sp-section { padding:72px 0; }
     .sp-section.alt { background:var(--sp-soft); border-block:1px solid var(--sp-line); }
-    .sp-sec-head { max-width:720px; margin-bottom:32px; }
+    .sp-sec-head { max-width:720px; margin: 0 auto 32px; display: flex; flex-direction: column; align-items: center; }
     .sp-h2 { margin-top:12px; font-size:clamp(28px,4vw,46px); line-height:1.12; font-weight:800; }
-    .sp-sec-head p { margin:16px 0 0; color:var(--sp-muted); line-height:1.75; font-size:16px; }
+    .sp-sec-head p { margin:16px 0 0; color:var(--sp-muted); line-height:1.75; font-size:16px; text-align: center; }
     .sp-spark { display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:stretch; }
     .sp-panel { padding:28px; border-radius:24px; background:var(--sp-card); border:1px solid var(--sp-line); box-shadow:0 18px 54px rgba(11,31,58,.08); }
     .sp-panel.dark { position:relative; overflow:hidden; color:var(--sp-ink); background:linear-gradient(135deg, color-mix(in srgb, var(--sp-orange) 14%, var(--sp-card-solid)), color-mix(in srgb, var(--sp-green) 12%, var(--sp-card-solid))); border-color:color-mix(in srgb,var(--sp-orange) 40%, var(--sp-line)); }
@@ -110,11 +122,36 @@
     .sp-panel:not(.dark) p { color:var(--sp-muted); }
     .sp-kicker { display:block; font-family:var(--font-ui); font-size:11px; font-weight:800; color:var(--sp-orange); text-transform:uppercase; letter-spacing:.12em; margin-bottom:12px; }
 
-    .sp-benefits { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .sp-benefits { display:grid; grid-template-columns:minmax(280px,.92fr) minmax(0,1.08fr); gap:22px; align-items:stretch; }
+    .sp-benefits-list { display:grid; grid-template-columns:1fr; gap:16px; min-width:0; }
+    #movement .sp-benefits { position:relative; grid-template-columns:minmax(280px,.82fr) minmax(0,1.18fr); gap:30px; align-items:stretch; padding:22px; border:1px solid color-mix(in srgb,var(--sp-line) 88%, transparent); border-radius:30px; background:linear-gradient(135deg,color-mix(in srgb,var(--sp-card-solid) 88%, transparent),color-mix(in srgb,var(--sp-card-solid) 68%, transparent)); box-shadow:var(--sp-shadow); overflow:hidden; isolation:isolate; }
+    #movement .sp-benefits::before { content:''; position:absolute; inset:0 0 auto; height:4px; background:linear-gradient(90deg,var(--sp-orange),var(--sp-green),var(--sp-blue)); z-index:2; }
+    #movement .sp-benefits::after { content:''; position:absolute; right:-90px; bottom:-120px; width:260px; height:260px; border-radius:50%; background:radial-gradient(circle,color-mix(in srgb,var(--sp-green) 22%, transparent),transparent 68%); pointer-events:none; }
+    #movement .sp-benefits-quote { min-height:100%; align-items:center; justify-content:flex-start; padding:40px; isolation:isolate; border-radius:24px; }
+    #movement .sp-benefits-quote h3 { position:relative; z-index:1; max-width:440px; margin:0; color:#fff !important; font-family:var(--font-heading); font-size:clamp(28px,3.2vw,44px); line-height:1.1; font-weight:800; letter-spacing:0; text-wrap:balance; }
+    #movement .sp-benefits-list { position:relative; z-index:1; gap:18px; align-content:center; padding:8px 0; }
+    #movement .sp-benefits-list .sp-benefit { min-height:auto; }
     .sp-benefit { padding:24px; min-height:210px; border-radius:22px; background:var(--sp-card-solid); border:1px solid var(--sp-line); box-shadow:0 12px 38px rgba(11,31,58,.08); }
+    #movement .sp-benefit { position:relative; display:grid; grid-template-columns:56px minmax(0,1fr); column-gap:18px; align-items:start; padding:24px; min-height:132px; overflow:hidden; background:linear-gradient(135deg,color-mix(in srgb,var(--sp-card-solid) 96%, var(--sp-orange)),var(--sp-card-solid)); border-color:color-mix(in srgb,var(--sp-line) 82%, var(--sp-orange)); box-shadow:0 18px 46px rgba(11,31,58,.11); transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease; }
+    #movement .sp-benefit:nth-child(2) { margin-left:34px; background:linear-gradient(135deg,color-mix(in srgb,var(--sp-card-solid) 96%, var(--sp-green)),var(--sp-card-solid)); border-color:color-mix(in srgb,var(--sp-line) 82%, var(--sp-green)); }
+    #movement .sp-benefit:nth-child(3) { margin-left:68px; background:linear-gradient(135deg,color-mix(in srgb,var(--sp-card-solid) 96%, var(--sp-blue)),var(--sp-card-solid)); border-color:color-mix(in srgb,var(--sp-line) 82%, var(--sp-blue)); }
+    #movement .sp-benefit::before { content:''; position:absolute; inset:0 auto 0 0; width:5px; background:linear-gradient(180deg,var(--sp-orange),var(--sp-green)); }
+    #movement .sp-benefit::after { content:''; position:absolute; right:-34px; top:-46px; width:118px; height:118px; border-radius:50%; background:color-mix(in srgb,var(--sp-orange) 12%, transparent); pointer-events:none; }
+    #movement .sp-benefit:nth-child(2)::after { background:color-mix(in srgb,var(--sp-green) 12%, transparent); }
+    #movement .sp-benefit:nth-child(3)::after { background:color-mix(in srgb,var(--sp-blue) 12%, transparent); }
+    #movement .sp-benefit:hover { transform:translateY(-5px); border-color:color-mix(in srgb,var(--sp-orange) 46%, var(--sp-line)); box-shadow:0 24px 58px rgba(11,31,58,.16); }
     .sp-benefit b { display:flex; width:42px; height:42px; border-radius:14px; align-items:center; justify-content:center; background:rgba(255,153,51,.13); color:var(--sp-orange); margin-bottom:18px; font-family:var(--font-heading); font-weight:800; }
+    #movement .sp-benefit b { grid-row:1 / span 2; width:54px; height:54px; margin:0; border-radius:18px; background:color-mix(in srgb,var(--sp-orange) 16%, transparent); box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--sp-orange) 34%, transparent); }
+    #movement .sp-benefit:nth-child(2) b { color:var(--sp-green); background:color-mix(in srgb,var(--sp-green) 16%, transparent); box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--sp-green) 34%, transparent); }
+    #movement .sp-benefit:nth-child(3) b { color:var(--sp-blue); background:color-mix(in srgb,var(--sp-blue) 16%, transparent); box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--sp-blue) 34%, transparent); }
     .sp-benefit h3 { font-family:var(--font-heading); font-size:18px; font-weight:800; margin:0 0 10px; color:var(--sp-ink); }
+    #movement .sp-benefit h3 { margin-top:2px; }
     .sp-benefit p { color:var(--sp-muted); line-height:1.65; margin:0; }
+    #movement .sp-benefits.sp-benefits-ready .sp-benefit { opacity:0; transform:translateX(34px); }
+    #movement .sp-benefits.sp-benefits-ready.is-visible .sp-benefit { opacity:1; transform:translateX(0); transition:opacity .6s ease, transform .6s ease, box-shadow .28s ease, border-color .28s ease; }
+    #movement .sp-benefits.sp-benefits-ready.is-visible .sp-benefit:nth-child(2) { transition-delay:.12s; }
+    #movement .sp-benefits.sp-benefits-ready.is-visible .sp-benefit:nth-child(3) { transition-delay:.24s; }
+    #movement .sp-benefits.sp-benefits-ready.is-visible .sp-benefit:hover { transform:translateY(-5px); }
 
     .sp-movement { display:grid; grid-template-columns:minmax(280px,.9fr) minmax(0,1.1fr); gap:20px; align-items:stretch; }
     .sp-quote { position:relative; padding:30px; border-radius:24px; background:linear-gradient(135deg,var(--sp-orange),var(--sp-coral)); color:#fff; box-shadow:0 24px 64px rgba(255,153,51,.24); display:flex; align-items:flex-end; overflow:hidden; min-height:100%; }
@@ -133,36 +170,136 @@
     .sp-field input:focus { border-color:var(--sp-orange); box-shadow:0 0 0 4px rgba(255,153,51,.14); }
     .sp-submit { border:0; cursor:pointer; width:100%; margin-top:4px; }
 
-    .sp-about-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
-    .sp-logo-row { display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:18px; }
-    .sp-logo-chip { min-height:72px; display:flex; align-items:center; justify-content:center; padding:14px 18px; border-radius:18px; background:var(--sp-logo-bg); border:1px solid var(--sp-line); }
-    .sp-logo-chip img { max-height:46px; max-width:170px; object-fit:contain; }
-    .sp-about-card { padding:28px; border-radius:24px; background:var(--sp-card-solid); border:1px solid var(--sp-line); box-shadow:0 14px 44px rgba(11,31,58,.08); }
-    .sp-about-card h3 { font-family:var(--font-heading); font-size:20px; font-weight:800; margin:0 0 12px; color:var(--sp-ink); }
-    .sp-about-card p { color:var(--sp-muted); line-height:1.75; margin:0 0 14px; }
+    #connect { position:relative; overflow:hidden; }
+    #connect .sp-form-grid { position:relative; grid-template-columns:minmax(280px,.84fr) minmax(0,1.16fr); gap:22px; align-items:center; padding:20px; border:1px solid color-mix(in srgb,var(--sp-line) 88%, transparent); border-radius:30px; background:color-mix(in srgb,var(--sp-card-solid) 82%, transparent); box-shadow:var(--sp-shadow); overflow:hidden; }
+    #connect .sp-form-grid::before { content:''; position:absolute; inset:0 0 auto; height:4px; background:linear-gradient(90deg,var(--sp-orange),var(--sp-green),var(--sp-blue)); z-index:2; }
+    #connect .history-head { position:relative; display:flex; flex-direction:column; align-items:flex-start; justify-content:center; align-self:center; min-height:100%; margin:0; padding:34px; border-radius:24px; background:linear-gradient(145deg,color-mix(in srgb,var(--sp-panel-dark) 96%, var(--sp-blue)),var(--sp-panel-dark)); overflow:hidden; }
+    #connect .history-head::after { content:''; position:absolute; inset:0; background:radial-gradient(circle at 12% 14%, color-mix(in srgb,var(--sp-orange) 14%, transparent), transparent 36%),radial-gradient(circle at 90% 82%, color-mix(in srgb,var(--sp-green) 10%, transparent), transparent 40%),linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,0) 58%); pointer-events:none; }
+    #connect .history-head > * { position:relative; z-index:1; }
+    #connect .history-head .sp-ey { color:#fff !important; }
+    #connect .history-head .sp-ey::before { background:#fff; opacity:.9; }
+    #connect .history-head .sp-h2 { color:#fff !important; margin-top:12px; font-size:clamp(28px,3vw,38px); line-height:1.14; }
+    #connect .history-head p { max-width:360px; margin:12px 0 0; color:rgba(255,255,255,.82) !important; font-size:15px; line-height:1.65; }
+    #connect .sp-form-card { padding:30px; border:1px solid color-mix(in srgb,var(--sp-line) 78%, transparent); border-radius:24px; background:color-mix(in srgb,var(--sp-card-solid) 94%, transparent); box-shadow:none; }
+    [data-theme="dark"] #connect .sp-form-card { background:color-mix(in srgb,var(--sp-card-solid) 90%, transparent); }
+    #connect .sp-form { grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    #connect .sp-field label { margin-bottom:9px; color:var(--text-secondary) !important; letter-spacing:.08em; }
+    #connect .sp-field input { min-height:52px; border-radius:16px; border-color:color-mix(in srgb,var(--sp-line) 88%, var(--sp-blue)); background:color-mix(in srgb,var(--sp-input) 88%, var(--sp-card-solid)); box-shadow:inset 0 1px 0 rgba(255,255,255,.04); transition:border-color .2s ease, box-shadow .2s ease, background .2s ease; }
+    #connect .sp-field input:hover { border-color:color-mix(in srgb,var(--sp-blue) 38%, var(--sp-line)); }
+    #connect .sp-field input:focus { border-color:var(--sp-orange); box-shadow:0 0 0 4px color-mix(in srgb,var(--sp-orange) 18%, transparent); }
+    #connect .sp-submit { grid-column:1 / -1; min-height:52px; margin-top:2px; box-shadow:0 16px 36px rgba(255,153,51,.24); }
 
-    .sp-partners { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-    .sp-partner { min-height:170px; padding:16px; border-radius:20px; background:var(--sp-card-solid); border:1px solid var(--sp-line); display:flex; flex-direction:column; gap:16px; box-shadow:0 12px 36px rgba(11,31,58,.07); }
-    .sp-partner span { color:var(--sp-muted); font-family:var(--font-ui); font-weight:700; font-size:11px; letter-spacing:.06em; text-transform:uppercase; }
-    .sp-partner-logo { flex:1; min-height:98px; display:flex; align-items:center; justify-content:center; padding:16px; border-radius:16px; background:var(--sp-logo-bg); border:1px solid rgba(203,217,240,.72); }
-    .sp-partner img { max-height:62px; max-width:220px; width:auto; object-fit:contain; filter:var(--sp-logo-filter); }
-    .sp-partner img[src$=".png"] { max-height:68px; }
+    .sp-about-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+    .sp-about-card { padding:28px; border-radius:24px; background:var(--bg-surface); border:1px solid var(--sp-line); box-shadow:0 14px 44px rgba(11,31,58,.08); }
+    .sp-about-card .pc-header-band { margin:-28px -28px 24px; background:#ffffff !important; padding:18px 24px; display:flex; align-items:center; justify-content:center; min-height:90px; border-radius:24px 24px 0 0; border-bottom:1px solid var(--sp-line); }
+    .sp-about-card .certin-header-img { height:52px; width:auto; max-width:260px; object-fit:contain; display:block; filter:none !important; }
+    .sp-about-card .cyberbuddha-header-img { height:52px; width:auto; max-width:320px; object-fit:contain; display:block; filter:none !important; }
+    .sp-about-card h3 { font-family:var(--font-heading); font-size:20px; font-weight:800; margin:0 0 12px; color:var(--sp-ink); }
+    
+
+    .partner-logo-marquee-wrap { width:100%; max-width:860px; margin:0 auto; overflow:hidden; -webkit-mask-image:linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%); mask-image:linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%); }
+    .partner-logo-marquee-track { display:flex; align-items:center; gap:28px; width:max-content; animation:partnerScroll 22s linear infinite; }
+    .partner-logo-marquee-track:hover { animation-play-state:paused; }
+    @keyframes partnerScroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+    .partner-logo-chip { background:#fff; border-radius:12px; padding:10px 18px; display:flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow:0 2px 12px rgba(0,0,0,0.12); }
+    .partner-logo-chip img { height:72px; width:auto; max-width:160px; object-fit:contain; display:block; filter:none !important; }
+
+    .sp-page { color:var(--text-primary) !important; font-family:var(--font-body) !important; }
+    .sp-ey, .sp-kicker { color:var(--sp-orange) !important; font-family:var(--font-ui) !important; font-size:11px; font-weight:700; letter-spacing:.08em; }
+    .sp-h1, .sp-h2, .sp-h3, .sp-about-card h3, .sp-benefit h3, .sp-form-panel h2 { color:var(--text-primary) !important; font-family:var(--font-heading) !important; font-weight:700; line-height:1.2; }
+    .sp-h1 { font-family:var(--font-display) !important; font-size:clamp(36px,5vw,62px); font-weight:800 !important; line-height:1.08; letter-spacing:-.02em; }
+    .sp-h1 span, .sp-grad { background:linear-gradient(90deg,#FF9933 0%,#FF9933 28%,#FFFFFF 50%,#138808 72%,#138808 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    [data-theme="light"] .sp-h1 span, [data-theme="light"] .sp-grad { background:linear-gradient(90deg,#FF9933 0%,#FF9933 28%,#897c7c 50%,#138808 72%,#138808 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .sp-h2 { font-size:36px; font-weight:700; line-height:1.2; }
+    .sp-h3, .sp-about-card h3, .sp-benefit h3 { font-size:18px; font-weight:700; line-height:1.25; }
+    .sp-lead, .sp-sec-head p { color:var(--text-secondary) !important; font-family:var(--font-body) !important; font-size:17px; line-height:1.7; }
+    .sp-panel p, .sp-benefit p, .sp-move-item, .sp-form-panel p, .sp-about-card p { color:var(--text-secondary) !important; font-family:var(--font-body) !important; font-size:14.5px; line-height:1.75; }
+    .sp-panel.dark p, [data-theme="dark"] .sp-panel.dark p { color:var(--text-primary) !important; }
+    .sp-stat strong { color:var(--text-primary) !important; font-family:var(--font-display) !important; font-size:36px; font-weight:800 !important; line-height:1.2; }
+    .sp-stat span, .sp-field label { color:var(--text-secondary) !important; font-family:var(--font-ui) !important; font-size:11px; font-weight:600; }
+    .sp-card-note, .sp-quote p { color:#fff !important; font-family:var(--font-heading) !important; }
+    .sp-quote p { font-size:32px; font-weight:700; line-height:1.2; }
+    .sp-btn { font-family:var(--font-ui) !important; font-size:14px; font-weight:700; }
+    .sp-btn-soft { color:var(--text-primary) !important; }
+    .sp-field input { color:var(--text-primary); font-family:var(--font-body); font-size:15px; }
+    .sp-field input::placeholder { color:var(--text-secondary); opacity:.72; }
+    .history-head{display: inline-block; margin-left: 0;}
+
+    .sp-brand-movement { padding-block:76px; }
+    .sp-brand-movement .sp-movement { position:relative; display:grid; grid-template-columns:minmax(220px,1fr) minmax(240px,.78fr) minmax(220px,1fr); grid-template-rows:repeat(2,minmax(116px,1fr)); gap:26px 48px; align-items:center; padding:34px; border:1px solid color-mix(in srgb,var(--sp-line) 86%, transparent); border-radius:28px; background:color-mix(in srgb,var(--sp-card-solid) 82%, transparent); box-shadow:var(--sp-shadow); overflow:hidden; isolation:isolate; }
+    .sp-brand-movement .sp-movement::before { content:''; position:absolute; inset:0 0 auto; height:4px; background:linear-gradient(90deg,var(--sp-orange),var(--sp-green),var(--sp-blue)); }
+    .sp-brand-movement .sp-quote { grid-column:2; grid-row:1 / 3; min-height:270px; padding:28px; align-items:center; justify-content:center; text-align:center; border-radius:22px; background:linear-gradient(135deg,var(--sp-orange),var(--sp-coral)); box-shadow:0 18px 44px rgba(255,153,51,.24); z-index:2; }
+    .sp-brand-movement .sp-quote::before { inset:0; width:auto; height:auto; border-radius:inherit; background:linear-gradient(135deg,rgba(255,255,255,.20),rgba(255,255,255,0) 52%); pointer-events:none; }
+    .sp-brand-movement .sp-quote p { position:relative; z-index:1; max-width:340px; font-size:clamp(22px,2.4vw,30px); line-height:1.2; font-weight:700; text-wrap:balance; }
+    .sp-brand-movement .sp-move-list { display:contents; }
+    .sp-brand-movement .sp-move-item { position:relative; min-height:116px; padding:22px; border-radius:20px; align-items:center; text-align:left; justify-content:flex-start; background:linear-gradient(180deg,color-mix(in srgb,var(--sp-card-solid) 96%, var(--sp-orange)),var(--sp-card-solid)); box-shadow:0 12px 34px rgba(11,31,58,.08); color:var(--text-secondary) !important; z-index:1; }
+    .sp-brand-movement .sp-move-item:nth-child(1) { grid-column:1; grid-row:1; }
+    .sp-brand-movement .sp-move-item:nth-child(2) { grid-column:3; grid-row:1; }
+    .sp-brand-movement .sp-move-item:nth-child(3) { grid-column:1; grid-row:2; }
+    .sp-brand-movement .sp-move-item:nth-child(4) { grid-column:3; grid-row:2; }
+    [data-theme="dark"] .sp-brand-movement .sp-move-item { background:linear-gradient(180deg,color-mix(in srgb,var(--sp-card-solid) 88%, var(--sp-orange)),var(--sp-card-solid)); box-shadow:0 14px 38px rgba(0,0,0,.22); }
+    .sp-brand-movement .sp-move-item::before { display:none; content:none; }
+    .sp-brand-movement .sp-move-item::after { content:''; position:absolute; top:50%; width:48px; height:2px; background:linear-gradient(90deg,color-mix(in srgb,var(--sp-orange) 65%, transparent),color-mix(in srgb,var(--sp-blue) 70%, transparent)); transform:translateY(-50%); pointer-events:none; }
+    .sp-brand-movement .sp-move-item:nth-child(1)::after, .sp-brand-movement .sp-move-item:nth-child(3)::after { left:100%; }
+    .sp-brand-movement .sp-move-item:nth-child(2)::after, .sp-brand-movement .sp-move-item:nth-child(4)::after { right:100%; transform:translateY(-50%) rotate(180deg); }
+    .sp-about-card p { color:var(--sp-muted); line-height:1.7; margin:0 0 10px; font-size: 13px; }
+    .sponsor-txt-center{
+text-align: center;
+    }
 
     @media (max-width: 1024px) {
       .sp-hero, .sp-spark, .sp-movement, .sp-form-grid, .sp-about-grid { grid-template-columns:1fr; }
-      .sp-benefits, .sp-partners { grid-template-columns:repeat(2,1fr); }
+      .sp-benefits { grid-template-columns:1fr; }
+      .sp-benefits-list { grid-template-columns:repeat(3,minmax(0,1fr)); }
+      #movement .sp-benefits { grid-template-columns:1fr; gap:22px; padding:20px; }
+      #movement .sp-benefits-list { grid-template-columns:repeat(3,minmax(0,1fr)); padding:0; }
+      #movement .sp-benefit { grid-template-columns:1fr; gap:14px; min-height:100%; }
+      #movement .sp-benefit:nth-child(n) { margin-left:0; }
+      #movement .sp-benefit b { grid-row:auto; }
+      #movement .sp-benefits-quote { min-height:220px; }
       .sp-hero { min-height:auto; padding-top:44px; }
       .sp-quote { min-height:220px; }
+      .sp-brand-movement .sp-movement { grid-template-columns:1fr; grid-template-rows:auto; gap:18px; padding:24px; }
+      .sp-brand-movement .sp-quote { grid-column:auto; grid-row:auto; min-height:220px; }
+      .sp-brand-movement .sp-move-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+      .sp-brand-movement .sp-move-item:nth-child(n) { grid-column:auto; grid-row:auto; padding:22px; text-align:left; justify-content:flex-start; }
+      .sp-brand-movement .sp-move-item::after { display:none; }
+      #connect .sp-form-grid { grid-template-columns:1fr; }
+      #connect .history-head { min-height:auto; padding:30px; }
     }
     @media (max-width: 760px) {
       .sp-page { padding-top:82px; }
       .sp-wrap { width:min(100% - 28px, 1160px); }
       .sp-section { padding:64px 0; }
-      .sp-benefits, .sp-partners { grid-template-columns:1fr; }
+      .sp-benefits { grid-template-columns:1fr; }
+      .sp-benefits-list { grid-template-columns:1fr; }
+      #movement .sp-benefits { gap:16px; padding:12px; border-radius:22px; overflow:hidden; }
+      #movement .sp-benefits-list { grid-template-columns:1fr; gap:12px; width:100%; min-width:0; }
+      #movement .sp-benefits-quote { min-height:auto; padding:24px; border-radius:18px; }
+      #movement .sp-benefit { grid-template-columns:1fr; gap:12px; width:100%; min-width:0; padding:18px; min-height:auto; border-radius:18px; }
+      #movement .sp-benefit b { grid-row:auto; width:46px; height:46px; border-radius:15px; }
+      #movement .sp-benefit h3 { margin-top:0; }
+      #movement .sp-benefit p { overflow-wrap:anywhere; }
+      #movement .sp-benefits-quote h3 { max-width:100%; font-size:clamp(24px,8vw,28px); }
+      #movement .sp-benefits.sp-benefits-ready .sp-benefit { transform:translateY(18px); }
+      #movement .sp-benefits.sp-benefits-ready.is-visible .sp-benefit { transform:translateY(0); }
       .sp-move-list { grid-template-columns:1fr; }
       .sp-quote { min-height:auto; }
       .sp-panel, .sp-form-card, .sp-about-card, .sp-quote { padding:24px; border-radius:24px; }
       .sp-lead { font-size:16px; }
+      .sp-h2 { font-size:28px; }
+      .sp-stat strong { font-size:28px; }
+      .sp-quote p { font-size:28px; }
+      .sp-brand-movement { padding-block:64px; }
+      .sp-brand-movement .sp-movement { padding:18px; border-radius:24px; }
+      .sp-brand-movement .sp-quote { min-height:auto; padding:24px; border-radius:20px; }
+      .sp-brand-movement .sp-move-list { grid-template-columns:1fr; }
+      .sp-brand-movement .sp-move-item { min-height:auto; padding:18px; }
+      #connect .sp-form-grid { gap:16px; padding:14px; border-radius:24px; }
+      #connect .history-head { padding:24px; border-radius:22px; }
+      #connect .sp-form-card { padding:24px; border-radius:22px; }
+      #connect .sp-form { grid-template-columns:1fr; gap:15px; }
+      #connect .sp-submit { grid-column:auto; }
     }
   </style>
 </head>
@@ -179,7 +316,7 @@
         <li><a href="https://slanglish.cyberbuddhas.com/" target="_blank">Slanglish</a></li>
         <li><a href="resources.html">Library</a></li>
         <li class="nav-dropdown">
-          <a href="partner.html" class="nav-dropdown-link active">Corporates <span class="nav-dropdown-arrow" aria-hidden="true">&#9662;</span></a>
+          <a href="sponsor.html" class="nav-dropdown-link active">Collaborate With Us <span class="nav-dropdown-arrow" aria-hidden="true">&#9662;</span></a>
           <div class="nav-dropdown-menu" aria-label="Collaborate With Us options">
             <a href="sponsor.html">For Corporates</a>
             <a href="schools-registration.html">For Schools</a>
@@ -187,25 +324,20 @@
         </li>
       </ul>
       <div class="nav-right">
-        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
-          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
         <div class="nav-dropdown nav-signup-dropdown">
           <button type="button" class="nav-signup-btn">Sign Up <span class="nav-dropdown-arrow" aria-hidden="true">&#9662;</span></button>
           <div class="nav-dropdown-menu nav-signup-menu" aria-label="Sign Up options">
-            <a href="olympiad.html#register">Student Signup</a>
-            <a href="schools-registration.html">School Signup</a>
+            <a href="https://cask.ai.in/auth/signup" target="_blank">Student Signup</a>
+            <a href="https://cask.ai.in/auth/signup?as=staff" target="_blank">School Signup</a>
           </div>
         </div>
         <a href="surakshak.html" class="nav-cta">Join the Movement</a>
       </div>
       <div class="nav-right-mobile">
-        <button id="themeToggle1" class="themeToggle theme-toggle-btn" aria-label="Toggle theme">
-          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
-        <button class="hamburger" id="hamburger">&#9776;</button>
+        <button class="hamburger" id="hamburger" type="button" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobileMenu">
+            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+            <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
       </div>
     </div>
     <div class="mobile-menu" id="mobileMenu">
@@ -216,8 +348,11 @@
       <a href="resources.html">Library</a>
       <div class="mobile-nav-dropdown" data-mobile-dropdown>
         <div class="mobile-nav-dropdown-head">
-          <a href="partner.html">Corporates</a>
-          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Collaborate With Us options"><span aria-hidden="true">&#9662;</span></button>
+          <a href="sponsor.html">Collaborate With Us</a>
+          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Collaborate With Us options">
+            <svg class="mobile-arrow mobile-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="mobile-arrow mobile-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+          </button>
         </div>
         <div class="mobile-nav-dropdown-menu">
           <a href="sponsor.html">For Corporates</a>
@@ -227,11 +362,14 @@
       <div class="mobile-nav-dropdown mobile-signup-dropdown" data-mobile-dropdown>
         <div class="mobile-nav-dropdown-head">
           <a href="olympiad.html#register">Sign Up</a>
-          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Sign Up options"><span aria-hidden="true">&#9662;</span></button>
+          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Sign Up options">
+            <svg class="mobile-arrow mobile-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="mobile-arrow mobile-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+          </button>
         </div>
         <div class="mobile-nav-dropdown-menu">
-          <a href="olympiad.html#register">Student Signup</a>
-          <a href="schools-registration.html">School Signup</a>
+          <a href="https://cask.ai.in/auth/signup" target="_blank">Student Signup</a>
+          <a href="https://cask.ai.in/auth/signup?as=staff" target="_blank">School Signup</a>
         </div>
       </div>
       <a href="surakshak.html" class="mobile-cta">Join the Movement</a>
@@ -279,30 +417,35 @@
       <div class="sp-wrap">
         <div class="sp-sec-head">
           <span class="sp-ey">Government trust</span>
-          <h2 class="sp-h2">This is a national movement</h2>
+          <h2 class="sp-h2 sponsor-txt-center">This is your moment to go beyond sponsorship.</h2>
           <p>This is not just a campaign. It is a national movement powered by visionary leadership and government trust.</p>
         </div>
         <div class="sp-benefits">
-          <article class="sp-benefit">
-            <b>01</b>
-            <h3>Reach the right generation</h3>
-            <p>Direct access to 13-19 year olds, exactly where your Teen Accounts mission lies.</p>
-          </article>
-          <article class="sp-benefit">
-            <b>02</b>
-            <h3>Become a trusted partner</h3>
-            <p>A chance to be seen not just as an app, but as a trusted partner in India's digital safety journey.</p>
-          </article>
-          <article class="sp-benefit">
-            <b>03</b>
-            <h3>Amplify national impact</h3>
-            <p>Influence hearts and minds across 20,000 schools and 100 million netizens, amplifying your brand's impact far beyond digital ads.</p>
-          </article>
+          <div class="sp-quote sp-benefits-quote">
+            <h3>Your brand can become the hero of India's digital future.</h3>
+          </div>
+          <div class="sp-benefits-list">
+            <article class="sp-benefit">
+              <b>01</b>
+              <h3>Reach the right generation</h3>
+              <p>Direct access to 13-19 year olds, exactly where your Teen Accounts mission lies.</p>
+            </article>
+            <article class="sp-benefit">
+              <b>02</b>
+              <h3>Become a trusted partner</h3>
+              <p>A chance to be seen not just as an app, but as a trusted partner in India's digital safety journey.</p>
+            </article>
+            <article class="sp-benefit">
+              <b>03</b>
+              <h3>Amplify national impact</h3>
+              <p>Influence hearts and minds across 20,000 schools and 100 million netizens, amplifying your brand's impact far beyond digital ads.</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="sp-section alt">
+    <!-- <section class="sp-section alt sp-brand-movement">
       <div class="sp-wrap sp-movement">
         <div class="sp-quote">
           <p>Your brand can become the hero of India's digital future.</p>
@@ -314,11 +457,11 @@
           <div class="sp-move-item">This is your moment to go beyond sponsorship.</div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <section class="sp-section" id="connect">
       <div class="sp-wrap sp-form-grid">
-        <div class="sp-sec-head">
+        <div class="sp-sec-head history-head">
           <span class="sp-ey">Let us make history</span>
           <h2 class="sp-h2">Together.</h2>
           <p>We would love to connect.</p>
@@ -355,9 +498,8 @@
         </div>
         <div class="sp-about-grid">
           <article class="sp-about-card">
-            <div class="sp-logo-row">
-              <div class="sp-logo-chip"><img src="assets/cert-in-logo.png" alt="CERT-In" /></div>
-              <div class="sp-logo-chip"><img src="assets/meity.svg" alt="MeitY" /></div>
+            <div class="pc-header-band">
+              <img src="assets/logo-certin.png" alt="MeitY &amp; CERT-In" class="certin-header-img" />
             </div>
             <h3>About CERT-In</h3>
             <p>The Indian Computer Emergency Response Team (CERT-In) under the Ministry of Electronics and Information Technology, Government of India has been designated to serve as National agency for incident response under Section 70B of the Information Technology Act, 2000. CERT-In operates 24x7 incident response Help Desk for providing timely response to reported cyber security incidences. CERT-In provides Incident Prevention and Response services as well as Security Quality Management Services.</p>
@@ -365,8 +507,8 @@
             <p>We are pleased to announce the launch of #Suraksha, a national initiative by Indian Computer Emergency Response Team (CERT-In) in collaboration with the Cyber Buddha, aimed at enhancing cybersecurity talent and awareness among students.</p>
           </article>
           <article class="sp-about-card">
-            <div class="sp-logo-row">
-              <div class="sp-logo-chip"><img src="assets/logo-cyberbuddha.png" alt="Cyber Buddha" /></div>
+            <div class="pc-header-band">
+              <img src="assets/cyber buddha elongated logo.png" alt="Cyber Buddha" class="cyberbuddha-header-img" />
             </div>
             <h3>About Cyber Buddha</h3>
             <p>Cyber Buddha is a premier organisation at the intersection of Cyber Safety, Integrated Security and Data Privacy. Combining deep expertise in technology and law, Cyber Buddha designs and delivers impactful programmes that empower citizens, institutions and businesses to thrive securely in the digital age. Our work extends beyond consultancy into national-scale awareness campaigns, educational initiatives and public-private partnerships.</p>
@@ -383,13 +525,21 @@
           <span class="sp-ey">Our partners</span>
           <h2 class="sp-h2">A shared mission</h2>
         </div>
-        <div class="sp-partners">
-          <div class="sp-partner"><span>Platform Partner</span><div class="sp-partner-logo"><img src="assets/mygov.png" alt="MyGov Partner" /></div></div>
-          <div class="sp-partner"><span>Social Media Partner</span><div class="sp-partner-logo"><img src="assets/alo.png" alt="alo Partner" /></div></div>
-          <div class="sp-partner"><span>Event Management Partner</span><div class="sp-partner-logo"><img src="assets/ebm.png" alt="ebm Partner" /></div></div>
-          <div class="sp-partner"><span>CSR Partner</span><div class="sp-partner-logo"><img src="assets/csr.png" alt="CSR Partner" /></div></div>
-          <div class="sp-partner"><span>Knowledge Partner - Digital Assets</span><div class="sp-partner-logo"><img src="assets/zelar.png" alt="zelar Partner" /></div></div>
-          <div class="sp-partner"><span>Website Partner</span><div class="sp-partner-logo"><img src="assets/Imaginate-Logo.png" alt="Website Partner" /></div></div>
+        <div class="partner-logo-marquee-wrap">
+          <div class="partner-logo-marquee-track">
+            <div class="partner-logo-chip"><img src="assets/mygov.png" alt="MyGov" /></div>
+            <div class="partner-logo-chip"><img src="assets/alo.png" alt="Aló" /></div>
+            <div class="partner-logo-chip"><img src="assets/ebm.png" alt="EBM" /></div>
+            <div class="partner-logo-chip"><img src="assets/csr.png" alt="CSR" /></div>
+            <div class="partner-logo-chip"><img src="assets/Imaginate-Logo.png" alt="Imaginate Solutions" /></div>
+            <div class="partner-logo-chip"><img src="assets/zelar.png" alt="Zelar" /></div>
+            <div class="partner-logo-chip"><img src="assets/mygov.png" alt="MyGov" /></div>
+            <div class="partner-logo-chip"><img src="assets/alo.png" alt="Aló" /></div>
+            <div class="partner-logo-chip"><img src="assets/ebm.png" alt="EBM" /></div>
+            <div class="partner-logo-chip"><img src="assets/csr.png" alt="CSR" /></div>
+            <div class="partner-logo-chip"><img src="assets/Imaginate-Logo.png" alt="Imaginate Solutions" /></div>
+            <div class="partner-logo-chip"><img src="assets/zelar.png" alt="Zelar" /></div>
+          </div>
         </div>
       </div>
     </section>
@@ -433,14 +583,14 @@
             <h5>Organisation</h5>
             <a href="#about">About</a>
             <a href="resources.html">Library</a>
-            <a href="partner.html">Corporates</a>
+            <a href="sponsor.html">Collaborate With Us</a>
             <a href="https://hashtagsuraksha.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
             <a href="https://hashtagsuraksha.com/terms-of-use" target="_blank" rel="noopener">Terms of Use</a>
           </div>
           <div class="footer-col">
             <h5>Contact</h5>
             <a href="mailto:info@hashtagsuraksha.com">info@hashtagsuraksha.com</a>
-            <a href="partner.html" class="footer-cta-link">Become a Partner</a>
+            <!-- <a href="partner.html" class="footer-cta-link">Become a Partner</a> -->
             <!-- <a href="surakshak.html" class="footer-cta-link">Join Surakshak</a> -->
           </div>
         </div>
@@ -631,29 +781,85 @@
       var hamburger = document.getElementById('hamburger');
       var mobileMenu = document.getElementById('mobileMenu');
       var htmlEl = document.documentElement;
-      var toggles = document.querySelectorAll('#themeToggle, .themeToggle');
       var THEME_KEY = 'hs-theme';
-
-      function applyTheme(theme) {
-        htmlEl.setAttribute('data-theme', theme);
+      function applyTheme() {
+        htmlEl.setAttribute('data-theme', 'dark');
         try {
-          localStorage.setItem(THEME_KEY, theme);
+          localStorage.setItem(THEME_KEY, 'dark');
           localStorage.removeItem('suraksha-theme');
         } catch (e) {}
       }
-
-      try {
-        var saved = localStorage.getItem(THEME_KEY);
-        applyTheme(saved || 'dark');
-      } catch (e) {}
+      try { applyTheme(); } catch (e) {}
 
       if (nav) window.addEventListener('scroll', function () { nav.classList.toggle('scrolled', window.scrollY > 40); });
       if (hamburger && mobileMenu) hamburger.addEventListener('click', function () { mobileMenu.classList.toggle('open'); });
-      toggles.forEach(function (toggle) {
-        toggle.addEventListener('click', function () {
-          applyTheme(htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-        });
-      });
+
+      var statGrid = document.querySelector('.sp-stat-grid');
+      var statNumbers = statGrid ? statGrid.querySelectorAll('strong') : [];
+
+      function animateStatNumber(numberEl) {
+        var finalText = numberEl.textContent.trim();
+        var target = parseInt(finalText.replace(/[^\d]/g, ''), 10);
+        var suffix = finalText.replace(/[\d,\s]/g, '');
+        var formatter = new Intl.NumberFormat('en-IN');
+        var startTime = null;
+        var duration = 1500;
+
+        if (!target || numberEl.dataset.counted === 'true') return;
+        numberEl.dataset.counted = 'true';
+        numberEl.textContent = '0' + suffix;
+
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          var current = Math.round(target * eased);
+
+          numberEl.textContent = formatter.format(current) + suffix;
+
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            numberEl.textContent = finalText;
+          }
+        }
+
+        requestAnimationFrame(step);
+      }
+
+      if (statGrid && statNumbers.length) {
+        if ('IntersectionObserver' in window) {
+          var statObserver = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              statNumbers.forEach(animateStatNumber);
+              observer.disconnect();
+            });
+          }, { threshold: 0.35 });
+
+          statObserver.observe(statGrid);
+        } else {
+          statNumbers.forEach(animateStatNumber);
+        }
+      }
+
+      var movementBenefits = document.querySelector('#movement .sp-benefits');
+      if (movementBenefits) {
+        movementBenefits.classList.add('sp-benefits-ready');
+        if ('IntersectionObserver' in window) {
+          var movementObserver = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              movementBenefits.classList.add('is-visible');
+              observer.disconnect();
+            });
+          }, { threshold: 0.28 });
+
+          movementObserver.observe(movementBenefits);
+        } else {
+          movementBenefits.classList.add('is-visible');
+        }
+      }
     })();
   </script>
 </body>

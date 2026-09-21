@@ -1,9 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Corporates — Hashtag Suraksha</title>
+  <meta name="color-scheme" content="dark" />
+  <script>
+    document.documentElement.setAttribute('data-theme', 'dark');
+    try {
+      localStorage.setItem('hs-theme', 'dark');
+      localStorage.removeItem('suraksha-theme');
+    } catch (e) {}
+  </script>
+  <style id="darkThemePrepaint">
+    html { background: #101415; color-scheme: dark; }
+    body { background: #101415; color: #F8FAFC; }
+  </style>
+  <title>Collaborate With Us — Hashtag Suraksha</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/global.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
@@ -905,7 +917,7 @@
         <li><a href="https://slanglish.cyberbuddhas.com/" target="_blank">Slanglish</a></li>
         <li><a href="resources.html">Library</a></li>
         <li class="nav-dropdown">
-          <a href="partner.html" class="nav-dropdown-link active">Corporates <span class="nav-dropdown-arrow" aria-hidden="true">&#9662;</span></a>
+          <a href="sponsor.html" class="nav-dropdown-link active">Collaborate With Us <span class="nav-dropdown-arrow" aria-hidden="true">&#9662;</span></a>
           <div class="nav-dropdown-menu" aria-label="Collaborate With Us options">
             <a href="sponsor.html">For Corporates</a>
             <a href="schools-registration.html">For Schools</a>
@@ -913,25 +925,20 @@
         </li>
       </ul>
       <div class="nav-right">
-        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
-          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
         <div class="nav-dropdown nav-signup-dropdown">
           <button type="button" class="nav-signup-btn">Sign Up <span class="nav-dropdown-arrow" aria-hidden="true">&#9662;</span></button>
           <div class="nav-dropdown-menu nav-signup-menu" aria-label="Sign Up options">
-            <a href="olympiad.html#register">Student Signup</a>
-            <a href="schools-registration.html">School Signup</a>
+            <a href="https://cask.ai.in/auth/signup" target="_blank">Student Signup</a>
+            <a href="https://cask.ai.in/auth/signup?as=staff" target="_blank">School Signup</a>
           </div>
         </div>
         <a href="surakshak.html" class="nav-cta">Join the Movement</a>
       </div>
       <div class="nav-right-mobile">
-         <button id="themeToggle1" class="themeToggle theme-toggle-btn" aria-label="Toggle theme">
-            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <button class="hamburger" id="hamburger" type="button" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobileMenu">
+            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+            <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
           </button>
-          <button class="hamburger" id="hamburger">&#9776;</button>
       </div>
     </div>
     <div class="mobile-menu" id="mobileMenu">
@@ -944,8 +951,11 @@
       <a href="resources.html">Library</a>
       <div class="mobile-nav-dropdown" data-mobile-dropdown>
         <div class="mobile-nav-dropdown-head">
-          <a href="partner.html">Corporates</a>
-          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Collaborate With Us options"><span aria-hidden="true">&#9662;</span></button>
+          <a href="sponsor.html">Collaborate With Us</a>
+          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Collaborate With Us options">
+            <svg class="mobile-arrow mobile-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="mobile-arrow mobile-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+          </button>
         </div>
         <div class="mobile-nav-dropdown-menu">
           <a href="sponsor.html">For Corporates</a>
@@ -955,11 +965,14 @@
       <div class="mobile-nav-dropdown mobile-signup-dropdown" data-mobile-dropdown>
         <div class="mobile-nav-dropdown-head">
           <a href="olympiad.html#register">Sign Up</a>
-          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Sign Up options"><span aria-hidden="true">&#9662;</span></button>
+          <button type="button" class="mobile-nav-dropdown-toggle" data-mobile-dropdown-toggle aria-expanded="false" aria-label="Open Sign Up options">
+            <svg class="mobile-arrow mobile-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="mobile-arrow mobile-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+          </button>
         </div>
         <div class="mobile-nav-dropdown-menu">
-          <a href="olympiad.html#register">Student Signup</a>
-          <a href="schools-registration.html">School Signup</a>
+          <a href="https://cask.ai.in/auth/signup" target="_blank">Student Signup</a>
+          <a href="https://cask.ai.in/auth/signup?as=staff" target="_blank">School Signup</a>
         </div>
       </div>
       <a href="surakshak.html" class="mobile-cta">Join the Movement</a>
@@ -1260,14 +1273,14 @@
             <h5>Organisation</h5>
             <a href="#about">About</a>
             <a href="resources.html">Library</a>
-            <a href="partner.html">Corporates</a>
+            <a href="sponsor.html">Collaborate With Us</a>
             <a href="https://hashtagsuraksha.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
             <a href="https://hashtagsuraksha.com/terms-of-use" target="_blank" rel="noopener">Terms of Use</a>
           </div>
           <div class="footer-col">
             <h5>Contact</h5>
             <a href="mailto:info@hashtagsuraksha.com">info@hashtagsuraksha.com</a>
-            <a href="partner.html" class="footer-cta-link">Become a Partner</a>
+            <!-- <a href="partner.html" class="footer-cta-link">Become a Partner</a> -->
             <!-- <a href="surakshak.html" class="footer-cta-link">Join Surakshak</a> -->
           </div>
         </div>
@@ -1461,63 +1474,16 @@
     /* Reveal */
     var io=new IntersectionObserver(function(e){ e.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); }}); },{threshold:.08});
     document.querySelectorAll('.rev').forEach(function(el){ io.observe(el); });
-    /* Theme toggle */
-    
-    document.addEventListener('DOMContentLoaded', () => {
-
-      // ─── THEME SYSTEM ──────────────────────────────────────────────
-      const htmlEl       = document.documentElement;
-      const chooser      = document.getElementById('themeChooser');
-      const themeToggle  = document.getElementById('themeToggle');
-      const themeToggles = document.querySelectorAll('.themeToggle');
-      const THEME_KEY    = 'hs-theme';
-
-      function applyTheme(theme) {
-        htmlEl.setAttribute('data-theme', theme);
-        localStorage.setItem(THEME_KEY, theme);
-      }
-
-      function dismissChooser(theme) {
-        applyTheme(theme);
-        if (!chooser) return;
-        chooser.classList.add('fade-out');
-        setTimeout(() => chooser.classList.add('hidden'), 500);
-      }
-
-      // On load: check saved preference
-      const savedTheme = localStorage.getItem(THEME_KEY);
-      if (savedTheme) {
-        applyTheme(savedTheme);
-        if (chooser) chooser.classList.add('hidden');
-      } else {
-        // Show chooser — apply dark by default behind it
-        applyTheme('dark');
-        if (chooser) {
-          chooser.querySelectorAll('.theme-option').forEach(btn => {
-            btn.addEventListener('click', () => dismissChooser(btn.dataset.theme));
-          });
-        }
-      }
-
-      // Toggle button in nav
-      if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-          const current = htmlEl.getAttribute('data-theme');
-          applyTheme(current === 'dark' ? 'light' : 'dark');
-        });
-      }
-
-      if (themeToggle) {
-          themeToggles.forEach((themeToggle) => {
-              themeToggle.addEventListener('click', () => {
-                  const current = htmlEl.getAttribute('data-theme');
-                  applyTheme(current === 'dark' ? 'light' : 'dark');
-              });
-          });
-        }
-    });
-
-
+    /* Dark theme only */
+    (function () {
+      var htmlEl = document.documentElement;
+      var THEME_KEY = 'hs-theme';
+      htmlEl.setAttribute('data-theme', 'dark');
+      try {
+        localStorage.setItem(THEME_KEY, 'dark');
+        localStorage.removeItem('suraksha-theme');
+      } catch (e) {}
+    })();
     /* USI accordion */
     function toggleAcc(hd) {
       var item = hd.parentElement;
