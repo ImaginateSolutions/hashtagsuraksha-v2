@@ -186,7 +186,7 @@
 }
 
 .mobile-menu a:not(.mobile-cta) {
-  padding: 13px 0;
+  padding: 13px 0 13px 5px;
   line-height: 1.35;
   transition: color 0.2s, background 0.2s;
 }
@@ -1478,6 +1478,37 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   background: var(--bg-surface) !important;
 }
 
+#ecosystem {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: #000 !important;
+}
+
+[data-theme="light"] #ecosystem {
+  background: #000 !important;
+}
+
+#ecosystem > .container {
+  position: relative;
+  z-index: 1;
+}
+
+#ecosystem::before {
+  content: '';
+  position: absolute;
+  inset: -18%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 30%, rgba(0, 122, 255, 0.10) 0%, transparent 28%),
+    radial-gradient(circle at 78% 68%, rgba(251, 191, 36, 0.08) 0%, transparent 30%),
+    radial-gradient(circle at 48% 42%, rgba(255, 255, 255, 0.035) 0%, transparent 24%);
+  background-size: 120% 120%, 115% 115%, 100% 100%;
+  opacity: 0.72;
+  animation: ecosystemAmbientDrift 24s ease-in-out infinite alternate;
+}
+
 .verticals-grid {
   display: flex;
   flex-wrap: wrap;
@@ -1720,6 +1751,17 @@ gap: 0px !important;
   to { transform: rotate(360deg); }
 }
 
+@keyframes ecosystemAmbientDrift {
+  0% {
+    transform: translate3d(-1.5%, -1%, 0) scale(1);
+    background-position: 0% 40%, 100% 60%, 50% 50%;
+  }
+  100% {
+    transform: translate3d(1.5%, 1%, 0) scale(1.04);
+    background-position: 18% 48%, 82% 52%, 56% 46%;
+  }
+}
+
 [data-theme="light"] .ecosystem-cask-logo {
   filter: drop-shadow(0 10px 16px rgba(29, 78, 216, 0.12));
 }
@@ -1768,6 +1810,10 @@ gap: 0px !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  #ecosystem::before {
+    animation: none;
+  }
+
   #ecosystem .verticals-grid::before {
     animation: none;
   }
@@ -4320,6 +4366,28 @@ gap: 0px !important;
 @media (max-width: 900px) {
   .pb-layout { grid-template-columns: 1fr; }
   .pb-carnival { height: 320px; }
+}
+
+@media (min-width: 901px) and (max-width: 1100px) {
+  .pb-layout {
+    --pb-balanced-column-height: clamp(420px, 47vw, 510px);
+    align-items: stretch;
+  }
+
+  .pb-feature-col,
+  .pb-carnival {
+    height: var(--pb-balanced-column-height);
+  }
+
+  .pb-feat-card {
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  .pb-feat-thumb {
+    height: 100%;
+    padding-bottom: 0;
+  }
 }
 
 /* ══════════════════════════════════════════
