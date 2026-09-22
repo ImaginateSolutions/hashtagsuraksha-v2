@@ -209,10 +209,106 @@ img { max-width: 100%; }
   gap: 6px;
 }
 
+/* Shared Tabler arrow icons (mask so currentColor works) */
+.icon-arrow-down,
+.nav-dropdown-arrow,
+.faq-arrow {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  vertical-align: -0.2em;
+  font-size: 0;
+  line-height: 0;
+  color: inherit;
+  background-color: currentColor;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M6 9l6 6l6 -6'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M6 9l6 6l6 -6'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.icon-arrow-right,
+.card-link-arrow,
+.fyt-std-arrow,
+.fyt-uarrow,
+.transform-arrow {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  vertical-align: -0.25em;
+  font-size: 0;
+  line-height: 0;
+  color: inherit;
+  background-color: currentColor;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M5 12l14 0'/%3E%3Cpath d='M15 16l4 -4'/%3E%3Cpath d='M15 8l4 4'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M5 12l14 0'/%3E%3Cpath d='M15 16l4 -4'/%3E%3Cpath d='M15 8l4 4'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
 .nav-dropdown-arrow {
-  font-size: 10px;
-  line-height: 1;
+  width: 14px;
+  height: 14px;
+  margin-left: 0;
   transition: transform 0.2s ease;
+}
+
+.icon-arrow-down {
+  margin-left: 0.15em;
+}
+
+.icon-arrow-right {
+  margin-left: 0.2em;
+}
+
+/* Shared slider / carousel arrow icons */
+.slang-car-arrow svg,
+.bk-arrow svg,
+.pv-arrow svg,
+.slider-arrow svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.faq-arrow {
+  width: 18px;
+  height: 18px;
+  margin-left: 0;
+}
+
+.card-link-arrow {
+  width: 18px;
+  height: 18px;
+  margin-left: 0;
+  color: var(--primary);
+}
+
+.fyt-std-arrow {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-left: 0;
+}
+
+.fyt-uarrow {
+  width: 20px;
+  height: 20px;
+  margin-left: 0;
+}
+
+.transform-arrow {
+  margin-left: 0;
 }
 
 .nav-dropdown:hover .nav-dropdown-arrow,
@@ -821,7 +917,7 @@ body.mobile-menu-open {
 .btn-primary {
   display: inline-flex !important;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   background: var(--accent-saffron) !important;
   color: #fff !important;
   font-family: var(--font-ui) !important;
@@ -862,6 +958,7 @@ body.mobile-menu-open {
 .btn-outline {
   display: inline-flex !important;
   align-items: center;
+  gap: 8px;
   border: 1.5px solid var(--border) !important;
   color: var(--text-primary) !important;
   font-family: var(--font-ui) !important;
@@ -876,6 +973,30 @@ body.mobile-menu-open {
   border-color: var(--accent-saffron) !important;
   color: var(--accent-saffron) !important;
   transform: translateY(-2px) !important;
+}
+
+/* Icon sizing inside buttons that include SVG icons */
+.btn-primary svg,
+.btn-outline svg,
+.btn-ghost svg,
+.btn-saffron svg,
+.btn-dark svg,
+.btn-out svg,
+.btn-cask-primary svg,
+.olymp-cta svg,
+.nh-btn-ghost svg,
+.nh-btn-main svg,
+.bk-btn svg,
+.bk-mini svg,
+.bk-viewall svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.bk-mini svg {
+  width: 16px;
+  height: 16px;
 }
 
 /* ── SECTION UTILITIES ───────────────────────────────────────── */

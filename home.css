@@ -49,7 +49,9 @@
 
 /* ── BUTTONS ──────────────────────────────────────────────────── */
 .btn-primary {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   background: var(--primary) !important;
   color: #fff !important;
   padding: 14px 28px;
@@ -69,7 +71,9 @@
 }
 
 .btn-outline {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   background: transparent;
   color: var(--text-primary) !important;
   padding: 13px 28px;
@@ -88,7 +92,9 @@
 }
 
 .btn-ghost {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   color: var(--text-secondary) !important;
   font-family: var(--font-ui);
   font-size: 15px;
@@ -1516,7 +1522,6 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 }
 
 .card-link-arrow {
-  font-size: 16px;
   color: var(--primary);
   transition: transform 0.2s;
 }

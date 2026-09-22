@@ -2672,7 +2672,7 @@
       r.innerHTML = '<div class="lab-result-title">' + title + '</div>'
         + '<div class="lab-result-msg">You scored <strong>' + total + '/' + max + '</strong> (' + clueScore + '/' + c.clues.length + ' clues + verdict).<br/>' + c.verdict + '</div>'
         + '<div class="lab-result-actions">'
-        + (labCur < labCases.length - 1 ? '<button class="lab-next-btn" onclick="labNextCase()">Next Case →</button>' : '')
+        + (labCur < labCases.length - 1 ? '<button class="lab-next-btn" onclick="labNextCase()">Next Case <span class="icon-arrow-right" aria-hidden="true"></span></button>' : '')
         + '<button class="lab-reset-btn" onclick="labLoadCase(' + labCur + ')">🔄 Retry</button>'
         + '</div>';
       document.getElementById('labVerdict').style.display = 'none';

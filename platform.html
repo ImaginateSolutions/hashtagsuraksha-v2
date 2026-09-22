@@ -741,7 +741,9 @@
       text-decoration: none;
       font-family: 'Plus Jakarta Sans', sans-serif;
       transition: all 0.2s;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .btn-cask-primary:hover {
@@ -2155,7 +2157,10 @@
       cursor: pointer;
       text-decoration: none;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       transition: all 0.2s;
     }
 
@@ -6526,7 +6531,6 @@
 
     .fyt-std-arrow {
       color: var(--fyt-accent);
-      font-size: 1.2rem;
       line-height: 1;
       opacity: 0.7;
       position: relative;
@@ -7133,7 +7137,6 @@
 
     .fyt-uarrow {
       grid-area: arrow;
-      font-size: 20px;
       color: var(--fyt-accent);
       opacity: 0.65;
       flex-shrink: 0;
@@ -8620,7 +8623,7 @@
         <li><a href="resources.html">Library</a></li>
         <li class="nav-dropdown">
           <a href="sponsor.html" class="nav-dropdown-link">Collaborate With Us <span class="nav-dropdown-arrow"
-              aria-hidden="true">&#9662;</span></a>
+              aria-hidden="true"></span></a>
           <div class="nav-dropdown-menu" aria-label="Collaborate With Us options">
             <a href="sponsor.html">For Corporates</a>
             <a href="schools-registration.html">For Schools</a>
@@ -8630,7 +8633,7 @@
       <div class="nav-right">
         <div class="nav-dropdown nav-signup-dropdown">
           <button type="button" class="nav-signup-btn">Sign Up <span class="nav-dropdown-arrow"
-              aria-hidden="true">&#9662;</span></button>
+              aria-hidden="true"></span></button>
           <div class="nav-dropdown-menu nav-signup-menu" aria-label="Sign Up options">
             <a href="https://cask.ai.in/auth/signup" target="_blank">Student Signup</a>
             <a href="https://cask.ai.in/auth/signup?as=staff" target="_blank">School Signup</a>
@@ -8670,11 +8673,13 @@
             aria-label="Open Collaborate With Us options">
             <svg class="mobile-arrow mobile-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="m6 9 6 6 6-6" />
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M6 9l6 6l6 -6" />
             </svg>
             <svg class="mobile-arrow mobile-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="m18 15-6-6-6 6" />
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M6 15l6 -6l6 6" />
             </svg>
           </button>
         </div>
@@ -8690,11 +8695,13 @@
             aria-label="Open Sign Up options">
             <svg class="mobile-arrow mobile-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="m6 9 6 6 6-6" />
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M6 9l6 6l6 -6" />
             </svg>
             <svg class="mobile-arrow mobile-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="m18 15-6-6-6 6" />
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M6 15l6 -6l6 6" />
             </svg>
           </button>
         </div>
@@ -9181,7 +9188,7 @@
         </div>
       </div> -->
       <!-- <div class="cask-hero-ctas" style="justify-content:center">
-        <a href="schools.html" class="btn-cask-primary">Register Now →</a>
+        <a href="schools.html" class="btn-cask-primary">Register Now <span class="icon-arrow-right" aria-hidden="true"></span></a>
       </div> -->
     </div>
     <!-- Partner strip — outside hero-inner so it spans full hero width -->
@@ -9406,8 +9413,8 @@
         <!-- ═══ CS2 MOBILE SECTION START ═══ -->
         <div class="cs2-mobile-connector" aria-hidden="true"></div>
         <div class="cs2-mobile-picker" id="cs2MobilePicker">
-          <button type="button" class="cs2-mobile-bar" id="cs2MobileBar"
-            aria-label="Choose feature" aria-expanded="false" aria-controls="cs2MobileMenu">
+          <button type="button" class="cs2-mobile-bar" id="cs2MobileBar" aria-label="Choose feature"
+            aria-expanded="false" aria-controls="cs2MobileMenu">
             <div class="cs2-mobile-selected">
               <div class="cs2-mobile-selected-icon" id="cs2MobileIcon">🤖</div>
               <div class="cs2-mobile-selected-text">
@@ -9496,7 +9503,7 @@
           <li>Personalised learning</li>
           <li>Always available</li>
         </ul>
-        <!-- <button class="cs2-panel-cta">Learn More →</button> -->
+        <!-- <button class="cs2-panel-cta">Learn More <span class="icon-arrow-right" aria-hidden="true"></span></button> -->
       </div>
     </div>
   </section>
@@ -9535,30 +9542,30 @@
             <button class="fyt-standard-btn fyt-standard-active" type="button" role="tab" aria-selected="true"
               aria-controls="fytP0" data-panel="fytP0" style="--fyt-accent:#5EEAD4;--fyt-rgb:94, 234, 212;"><span
                 class="fyt-std-roman">VII</span><span class="fyt-std-copy"><strong>Standard VII</strong><small>Safety
-                  &amp; Kindness</small></span><span class="fyt-std-arrow">→</span></button>
+                  &amp; Kindness</small></span><span class="fyt-std-arrow"></span></button>
             <button class="fyt-standard-btn" type="button" role="tab" aria-selected="false" aria-controls="fytP1"
               data-panel="fytP1" style="--fyt-accent:#2DD4BF;--fyt-rgb:45, 212, 191;"><span
                 class="fyt-std-roman">VIII</span><span class="fyt-std-copy"><strong>Standard
                   VIII</strong><small>Awareness
-                  &amp; Defence</small></span><span class="fyt-std-arrow">→</span></button>
+                  &amp; Defence</small></span><span class="fyt-std-arrow"></span></button>
             <button class="fyt-standard-btn" type="button" role="tab" aria-selected="false" aria-controls="fytP2"
               data-panel="fytP2" style="--fyt-accent:#8B5CF6;--fyt-rgb:139, 92, 246;"><span
                 class="fyt-std-roman">IX</span><span class="fyt-std-copy"><strong>Standard
                   IX</strong><small>Understanding
-                  &amp; Ethics</small></span><span class="fyt-std-arrow">→</span></button>
+                  &amp; Ethics</small></span><span class="fyt-std-arrow"></span></button>
             <button class="fyt-standard-btn" type="button" role="tab" aria-selected="false" aria-controls="fytP3"
               data-panel="fytP3" style="--fyt-accent:#C084FC;--fyt-rgb:192, 132, 252;"><span
                 class="fyt-std-roman">X</span><span class="fyt-std-copy"><strong>Standard X</strong><small>Leadership
-                  &amp; Future</small></span><span class="fyt-std-arrow">→</span></button>
+                  &amp; Future</small></span><span class="fyt-std-arrow"></span></button>
             <button class="fyt-standard-btn" type="button" role="tab" aria-selected="false" aria-controls="fytP4"
               data-panel="fytP4" style="--fyt-accent:#F59E0B;--fyt-rgb:245, 158, 11;"><span
                 class="fyt-std-roman">XI</span><span class="fyt-std-copy"><strong>Standard
                   XI</strong><small>Specialisation
-                  &amp; Systems</small></span><span class="fyt-std-arrow">→</span></button>
+                  &amp; Systems</small></span><span class="fyt-std-arrow"></span></button>
             <button class="fyt-standard-btn" type="button" role="tab" aria-selected="false" aria-controls="fytP5"
               data-panel="fytP5" style="--fyt-accent:#60A5FA;--fyt-rgb:96, 165, 250;"><span
                 class="fyt-std-roman">XII</span><span class="fyt-std-copy"><strong>Standard XII</strong><small>Readiness
-                  &amp; Careers</small></span><span class="fyt-std-arrow">→</span></button>
+                  &amp; Careers</small></span><span class="fyt-std-arrow"></span></button>
           </div>
 
           <div class="fyt-standard-detail">
@@ -9602,20 +9609,20 @@
                     <div class="fyt-units-wrapper">
                       <div class="fyt-unit-list">
                         <div class="fyt-unit-row fyt-ur-active" data-unit="0"><span class="fyt-unum">01</span><span
-                            class="fyt-uname">The Digital World You Live In</span><span class="fyt-uarrow">→</span>
+                            class="fyt-uname">The Digital World You Live In</span><span class="fyt-uarrow"></span>
                         </div>
                         <div class="fyt-unit-row" data-unit="1"><span class="fyt-unum">02</span><span
                             class="fyt-uname">Being Safe — How to Protect Yourself</span><span
-                            class="fyt-uarrow">→</span>
+                            class="fyt-uarrow"></span>
                         </div>
                         <div class="fyt-unit-row" data-unit="2"><span class="fyt-unum">03</span><span
                             class="fyt-uname">Your
-                            Responsibility — Not Being the Problem</span><span class="fyt-uarrow">→</span></div>
+                            Responsibility — Not Being the Problem</span><span class="fyt-uarrow"></span></div>
                         <div class="fyt-unit-row" data-unit="3"><span class="fyt-unum">04</span><span
                             class="fyt-uname">Your
-                            Privacy and Your Identity</span><span class="fyt-uarrow">→</span></div>
+                            Privacy and Your Identity</span><span class="fyt-uarrow"></span></div>
                         <div class="fyt-unit-row" data-unit="4"><span class="fyt-unum">05</span><span
-                            class="fyt-uname">Being Well and Being Kind</span><span class="fyt-uarrow">→</span></div>
+                            class="fyt-uname">Being Well and Being Kind</span><span class="fyt-uarrow"></span></div>
                       </div>
                       <div class="fyt-detail-panel">
                         <div class="fyt-detail-item fyt-di-active" data-unit="0">
@@ -9747,18 +9754,18 @@
                     <div class="fyt-units-wrapper">
                       <div class="fyt-unit-list">
                         <div class="fyt-unit-row fyt-ur-active" data-unit="0"><span class="fyt-unum">01</span><span
-                            class="fyt-uname">How Threats Reach You</span><span class="fyt-uarrow">→</span></div>
+                            class="fyt-uname">How Threats Reach You</span><span class="fyt-uarrow"></span></div>
                         <div class="fyt-unit-row" data-unit="1"><span class="fyt-unum">02</span><span
                             class="fyt-uname">Your
-                            Digital Defences — Practical Tools</span><span class="fyt-uarrow">→</span></div>
+                            Digital Defences — Practical Tools</span><span class="fyt-uarrow"></span></div>
                         <div class="fyt-unit-row" data-unit="2"><span class="fyt-unum">03</span><span
                             class="fyt-uname">Social Media, Gaming &amp; Relationships</span><span
-                            class="fyt-uarrow">→</span></div>
+                            class="fyt-uarrow"></span></div>
                         <div class="fyt-unit-row" data-unit="3"><span class="fyt-unum">04</span><span
                             class="fyt-uname">Your
-                            Rights — Privacy &amp; Cyber-Law</span><span class="fyt-uarrow">→</span></div>
+                            Rights — Privacy &amp; Cyber-Law</span><span class="fyt-uarrow"></span></div>
                         <div class="fyt-unit-row" data-unit="4"><span class="fyt-unum">05</span><span
-                            class="fyt-uname">Digital Evidence</span><span class="fyt-uarrow">→</span></div>
+                            class="fyt-uname">Digital Evidence</span><span class="fyt-uarrow"></span></div>
                       </div>
                       <div class="fyt-detail-panel">
                         <div class="fyt-detail-item fyt-di-active" data-unit="0">
@@ -9895,17 +9902,17 @@
                     <div class="fyt-units-wrapper">
                       <div class="fyt-unit-list">
                         <div class="fyt-unit-row fyt-ur-active" data-unit="0"><span class="fyt-unum">01</span><span
-                            class="fyt-uname">Networks &amp; Systems</span><span class="fyt-uarrow">→</span></div>
+                            class="fyt-uname">Networks &amp; Systems</span><span class="fyt-uarrow"></span></div>
                         <div class="fyt-unit-row" data-unit="1"><span class="fyt-unum">02</span><span
                             class="fyt-uname">AI,
-                            Deepfakes &amp; the Dark Web</span><span class="fyt-uarrow">→</span></div>
+                            Deepfakes &amp; the Dark Web</span><span class="fyt-uarrow"></span></div>
                         <div class="fyt-unit-row" data-unit="2"><span class="fyt-unum">03</span><span
                             class="fyt-uname">Data
-                            Privacy — Advanced</span><span class="fyt-uarrow">→</span></div>
+                            Privacy — Advanced</span><span class="fyt-uarrow"></span></div>
                         <div class="fyt-unit-row" data-unit="3"><span class="fyt-unum">04</span><span
-                            class="fyt-uname">Digital Forensics</span><span class="fyt-uarrow">→</span></div>
+                            class="fyt-uname">Digital Forensics</span><span class="fyt-uarrow"></span></div>
                         <div class="fyt-unit-row" data-unit="4"><span class="fyt-unum">05</span><span
-                            class="fyt-uname">Complex Safety Topics</span><span class="fyt-uarrow">→</span></div>
+                            class="fyt-uname">Complex Safety Topics</span><span class="fyt-uarrow"></span></div>
                       </div>
                       <div class="fyt-detail-panel">
                         <div class="fyt-detail-item fyt-di-active" data-unit="0">
@@ -10038,18 +10045,18 @@
                     <div class="fyt-units-wrapper">
                       <div class="fyt-unit-list">
                         <div class="fyt-unit-row fyt-ur-active" data-unit="0"><span class="fyt-unum">01</span><span
-                            class="fyt-uname">How Security Works</span><span class="fyt-uarrow">→</span></div>
+                            class="fyt-uname">How Security Works</span><span class="fyt-uarrow"></span></div>
                         <div class="fyt-unit-row" data-unit="1"><span class="fyt-unum">02</span><span
-                            class="fyt-uname">Incident Response</span><span class="fyt-uarrow">→</span></div>
+                            class="fyt-uname">Incident Response</span><span class="fyt-uarrow"></span></div>
                         <div class="fyt-unit-row" data-unit="2"><span class="fyt-unum">03</span><span
-                            class="fyt-uname">Forensics &amp; Law Enforcement</span><span class="fyt-uarrow">→</span>
+                            class="fyt-uname">Forensics &amp; Law Enforcement</span><span class="fyt-uarrow"></span>
                         </div>
                         <div class="fyt-unit-row" data-unit="3"><span class="fyt-unum">04</span><span
-                            class="fyt-uname">Emerging Technology</span><span class="fyt-uarrow">→</span></div>
+                            class="fyt-uname">Emerging Technology</span><span class="fyt-uarrow"></span></div>
                         <div class="fyt-unit-row" data-unit="4"><span class="fyt-unum">05</span><span
-                            class="fyt-uname">Digital Leadership</span><span class="fyt-uarrow">→</span></div>
+                            class="fyt-uname">Digital Leadership</span><span class="fyt-uarrow"></span></div>
                         <div class="fyt-unit-row" data-unit="5"><span class="fyt-unum">06</span><span
-                            class="fyt-uname">Career Pathways &amp; Capstone</span><span class="fyt-uarrow">→</span>
+                            class="fyt-uname">Career Pathways &amp; Capstone</span><span class="fyt-uarrow"></span>
                         </div>
                       </div>
                       <div class="fyt-detail-panel">
@@ -10188,17 +10195,16 @@
                     <div class="fyt-units-wrapper">
                       <div class="fyt-unit-list">
                         <div class="fyt-unit-row fyt-ur-active" data-unit="0"><span class="fyt-unum">01</span><span
-                            class="fyt-uname">Security Architecture</span><span class="fyt-uarrow">→</span></div>
+                            class="fyt-uname">Security Architecture</span><span class="fyt-uarrow"></span></div>
                         <div class="fyt-unit-row" data-unit="1"><span class="fyt-unum">02</span><span
-                            class="fyt-uname">Identity, Access &amp; Trust</span><span class="fyt-uarrow">→</span></div>
+                            class="fyt-uname">Identity, Access &amp; Trust</span><span class="fyt-uarrow"></span></div>
                         <div class="fyt-unit-row" data-unit="2"><span class="fyt-unum">03</span><span
-                            class="fyt-uname">Cloud, Mobile &amp; Endpoint Safety</span><span
-                            class="fyt-uarrow">→</span>
+                            class="fyt-uname">Cloud, Mobile &amp; Endpoint Safety</span><span class="fyt-uarrow"></span>
                         </div>
                         <div class="fyt-unit-row" data-unit="3"><span class="fyt-unum">04</span><span
-                            class="fyt-uname">Secure Coding Concepts</span><span class="fyt-uarrow">→</span></div>
+                            class="fyt-uname">Secure Coding Concepts</span><span class="fyt-uarrow"></span></div>
                         <div class="fyt-unit-row" data-unit="4"><span class="fyt-unum">05</span><span
-                            class="fyt-uname">Governance, Risk &amp; Compliance</span><span class="fyt-uarrow">→</span>
+                            class="fyt-uname">Governance, Risk &amp; Compliance</span><span class="fyt-uarrow"></span>
                         </div>
                       </div>
                       <div class="fyt-detail-panel">
@@ -10323,18 +10329,18 @@
                     <div class="fyt-units-wrapper">
                       <div class="fyt-unit-list">
                         <div class="fyt-unit-row fyt-ur-active" data-unit="0"><span class="fyt-unum">01</span><span
-                            class="fyt-uname">Cyber Careers &amp; Pathways</span><span class="fyt-uarrow">→</span></div>
+                            class="fyt-uname">Cyber Careers &amp; Pathways</span><span class="fyt-uarrow"></span></div>
                         <div class="fyt-unit-row" data-unit="1"><span class="fyt-unum">02</span><span
                             class="fyt-uname">Responsible Research &amp; Disclosure</span><span
-                            class="fyt-uarrow">→</span>
+                            class="fyt-uarrow"></span>
                         </div>
                         <div class="fyt-unit-row" data-unit="2"><span class="fyt-unum">03</span><span
-                            class="fyt-uname">Digital Investigation Project</span><span class="fyt-uarrow">→</span>
+                            class="fyt-uname">Digital Investigation Project</span><span class="fyt-uarrow"></span>
                         </div>
                         <div class="fyt-unit-row" data-unit="3"><span class="fyt-unum">04</span><span
-                            class="fyt-uname">Cyber Policy &amp; Society</span><span class="fyt-uarrow">→</span></div>
+                            class="fyt-uname">Cyber Policy &amp; Society</span><span class="fyt-uarrow"></span></div>
                         <div class="fyt-unit-row" data-unit="4"><span class="fyt-unum">05</span><span
-                            class="fyt-uname">Capstone Portfolio</span><span class="fyt-uarrow">→</span></div>
+                            class="fyt-uname">Capstone Portfolio</span><span class="fyt-uarrow"></span></div>
                       </div>
                       <div class="fyt-detail-panel">
                         <div class="fyt-detail-item fyt-di-active" data-unit="0">
@@ -12427,7 +12433,8 @@
     <div class="cask-cta-inner">
       <h2>Begin your<br />Cyber journey</h2>
       <p>Sign your child up and let’s get them on their way to becoming the next Cybernaut!</p>
-      <a href="https://cask.ai.in/" target="_blank" class="btn-cta-white">Explore CASK now →</a>
+      <a href="https://cask.ai.in/" target="_blank" class="btn-cta-white">Explore CASK now <span
+          class="icon-arrow-right" aria-hidden="true"></span></a>
     </div>
   </section>
 
