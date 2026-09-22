@@ -16,6 +16,7 @@
     body { background: #101415; color: #F8FAFC; }
   </style>
   <title>Books — #Suraksha Cyber Library</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon-placeholder.svg" />
   <meta name="description" content="A premium digital cyber library from Hashtag Suraksha — handpicked books and NEP-aligned curriculum textbooks for Classes 7–12." />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/global.css" />
@@ -230,6 +231,11 @@
       .bk-card-cover { grid-area:cover; } .bk-card-info { grid-area:info; } .bk-card-actions { grid-area:actions; margin-top:6px; }
       .bk-trust-grid { grid-template-columns:1fr; }
       .bk-arrow.prev { left:-2px; } .bk-arrow.next { right:-2px; }
+    }
+    @media (max-width:425px){
+      #textbooks .bk-card-actions { flex-direction:column; align-items:stretch; gap:8px; width:100%; }
+      #textbooks .bk-mini { min-height:42px; justify-content:center; padding:9px 12px; font-size:12px; text-align:center; width:100%; }
+      #textbooks .bk-mini-icon { width:100%; height:42px; padding:0; }
     }
     @media (prefers-reduced-motion: reduce){ .bk-item.is-active .bk-cover{ animation:none; } .rev2{ opacity:1; transform:none; } }
 
