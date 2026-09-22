@@ -32,6 +32,7 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/global.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="./platform.css" />
   <script src="./assets/js/nav-dropdown.js" defer></script>
   <style>
     *,
@@ -409,6 +410,8 @@
       outline-offset: 6px;
     }
 
+
+
     @media (prefers-reduced-motion: reduce) {
 
       .cask-logo-container,
@@ -487,7 +490,7 @@
     .cask-hero {
       position: relative;
       background: #ffffff !important;
-      padding: 56px var(--platform-section-gutter) 100px;
+      padding: 56px var(--platform-section-gutter) 150px;
       overflow: hidden;
       text-align: center;
       min-height: auto;
@@ -613,15 +616,15 @@
       }
 
       .cask-logo-initial {
-        width: clamp(44px, 13vw, 56px);
-        height: 76px;
-        flex-basis: clamp(44px, 13vw, 56px);
+        width: clamp(36px, 10vw, 56px);
+        height: 54px;
+        flex-basis: clamp(36px, 10vw, 56px);
         font-size: clamp(31px, 9vw, 39px);
       }
 
       .cask-logo-rest {
-        font-size: clamp(12px, 3.3vw, 15px);
-        font-weight: 420;
+        font-size: clamp(10px, 2.3vw, 15px);
+        font-weight: 400;
       }
 
       .cask-logo-container:hover .cask-logo-tile,
@@ -856,12 +859,13 @@
     }
 
     .cask-logo-strip-lbl {
-      font-size: 10px;
+      font-size: 18px;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: #1a1a1b;
       flex-shrink: 0;
+      width: 100%;
     }
 
     .cask-logo-item {
@@ -8582,6 +8586,18 @@
         max-width: none;
       }
     }
+
+    @media (max-width:767px) {
+
+      .cs2-section,
+      .cask-video-section,
+      .safety-design-section,
+      .fyt-section,
+      .fyt-overlay,
+      .cask-section {
+        padding: 32px var(--platform-section-gutter);
+      }
+    }
   </style>
 </head>
 
@@ -9084,6 +9100,7 @@
       }
     }
 
+
     @media (max-width: 480px) {
       .cask-logo-container {
         margin-top: 0 !important;
@@ -9171,7 +9188,7 @@
     <div class="cask-logo-strip cask-logo-strip-hero"
       style="position:absolute;bottom:0;left:0;right:0;width:100%;margin:0;z-index:5;border-radius:0;">
       <span class="cask-logo-strip-lbl">Built with</span>
-      <div class="cask-logo-divider"></div>
+      <!-- <div class="cask-logo-divider"></div> -->
       <div class="cask-logo-item"><img src="assets/logo-certin.png" alt="CERT-In" class="cask-logo-img" /></div>
       <div class="cask-logo-divider"></div>
       <div class="cask-logo-item"><img src="assets/cyber buddha elongated logo.png" alt="Cyber Buddha"
@@ -9386,6 +9403,43 @@
 
           </div>
         </div>
+        <!-- ═══ CS2 MOBILE SECTION START ═══ -->
+        <div class="cs2-mobile-connector" aria-hidden="true"></div>
+        <div class="cs2-mobile-picker" id="cs2MobilePicker">
+          <button type="button" class="cs2-mobile-bar" id="cs2MobileBar"
+            aria-label="Choose feature" aria-expanded="false" aria-controls="cs2MobileMenu">
+            <div class="cs2-mobile-selected">
+              <div class="cs2-mobile-selected-icon" id="cs2MobileIcon">🤖</div>
+              <div class="cs2-mobile-selected-text">
+                <span class="cs2-mobile-selected-tag" id="cs2MobileTag">AI Tutor</span>
+                <span class="cs2-mobile-selected-title" id="cs2MobileTitle">AI Super Tutor</span>
+              </div>
+            </div>
+            <span class="cs2-mobile-burger" id="cs2MobileBurger" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="cs2-mobile-burger-svg cs2-mobile-burger-menu">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M4 8l16 0" />
+                <path d="M4 16l16 0" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="cs2-mobile-burger-svg cs2-mobile-burger-close">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M18 6l-12 12" />
+                <path d="M6 6l12 12" />
+              </svg>
+            </span>
+          </button>
+          <div class="cs2-mobile-menu" id="cs2MobileMenu" role="listbox" aria-label="CASK features"></div>
+          <div class="cs2-mobile-content" id="cs2MobileContent">
+            <span class="cs2-mobile-content-tag" id="cs2MobileContentTag">AI Tutor</span>
+            <h3 class="cs2-mobile-content-title" id="cs2MobileContentTitle">AI Super Tutor</h3>
+            <ul class="cs2-mobile-content-list" id="cs2MobileContentList"></ul>
+          </div>
+        </div>
+        <!-- ═══ CS2 MOBILE SECTION END ═══ -->
         <!-- 11 nodes -->
         <div class="cs2-node" data-idx="0" data-icon="🤖" data-label="AI Super Tutor" data-tag="AI Tutor"
           data-desc="For the first time, your child gets a teacher that learns how they learn and makes the learning experience truly their own.">
@@ -13877,38 +13931,149 @@
       // Nodes and their cached positions for canvas drawing
       const nodes = Array.from(centerTop.querySelectorAll('.cs2-node'));
       const nodePositions = [];
+      const cs2MobileMq = window.matchMedia('(max-width: 767px)');
+      function isCs2Mobile() { return cs2MobileMq.matches; }
+
+      const mobileIcon = document.getElementById('cs2MobileIcon');
+      const mobileTag = document.getElementById('cs2MobileTag');
+      const mobileTitle = document.getElementById('cs2MobileTitle');
+      const mobileBar = document.getElementById('cs2MobileBar');
+      const mobileBurger = document.getElementById('cs2MobileBurger');
+      const mobileMenu = document.getElementById('cs2MobileMenu');
+      const mobileContentTag = document.getElementById('cs2MobileContentTag');
+      const mobileContentTitle = document.getElementById('cs2MobileContentTitle');
+      const mobileContentList = document.getElementById('cs2MobileContentList');
+      let mobileActiveIdx = 0;
+
+      function ensureNodeChrome(n) {
+        // Build inner circle + label if not already present
+        if (!n.querySelector('.cs2-node-circle')) {
+          const ic = document.createElement('div');
+          ic.className = 'cs2-node-circle';
+          ic.textContent = n.dataset.icon || '✦';
+          const lb = document.createElement('div');
+          lb.className = 'cs2-node-lbl';
+          lb.textContent = n.dataset.label || '';
+          n.appendChild(ic);
+          n.appendChild(lb);
+        }
+      }
+
+      function descToListHtml(desc) {
+        return (desc || '').split('.').filter(function (s) { return s.trim(); }).slice(0, 5)
+          .map(function (s) { return '<li>' + s.trim() + '.</li>'; }).join('');
+      }
+
+      function closeMobileMenu() {
+        if (!mobileBar || !mobileMenu) return;
+        mobileBar.classList.remove('is-open');
+        mobileBar.setAttribute('aria-expanded', 'false');
+        mobileMenu.classList.remove('is-open');
+      }
+
+      function toggleMobileMenu() {
+        if (!mobileBar || !mobileMenu) return;
+        const open = !mobileMenu.classList.contains('is-open');
+        mobileBar.classList.toggle('is-open', open);
+        mobileBar.setAttribute('aria-expanded', open ? 'true' : 'false');
+        mobileMenu.classList.toggle('is-open', open);
+      }
+
+      function syncMobilePicker(node, idx) {
+        if (!node || !mobileIcon) return;
+        mobileActiveIdx = typeof idx === 'number' ? idx : nodes.indexOf(node);
+        const icon = node.dataset.icon || '✦';
+        const tag = node.dataset.tag || '';
+        const label = node.dataset.label || '';
+        const desc = node.dataset.desc || '';
+        mobileIcon.textContent = icon;
+        mobileTag.textContent = tag;
+        mobileTitle.textContent = label;
+        mobileContentTag.textContent = tag;
+        mobileContentTitle.textContent = label;
+        mobileContentList.innerHTML = descToListHtml(desc);
+        if (mobileMenu) {
+          Array.from(mobileMenu.querySelectorAll('.cs2-mobile-menu-item')).forEach(function (btn, i) {
+            btn.classList.toggle('is-active', i === mobileActiveIdx);
+          });
+        }
+      }
+
+      function buildMobileMenu() {
+        if (!mobileMenu) return;
+        mobileMenu.innerHTML = '';
+        nodes.forEach(function (n, i) {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'cs2-mobile-menu-item' + (i === mobileActiveIdx ? ' is-active' : '');
+          btn.setAttribute('role', 'option');
+          btn.innerHTML =
+            '<span class="cs2-mobile-menu-ico">' + (n.dataset.icon || '✦') + '</span>' +
+            '<span class="cs2-mobile-menu-lbl">' + (n.dataset.label || '') + '</span>';
+          btn.addEventListener('click', function () {
+            nodes.forEach(function (x) { x.classList.remove('cs2-active', 'cs2-node-hover'); });
+            n.classList.add('cs2-active');
+            openPanel(n);
+            syncMobilePicker(n, i);
+            closeMobileMenu();
+          });
+          mobileMenu.appendChild(btn);
+        });
+      }
+
+      if (mobileBar && mobileMenu) {
+        mobileBar.addEventListener('click', function (e) {
+          e.stopPropagation();
+          toggleMobileMenu();
+        });
+        document.addEventListener('click', function (e) {
+          if (!isCs2Mobile()) return;
+          const picker = document.getElementById('cs2MobilePicker');
+          if (picker && !picker.contains(e.target)) closeMobileMenu();
+        });
+      }
 
       function positionNodes() {
+        nodePositions.length = 0;
+
+        // Mobile: hide orbit layout — picker UI handles selection
+        if (isCs2Mobile()) {
+          nodes.forEach(function (n) {
+            n.style.left = '';
+            n.style.top = '';
+            ensureNodeChrome(n);
+          });
+          return;
+        }
+
         const W = centerTop.offsetWidth, H = centerTop.offsetHeight;
         const CX = W / 2, CY = H / 2;
         const R = Math.min(W, H) * 0.38;
-        nodePositions.length = 0;
         nodes.forEach((n, i) => {
           const angle = (i / nodes.length) * Math.PI * 2 - Math.PI / 2;
           const x = CX + R * Math.cos(angle), y = CY + R * Math.sin(angle);
           n.style.left = x + 'px'; n.style.top = y + 'px';
           nodePositions.push({ x, y });
-
-          // Build inner circle + label if not already present
-          if (!n.querySelector('.cs2-node-circle')) {
-            const ic = document.createElement('div');
-            ic.className = 'cs2-node-circle';
-            ic.textContent = n.dataset.icon || '✦';
-            const lb = document.createElement('div');
-            lb.className = 'cs2-node-lbl';
-            lb.textContent = n.dataset.label || '';
-            n.appendChild(ic);
-            n.appendChild(lb);
-          }
+          ensureNodeChrome(n);
         });
       }
       positionNodes();
+      buildMobileMenu();
 
       window.addEventListener('resize', () => { resize(); positionNodes(); });
+      if (cs2MobileMq.addEventListener) {
+        cs2MobileMq.addEventListener('change', function () { resize(); positionNodes(); closeMobileMenu(); });
+      } else if (cs2MobileMq.addListener) {
+        cs2MobileMq.addListener(function () { resize(); positionNodes(); closeMobileMenu(); });
+      }
 
       // Draw spoke connections + ambient particles each frame
       function drawConstellation() {
         ctx.clearRect(0, 0, canvasTop.width, canvasTop.height);
+        if (isCs2Mobile()) {
+          requestAnimationFrame(drawConstellation);
+          return;
+        }
         const W = canvasTop.width, H = canvasTop.height;
         const CX = W / 2, CY = H / 2;
 
@@ -13957,23 +14122,33 @@
         panelIcon.textContent = icon;
         panelTag.textContent = tag;
         panelTitle.textContent = label;
-        panelList.innerHTML = desc.split('.').filter(s => s.trim()).slice(0, 5).map(s => `<li>${s.trim()}.</li>`).join('');
+        panelList.innerHTML = descToListHtml(desc);
         panelTop.classList.add('cs2-panel-open');
         centerTop.classList.add('cs2-has-panel');
+        syncMobilePicker(node);
       }
       // AI Tutor (first node) is the default active entry point into the ecosystem.
       var defaultNode = nodes[0];
       function activateDefault() {
+        // On mobile, keep the user's hamburger selection instead of resetting
+        if (isCs2Mobile() && nodes[mobileActiveIdx]) {
+          nodes.forEach(function (n) { n.classList.remove('cs2-active', 'cs2-node-hover'); });
+          nodes[mobileActiveIdx].classList.add('cs2-active');
+          openPanel(nodes[mobileActiveIdx]);
+          return;
+        }
         nodes.forEach(function (n) { n.classList.remove('cs2-active', 'cs2-node-hover'); });
         if (defaultNode) { defaultNode.classList.add('cs2-active'); openPanel(defaultNode); }
       }
       nodes.forEach(n => {
         n.addEventListener('mouseenter', () => {
+          if (isCs2Mobile()) return;
           nodes.forEach(function (x) { x.classList.remove('cs2-active', 'cs2-node-hover'); });
           n.classList.add('cs2-active', 'cs2-node-hover');
           openPanel(n);
         });
         n.addEventListener('mouseleave', () => {
+          if (isCs2Mobile()) return;
           n.classList.remove('cs2-node-hover');
           activateDefault();          // fall back to AI Tutor as the resting state
         });

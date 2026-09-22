@@ -751,7 +751,8 @@
     @media(max-width:640px){ .pod-medal{font-size:32px} .pod-prize{font-size:19px} .pod-it{font-size:10px} .pod-card{padding:14px 8px} .pod{gap:8px} }
 
     /* ══════════════ PREPARE — HOVER BEFORE/AFTER ══════════════ */
-    .ba { position:relative; max-width:880px; margin:34px auto 0; height:380px; border-radius:24px; overflow:hidden; border:1px solid var(--bdr); box-shadow:0 26px 64px rgba(0,0,0,.2); cursor:ew-resize; }
+    .ba { position:relative; max-width:880px; margin:34px auto 0; height:380px; border-radius:24px; overflow:visible; border:1px solid var(--bdr); box-shadow:0 26px 64px rgba(0,0,0,.2); cursor:ew-resize; }
+    .ba-frame { position:absolute; inset:0; overflow:hidden; border-radius:24px; }
     .ba-layer { position:absolute; inset:0; padding:34px 60px; display:flex; flex-direction:column; justify-content:center; }
     .ba-before { background:linear-gradient(135deg,#1a1d29,#0f1119); color:#8b93a7; }
     .ba-after  { background:linear-gradient(135deg,#0a1f3a,#0a2e22); color:#eaf2ff; clip-path:inset(0 0 0 50%); }
@@ -767,7 +768,7 @@
     .ba-cask-line { position:relative; max-width:min(100%,560px); margin:0 0 24px; padding-left:18px; font-family:'Outfit',sans-serif; font-size:clamp(22px,2.5vw,29px); line-height:1.16; font-weight:700; letter-spacing:-.01em; color:rgba(255,255,255,.94); text-wrap:balance; text-shadow:0 8px 24px rgba(0,0,0,.28); }
     .ba-cask-line::before { content:''; position:absolute; left:0; top:.12em; bottom:.12em; width:4px; border-radius:999px; background:linear-gradient(180deg,#5eead4,#F97316); box-shadow:0 0 18px rgba(94,234,212,.38); }
     .ba-cta { align-self:flex-start; margin-top:8px; padding:11px 22px; border-radius:999px; font-family:'Outfit',sans-serif; font-weight:800; font-size:13px; color:#fff; background:linear-gradient(135deg,#F97316,#EA580C); }
-    .ba-divider { position:absolute; top:0; bottom:0; left:50%; width:3px; margin-left:-1.5px; background:rgba(255,255,255,.85); box-shadow:0 0 18px 3px rgba(120,180,255,.6); z-index:5; transition:left .12s ease-out; }
+    .ba-divider { position:absolute; top:0; bottom:0; left:50%; width:3px; margin-left:-1.5px; background:rgba(255,255,255,.85); box-shadow:0 0 18px 3px rgba(120,180,255,.6); z-index:5; transition:left .12s ease-out; border-radius:2px; }
     .ba-knob { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:44px; height:44px; border-radius:50%; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,.35); display:flex; align-items:center; justify-content:center; color:#2563EB; font-size:16px; font-weight:900; z-index:6; transition:left .12s ease-out; }
     .ba-hint { position:absolute; bottom:14px; left:50%; transform:translateX(-50%); z-index:6; font-family:'Outfit',sans-serif; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.6); pointer-events:none; }
     @media(max-width:640px){ .ba{height:440px} .ba-layer{padding:30px} .ba-li{font-size:12px} .ba-cask-logo{width:min(156px,72%); margin-bottom:20px;} .ba-cask-line{font-size:clamp(20px,7vw,27px); margin-bottom:20px; padding-left:15px;} }
@@ -1189,18 +1190,20 @@
         <p class="sec-lead" style="margin:0 auto">The stakes are high, and so is the competition. That means the preparation needs to be just as serious. <br /> High stakes demand high demand commitment </p>
       </div>
       <div class="ba rev d1" id="ba">
-        <div class="ba-layer ba-before">
-          <span class="ba-tag">Preparing Alone</span>
-          <div class="ba-h">Guesswork &amp; nerves</div>
-          <div class="ba-li"><span>✕</span>	Don’t know where to start? </div>
-          <div class="ba-li"><span>✕</span>	No idea what the Olympiad format looks like?</div>
-          <div class="ba-li"><span>✕</span>	Don’t know how to prepare for the questions?</div>
-          <div class="ba-li"><span>✕</span>	No reliable resources to rely on</div>
-        </div>
-        <div class="ba-layer ba-after" id="baAfter">
-          <img class="ba-cask-logo" src="assets/1-cask.png" alt="CASK" />
-          <div class="ba-cask-line">One platform. Every solution.</div>
-          <a href="platform.html" class="ba-cta">Explore CASK AI ↗</a>
+        <div class="ba-frame">
+          <div class="ba-layer ba-before">
+            <span class="ba-tag">Preparing Alone</span>
+            <div class="ba-h">Guesswork &amp; nerves</div>
+            <div class="ba-li"><span>✕</span>	Don’t know where to start? </div>
+            <div class="ba-li"><span>✕</span>	No idea what the Olympiad format looks like?</div>
+            <div class="ba-li"><span>✕</span>	Don’t know how to prepare for the questions?</div>
+            <div class="ba-li"><span>✕</span>	No reliable resources to rely on</div>
+          </div>
+          <div class="ba-layer ba-after" id="baAfter">
+            <img class="ba-cask-logo" src="assets/1-cask.png" alt="CASK" />
+            <div class="ba-cask-line">One platform. Every solution.</div>
+            <a href="platform.html" class="ba-cta">Explore CASK AI ↗</a>
+          </div>
         </div>
         <div class="ba-divider" id="baDivider"></div>
         <div class="ba-knob" id="baKnob">⇔</div>
@@ -1748,11 +1751,11 @@
     (function(){ var ba=document.getElementById('ba'); if(!ba) return;
       var after=document.getElementById('baAfter'), div=document.getElementById('baDivider'), knob=document.getElementById('baKnob');
       var hint=ba.querySelector('.ba-hint');
-      function setP(p){ after.style.clipPath='inset(0 0 0 '+p+'%)'; div.style.left=p+'%'; knob.style.left=p+'%'; }
+      function setP(p){ p=Math.max(0, Math.min(100, p)); after.style.clipPath='inset(0 0 0 '+p+'%)'; div.style.left=p+'%'; knob.style.left=p+'%'; }
       setP(88); /* start showing "before" */
       var played=false;
       var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting && !played){ played=true;
-        setTimeout(function(){ setP(8); if(hint) hint.textContent=''; }, 700); io.disconnect(); } }); },{threshold:.4});
+        setTimeout(function(){ setP(0); if(hint) hint.textContent=''; }, 700); io.disconnect(); } }); },{threshold:.4});
       io.observe(ba);
     })();
 
