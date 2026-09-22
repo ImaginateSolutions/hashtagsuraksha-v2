@@ -49,9 +49,27 @@
     });
   }
 
+  function initMobileActiveLinks() {
+    var mobileMenu = document.getElementById('mobileMenu');
+    if (!mobileMenu || mobileMenu.dataset.activeLinksReady === 'true') return;
+
+    mobileMenu.dataset.activeLinksReady = 'true';
+    document.querySelectorAll('.nav-links a.active').forEach(function (activeLink) {
+      var href = activeLink.getAttribute('href');
+      if (!href) return;
+
+      mobileMenu.querySelectorAll('a[href="' + href + '"]').forEach(function (mobileLink) {
+        if (!mobileLink.classList.contains('mobile-cta')) {
+          mobileLink.classList.add('active');
+        }
+      });
+    });
+  }
+
   function initNav() {
     initMobileMenu();
     initMobileDropdowns();
+    initMobileActiveLinks();
   }
 
   if (document.readyState === 'loading') {

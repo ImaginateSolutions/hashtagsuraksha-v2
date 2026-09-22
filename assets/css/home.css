@@ -188,12 +188,12 @@
 .mobile-menu a:not(.mobile-cta) {
   padding: 13px 0;
   line-height: 1.35;
-  transition: color 0.2s;
+  transition: color 0.2s, background 0.2s;
 }
 
-.mobile-menu a:not(.mobile-cta):hover,
-.mobile-menu a:not(.mobile-cta):focus-visible {
-  color: #FFFFFF;
+.mobile-menu a:not(.mobile-cta):not(.active):hover,
+.mobile-menu a:not(.mobile-cta):not(.active):focus-visible {
+  background: rgba(255,107,26,0.08);
 }
 
 .mobile-menu .mobile-cta {
