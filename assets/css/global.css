@@ -271,6 +271,17 @@ img { max-width: 100%; }
   margin-left: 0.2em;
 }
 
+/* Shared slider / carousel arrow icons */
+.slang-car-arrow svg,
+.bk-arrow svg,
+.pv-arrow svg,
+.slider-arrow svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  flex-shrink: 0;
+}
+
 .faq-arrow {
   width: 18px;
   height: 18px;
@@ -891,7 +902,7 @@ body.mobile-menu-open {
 .btn-primary {
   display: inline-flex !important;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   background: var(--accent-saffron) !important;
   color: #fff !important;
   font-family: var(--font-ui) !important;
@@ -932,6 +943,7 @@ body.mobile-menu-open {
 .btn-outline {
   display: inline-flex !important;
   align-items: center;
+  gap: 8px;
   border: 1.5px solid var(--border) !important;
   color: var(--text-primary) !important;
   font-family: var(--font-ui) !important;
@@ -946,6 +958,30 @@ body.mobile-menu-open {
   border-color: var(--accent-saffron) !important;
   color: var(--accent-saffron) !important;
   transform: translateY(-2px) !important;
+}
+
+/* Icon sizing inside buttons that include SVG icons */
+.btn-primary svg,
+.btn-outline svg,
+.btn-ghost svg,
+.btn-saffron svg,
+.btn-dark svg,
+.btn-out svg,
+.btn-cask-primary svg,
+.olymp-cta svg,
+.nh-btn-ghost svg,
+.nh-btn-main svg,
+.bk-btn svg,
+.bk-mini svg,
+.bk-viewall svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.bk-mini svg {
+  width: 16px;
+  height: 16px;
 }
 
 /* ── SECTION UTILITIES ───────────────────────────────────────── */

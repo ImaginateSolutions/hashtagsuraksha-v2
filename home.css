@@ -49,7 +49,9 @@
 
 /* ── BUTTONS ──────────────────────────────────────────────────── */
 .btn-primary {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   background: var(--primary) !important;
   color: #fff !important;
   padding: 14px 28px;
@@ -69,7 +71,9 @@
 }
 
 .btn-outline {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   background: transparent;
   color: var(--text-primary) !important;
   padding: 13px 28px;
@@ -88,7 +92,9 @@
 }
 
 .btn-ghost {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   color: var(--text-secondary) !important;
   font-family: var(--font-ui);
   font-size: 15px;

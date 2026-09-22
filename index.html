@@ -132,21 +132,9 @@
       text-align: center;
     }
 
-    #slanglish .slang-car-arrow::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-top: 2px solid currentColor;
-      border-right: 2px solid currentColor;
-      display: block;
-    }
-
-    #slanglish .slang-car-prev::before {
-      transform: translateX(1px) rotate(225deg);
-    }
-
-    #slanglish .slang-car-next::before {
-      transform: translateX(-1px) rotate(45deg);
+    #slanglish .slang-car-arrow svg {
+      width: 18px;
+      height: 18px;
     }
 
     @media (max-width: 420px) {
@@ -2398,7 +2386,7 @@
       overflow: hidden;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       padding: 13px 28px;
       border-radius: 12px;
       background: linear-gradient(135deg, var(--saffron), #ff7a00);
@@ -3678,7 +3666,13 @@
           <div class="slang-selector-hd">Choose your Slanglish guide</div>
           <div class="slang-carousel">
             <button class="slang-car-arrow slang-car-prev" onclick="slangCarouselNav(-1)"
-              aria-label="Previous">&#8249;</button>
+              aria-label="Previous">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M15 6l-6 6l6 6" />
+              </svg>
+            </button>
             <div class="slang-car-stage">
               <div class="slang-car-portrait" id="slangCarPortrait">
                 <!-- Two stacked imgs — crossfade by toggling .active -->
@@ -3696,7 +3690,14 @@
               </button>
             </div>
             <button class="slang-car-arrow slang-car-next" onclick="slangCarouselNav(1)"
-              aria-label="Next">&#8250;</button>
+              aria-label="Next">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M9.707 5.293l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 1 1 -1.414 -1.414l5.293 -5.293l-5.293 -5.293a1 1 0 0 1 1.414 -1.414" />
+              </svg>
+            </button>
           </div>
         </div>
 

@@ -25,7 +25,9 @@
   </style>
   <title>Become a Surakshak — Hashtag Suraksha</title>
   <link rel="icon" type="image/svg+xml" href="./assets/images/hashtag-favicon.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Serif+Display&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Serif+Display&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/global.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
   <link rel="stylesheet" href="surakshak.css" />
@@ -475,6 +477,10 @@
       font-weight: 700;
       cursor: pointer;
       margin-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
 
     @media (max-width: 900px) {
@@ -637,6 +643,9 @@
     }
 
     a.btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       border: 1px solid var(--saffron);
       border-radius: 25px;
       padding: 10px 20px;
@@ -741,11 +750,13 @@
             aria-label="Open Collaborate With Us options">
             <svg class="mobile-arrow mobile-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6"/>
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M6 9l6 6l6 -6" />
             </svg>
             <svg class="mobile-arrow mobile-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 15l6 -6l6 6"/>
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M6 15l6 -6l6 6" />
             </svg>
           </button>
         </div>
@@ -761,11 +772,13 @@
             aria-label="Open Sign Up options">
             <svg class="mobile-arrow mobile-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6"/>
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M6 9l6 6l6 -6" />
             </svg>
             <svg class="mobile-arrow mobile-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 15l6 -6l6 6"/>
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M6 15l6 -6l6 6" />
             </svg>
           </button>
         </div>
@@ -816,7 +829,8 @@
             <div class="lbl">Workshops Run</div>
           </div>
         </div>
-        <a href="#join" class="btn-primary">Become a Surakshak <span class="icon-arrow-right" aria-hidden="true"></span></a>
+        <a href="#join" class="btn-primary">Become a Surakshak <span class="icon-arrow-right"
+            aria-hidden="true"></span></a>
       </div>
       <div>
         <div class="big-feed">
@@ -1025,7 +1039,8 @@
           <option>Other</option>
         </select>
       </div>
-      <button class="join-submit" onclick="joinNow()">Become a Surakshak <span class="icon-arrow-right" aria-hidden="true"></span></button>
+      <button class="join-submit" onclick="joinNow()">Become a Surakshak <span class="icon-arrow-right"
+          aria-hidden="true"></span></button>
       <p style="font-size:12px;color:var(--gray-500);text-align:center;margin-top:12px">✓ Free · ✓ CERT-In backed · ✓
         Earn national recognition</p>
     </div>

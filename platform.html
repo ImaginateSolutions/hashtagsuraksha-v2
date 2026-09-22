@@ -741,7 +741,9 @@
       text-decoration: none;
       font-family: 'Plus Jakarta Sans', sans-serif;
       transition: all 0.2s;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .btn-cask-primary:hover {
@@ -2155,7 +2157,10 @@
       cursor: pointer;
       text-decoration: none;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       transition: all 0.2s;
     }
 
@@ -8668,11 +8673,13 @@
             aria-label="Open Collaborate With Us options">
             <svg class="mobile-arrow mobile-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6"/>
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M6 9l6 6l6 -6" />
             </svg>
             <svg class="mobile-arrow mobile-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 15l6 -6l6 6"/>
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M6 15l6 -6l6 6" />
             </svg>
           </button>
         </div>
@@ -8688,11 +8695,13 @@
             aria-label="Open Sign Up options">
             <svg class="mobile-arrow mobile-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6"/>
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M6 9l6 6l6 -6" />
             </svg>
             <svg class="mobile-arrow mobile-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 15l6 -6l6 6"/>
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M6 15l6 -6l6 6" />
             </svg>
           </button>
         </div>
@@ -9404,8 +9413,8 @@
         <!-- ═══ CS2 MOBILE SECTION START ═══ -->
         <div class="cs2-mobile-connector" aria-hidden="true"></div>
         <div class="cs2-mobile-picker" id="cs2MobilePicker">
-          <button type="button" class="cs2-mobile-bar" id="cs2MobileBar"
-            aria-label="Choose feature" aria-expanded="false" aria-controls="cs2MobileMenu">
+          <button type="button" class="cs2-mobile-bar" id="cs2MobileBar" aria-label="Choose feature"
+            aria-expanded="false" aria-controls="cs2MobileMenu">
             <div class="cs2-mobile-selected">
               <div class="cs2-mobile-selected-icon" id="cs2MobileIcon">🤖</div>
               <div class="cs2-mobile-selected-text">
@@ -10190,8 +10199,7 @@
                         <div class="fyt-unit-row" data-unit="1"><span class="fyt-unum">02</span><span
                             class="fyt-uname">Identity, Access &amp; Trust</span><span class="fyt-uarrow"></span></div>
                         <div class="fyt-unit-row" data-unit="2"><span class="fyt-unum">03</span><span
-                            class="fyt-uname">Cloud, Mobile &amp; Endpoint Safety</span><span
-                            class="fyt-uarrow"></span>
+                            class="fyt-uname">Cloud, Mobile &amp; Endpoint Safety</span><span class="fyt-uarrow"></span>
                         </div>
                         <div class="fyt-unit-row" data-unit="3"><span class="fyt-unum">04</span><span
                             class="fyt-uname">Secure Coding Concepts</span><span class="fyt-uarrow"></span></div>
@@ -12425,7 +12433,8 @@
     <div class="cask-cta-inner">
       <h2>Begin your<br />Cyber journey</h2>
       <p>Sign your child up and let’s get them on their way to becoming the next Cybernaut!</p>
-      <a href="https://cask.ai.in/" target="_blank" class="btn-cta-white">Explore CASK now <span class="icon-arrow-right" aria-hidden="true"></span></a>
+      <a href="https://cask.ai.in/" target="_blank" class="btn-cta-white">Explore CASK now <span
+          class="icon-arrow-right" aria-hidden="true"></span></a>
     </div>
   </section>
 
