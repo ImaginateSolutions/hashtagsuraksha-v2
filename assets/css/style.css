@@ -275,6 +275,11 @@ img { max-width: 100%; }
   border-bottom: 1px solid rgba(255,255,255,0.10);
   font-weight: 500;
 }
+.mobile-menu a:not(.mobile-cta) {
+  padding: 13px 0;
+  line-height: 1.35;
+  transition: color 0.2s ease;
+}
 .mobile-menu .mobile-cta {
   margin-top: 12px;
   background: var(--saffron);
