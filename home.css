@@ -1516,7 +1516,6 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
 }
 
 .card-link-arrow {
-  font-size: 16px;
   color: var(--primary);
   transition: transform 0.2s;
 }

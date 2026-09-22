@@ -107,9 +107,10 @@
     }
     .transform-list li .icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
     .transform-arrow {
-      font-size: 40px;
+      width: 40px;
+      height: 40px;
+      margin: 0 auto;
       color: var(--saffron);
-      font-weight: 900;
       text-align: center;
     }
 
@@ -336,8 +337,8 @@
     <h1>Your Students Need This.<br /><span>Your Teachers Are Ready.</span></h1>
     <p>Join 20,000+ schools delivering the NEP 2020 Computational Thinking curriculum through India's first AI-powered cyber safety platform. Free to join. Zero teacher training required.</p>
     <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
-      <a href="#register" class="btn-primary">Register Your School — It's Free →</a>
-      <a href="#how" class="btn-outline">See How It Works ↓</a>
+      <a href="#register" class="btn-primary">Register Your School — It's Free <span class="icon-arrow-right" aria-hidden="true"></span></a>
+      <a href="#how" class="btn-outline">See How It Works <span class="icon-arrow-down" aria-hidden="true"></span></a>
     </div>
     <div style="display:flex;gap:40px;justify-content:center;margin-top:48px;flex-wrap:wrap">
       <div style="text-align:center">
@@ -377,7 +378,7 @@
             <li><span class="icon">❌</span> No student data on digital literacy levels</li>
           </ul>
         </div>
-        <div class="transform-arrow">→</div>
+        <div class="transform-arrow"></div>
         <div class="transform-card after">
           <span class="transform-label">After</span>
           <h3>🌟 With Suraksha</h3>
@@ -625,7 +626,7 @@
         <label>Email Address *</label>
         <input type="email" placeholder="principal@yourschool.edu.in" />
       </div>
-      <button class="form-submit" onclick="submitForm()">Register My School for Free →</button>
+      <button class="form-submit" onclick="submitForm()">Register My School for Free <span class="icon-arrow-right" aria-hidden="true"></span></button>
       <p class="form-note">✓ Free to join &nbsp;·&nbsp; ✓ No spam &nbsp;·&nbsp; ✓ You'll hear from us within 24 hours</p>
     </div>
   </section>

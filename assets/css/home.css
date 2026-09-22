@@ -1809,7 +1809,6 @@ gap: 0px !important;
 }
 
 .card-link-arrow {
-  font-size: 16px;
   color: var(--primary);
   transition: transform 0.2s;
 }
