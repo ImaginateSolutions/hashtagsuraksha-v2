@@ -666,6 +666,10 @@
       .cask-hero-agency-lines span {
         white-space: normal;
       }
+
+      .cask-hero h1{
+        margin-bottom: 75px;
+      }
     }
 
     @media (max-width: 360px) {
@@ -2560,6 +2564,26 @@
     .cask-lang-stats b {
       color: var(--text-primary);
       font-weight: 700;
+    }
+
+    @media (max-width: 340px) {
+      .cask-section-mid .cask-lang-stats {
+        flex-wrap: wrap;
+        gap: 8px 12px;
+        margin-top: 28px;
+        font-size: 12px;
+        line-height: 1.45;
+        letter-spacing: .05em;
+      }
+
+      .cask-section-mid .cask-lang-stats span {
+        white-space: nowrap;
+      }
+
+      .cask-section-mid .cask-lang-stats span:nth-child(2),
+      .cask-section-mid .cask-lang-stats span:nth-child(4) {
+        display: none;
+      }
     }
 
     /* HERO BG SWITCHER */
