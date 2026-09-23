@@ -1176,6 +1176,37 @@
       }
     }
 
+    @media (max-width:360px) {
+      #textbooks {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      #textbooks .bk-tb-grid {
+        gap: 16px;
+      }
+
+      #textbooks .bk-classes {
+        flex-direction: column;
+        overflow-x: visible;
+        padding-bottom: 0;
+        gap: 8px;
+      }
+
+      #textbooks .bk-class {
+        width: 100%;
+        min-width: 0;
+        flex: 1 1 auto;
+        gap: 12px;
+        padding: 13px 14px;
+        white-space: normal;
+      }
+
+      #textbooks .bk-class > span:last-child {
+        min-width: 0;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .bk-item.is-active .bk-cover {
         animation: none;
