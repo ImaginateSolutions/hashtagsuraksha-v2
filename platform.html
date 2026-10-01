@@ -7,6 +7,7 @@
   <meta name="color-scheme" content="dark" />
   <script>
     document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.classList.add('js-page-anim');
     try {
       localStorage.setItem('hs-theme', 'dark');
       localStorage.removeItem('suraksha-theme');
@@ -490,10 +491,13 @@
     .cask-hero {
       position: relative;
       background: #ffffff !important;
-      padding: 56px var(--platform-section-gutter) 150px;
+      padding: 56px var(--platform-section-gutter) 0;
       overflow: hidden;
       text-align: center;
-      min-height: auto;
+      min-height: 100vh;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
     }
 
     [data-theme="dark"] .cask-hero {
@@ -979,6 +983,18 @@
     .cask-video-section {
       padding: 80px var(--platform-section-gutter);
       background: #000;
+      min-height: 100vh;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cs2-section,
+    .fyt-section,
+    .cask-section.cask-section-mid {
+      min-height: 100vh;
+      box-sizing: border-box;
     }
 
     [data-theme="light"] .cask-video-section {
@@ -2650,6 +2666,10 @@
       z-index: 2;
       max-width: 800px;
       margin: 0 auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .bg-mesh-layer {
@@ -5128,7 +5148,12 @@
       position: relative;
       background: #030810;
       overflow: hidden;
-      padding: 60px var(--platform-section-gutter) 80px;
+      padding: 60px var(--platform-section-gutter);
+      min-height: 100vh;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .cs2-stars {
@@ -12787,6 +12812,8 @@
     }
   </style>
 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="main.js"></script>
   <script>
     (function () {
