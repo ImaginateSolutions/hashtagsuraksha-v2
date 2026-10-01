@@ -97,7 +97,7 @@ function cyberIllustrations() {
 
 function initSectionMotion() {
   document.querySelectorAll('body > section').forEach((section, index) => {
-    if (section.id === 'partner' || section.classList.contains('cask-hero') || section.classList.contains('nh')) return;
+    if (section.id === 'partner' || section.id === 'video' || section.classList.contains('cask-hero') || section.classList.contains('cask-section-mid') || section.classList.contains('nh')) return;
     if (section.querySelector(':scope > .hs-ambient')) return;
     const layer = document.createElement('div');
     layer.className = 'hs-ambient';
@@ -324,7 +324,7 @@ function initSisterPageMotion() {
   const landing = isCask ? document.querySelector('.cask-hero') : document.querySelector('section.nh');
   initSectionMotion();
   document.querySelectorAll('body > section').forEach((panel) => {
-    if (panel === landing) return;
+    if (panel === landing || panel.id === 'video' || panel.classList.contains('cask-section-mid')) return;
     bindCenterReveal(panel);
   });
   initCardGlow();
