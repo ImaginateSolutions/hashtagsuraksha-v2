@@ -6,6 +6,7 @@
   <meta name="color-scheme" content="dark" />
   <script>
     document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.classList.add('js-page-anim');
     try {
       localStorage.setItem('hs-theme', 'dark');
       localStorage.removeItem('suraksha-theme');
@@ -1930,5 +1931,8 @@
     window.addEventListener('resize', refreshRect);
   })();
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
