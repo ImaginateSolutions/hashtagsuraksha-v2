@@ -489,12 +489,16 @@
     }
 
     .cask-hero {
+      --cask-hero-strip-height: clamp(96px, 14svh, 118px);
       position: relative;
       background: #ffffff !important;
-      padding: 56px var(--platform-section-gutter) 0;
+      padding: clamp(68px, 9svh, 92px) var(--platform-section-gutter) var(--cask-hero-strip-height);
       overflow: hidden;
       text-align: center;
       min-height: 100vh;
+      min-height: 100svh;
+      height: 100vh;
+      height: 100svh;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
@@ -533,9 +537,9 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: clamp(44px, 7vw, 88px);
       font-weight: 900;
-      line-height: 1.06;
+      line-height: 1.12;
       color: #0a0f20;
-      margin-bottom: 24px;
+      margin: 0;
       letter-spacing: -0.02em;
     }
 
@@ -557,22 +561,24 @@
 
     .cask-hero-agency-lines {
       display: inline-grid;
-      gap: 8px;
+      gap: clamp(6px, 1svh, 8px);
+      align-items: center;
       max-width: 860px;
-      margin: 26px auto 0;
-      padding: 18px 32px;
+      margin: clamp(16px, 3svh, 26px) auto 0;
+      padding: clamp(17px, 2.4svh, 22px) 32px clamp(19px, 2.7svh, 24px);
       position: relative;
       border: 1px solid rgba(0, 122, 255, 0.20);
       border-radius: 20px;
       background: linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(232, 244, 255, 0.62));
       box-shadow: 0 18px 44px rgba(0, 80, 180, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.9);
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: clamp(20px, 2.35vw, 30px);
+      font-size: clamp(19px, 2.15vw, 28px);
       font-weight: 450;
-      line-height: 1.28;
+      line-height: 1.36;
       letter-spacing: 0.01em;
       color: rgba(10, 26, 52, 0.66);
       -webkit-text-fill-color: rgba(10, 26, 52, 0.66);
+      box-sizing: border-box;
       text-wrap: balance;
     }
 
@@ -654,11 +660,11 @@
 
       .cask-hero-agency-lines {
         max-width: min(360px, calc(100vw - 40px));
-        margin-top: 18px;
-        padding: 14px 16px;
+        margin-top: clamp(12px, 2svh, 18px);
+        padding: 14px 16px 16px;
         border-radius: 16px;
         font-size: clamp(14px, 4.1vw, 17px);
-        line-height: 1.34;
+        line-height: 1.42;
         letter-spacing: 0;
       }
 
@@ -671,8 +677,8 @@
         white-space: normal;
       }
 
-      .cask-hero h1{
-        margin-bottom: 75px;
+      .cask-hero h1 {
+        margin: 0;
       }
     }
 
@@ -712,7 +718,7 @@
       }
 
       .cask-hero h1 {
-        margin-bottom: 62px;
+        margin: 0;
       }
 
       .cask-hero-agency-lines {
@@ -721,10 +727,10 @@
         max-width: calc(100vw - 24px);
         box-sizing: border-box;
         margin-top: 14px;
-        padding: 12px 12px;
+        padding: 12px 12px 14px;
         border-radius: 14px;
         font-size: clamp(13px, 3.9vw, 14px);
-        line-height: 1.42;
+        line-height: 1.48;
       }
 
       .cask-hero-agency-lines::before {
@@ -2236,7 +2242,8 @@
       }
 
       .cask-hero {
-        padding: 120px var(--platform-section-gutter) 60px;
+        --cask-hero-strip-height: clamp(96px, 18svh, 112px);
+        padding: clamp(58px, 8svh, 76px) var(--platform-section-gutter) var(--cask-hero-strip-height);
       }
 
       .cask-logo-strip {
@@ -2664,12 +2671,75 @@
     .cask-hero-inner {
       position: relative;
       z-index: 2;
-      max-width: 800px;
+      width: 100%;
+      max-width: 860px;
       margin: 0 auto;
       flex: 1;
+      min-height: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      padding-block: clamp(6px, 2svh, 18px);
+      box-sizing: border-box;
+    }
+
+    .cask-hero .cert-govt-bar {
+      margin: 0 auto clamp(14px, 2.8svh, 24px);
+    }
+
+    .cask-hero .cask-logo-container {
+      min-height: clamp(84px, 16svh, 118px);
+    }
+
+    .cask-hero .cask-logo-strip-hero {
+      min-height: var(--cask-hero-strip-height);
+      box-sizing: border-box;
+      padding-top: clamp(10px, 1.8svh, 16px);
+      padding-bottom: clamp(10px, 1.8svh, 16px);
+    }
+
+    @media (max-height: 720px) {
+      .cask-hero {
+        --cask-hero-strip-height: clamp(86px, 14svh, 104px);
+        padding-top: clamp(54px, 8svh, 68px);
+      }
+
+      .cask-hero .cert-govt-bar {
+        margin-bottom: 12px;
+      }
+
+      .cask-hero .cask-logo-container {
+        min-height: clamp(78px, 14svh, 98px);
+      }
+
+      .cask-hero-agency-lines {
+        margin-top: 12px;
+        padding: 14px 26px 16px;
+        font-size: clamp(18px, 2vw, 24px);
+        line-height: 1.34;
+      }
+
+      .cask-logo-strip-hero .cask-logo-strip-lbl {
+        font-size: 15px;
+      }
+
+      .cask-logo-strip-hero .cask-logo-img {
+        height: 42px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .cask-hero-inner {
+        padding-block: clamp(4px, 1.5svh, 10px);
+      }
+
+      .cask-hero .cert-govt-bar {
+        margin-bottom: clamp(10px, 2svh, 16px);
+      }
+
+      .cask-hero .cask-logo-container {
+        min-height: clamp(72px, 14svh, 86px);
+      }
     }
 
     .bg-mesh-layer {
@@ -5148,7 +5218,7 @@
       position: relative;
       background: #030810;
       overflow: hidden;
-      padding: 60px var(--platform-section-gutter);
+      padding: clamp(64px, 7vw, 88px) var(--platform-section-gutter) clamp(72px, 8vw, 96px);
       min-height: 100vh;
       box-sizing: border-box;
       display: flex;
@@ -5197,18 +5267,30 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: 320px 1fr 300px;
-      gap: 0;
-      max-width: var(--platform-section-width);
+      grid-template-columns: minmax(300px, 0.95fr) minmax(500px, 1.3fr) minmax(330px, 0.95fr);
+      column-gap: clamp(28px, 3vw, 56px);
+      width: 100%;
+      max-width: 1440px;
       margin: 0 auto;
       padding: 0;
-      min-height: 520px;
+      min-height: 560px;
       align-items: center;
+    }
+
+    .cs2-section-top .cs2-layout {
+      grid-template-columns: minmax(250px, 0.9fr) minmax(390px, 1.18fr) minmax(280px, 0.92fr);
+      column-gap: clamp(20px, 2.4vw, 34px);
+      max-width: var(--platform-section-width);
+    }
+
+    .cs2-section-top .cs2-center {
+      max-width: min(460px, 100%);
     }
 
     /* LEFT */
     .cs2-left {
-      padding-right: 12px;
+      min-width: 0;
+      padding-right: 0;
       overflow: visible;
     }
 
@@ -5321,8 +5403,9 @@
       position: relative;
       width: 100%;
       aspect-ratio: 1;
-      max-width: 480px;
+      max-width: min(540px, 100%);
       margin: 0 auto;
+      isolation: isolate;
     }
 
     .cs2-canvas {
@@ -5470,9 +5553,10 @@
       font-weight: 700;
       color: rgba(255, 255, 255, 0.80);
       text-align: center;
-      max-width: 70px;
+      max-width: 86px;
       line-height: 1.2;
       white-space: normal;
+      overflow-wrap: anywhere;
     }
 
     .cs2-node:hover .cs2-node-lbl,
@@ -5492,6 +5576,10 @@
       transition: opacity 0.35s, transform 0.35s;
       pointer-events: none;
       position: relative;
+      width: 100%;
+      max-width: 370px;
+      justify-self: end;
+      box-sizing: border-box;
     }
 
     .cs2-panel.cs2-panel-open {
@@ -8689,7 +8777,7 @@
         <!-- <li><a href="surakshak.html">Surakshak</a></li> -->
         <li><a href="olympiad.html">Olympiad</a></li>
         <!-- <li><a href="phishnchip.html">The Phish &amp; Chip Show</a></li> -->
-        <li><a href="https://slanglish.cyberbuddhas.com/" target="_blank">Slanglish</a></li>
+        <li><a href="https://slanglish.cyberbuddhas.com/">Slanglish</a></li>
         <li><a href="resources.html">Library</a></li>
         <li class="nav-dropdown">
           <a href="sponsor.html" class="nav-dropdown-link">Collaborate With Us <span class="nav-dropdown-arrow"
@@ -8734,7 +8822,7 @@
       <!-- <a href="surakshak.html">Surakshak</a> -->
       <a href="olympiad.html">Olympiad</a>
       <!-- <a href="phishnchip.html">The Phish &amp; Chip Show</a> -->
-      <a href="https://slanglish.cyberbuddhas.com/" target="_blank">Slanglish</a>
+      <a href="https://slanglish.cyberbuddhas.com/">Slanglish</a>
       <a href="resources.html">Library</a>
       <div class="mobile-nav-dropdown" data-mobile-dropdown>
         <div class="mobile-nav-dropdown-head">
@@ -9164,16 +9252,88 @@
       color: rgba(10, 15, 32, 0.5);
     }
 
+    @media (max-width: 1280px) {
+      .cs2-layout {
+        grid-template-columns: minmax(270px, 0.9fr) minmax(430px, 1.15fr) minmax(300px, 0.95fr);
+        column-gap: clamp(22px, 2.4vw, 34px);
+        max-width: 1180px;
+      }
+
+      .cs2-center {
+        max-width: min(500px, 100%);
+      }
+    }
+
     @media (max-width: 1024px) {
       .cs2-layout {
-        grid-template-columns: 326px 1fr 250px;
+        grid-template-columns: minmax(240px, 0.85fr) minmax(360px, 1fr) minmax(270px, 0.9fr);
+        column-gap: 20px;
+        min-height: 500px;
+      }
+
+      .cs2-center {
+        max-width: min(420px, 100%);
+      }
+
+      .cs2-panel {
+        max-width: 300px;
+        padding: 24px 22px;
+      }
+
+      .cs2-section-top .cs2-layout {
+        grid-template-columns: minmax(220px, 0.86fr) minmax(340px, 1fr) minmax(250px, 0.9fr);
+        column-gap: 18px;
+        max-width: var(--platform-section-width);
+      }
+
+      .cs2-section-top .cs2-center {
+        max-width: min(390px, 100%);
       }
     }
 
     @media (max-width: 999px) {
+      .cs2-section {
+        min-height: auto;
+        padding: 64px var(--platform-section-gutter) 72px;
+      }
+
       .cs2-layout {
         grid-template-columns: 1fr;
-        grid-row-gap: 25px;
+        grid-row-gap: 32px;
+        max-width: min(720px, 100%);
+        min-height: 0;
+      }
+
+      .cs2-left {
+        padding-right: 0;
+        text-align: center;
+      }
+
+      .cs2-kpi-row {
+        max-width: 420px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cs2-center {
+        min-width: 0;
+        max-width: min(480px, 100%);
+      }
+
+      .cs2-panel {
+        justify-self: center;
+        max-width: 520px;
+        padding: 28px 24px;
+      }
+
+      .cs2-section-top .cs2-layout {
+        grid-template-columns: 1fr;
+        grid-row-gap: 32px;
+        max-width: min(720px, 100%);
+      }
+
+      .cs2-section-top .cs2-center {
+        max-width: min(480px, 100%);
       }
     }
 
@@ -9193,7 +9353,8 @@
       }
 
       .cask-hero {
-        padding: 120px var(--platform-section-gutter) 120px;
+        --cask-hero-strip-height: clamp(96px, 20svh, 112px);
+        padding: clamp(54px, 8svh, 70px) var(--platform-section-gutter) var(--cask-hero-strip-height);
       }
 
       [data-theme="light"] .cask-stat:nth-child(3),
@@ -12562,7 +12723,7 @@
             <!-- <a href="surakshak.html">Surakshak</a> -->
             <a href="olympiad.html">Olympiad</a>
             <!-- <a href="phishnchip.html">The Phish &amp; Chip Show</a> -->
-            <a href="https://slanglish.cyberbuddhas.com/" target="_blank">Slanglish</a>
+            <a href="https://slanglish.cyberbuddhas.com/">Slanglish</a>
           </div>
           <div class="footer-col">
             <h5>Organisation</h5>
