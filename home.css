@@ -36,7 +36,7 @@
 }
 
 .section-header {
-  margin-bottom: 56px;
+  margin-bottom: 26px;
 }
 
 .section-header h2 {
@@ -1554,6 +1554,7 @@ body, h1, h2, h3, h4, h5, p, a, span, button, input, li {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: flex-start;
 }
 
 /* Legacy selectors — kept for safety but no longer used in the grid */

@@ -56,40 +56,6 @@
       border-color: #1A1A1A !important;
     }
 
-    #ecosystem .card-footer-row {
-      align-items: center;
-    }
-
-    #ecosystem .card-link-arrow {
-      display: inline-grid;
-      place-items: center;
-      width: 2rem;
-      height: 2rem;
-      font-size: 0;
-      flex-shrink: 0;
-      transition: color 0.3s ease, transform 0.38s cubic-bezier(.16, 1, .3, 1);
-      transform: translateY(-0.04em);
-    }
-
-    #ecosystem .vertical-card:hover .card-link-arrow,
-    #ecosystem .vertical-card:focus-visible .card-link-arrow {
-      color: var(--primary);
-      transform: translate(4px, -0.04em) scale(1.03);
-    }
-
-    @media (max-width: 640px) {
-      #ecosystem .card-link-arrow {
-        width: 1.8rem;
-        height: 1.8rem;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      #ecosystem .card-link-arrow {
-        transition: none;
-      }
-    }
-
     @media (max-width: 1120px) {
       #home .cert-govt-bar {
         flex-wrap: nowrap;
@@ -213,7 +179,7 @@
         <!-- <li><a href="surakshak.html">Surakshak</a></li> -->
         <li><a href="olympiad.html">Olympiad</a></li>
         <!-- <li><a href="phishnchip.html">The Phish &amp; Chip Show</a></li> -->
-        <li><a href="https://slanglish.cyberbuddhas.com/" target="_blank">Slanglish</a></li>
+        <li><a href="https://slanglish.cyberbuddhas.com/">Slanglish</a></li>
         <li><a href="resources.html">Library</a></li>
         <li class="nav-dropdown">
           <a href="sponsor.html" class="nav-dropdown-link">Collaborate With Us <span class="nav-dropdown-arrow"
@@ -258,7 +224,7 @@
       <!-- <a href="surakshak.html">Surakshak</a> -->
       <a href="olympiad.html">Olympiad</a>
       <!-- <a href="phishnchip.html">The Phish &amp; Chip Show</a> -->
-      <a href="https://slanglish.cyberbuddhas.com/" target="_blank">Slanglish</a>
+      <a href="https://slanglish.cyberbuddhas.com/">Slanglish</a>
       <a href="resources.html">Library</a>
       <div class="mobile-nav-dropdown" data-mobile-dropdown>
         <div class="mobile-nav-dropdown-head">
@@ -352,19 +318,17 @@
             <div class="map-scan-line"></div>
 
             <!-- Ambient glow -->
-            <div
-              style="position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);width:70%;height:80%;background:radial-gradient(ellipse, rgba(0,122,255,0.07) 0%, transparent 70%);pointer-events:none;">
-            </div>
+            <div class="hero-map-ambient"></div>
 
             <!-- Top HUD bar -->
-            <div
-              style="position:absolute;top:0;left:0;right:0;display:flex;justify-content:center;align-items:center;padding:10px 16px;border-bottom:1px solid rgba(0,122,255,0.1);font-size:9px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(0,122,255,0.55);z-index:10;font-family:var(--font-ui);">
-              <span id="heroLiveTime" style="color:rgba(0,122,255,0.4);">00:00:00</span>
+            <div class="hero-map-hud">
+              <span class="hero-map-hud-label">India Cyber Grid</span>
+              <span id="heroLiveTime" class="hero-map-time">00:00:00</span>
             </div>
 
             <!-- Main SVG Map — Simplemaps accurate India boundaries -->
             <svg viewBox="-30 -30 930 1000" fill="none" xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="xMidYMid meet" style="position:absolute;inset:0;width:100%;height:100%;">
+              preserveAspectRatio="xMidYMid meet" class="hero-map-svg">
               <defs>
                 <filter id="mapGlow" x="-15%" y="-15%" width="130%" height="130%">
                   <feGaussianBlur stdDeviation="4" result="blur" />
@@ -818,7 +782,7 @@
                 stroke-dasharray="3 14" />
             </svg>
 
-            <div class="hero-map-title-overlay"><span>MISSION</span><span>CYBERNAUT</span></div>
+            <div class="hero-map-title-overlay"><span class="hero-map-title-mission">MISSION</span><img class="hero-map-title-img" src="assets/images/home/cybernaut/3.png" alt="Cybernaut" /></div>
 
           </div>
         </div>
@@ -839,7 +803,7 @@
       </div>
       <div class="verticals-grid">
 
-        <a href="platform.html" class="vertical-card cask-card reveal-card">
+        <article class="vertical-card cask-card reveal-card">
           <div class="ecosystem-card-lockup ecosystem-card-lockup-cask">
             <span class="ecosystem-card-label">EMPOWER</span>
             <span class="ecosystem-cask-logo-wrap" aria-label="CASK">
@@ -858,10 +822,12 @@
             </div>
           </div> -->
           <div class="card-footer-row">
-            <span class="card-sublabel">Know more about CASK</span>
-            <span class="card-link-arrow"></span>
+            <a href="platform.html" class="ecosystem-card-btn">
+              <span class="card-sublabel">Know more about CASK</span>
+              <span class="icon-arrow-right" aria-hidden="true"></span>
+            </a>
           </div>
-        </a>
+        </article>
 
         <!-- <a href="surakshak.html" class="vertical-card surakshak-card reveal-card">
           <div class="card-icon-badge surakshak-badge">
@@ -885,7 +851,7 @@
           </div>
         </a> -->
 
-        <a href="olympiad.html" class="vertical-card olympiad-card reveal-card">
+        <article class="vertical-card olympiad-card reveal-card">
           <div class="ecosystem-card-lockup ecosystem-card-lockup-nco">
             <span class="ecosystem-card-label">RECOGNITION</span>
             <span class="ecosystem-nco-logo" aria-label="NCO">NCO</span>
@@ -917,10 +883,12 @@
             </div>
           </div> -->
           <div class="card-footer-row">
-            <span class="card-sublabel">National Cyber Olympiad</span>
-            <span class="card-link-arrow"></span>
+            <a href="olympiad.html" class="ecosystem-card-btn">
+              <span class="card-sublabel">National Cyber Olympiad</span>
+              <span class="icon-arrow-right" aria-hidden="true"></span>
+            </a>
           </div>
-        </a>
+        </article>
 
         <!-- <a href="phishnchip.html" class="vertical-card podcast-card reveal-card">
           <div class="card-icon-badge podcast-badge">
@@ -1022,12 +990,15 @@
             every single day, but there is something we cannot afford to overlook: as the digital world grows, so do the
             threats that come with it. And who are the ones most vulnerable to these growing threats? Our children. This
             is exactly why this campaign exists.</p>
-          <p>So, what do we do about it?
-            Hashtag Suraksha is a national initiative by CERT-In, in collaboration with Cyber Buddha, created to bring
-            digital safety into India’s schools through an intelligent, technology-enabled ecosystem. From intelligent
-            learning and a national competition to student leadership, it is about giving our children the knowledge,
-            skills, and confidence they need to navigate the digital world safely.
-          </p>
+          <div class="show-more-block" id="movementIntroMore">
+            <p>So, what do we do about it?
+              Hashtag Suraksha is a national initiative by CERT-In, in collaboration with Cyber Buddha, created to bring
+              digital safety into India’s schools through an intelligent, technology-enabled ecosystem. From intelligent
+              learning and a national competition to student leadership, it is about giving our children the knowledge,
+              skills, and confidence they need to navigate the digital world safely.
+            </p>
+          </div>
+          <button class="show-more-btn" type="button" onclick="toggleShowMore('movementIntroMore', this)">Read more</button>
         </div>
 
         <!-- ROW 1 RIGHT: CERT-In card -->
@@ -1042,14 +1013,15 @@
               24x7 incident response Help Desk for providing timely response to reported cyber security incidences.
               CERT-In provides Incident Prevention and Response services as well as Security Quality Management
               Services.</p>
-            <p class="partner-desc">As part of its mandate, CERT-In regularly carries out various activities for
+            
+            <div class="show-more-block" id="certinMore">
+              <!-- <p></p> -->
+               <p class="partner-desc">As part of its mandate, CERT-In regularly carries out various activities for
               development of cyber security capacities, skill building, awareness and citizen sensitization with respect
               to cyberattacks and cyber frauds. In order to create security awareness within the Government, Public and
               Private Sector organizations, CERT-In regularly conducts trainings / workshops to train officials of
               Government, Public and Private sector organizations across all sectors and citizens on focused topics of
               Cyber Security.</p>
-            <div class="show-more-block" id="certinMore">
-              <!-- <p></p> -->
               <p style="margin-top:10px;">We are pleased to announce the launch of #Suraksha, a national initiative by
                 Indian Computer Emergency Response Team (CERT-In) in collaboration with the Cyber Buddha, aimed at
                 enhancing cybersecurity talent and awareness among students.</p>
@@ -1130,8 +1102,9 @@
             <img src="assets/2-cask.png" alt="CASK" class="cask-section-logo logo-light" />
             <!-- <span class="cask-logo-label-text">CASK Platform</span> -->
           </div>
-          <h2>India's First AI-Powered Cyber Safety Learning Platform</h2>
-          <p>Think about how much of your child’s life now happens online. They learn, play, socialise and explore
+          <!-- <h2>India's First AI-Powered Cyber Safety Learning Platform</h2> -->
+          <h2>Think about how much of your child’s life now happens online.</h2>
+          <p>They learn, play, socialise and explore
             through technology, but here’s the question: are we really teaching them how to stay safe while doing it?
           </p>
           <p>Online grooming, cyberbullying, non-consensual image sharing and digital fraud are increasingly putting
@@ -1984,13 +1957,73 @@
     }
 
     .olymp-story-highlight {
-      margin-top: 4px;
-      padding: 13px 15px;
-      border-left: 3px solid var(--saffron);
-      border-radius: 0 14px 14px 0;
-      background: linear-gradient(90deg, rgba(255, 153, 51, 0.13), rgba(30, 175, 91, 0.07), transparent);
+      position: relative;
+      z-index: 0;
+      display: block;
+      max-width: 740px;
+      margin: 13px 0 4px;
+      padding: 3px 0 4px clamp(38px, 4.4vw, 50px);
       color: var(--oly-txt) !important;
+      font-family: 'Syne', var(--font-ui), sans-serif;
+      font-size: clamp(18px, 1.9vw, 24px);
+      font-weight: 850;
+      line-height: 1.24;
+      letter-spacing: -0.018em;
+      text-wrap: balance;
+      cursor: default;
+      transform: translateY(var(--oly-highlight-y, 0)) scale(var(--oly-highlight-scale, 1));
+      transition:
+        color .28s ease,
+        text-shadow .28s ease,
+        transform .28s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .olymp-story-highlight::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--saffron), #3aa0ff 52%, var(--green));
+      box-shadow: 0 0 18px rgba(58, 160, 255, 0.30);
+      transition: box-shadow .28s ease;
+    }
+
+    .olymp-story-highlight::after {
+      content: '“';
+      position: absolute;
+      left: clamp(12px, 1.55vw, 18px);
+      top: -0.08em;
+      font-family: Georgia, serif;
+      font-size: clamp(34px, 4.2vw, 48px);
       font-weight: 700;
+      line-height: 1;
+      color: rgba(255, 153, 51, var(--oly-highlight-glow, 0.14));
+      pointer-events: none;
+      transform: translateY(var(--oly-quote-y, 0));
+      transition: color .28s ease, transform .34s cubic-bezier(.22, 1, .36, 1);
+      z-index: -1;
+    }
+
+    .olymp-story-highlight-em {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(135deg, var(--saffron), #3aa0ff 48%, var(--green));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      text-shadow: none;
+    }
+
+    .olymp-story-highlight:hover {
+      --oly-highlight-y: -3px;
+      --oly-highlight-scale: 1.004;
+      --oly-highlight-glow: 0.22;
+      --oly-quote-y: -2px;
+      text-shadow: 0 10px 28px rgba(58, 160, 255, 0.16);
     }
 
     .olymp-story-action {
@@ -2001,7 +2034,11 @@
     }
 
     [data-theme="light"] .olymp-story-highlight {
-      background: linear-gradient(90deg, rgba(217, 119, 6, 0.12), rgba(5, 150, 105, 0.06), transparent);
+      color: #0f172a !important;
+    }
+
+    [data-theme="light"] .olymp-story-highlight:hover {
+      text-shadow: 0 8px 22px rgba(29, 78, 216, 0.14);
     }
 
     .olymp-prizes {
@@ -2112,11 +2149,11 @@
       top: var(--step-y);
       width: var(--step-w);
       height: 118px;
-      border-top: 2px solid var(--step-color);
+      border-top: 0;
       border-left: 2px solid var(--step-color);
       border-radius: 3px 16px 16px 0;
-      background: radial-gradient(circle at 16px 20px, rgba(255, 255, 255, 0.11), transparent 34px), linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(58, 160, 255, 0.105) 54%, rgba(30, 175, 91, 0.085));
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -32px 52px rgba(0, 0, 0, 0.12), 0 20px 38px rgba(0, 0, 0, 0.2);
+      /* background: radial-gradient(circle at 16px 20px, rgba(255, 255, 255, 0.11), transparent 34px), linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(58, 160, 255, 0.105) 54%, rgba(30, 175, 91, 0.085));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -32px 52px rgba(0, 0, 0, 0.12), 0 20px 38px rgba(0, 0, 0, 0.2); */
       cursor: default;
       transition: border-color .28s ease, background .28s ease, box-shadow .28s ease, transform .28s cubic-bezier(.22, 1, .36, 1);
     }
@@ -2125,8 +2162,8 @@
       content: '';
       position: absolute;
       left: -2px;
-      right: 0;
       top: -2px;
+      width: var(--step-line-w, 100%);
       height: 2px;
       border-radius: 999px;
       background: linear-gradient(90deg, var(--step-color), rgba(255, 255, 255, 0.62) 42%, rgba(255, 255, 255, 0.08));
@@ -2151,6 +2188,7 @@
       --step-x: 0%;
       --step-y: 284px;
       --step-w: 61%;
+      --step-line-w: 51%;
       --step-color: rgba(255, 153, 51, 0.82);
       z-index: 3;
     }
@@ -2159,6 +2197,7 @@
       --step-x: 31%;
       --step-y: 166px;
       --step-w: 61%;
+      --step-line-w: 51%;
       --step-color: rgba(58, 160, 255, 0.82);
       z-index: 2;
     }
@@ -2167,6 +2206,7 @@
       --step-x: 62%;
       --step-y: 48px;
       --step-w: 38%;
+      --step-line-w: 100%;
       --step-color: rgba(30, 175, 91, 0.82);
       z-index: 1;
     }
@@ -2176,36 +2216,77 @@
       z-index: 8;
       transform: translateY(-4px);
       border-color: rgba(255, 255, 255, 0.76);
-      background: radial-gradient(circle at 18px 22px, rgba(255, 255, 255, 0.18), transparent 42px), linear-gradient(135deg, rgba(255, 153, 51, 0.18), rgba(58, 160, 255, 0.15) 55%, rgba(30, 175, 91, 0.13));
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -28px 52px rgba(0, 0, 0, 0.1), 0 28px 52px rgba(0, 0, 0, 0.28), 0 0 28px rgba(58, 160, 255, 0.12);
+      /* background: radial-gradient(circle at 18px 22px, rgba(255, 255, 255, 0.18), transparent 42px), linear-gradient(135deg, rgba(255, 153, 51, 0.18), rgba(58, 160, 255, 0.15) 55%, rgba(30, 175, 91, 0.13));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -28px 52px rgba(0, 0, 0, 0.1), 0 28px 52px rgba(0, 0, 0, 0.28), 0 0 28px rgba(58, 160, 255, 0.12); */
     }
 
     .oly-step-title {
       position: absolute;
-      left: 0;
+      left: calc(var(--step-line-w, 100%) / 2);
       bottom: calc(100% + 9px);
+      transform: translateX(-50%) translateY(var(--oly-title-y, 0)) scale(var(--oly-title-scale, 1));
       display: block;
-      width: 100%;
-      max-width: 146px;
+      width: max-content;
+      max-width: min(170px, calc(var(--step-line-w, 100%) - 10px));
       font-family: var(--font-ui);
-      font-size: 16px;
-      font-weight: 850;
+      font-size: clamp(14px, 1.15vw, 17px);
+      font-weight: 900;
       color: var(--oly-txt);
-      /* line-height: 1.08;  */
-      text-shadow: 0 5px 16px rgba(0, 0, 0, 0.5);
+      line-height: 1.08;
+      text-align: center;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      text-shadow:
+        0 0 18px color-mix(in srgb, var(--step-color), transparent 52%),
+        0 5px 16px rgba(0, 0, 0, 0.58);
+      transition:
+        color .28s ease,
+        text-shadow .28s ease,
+        transform .28s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .oly-step-title::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -6px;
+      width: min(46px, 56%);
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, var(--step-color), transparent);
+      box-shadow: 0 0 14px var(--step-color);
+      opacity: .82;
+      transform: translateX(-50%);
+      pointer-events: none;
     }
 
     .oly-stair-step.lvl-2 .oly-step-title {
-      max-width: 124px;
+      max-width: min(158px, calc(var(--step-line-w, 100%) - 14px));
     }
 
     .oly-stair-step.lvl-3 .oly-step-title {
-      max-width: 118px;
+      max-width: min(156px, calc(var(--step-line-w, 100%) - 14px));
     }
 
     .oly-title-line {
       display: block;
       white-space: nowrap;
+    }
+
+    .oly-title-line:first-child {
+      color: color-mix(in srgb, var(--step-color), white 30%);
+      text-shadow:
+        0 0 14px color-mix(in srgb, var(--step-color), transparent 42%),
+        0 5px 16px rgba(0, 0, 0, 0.5);
+    }
+
+    .oly-stair-step:hover .oly-step-title,
+    .oly-stair-step:focus-within .oly-step-title {
+      color: #fff;
+      text-shadow:
+        0 0 22px color-mix(in srgb, var(--step-color), transparent 34%),
+        0 7px 18px rgba(0, 0, 0, 0.62);
+      --oly-title-y: -2px;
     }
 
     .oly-step-level {
@@ -2348,7 +2429,10 @@
     }
 
     [data-theme="light"] .oly-step-title {
-      text-shadow: 0 5px 14px rgba(10, 15, 32, 0.14);
+      color: #0f172a;
+      text-shadow:
+        0 0 14px color-mix(in srgb, var(--step-color), transparent 78%),
+        0 5px 14px rgba(10, 15, 32, 0.14);
     }
 
     [data-theme="light"] .oly-step-badge {
@@ -2499,6 +2583,14 @@
       .olymp-spark {
         animation: none;
       }
+
+      .oly-step-title {
+        transition: none;
+      }
+
+      .olymp-story-highlight {
+        transition: none;
+      }
     }
 
     @media (max-width: 860px) {
@@ -2523,12 +2615,14 @@
         --step-x: 0%;
         --step-y: 268px;
         --step-w: 61%;
+        --step-line-w: 48%;
       }
 
       .oly-stair-step.lvl-2 {
         --step-x: 29%;
         --step-y: 150px;
         --step-w: 61%;
+        --step-line-w: 48%;
       }
 
       .oly-stair-step.lvl-3 {
@@ -2557,6 +2651,19 @@
     }
 
     @media (max-width: 560px) {
+      .olymp-story-highlight {
+        margin-top: 4px;
+        padding: 0 0 11px 34px;
+        font-size: 15px;
+        line-height: 1.46;
+      }
+
+      .olymp-story-highlight::after {
+        left: 11px;
+        top: -0.02em;
+        font-size: 32px;
+      }
+
       .olymp-grid .olymp-panel:nth-child(2) {
         padding-top: 30px;
       }
@@ -2575,11 +2682,13 @@
         top: auto;
         width: 100%;
         height: 112px;
+        --step-line-w: 100%;
       }
 
       .oly-step-title {
-        max-width: 100%;
+        max-width: calc(100% - 24px);
         font-size: 13px;
+        line-height: 1.05;
       }
 
       .oly-stair-step.lvl-2 .oly-step-title,
@@ -2653,8 +2762,9 @@
             <p>And the excitement doesn’t stop there! They stand a chance to earn their Cyber Badges, trophies, medals,
               cash prizes, certificates, official merchandise, access to exclusive courses and training and so much
               more.</p>
-            <p class="olymp-story-highlight">What starts as a competition today could be the skill that sets your child
-              apart tomorrow.</p>
+            <p class="olymp-story-highlight">What starts as a <span class="olymp-story-highlight-em">competition
+                today</span> could be the skill that <span class="olymp-story-highlight-em">sets your child apart
+                tomorrow.</span></p>
             <div class="olymp-story-action">
               <a href="olympiad.html" class="olymp-cta">Register Now <span class="icon-arrow-right"
                   aria-hidden="true"></span></a>
@@ -2765,8 +2875,8 @@
 
     .cybernaut-corner-portal {
       position: absolute;
-      width: min(44vw, 520px);
-      height: min(44vw, 520px);
+      width: min(35vw, 420px);
+      height: min(35vw, 420px);
       right: max(-104px, -8.8vw);
       top: max(-104px, -8.8vw);
       z-index: 1;
@@ -3597,8 +3707,8 @@
                 class="slang-section-logo logo-light" />
               <!-- <h2 class="slang-logo-title">Slanglish</h2> -->
             </div>
-            <p class="slang-usp-line">The language teens speak — decoded for parents, with the cyber safety angle every
-              family needs.</p>
+            <!-- <p class="slang-usp-line">The language teens speak — decoded for parents, with the cyber safety angle every
+              family needs.</p> -->
           </div>
           <div class="slang-aud-tags">
             <a href="https://slanglish.cyberbuddhas.com/#about" target="_blank"><span
@@ -3610,11 +3720,13 @@
         </div>
         <div class="slang-intro-copy">
           <p class="slang-intro-lead">Ever wondered what your teenager is actually saying online?</p>
-          <p>Welcome to Slanglish, where understanding your teen’s digital world gets a whole lot more fun! Through
-            crosswords, quizzes and a slang dictionary, Slanglish helps parents decode the words, phrases and
+          <p>Welcome to Slanglish, where understanding your teen’s <span class="slang-intro-em">digital world</span>
+            gets a whole lot more fun! Through crosswords, quizzes and a slang dictionary, Slanglish helps parents
+            <span class="slang-intro-em">decode</span> the words, phrases and
             expressions that are part of how today’s teens communicate.</p>
-          <p>Because digital literacy is not just about knowing how to use technology. It is also about understanding
-            the world your child is navigating in it. And sometimes, that starts with simply knowing what they mean!</p>
+          <p>Because <span class="slang-intro-em">digital literacy</span> is not just about knowing how to use
+            technology. It is also about understanding the world your child is navigating in it. And sometimes, that
+            starts with simply knowing what they mean!</p>
         </div>
         <!-- Giant word stage -->
         <div class="slang-stage" id="slangStage">
@@ -3834,7 +3946,7 @@
             <!-- <a href="surakshak.html">Surakshak</a> -->
             <a href="olympiad.html">Olympiad</a>
             <!-- <a href="phishnchip.html">The Phish &amp; Chip Show</a> -->
-            <a href="https://slanglish.cyberbuddhas.com/" target="_blank">Slanglish</a>
+            <a href="https://slanglish.cyberbuddhas.com/">Slanglish</a>
           </div>
           <div class="footer-col">
             <h5>Organisation</h5>
@@ -3886,6 +3998,259 @@
       const lessText = btn.dataset.lessText || 'Show less';
       btn.textContent = expanded ? lessText : moreText;
     }
+
+    (function initOlympiadStepTitles() {
+      function setup() {
+        var titles = document.querySelectorAll('#olympiad-quiz .oly-step-title');
+        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!titles.length || reduceMotion || !window.gsap) return;
+
+        gsap.set(titles, { opacity: 0, '--oly-title-y': '10px', '--oly-title-scale': 0.96 });
+
+        function revealTitles() {
+          gsap.to(titles, {
+            opacity: 1,
+            '--oly-title-y': '0px',
+            '--oly-title-scale': 1,
+            duration: 0.58,
+            stagger: 0.12,
+            ease: 'power3.out'
+          });
+        }
+
+        var staircase = document.querySelector('#olympiad-quiz .olymp-staircase');
+        if ('IntersectionObserver' in window && staircase) {
+          var titleObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              revealTitles();
+              titleObserver.disconnect();
+            });
+          }, { threshold: 0.22 });
+          titleObserver.observe(staircase);
+        } else {
+          revealTitles();
+        }
+
+        titles.forEach(function (title) {
+          var step = title.closest('.oly-stair-step');
+          if (!step) return;
+
+          step.addEventListener('mouseenter', function () {
+            gsap.to(title, { '--oly-title-y': '-3px', '--oly-title-scale': 1.035, duration: 0.28, ease: 'power3.out' });
+          });
+
+          step.addEventListener('mouseleave', function () {
+            gsap.to(title, { '--oly-title-y': '0px', '--oly-title-scale': 1, duration: 0.32, ease: 'power3.out' });
+          });
+
+          step.addEventListener('focusin', function () {
+            gsap.to(title, { '--oly-title-y': '-3px', '--oly-title-scale': 1.035, duration: 0.28, ease: 'power3.out' });
+          });
+
+          step.addEventListener('focusout', function () {
+            gsap.to(title, { '--oly-title-y': '0px', '--oly-title-scale': 1, duration: 0.32, ease: 'power3.out' });
+          });
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setup);
+      } else {
+        setup();
+      }
+    })();
+
+    (function initOlympiadStoryHighlight() {
+      function setup() {
+        var highlight = document.querySelector('#olympiad-quiz .olymp-story-highlight');
+        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!highlight || reduceMotion || !window.gsap) return;
+
+        gsap.set(highlight, {
+          opacity: 0,
+          '--oly-highlight-y': '12px',
+          '--oly-highlight-scale': 0.99,
+          '--oly-highlight-glow': 0.08,
+          '--oly-quote-y': '8px'
+        });
+
+        function revealHighlight() {
+          gsap.to(highlight, {
+            opacity: 1,
+            '--oly-highlight-y': '0px',
+            '--oly-highlight-scale': 1,
+            duration: 0.62,
+            ease: 'power3.out'
+          });
+          gsap.to(highlight, {
+            '--oly-highlight-glow': 0.14,
+            '--oly-quote-y': '0px',
+            duration: 0.72,
+            delay: 0.14,
+            ease: 'power3.out'
+          });
+        }
+
+        if ('IntersectionObserver' in window) {
+          var highlightObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              revealHighlight();
+              highlightObserver.disconnect();
+            });
+          }, { threshold: 0.35 });
+          highlightObserver.observe(highlight);
+        } else {
+          revealHighlight();
+        }
+
+        function liftHighlight() {
+          gsap.to(highlight, {
+            '--oly-highlight-y': '-3px',
+            '--oly-highlight-scale': 1.006,
+            '--oly-highlight-glow': 0.22,
+            '--oly-quote-y': '-2px',
+            duration: 0.28,
+            ease: 'power3.out'
+          });
+        }
+
+        function restHighlight() {
+          gsap.to(highlight, {
+            '--oly-highlight-y': '0px',
+            '--oly-highlight-scale': 1,
+            '--oly-highlight-glow': 0.14,
+            '--oly-quote-y': '0px',
+            duration: 0.32,
+            ease: 'power3.out'
+          });
+        }
+
+        highlight.addEventListener('mouseenter', liftHighlight);
+        highlight.addEventListener('mouseleave', restHighlight);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setup);
+      } else {
+        setup();
+      }
+    })();
+
+    (function initSlangIntroCopy() {
+      function setup() {
+        var copy = document.querySelector('#slanglish .slang-intro-copy');
+        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!copy || reduceMotion || !window.gsap) return;
+
+        var copyText = copy.querySelectorAll('p');
+        gsap.set(copy, {
+          opacity: 0,
+          '--slang-copy-y': '16px',
+          '--slang-copy-scale': 0.985,
+          '--slang-copy-glow': 0.05,
+          '--slang-copy-line': 0.35
+        });
+        gsap.set(copyText, { opacity: 0, y: 10 });
+
+        function revealCopy() {
+          gsap.to(copy, {
+            opacity: 1,
+            '--slang-copy-y': '0px',
+            '--slang-copy-scale': 1,
+            '--slang-copy-glow': 0.12,
+            '--slang-copy-line': 1,
+            duration: 0.68,
+            ease: 'power3.out'
+          });
+          gsap.to(copyText, {
+            opacity: 1,
+            y: 0,
+            duration: 0.56,
+            stagger: 0.08,
+            delay: 0.12,
+            ease: 'power3.out'
+          });
+        }
+
+        if ('IntersectionObserver' in window) {
+          var copyObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              revealCopy();
+              copyObserver.disconnect();
+            });
+          }, { threshold: 0.28 });
+          copyObserver.observe(copy);
+        } else {
+          revealCopy();
+        }
+
+        copy.addEventListener('mouseenter', function () {
+          gsap.to(copy, {
+            '--slang-copy-y': '-4px',
+            '--slang-copy-scale': 1.006,
+            '--slang-copy-glow': 0.22,
+            duration: 0.3,
+            ease: 'power3.out'
+          });
+        });
+
+        copy.addEventListener('mouseleave', function () {
+          gsap.to(copy, {
+            '--slang-copy-y': '0px',
+            '--slang-copy-scale': 1,
+            '--slang-copy-glow': 0.12,
+            duration: 0.34,
+            ease: 'power3.out'
+          });
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setup);
+      } else {
+        setup();
+      }
+    })();
+
+    (function initEcosystemButtons() {
+      function setup() {
+        var buttons = document.querySelectorAll('#ecosystem .ecosystem-card-btn');
+        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!buttons.length || reduceMotion || !window.gsap) return;
+
+        buttons.forEach(function (btn) {
+          var arrow = btn.querySelector('.icon-arrow-right');
+
+          btn.addEventListener('mouseenter', function () {
+            gsap.to(btn, { y: -3, scale: 1.025, duration: 0.28, ease: 'power3.out' });
+            if (arrow) gsap.to(arrow, { x: 4, duration: 0.28, ease: 'power3.out' });
+          });
+
+          btn.addEventListener('mouseleave', function () {
+            gsap.to(btn, { y: 0, scale: 1, duration: 0.32, ease: 'power3.out' });
+            if (arrow) gsap.to(arrow, { x: 0, duration: 0.32, ease: 'power3.out' });
+          });
+
+          btn.addEventListener('focus', function () {
+            gsap.to(btn, { y: -3, scale: 1.025, duration: 0.28, ease: 'power3.out' });
+          });
+
+          btn.addEventListener('blur', function () {
+            gsap.to(btn, { y: 0, scale: 1, duration: 0.32, ease: 'power3.out' });
+            if (arrow) gsap.to(arrow, { x: 0, duration: 0.32, ease: 'power3.out' });
+          });
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setup);
+      } else {
+        setup();
+      }
+    })();
 
     // ── Phish Bowl Game ─────────────────────────────────────────────
     const PB_SCENARIOS = [
